@@ -57,41 +57,41 @@ namespace Diseño.Vista
             this.button2 = new System.Windows.Forms.Button();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.label23 = new System.Windows.Forms.Label();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.label23 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label24 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label25 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -103,8 +103,8 @@ namespace Diseño.Vista
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -415,7 +415,7 @@ namespace Diseño.Vista
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(566, 27);
             this.label3.TabIndex = 51;
-            this.label3.Text = "Registro de Clientes";
+            this.label3.Text = "Ingreso De Vehiculos";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // button2
@@ -475,77 +475,216 @@ namespace Diseño.Vista
             this.tabPage2.Text = "Registro Clientes";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // button4
             // 
-            this.tabPage3.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
-            this.tabPage3.Controls.Add(this.button5);
-            this.tabPage3.Controls.Add(this.dataGridView1);
-            this.tabPage3.Controls.Add(this.label24);
-            this.tabPage3.Controls.Add(this.textBox9);
-            this.tabPage3.Controls.Add(this.label12);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(640, 584);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Movimiento del Estacionamiento";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.button4.Location = new System.Drawing.Point(420, 472);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 85;
+            this.button4.Text = "Registrar";
+            this.button4.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
+            // button3
             // 
-            this.tabPage4.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
-            this.tabPage4.Controls.Add(this.label25);
-            this.tabPage4.Controls.Add(this.textBox10);
-            this.tabPage4.Controls.Add(this.label13);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(640, 584);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = " Salida Vehiculos";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(208, 472);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 84;
+            this.button3.Text = "Actualizar";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // button1
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.button1.Location = new System.Drawing.Point(311, 472);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 83;
+            this.button1.Text = "Modificar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton7.ForeColor = System.Drawing.Color.White;
+            this.radioButton7.Location = new System.Drawing.Point(488, 317);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButton7.Size = new System.Drawing.Size(77, 20);
+            this.radioButton7.TabIndex = 82;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "Bicicleta";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton8.ForeColor = System.Drawing.Color.White;
+            this.radioButton8.Location = new System.Drawing.Point(509, 291);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButton8.Size = new System.Drawing.Size(56, 20);
+            this.radioButton8.TabIndex = 81;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "Moto";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(477, 249);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(134, 22);
+            this.label23.TabIndex = 80;
+            this.label23.Text = "Tipo de Vehiculo";
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton5.ForeColor = System.Drawing.Color.White;
+            this.radioButton5.Location = new System.Drawing.Point(500, 198);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButton5.Size = new System.Drawing.Size(77, 20);
+            this.radioButton5.TabIndex = 79;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Mensual";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton4.ForeColor = System.Drawing.Color.White;
+            this.radioButton4.Location = new System.Drawing.Point(491, 173);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButton4.Size = new System.Drawing.Size(86, 20);
+            this.radioButton4.TabIndex = 78;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Quincenal";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.ForeColor = System.Drawing.Color.White;
+            this.radioButton3.Location = new System.Drawing.Point(497, 147);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButton3.Size = new System.Drawing.Size(80, 20);
+            this.radioButton3.TabIndex = 77;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Semanal";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(490, 105);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(121, 22);
+            this.label22.TabIndex = 76;
+            this.label22.Text = "Tipo de Pago";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.BackColor = System.Drawing.Color.Yellow;
-            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(45, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(566, 27);
-            this.label11.TabIndex = 52;
-            this.label11.Text = "Ingreso de Vehículo";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.textBox8.Enabled = false;
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.HideSelection = false;
+            this.textBox8.Location = new System.Drawing.Point(208, 382);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(145, 26);
+            this.textBox8.TabIndex = 75;
+            this.textBox8.WordWrap = false;
             // 
-            // label12
+            // textBox7
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.BackColor = System.Drawing.Color.Yellow;
-            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(45, 35);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(566, 27);
-            this.label12.TabIndex = 52;
-            this.label12.Text = "Ingreso de Vehículo";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.HideSelection = false;
+            this.textBox7.Location = new System.Drawing.Point(186, 327);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(145, 26);
+            this.textBox7.TabIndex = 74;
+            this.textBox7.WordWrap = false;
             // 
-            // label13
+            // textBox6
             // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.BackColor = System.Drawing.Color.Yellow;
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(45, 36);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(566, 27);
-            this.label13.TabIndex = 52;
-            this.label13.Text = "Ingreso de Vehículo";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.HideSelection = false;
+            this.textBox6.Location = new System.Drawing.Point(186, 291);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(145, 26);
+            this.textBox6.TabIndex = 73;
+            this.textBox6.WordWrap = false;
+            // 
+            // label21
+            // 
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(100, 382);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(121, 22);
+            this.label21.TabIndex = 72;
+            this.label21.Text = "Valor a Pagar";
+            // 
+            // label20
+            // 
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(232, 82);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(121, 22);
+            this.label20.TabIndex = 71;
+            this.label20.Text = "Hora";
+            // 
+            // label19
+            // 
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(90, 82);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(121, 22);
+            this.label19.TabIndex = 70;
+            this.label19.Text = "Fecha";
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(37, 327);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(121, 22);
+            this.label18.TabIndex = 69;
+            this.label18.Text = "Placa";
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(37, 294);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(121, 22);
+            this.label17.TabIndex = 68;
+            this.label17.Text = "Teléfono";
             // 
             // textBox3
             // 
@@ -616,216 +755,55 @@ namespace Diseño.Vista
             this.textBox5.TabIndex = 62;
             this.textBox5.WordWrap = false;
             // 
-            // label17
+            // label11
             // 
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(37, 294);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(121, 22);
-            this.label17.TabIndex = 68;
-            this.label17.Text = "Teléfono";
-            // 
-            // label18
-            // 
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(37, 327);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(121, 22);
-            this.label18.TabIndex = 69;
-            this.label18.Text = "Placa";
-            // 
-            // label19
-            // 
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(90, 82);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(121, 22);
-            this.label19.TabIndex = 70;
-            this.label19.Text = "Fecha";
-            // 
-            // label20
-            // 
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(232, 82);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(121, 22);
-            this.label20.TabIndex = 71;
-            this.label20.Text = "Hora";
-            // 
-            // label21
-            // 
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(100, 382);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(121, 22);
-            this.label21.TabIndex = 72;
-            this.label21.Text = "Valor a Pagar";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.HideSelection = false;
-            this.textBox6.Location = new System.Drawing.Point(186, 291);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(145, 26);
-            this.textBox6.TabIndex = 73;
-            this.textBox6.WordWrap = false;
+            this.label11.BackColor = System.Drawing.Color.Yellow;
+            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(45, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(566, 27);
+            this.label11.TabIndex = 52;
+            this.label11.Text = "Registro de Clientes";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // textBox7
+            // tabPage3
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.HideSelection = false;
-            this.textBox7.Location = new System.Drawing.Point(186, 327);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(145, 26);
-            this.textBox7.TabIndex = 74;
-            this.textBox7.WordWrap = false;
+            this.tabPage3.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
+            this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.textBox9);
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(640, 584);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Movimiento del Estacionamiento";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // button5
             // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.Enabled = false;
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.HideSelection = false;
-            this.textBox8.Location = new System.Drawing.Point(208, 382);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(145, 26);
-            this.textBox8.TabIndex = 75;
-            this.textBox8.WordWrap = false;
+            this.button5.Location = new System.Drawing.Point(439, 442);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(117, 23);
+            this.button5.TabIndex = 68;
+            this.button5.Text = "Generar Ticket";
+            this.button5.UseVisualStyleBackColor = true;
             // 
-            // label22
+            // dataGridView1
             // 
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(490, 105);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(121, 22);
-            this.label22.TabIndex = 76;
-            this.label22.Text = "Tipo de Pago";
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.ForeColor = System.Drawing.Color.White;
-            this.radioButton3.Location = new System.Drawing.Point(497, 147);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radioButton3.Size = new System.Drawing.Size(80, 20);
-            this.radioButton3.TabIndex = 77;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Semanal";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.ForeColor = System.Drawing.Color.White;
-            this.radioButton4.Location = new System.Drawing.Point(491, 173);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radioButton4.Size = new System.Drawing.Size(86, 20);
-            this.radioButton4.TabIndex = 78;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Quincenal";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.ForeColor = System.Drawing.Color.White;
-            this.radioButton5.Location = new System.Drawing.Point(500, 198);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radioButton5.Size = new System.Drawing.Size(77, 20);
-            this.radioButton5.TabIndex = 79;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Mensual";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton7.ForeColor = System.Drawing.Color.White;
-            this.radioButton7.Location = new System.Drawing.Point(488, 317);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radioButton7.Size = new System.Drawing.Size(77, 20);
-            this.radioButton7.TabIndex = 82;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Bicicleta";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton8.ForeColor = System.Drawing.Color.White;
-            this.radioButton8.Location = new System.Drawing.Point(509, 291);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radioButton8.Size = new System.Drawing.Size(56, 20);
-            this.radioButton8.TabIndex = 81;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Moto";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // label23
-            // 
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(477, 249);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(134, 22);
-            this.label23.TabIndex = 80;
-            this.label23.Text = "Tipo de Vehiculo";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(311, 472);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 83;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(208, 472);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 84;
-            this.button3.Text = "Actualizar";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(420, 472);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 85;
-            this.button4.Text = "Registrar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(47, 207);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(498, 150);
+            this.dataGridView1.TabIndex = 67;
             // 
             // label24
             // 
@@ -850,6 +828,34 @@ namespace Diseño.Vista
             this.textBox9.TabIndex = 65;
             this.textBox9.WordWrap = false;
             // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.BackColor = System.Drawing.Color.Yellow;
+            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(45, 35);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(566, 27);
+            this.label12.TabIndex = 52;
+            this.label12.Text = "Ingreso de Vehículo";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
+            this.tabPage4.Controls.Add(this.label25);
+            this.tabPage4.Controls.Add(this.textBox10);
+            this.tabPage4.Controls.Add(this.label13);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(640, 584);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = " Salida Vehiculos";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // label25
             // 
             this.label25.BackColor = System.Drawing.Color.Transparent;
@@ -873,25 +879,19 @@ namespace Diseño.Vista
             this.textBox10.TabIndex = 65;
             this.textBox10.WordWrap = false;
             // 
-            // dataGridView1
+            // label13
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(47, 207);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(498, 150);
-            this.dataGridView1.TabIndex = 67;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(439, 442);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(117, 23);
-            this.button5.TabIndex = 68;
-            this.button5.Text = "Generar Ticket";
-            this.button5.UseVisualStyleBackColor = true;
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.BackColor = System.Drawing.Color.Yellow;
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(45, 36);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(566, 27);
+            this.label13.TabIndex = 52;
+            this.label13.Text = "Ingreso de Vehículo";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FrmIngresoMoto
             // 
@@ -929,9 +929,9 @@ namespace Diseño.Vista
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

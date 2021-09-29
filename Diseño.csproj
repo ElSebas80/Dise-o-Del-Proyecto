@@ -87,6 +87,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\AdminConf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\AdminConf.Designer.cs">
+      <DependentUpon>AdminConf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Administrativo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\AdminConf.resx">
+      <DependentUpon>AdminConf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Administrativo.resx">
       <DependentUpon>Administrativo.cs</DependentUpon>

@@ -12,10 +12,10 @@ namespace Diseño.Datos.Logn
     {
         public void EditarUser(int Cod, string Clave)
         {
-            string ClaveEncrip = Encryp.GetSHA1(Clave);
+            //string ClaveEncrip = Encryp.GetSHA1(Clave);
             using (emailEntities bd = new emailEntities())
             {
-                bd.Sp_EditarContra(Cod, ClaveEncrip);
+                bd.Sp_EditarContra(Cod, Clave);
             }
         }
         public IList<EnvEmail> MostrarClientes()

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Diseño.Datos;
+using Diseño.Datos.Logn;
 
 namespace Diseño.Vista
 {
@@ -39,6 +41,33 @@ namespace Diseño.Vista
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
+        Cruts s = new Cruts();
+        string contra="123";
+        private void guar()
+        {
+            s.GuardarUser(int.Parse(txtId.Text), txtLog.Text,
+                contra, txtNom.Text, int.Parse(txtCed.Text), txtCor.Text);
+        }
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            guar();
+            Contr();
+        }
+        private void Contr()
+        {
+            ClsRecuperarpasss em = new ClsRecuperarpasss();
+            ClsRecuperarpasss cahs = new ClsRecuperarpasss();
+            var verificado = em.mail(txtCor.Text.Trim());
+            if (verificado != null)
+            {
+                cahs.Enviarpasss(txtCor.Text);
+                MessageBox.Show("Revisa tu bandeja de entrada en " + txtCor.Text + " " +
+                    " Cambio exitoso");
+            }
+            else
+            {
+                MessageBox.Show("Correo incorrecto o no exixtente");
+            }
+        }
     }
 }

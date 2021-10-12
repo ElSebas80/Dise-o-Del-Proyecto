@@ -12,11 +12,11 @@ namespace Diseño.Datos.Logn
     {
         public EnvEmail Login(string user, string pass)
         {
-            string ClaveEncrip = Encryp.GetSHA1(pass);
+           // string ClaveEncrip = Encryp.GetSHA1(pass);
             using (emailEntities db = new emailEntities())
             {
                 var registro = db.EnvEmail.Where(x => x.LoginName == user)
-                        .Where(x => x.Contra == ClaveEncrip
+                        .Where(x => x.Contra == pass
                     ).FirstOrDefault();
                 return registro;
             }

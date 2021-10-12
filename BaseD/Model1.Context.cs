@@ -41,5 +41,34 @@ namespace Diseño.BaseD
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_EditarContra", idParameter, contraParameter);
         }
+    
+        public virtual int Sp_GuardarUser(Nullable<int> userId, string loginName, string contra, string firstName, Nullable<int> cedula, string email)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            var loginNameParameter = loginName != null ?
+                new ObjectParameter("LoginName", loginName) :
+                new ObjectParameter("LoginName", typeof(string));
+    
+            var contraParameter = contra != null ?
+                new ObjectParameter("Contra", contra) :
+                new ObjectParameter("Contra", typeof(string));
+    
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("FirstName", firstName) :
+                new ObjectParameter("FirstName", typeof(string));
+    
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("Cedula", cedula) :
+                new ObjectParameter("Cedula", typeof(int));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_GuardarUser", userIdParameter, loginNameParameter, contraParameter, firstNameParameter, cedulaParameter, emailParameter);
+        }
     }
 }

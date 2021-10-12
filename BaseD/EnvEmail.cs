@@ -19,5 +19,6 @@ namespace Diseño.BaseD
         public string Contra { get; set; }
         public string FirstName { get; set; }
         public string email { get; set; }
+        public Nullable<int> Cedula { get; set; }
     }
 }

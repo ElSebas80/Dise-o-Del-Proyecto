@@ -157,7 +157,7 @@ namespace Diseño.Vista
             "Empleado"});
             this.listBox1.Location = new System.Drawing.Point(24, 27);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(125, 21);
+            this.listBox1.Size = new System.Drawing.Size(124, 21);
             this.listBox1.TabIndex = 0;
             // 
             // label12
@@ -166,7 +166,7 @@ namespace Diseño.Vista
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label12.Location = new System.Drawing.Point(143, 108);
+            this.label12.Location = new System.Drawing.Point(139, 108);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 16);
             this.label12.TabIndex = 31;
@@ -178,7 +178,7 @@ namespace Diseño.Vista
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label10.Location = new System.Drawing.Point(143, 167);
+            this.label10.Location = new System.Drawing.Point(139, 183);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 16);
             this.label10.TabIndex = 30;
@@ -202,7 +202,7 @@ namespace Diseño.Vista
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label8.Location = new System.Drawing.Point(143, 78);
+            this.label8.Location = new System.Drawing.Point(143, 74);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(21, 16);
             this.label8.TabIndex = 28;
@@ -214,7 +214,7 @@ namespace Diseño.Vista
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label7.Location = new System.Drawing.Point(139, 130);
+            this.label7.Location = new System.Drawing.Point(139, 146);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 16);
             this.label7.TabIndex = 27;
@@ -222,7 +222,7 @@ namespace Diseño.Vista
             // 
             // txtLog
             // 
-            this.txtLog.Location = new System.Drawing.Point(308, 104);
+            this.txtLog.Location = new System.Drawing.Point(308, 108);
             this.txtLog.Name = "txtLog";
             this.txtLog.Size = new System.Drawing.Size(225, 20);
             this.txtLog.TabIndex = 26;
@@ -236,21 +236,21 @@ namespace Diseño.Vista
             // 
             // txtCed
             // 
-            this.txtCed.Location = new System.Drawing.Point(312, 163);
+            this.txtCed.Location = new System.Drawing.Point(308, 183);
             this.txtCed.Name = "txtCed";
             this.txtCed.Size = new System.Drawing.Size(225, 20);
             this.txtCed.TabIndex = 24;
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(312, 78);
+            this.txtId.Location = new System.Drawing.Point(308, 74);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(225, 20);
             this.txtId.TabIndex = 23;
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(308, 130);
+            this.txtNom.Location = new System.Drawing.Point(308, 146);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(225, 20);
             this.txtNom.TabIndex = 22;

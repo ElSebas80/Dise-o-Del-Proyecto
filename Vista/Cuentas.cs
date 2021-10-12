@@ -61,13 +61,16 @@ namespace Diseño.Vista
             if (verificado != null)
             {
                 cahs.Enviarpasss(txtCor.Text);
-                MessageBox.Show("Revisa tu bandeja de entrada en " + txtCor.Text + " " +
-                    " Cambio exitoso");
+                MessageBox.Show("Nuevo usuario creado correctamente La contraseña asignada fue enviada al " +
+                "correo de entrada en " + txtCor.Text);
             }
             else
             {
                 MessageBox.Show("Correo incorrecto o no exixtente");
             }
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {        }
     }
 }

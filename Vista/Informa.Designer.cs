@@ -78,6 +78,8 @@ namespace Diseño.Vista
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -137,7 +139,7 @@ namespace Diseño.Vista
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(662, 628);
+            this.tabPage1.Size = new System.Drawing.Size(663, 628);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Información";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -367,6 +369,8 @@ namespace Diseño.Vista
             // 
             this.tabPage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage2.BackgroundImage")));
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage2.Controls.Add(this.textBox16);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.textBox12);
             this.tabPage2.Controls.Add(this.textBox13);
             this.tabPage2.Controls.Add(this.textBox14);
@@ -499,7 +503,7 @@ namespace Diseño.Vista
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(398, 455);
+            this.button5.Location = new System.Drawing.Point(397, 530);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(94, 34);
             this.button5.TabIndex = 17;
@@ -508,7 +512,7 @@ namespace Diseño.Vista
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(174, 455);
+            this.button4.Location = new System.Drawing.Point(173, 530);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(102, 34);
             this.button4.TabIndex = 16;
@@ -617,6 +621,23 @@ namespace Diseño.Vista
             this.label9.Text = "Tarifas";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(457, 469);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(150, 26);
+            this.textBox16.TabIndex = 48;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(32, 475);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(297, 20);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "Cupos disponibles en el estacionamiento";
+            // 
             // FrmInforma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -699,5 +720,7 @@ namespace Diseño.Vista
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.Label label7;
     }
 }

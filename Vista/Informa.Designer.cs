@@ -55,6 +55,8 @@ namespace Diseño.Vista
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
@@ -78,8 +80,6 @@ namespace Diseño.Vista
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -403,30 +403,47 @@ namespace Diseño.Vista
             this.tabPage2.Text = "Tarifas";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(465, 469);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(150, 26);
+            this.textBox16.TabIndex = 48;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(32, 475);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(297, 20);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "Cupos disponibles en el estacionamiento";
+            // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(457, 400);
+            this.textBox12.Location = new System.Drawing.Point(464, 400);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(150, 26);
             this.textBox12.TabIndex = 46;
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(457, 328);
+            this.textBox13.Location = new System.Drawing.Point(464, 328);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(150, 26);
             this.textBox13.TabIndex = 45;
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(457, 260);
+            this.textBox14.Location = new System.Drawing.Point(464, 260);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(150, 26);
             this.textBox14.TabIndex = 44;
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(457, 193);
+            this.textBox15.Location = new System.Drawing.Point(464, 193);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(150, 26);
             this.textBox15.TabIndex = 43;
@@ -503,7 +520,7 @@ namespace Diseño.Vista
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(397, 530);
+            this.button5.Location = new System.Drawing.Point(521, 542);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(94, 34);
             this.button5.TabIndex = 17;
@@ -512,7 +529,7 @@ namespace Diseño.Vista
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(173, 530);
+            this.button4.Location = new System.Drawing.Point(340, 542);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(102, 34);
             this.button4.TabIndex = 16;
@@ -521,28 +538,28 @@ namespace Diseño.Vista
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(285, 400);
+            this.textBox11.Location = new System.Drawing.Point(292, 400);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(150, 26);
             this.textBox11.TabIndex = 15;
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(285, 328);
+            this.textBox10.Location = new System.Drawing.Point(292, 328);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(150, 26);
             this.textBox10.TabIndex = 14;
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(285, 260);
+            this.textBox9.Location = new System.Drawing.Point(292, 260);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(150, 26);
             this.textBox9.TabIndex = 13;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(285, 193);
+            this.textBox8.Location = new System.Drawing.Point(292, 193);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(150, 26);
             this.textBox8.TabIndex = 12;
@@ -553,9 +570,9 @@ namespace Diseño.Vista
             this.label15.ForeColor = System.Drawing.Color.Transparent;
             this.label15.Location = new System.Drawing.Point(32, 406);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(244, 20);
+            this.label15.Size = new System.Drawing.Size(261, 20);
             this.label15.TabIndex = 6;
-            this.label15.Text = "Mensualidad de Estacionamiento";
+            this.label15.Text = "Mensualidad de Estacionamiento $:";
             // 
             // label14
             // 
@@ -563,9 +580,9 @@ namespace Diseño.Vista
             this.label14.ForeColor = System.Drawing.Color.Transparent;
             this.label14.Location = new System.Drawing.Point(32, 330);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(222, 20);
+            this.label14.Size = new System.Drawing.Size(239, 20);
             this.label14.TabIndex = 5;
-            this.label14.Text = "Quincena de Estacionamiento";
+            this.label14.Text = "Quincena de Estacionamiento $:";
             // 
             // label13
             // 
@@ -573,9 +590,9 @@ namespace Diseño.Vista
             this.label13.ForeColor = System.Drawing.Color.Transparent;
             this.label13.Location = new System.Drawing.Point(32, 266);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(214, 20);
+            this.label13.Size = new System.Drawing.Size(231, 20);
             this.label13.TabIndex = 4;
-            this.label13.Text = "Semana de Estacionamiento";
+            this.label13.Text = "Semana de Estacionamiento $:";
             // 
             // label12
             // 
@@ -583,9 +600,9 @@ namespace Diseño.Vista
             this.label12.ForeColor = System.Drawing.Color.Transparent;
             this.label12.Location = new System.Drawing.Point(32, 199);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(189, 20);
+            this.label12.Size = new System.Drawing.Size(206, 20);
             this.label12.TabIndex = 3;
-            this.label12.Text = "Hora de Estacionamiento";
+            this.label12.Text = "Hora de Estacionamiento $:";
             // 
             // label11
             // 
@@ -620,23 +637,6 @@ namespace Diseño.Vista
             this.label9.TabIndex = 0;
             this.label9.Text = "Tarifas";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(457, 469);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(150, 26);
-            this.textBox16.TabIndex = 48;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(32, 475);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(297, 20);
-            this.label7.TabIndex = 47;
-            this.label7.Text = "Cupos disponibles en el estacionamiento";
             // 
             // FrmInforma
             // 

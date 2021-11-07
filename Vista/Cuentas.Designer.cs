@@ -85,7 +85,7 @@ namespace Diseño.Vista
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(146, 530);
+            this.button2.Location = new System.Drawing.Point(246, 530);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 34;
@@ -94,7 +94,7 @@ namespace Diseño.Vista
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(246, 530);
+            this.btnActualizar.Location = new System.Drawing.Point(146, 530);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 33;

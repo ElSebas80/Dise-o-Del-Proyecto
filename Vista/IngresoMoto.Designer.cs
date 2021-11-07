@@ -42,6 +42,8 @@ namespace Diseño.Vista
             this.btnRes = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
@@ -57,6 +59,8 @@ namespace Diseño.Vista
             this.button2 = new System.Windows.Forms.Button();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label33 = new System.Windows.Forms.Label();
+            this.textBox21 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -107,10 +111,6 @@ namespace Diseño.Vista
             this.label25 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -298,6 +298,30 @@ namespace Diseño.Vista
             this.tabPage1.Text = "Ingreso Vehículo";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBox20
+            // 
+            this.textBox20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox20.HideSelection = false;
+            this.textBox20.Location = new System.Drawing.Point(437, 302);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(145, 26);
+            this.textBox20.TabIndex = 69;
+            this.textBox20.WordWrap = false;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox19.HideSelection = false;
+            this.textBox19.Location = new System.Drawing.Point(437, 207);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(145, 26);
+            this.textBox19.TabIndex = 68;
+            this.textBox19.WordWrap = false;
+            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
@@ -331,22 +355,22 @@ namespace Diseño.Vista
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(461, 260);
+            this.label9.Location = new System.Drawing.Point(435, 247);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 22);
+            this.label9.Size = new System.Drawing.Size(136, 41);
             this.label9.TabIndex = 65;
-            this.label9.Text = "Fecha Maxima";
+            this.label9.Text = "Fecha Maxima de pago";
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(461, 168);
+            this.label6.Location = new System.Drawing.Point(433, 160);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 22);
+            this.label6.Size = new System.Drawing.Size(149, 22);
             this.label6.TabIndex = 64;
-            this.label6.Text = "Cupos";
+            this.label6.Text = "Cupos Disponibles";
             // 
             // label5
             // 
@@ -499,6 +523,29 @@ namespace Diseño.Vista
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Registro Clientes";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label33
+            // 
+            this.label33.BackColor = System.Drawing.Color.Transparent;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.White;
+            this.label33.Location = new System.Drawing.Point(315, 394);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(145, 22);
+            this.label33.TabIndex = 87;
+            this.label33.Text = "Cupos Disponibles";
+            // 
+            // textBox21
+            // 
+            this.textBox21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox21.HideSelection = false;
+            this.textBox21.Location = new System.Drawing.Point(466, 391);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(145, 26);
+            this.textBox21.TabIndex = 86;
+            this.textBox21.WordWrap = false;
             // 
             // button4
             // 
@@ -898,9 +945,9 @@ namespace Diseño.Vista
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(264, 523);
+            this.button6.Location = new System.Drawing.Point(480, 523);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(102, 23);
+            this.button6.Size = new System.Drawing.Size(102, 26);
             this.button6.TabIndex = 81;
             this.button6.Text = "Marcar salida";
             this.button6.UseVisualStyleBackColor = true;
@@ -1104,53 +1151,6 @@ namespace Diseño.Vista
             this.label13.Text = "Salida Vehículo";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // textBox19
-            // 
-            this.textBox19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox19.HideSelection = false;
-            this.textBox19.Location = new System.Drawing.Point(437, 207);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(145, 26);
-            this.textBox19.TabIndex = 68;
-            this.textBox19.WordWrap = false;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox20.HideSelection = false;
-            this.textBox20.Location = new System.Drawing.Point(437, 302);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(145, 26);
-            this.textBox20.TabIndex = 69;
-            this.textBox20.WordWrap = false;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox21.HideSelection = false;
-            this.textBox21.Location = new System.Drawing.Point(466, 391);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(145, 26);
-            this.textBox21.TabIndex = 86;
-            this.textBox21.WordWrap = false;
-            // 
-            // label33
-            // 
-            this.label33.BackColor = System.Drawing.Color.Transparent;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.Color.White;
-            this.label33.Location = new System.Drawing.Point(315, 394);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(145, 22);
-            this.label33.TabIndex = 87;
-            this.label33.Text = "Cupos Disponibles";
-            // 
             // FrmIngresoMoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1168,7 +1168,7 @@ namespace Diseño.Vista
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmIngresoMoto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IngresoMoto";
+            this.Text = "1q";
             this.Load += new System.EventHandler(this.FrmIngresoMoto_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmIngresoMoto_KeyPress);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmIngresoMoto_MouseDown);

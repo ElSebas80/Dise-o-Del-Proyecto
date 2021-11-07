@@ -9,11 +9,11 @@ namespace Diseño.Datos
 {
     public class Cruts
     {
-        public void GuardarUser(int id, string User, string Cont,string Nom,int cc,string Correo)
+        public void GuardarUser(string nombre, string apel,int cc, string direc,string longin, string contra, string correo)
         {
-            using (emailEntities bd = new emailEntities())
+            using (parkEntities bd = new parkEntities())
             {
-                bd.Sp_GuardarUser(id, User, Cont, Nom, cc, Correo);
+                bd.sp_CuentasUsuario(nombre, apel, cc, direc, correo, longin, contra);
             }
 
         }

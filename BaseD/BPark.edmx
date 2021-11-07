@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="parkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="CuentasUsuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+          <Property Name="Apellido" Type="varchar" MaxLength="30" />
+          <Property Name="Cedula" Type="int" />
+          <Property Name="Direccion" Type="varchar" MaxLength="60" />
+          <Property Name="LoginN" Type="varchar" MaxLength="100" />
+          <Property Name="Contra" Type="nvarchar" MaxLength="100" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'park.dbo.ingresoVehiculo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ingresoVehiculo">
+          <Key>
+            <PropertyRef Name="NumTicket" />
+          </Key>
+          <Property Name="NumTicket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Placa" Type="varchar" MaxLength="7" />
+          <Property Name="NumCascos" Type="varchar" MaxLength="2" />
+          <Property Name="CuposDis" Type="int" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="TiempoExtra" Type="time" Precision="7" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'park.dbo.MovimintoEst' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="MovimintoEst">
+          <Key>
+            <PropertyRef Name="NumTicket" />
+          </Key>
+          <Property Name="NumTicket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Hora" Type="time" Precision="7" />
+          <Property Name="Placa" Type="varchar" MaxLength="7" />
+          <Property Name="Cupos" Type="int" />
+          <Property Name="NumCascos" Type="varchar" MaxLength="2" />
+          <Property Name="Estado" Type="int" />
+        </EntityType>
+        <Function Name="sp_CuentasUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Apellido" Type="varchar" Mode="In" />
+          <Parameter Name="Cedula" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="LoginN" Type="varchar" Mode="In" />
+          <Parameter Name="Contra" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="parkModelStoreContainer">
+          <EntitySet Name="CuentasUsuario" EntityType="Self.CuentasUsuario" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CuentasUsuario].[id] AS [id], 
+    [CuentasUsuario].[Nombre] AS [Nombre], 
+    [CuentasUsuario].[Apellido] AS [Apellido], 
+    [CuentasUsuario].[Cedula] AS [Cedula], 
+    [CuentasUsuario].[Direccion] AS [Direccion], 
+    [CuentasUsuario].[LoginN] AS [LoginN], 
+    [CuentasUsuario].[Contra] AS [Contra], 
+    [CuentasUsuario].[email] AS [email]
+    FROM [dbo].[CuentasUsuario] AS [CuentasUsuario]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ingresoVehiculo" EntityType="Self.ingresoVehiculo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ingresoVehiculo].[NumTicket] AS [NumTicket], 
+    [ingresoVehiculo].[Placa] AS [Placa], 
+    [ingresoVehiculo].[NumCascos] AS [NumCascos], 
+    [ingresoVehiculo].[CuposDis] AS [CuposDis], 
+    [ingresoVehiculo].[Fecha] AS [Fecha], 
+    [ingresoVehiculo].[TiempoExtra] AS [TiempoExtra]
+    FROM [dbo].[ingresoVehiculo] AS [ingresoVehiculo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MovimintoEst" EntityType="Self.MovimintoEst" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MovimintoEst].[NumTicket] AS [NumTicket], 
+    [MovimintoEst].[Fecha] AS [Fecha], 
+    [MovimintoEst].[Hora] AS [Hora], 
+    [MovimintoEst].[Placa] AS [Placa], 
+    [MovimintoEst].[Cupos] AS [Cupos], 
+    [MovimintoEst].[NumCascos] AS [NumCascos], 
+    [MovimintoEst].[Estado] AS [Estado]
+    FROM [dbo].[MovimintoEst] AS [MovimintoEst]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="parkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CuentasUsuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="Int32" />
+          <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="LoginN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contra" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ingresoVehiculo">
+          <Key>
+            <PropertyRef Name="NumTicket" />
+          </Key>
+          <Property Name="NumTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Placa" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="NumCascos" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CuposDis" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="TiempoExtra" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityType Name="MovimintoEst">
+          <Key>
+            <PropertyRef Name="NumTicket" />
+          </Key>
+          <Property Name="NumTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Hora" Type="Time" Precision="7" />
+          <Property Name="Placa" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Cupos" Type="Int32" />
+          <Property Name="NumCascos" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="parkEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CuentasUsuario" EntityType="Self.CuentasUsuario" />
+          <EntitySet Name="ingresoVehiculo" EntityType="Self.ingresoVehiculo" />
+          <EntitySet Name="MovimintoEst" EntityType="Self.MovimintoEst" />
+          <FunctionImport Name="sp_CuentasUsuario">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellido" Mode="In" Type="String" />
+            <Parameter Name="Cedula" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="LoginN" Mode="In" Type="String" />
+            <Parameter Name="Contra" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="parkModelStoreContainer" CdmEntityContainer="parkEntities">
+          <EntitySetMapping Name="CuentasUsuario">
+            <EntityTypeMapping TypeName="parkModel.CuentasUsuario">
+              <MappingFragment StoreEntitySet="CuentasUsuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="LoginN" ColumnName="LoginN" />
+                <ScalarProperty Name="Contra" ColumnName="Contra" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ingresoVehiculo">
+            <EntityTypeMapping TypeName="parkModel.ingresoVehiculo">
+              <MappingFragment StoreEntitySet="ingresoVehiculo">
+                <ScalarProperty Name="NumTicket" ColumnName="NumTicket" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="NumCascos" ColumnName="NumCascos" />
+                <ScalarProperty Name="CuposDis" ColumnName="CuposDis" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="TiempoExtra" ColumnName="TiempoExtra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovimintoEst">
+            <EntityTypeMapping TypeName="parkModel.MovimintoEst">
+              <MappingFragment StoreEntitySet="MovimintoEst">
+                <ScalarProperty Name="NumTicket" ColumnName="NumTicket" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Cupos" ColumnName="Cupos" />
+                <ScalarProperty Name="NumCascos" ColumnName="NumCascos" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_CuentasUsuario" FunctionName="parkModel.Store.sp_CuentasUsuario" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

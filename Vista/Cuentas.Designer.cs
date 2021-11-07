@@ -167,7 +167,7 @@ namespace Diseño.Vista
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label12.Location = new System.Drawing.Point(140, 270);
+            this.label12.Location = new System.Drawing.Point(143, 302);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 16);
             this.label12.TabIndex = 31;
@@ -211,7 +211,7 @@ namespace Diseño.Vista
             // 
             // txtLog
             // 
-            this.txtLog.Location = new System.Drawing.Point(308, 266);
+            this.txtLog.Location = new System.Drawing.Point(308, 298);
             this.txtLog.Name = "txtLog";
             this.txtLog.Size = new System.Drawing.Size(225, 20);
             this.txtLog.TabIndex = 26;
@@ -255,7 +255,7 @@ namespace Diseño.Vista
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(140, 312);
+            this.label1.Location = new System.Drawing.Point(141, 262);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 16);
             this.label1.TabIndex = 39;
@@ -263,7 +263,7 @@ namespace Diseño.Vista
             // 
             // txtCor
             // 
-            this.txtCor.Location = new System.Drawing.Point(308, 308);
+            this.txtCor.Location = new System.Drawing.Point(308, 258);
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(225, 20);
             this.txtCor.TabIndex = 38;

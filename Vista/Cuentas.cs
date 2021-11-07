@@ -45,8 +45,8 @@ namespace Diseño.Vista
         string contra="123";
         private void guar()
         {
-            s.GuardarUser(int.Parse(txtId.Text), txtLog.Text,
-                contra, txtNom.Text, int.Parse(txtCed.Text), txtCor.Text);
+            s.GuardarUser(txtNom.Text, txtApell.Text,int.Parse(txtCed.Text),txtDir.Text, txtCor.Text,
+                txtLog.Text, contra);
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {

@@ -74,26 +74,8 @@
     <Compile Include="BaseD\CuentasUsuario.cs">
       <DependentUpon>BPark.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseD\EnvEmail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="BaseD\ingresoVehiculo.cs">
       <DependentUpon>BPark.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BaseD\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BaseD\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BaseD\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="BaseD\MovimintoEst.cs">
       <DependentUpon>BPark.tt</DependentUpon>
@@ -216,19 +198,12 @@
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="BaseD\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="BaseD\BPark.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BPark.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="BaseD\BPark.edmx.diagram">
       <DependentUpon>BPark.edmx</DependentUpon>
-    </None>
-    <None Include="BaseD\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -254,16 +229,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BPark.edmx</DependentUpon>
       <LastGenOutput>BPark.cs</LastGenOutput>
-    </Content>
-    <Content Include="BaseD\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="BaseD\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

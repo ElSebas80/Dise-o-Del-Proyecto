@@ -11,7 +11,7 @@ namespace Diseño.Datos
     {
         public void GuardarUser(string nombre, string apel, int cc, string direc, string correo, string longin, string contra)
         {
-            using (parkEntities bd = new parkEntities())
+            using (parkEntities1 bd = new parkEntities1())
             {
                 bd.sp_CuentasUsuario(nombre, apel, cc, direc, correo, longin, contra);
             }
@@ -19,7 +19,7 @@ namespace Diseño.Datos
         }
         public void GuardarInfo(string nombre, string nit, int tele, string direc, string correo, string horar)
         {
-            using (parkEntities bd = new parkEntities())
+            using (parkEntities1 bd = new parkEntities1())
             {
                 bd.sp_configuracion(nombre, nit, tele, direc, correo, horar);
             }

@@ -57,17 +57,17 @@ namespace Diseño.Vista
         {
             ClsRecuperarpasss em = new ClsRecuperarpasss();
             ClsRecuperarpasss cahs = new ClsRecuperarpasss();
-            var verificado = em.mail(txtCor.Text.Trim());
-            if (verificado != null)
-            {
-                cahs.Enviarpasss(txtCor.Text);
+                cahs.Enviarpasss(txtLog.Text);
                 MessageBox.Show("Nuevo usuario creado correctamente La contraseña asignada fue enviada al " +
                 "correo correspondiente a " + txtCor.Text);
-            }
-            else
-            {
-                MessageBox.Show("Correo incorrecto o no exixtente");
-            }
+            //var verificado = em.mail(txtCor.Text.Trim());
+            //if (verificado != null)
+            //{
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Correo incorrecto o no exixtente");
+            //}
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

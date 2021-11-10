@@ -64,7 +64,7 @@ namespace Diseño.Vista
             s.GuardarInfo(txtNom.Text, txtNit.Text,
                 int.Parse(txtTel.Text), txtDir.Text, txtCorreo.Text, txtHor.Text);
         }
-        parkEntities bd = new parkEntities();
+        parkEntities1 bd = new parkEntities1();
         private void btnGuar_Click(object sender, EventArgs e)
         {
 

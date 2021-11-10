@@ -13,9 +13,9 @@ namespace Diseño.Datos.Logn
         public CuentasUsuario Login(string user, string pass)
         {
            // string ClaveEncrip = Encryp.GetSHA1(pass);
-            using (parkEntities db = new parkEntities())
+            using (parkEntities1 db = new parkEntities1())
             {
-                var registro = db.CuentasUsuario.Where(x => x.Nombre == user)
+                var registro = db.CuentasUsuario.Where(x => x.LoginN == user)
                         .Where(x => x.Contra == pass
                     ).FirstOrDefault();
                 return registro;

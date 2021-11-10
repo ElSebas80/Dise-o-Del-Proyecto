@@ -11,7 +11,7 @@ namespace Diseño.Datos.Logn
     {
         public CuentasUsuario mail(string gm)
         {
-            using (parkEntities db = new parkEntities())
+            using (parkEntities1 db = new parkEntities1())
             {
                 var registro = db.CuentasUsuario.Where(x => x.email == gm
                     ).FirstOrDefault();
@@ -20,7 +20,7 @@ namespace Diseño.Datos.Logn
         }
         public string Recuperarpasss(string User)
         {
-            using (parkEntities db = new parkEntities())
+            using (parkEntities1 db = new parkEntities1())
             {
                 var Find = db.CuentasUsuario.Where(x => x.email == User).FirstOrDefault();
 
@@ -56,16 +56,16 @@ namespace Diseño.Datos.Logn
                 }
             }
         }
-        public string Enviarpasss(string User)
+        public string Enviarpasss(string user)
         {
-            using (parkEntities db = new parkEntities())
+            using (parkEntities1 db = new parkEntities1())
             {
-                var Find = db.CuentasUsuario.Where(x => x.email == User).FirstOrDefault();
+                var Find = db.CuentasUsuario.Where(x => x.LoginN == user).FirstOrDefault();
 
                 if (Find != null)
                 {
                     int CodiUser = int.Parse(Find.id.ToString());
-                    //string Nombre = Find.FirstName.ToString();
+                    string correo = Find.email.ToString();
 
 
                     var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -85,7 +85,7 @@ namespace Diseño.Datos.Logn
                     var Emailservice = new SistemSuports("sssssssssew888@gmail.com", "3017118619.");
                     Emailservice.Enviarmensaje(Asunto: "Solicitud para la contraseña :c",
                         Cuerpo: "Hola " + "Nuevo usuario" + " Por algun motivo usted es el nuevo empleado, pero su clave nueva es: " + resultString,
-                        Destino: User);
+                        Destino: correo);
                     return "Cambio correcto";
                 }
                 else

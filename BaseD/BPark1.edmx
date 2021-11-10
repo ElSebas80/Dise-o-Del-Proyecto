@@ -6,16 +6,6 @@
     <edmx:StorageModels>
     <Schema Namespace="parkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'park.dbo.configuracion' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="configuracion">
-          <Property Name="NombreParqueadero" Type="varchar" MaxLength="100" />
-          <Property Name="Nit" Type="varchar" MaxLength="30" />
-          <Property Name="Telefono" Type="int" />
-          <Property Name="Direccion" Type="varchar" MaxLength="100" />
-          <Property Name="Correo" Type="varchar" MaxLength="100" />
-          <Property Name="HorarioAtencion" Type="varchar" MaxLength="100" />
-        </EntityType>-->
-        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="CuentasUsuario">
           <Key>
@@ -69,38 +59,6 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="parkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="parkEntities" annotation:LazyLoadingEnabled="true">
-          <FunctionImport Name="sp_CuentasUsuario">
-            <Parameter Name="Nombre" Mode="In" Type="String" />
-            <Parameter Name="Apellido" Mode="In" Type="String" />
-            <Parameter Name="Cedula" Mode="In" Type="Int32" />
-            <Parameter Name="Direccion" Mode="In" Type="String" />
-            <Parameter Name="email" Mode="In" Type="String" />
-            <Parameter Name="LoginN" Mode="In" Type="String" />
-            <Parameter Name="Contra" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_configuracion">
-            <Parameter Name="NombreParqueadero" Mode="In" Type="String" />
-            <Parameter Name="Nit" Mode="In" Type="String" />
-            <Parameter Name="Telefono" Mode="In" Type="Int32" />
-            <Parameter Name="Direccion" Mode="In" Type="String" />
-            <Parameter Name="Correo" Mode="In" Type="String" />
-            <Parameter Name="HorarioAtencion" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_tarifas">
-            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
-            <Parameter Name="HoraEstacio" Mode="In" Type="Decimal" />
-            <Parameter Name="SemanaEstacio" Mode="In" Type="Decimal" />
-            <Parameter Name="QuincenaEstacio" Mode="In" Type="Decimal" />
-            <Parameter Name="MensualidadEstacio" Mode="In" Type="Decimal" />
-            <Parameter Name="CuposDIsponibles" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="Sp_EditarContra">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
-            <Parameter Name="Contra" Mode="In" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="CuentasUsuario" EntityType="parkModel.CuentasUsuario" />
-        </EntityContainer>
         <EntityType Name="CuentasUsuario">
           <Key>
             <PropertyRef Name="id" />
@@ -114,29 +72,53 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
           <Property Name="LoginN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Contra" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityContainer Name="parkEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CuentasUsuario" EntityType="Self.CuentasUsuario" />
+          <FunctionImport Name="sp_configuracion">
+            <Parameter Name="NombreParqueadero" Mode="In" Type="String" />
+            <Parameter Name="Nit" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="HorarioAtencion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_CuentasUsuario">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellido" Mode="In" Type="String" />
+            <Parameter Name="Cedula" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="LoginN" Mode="In" Type="String" />
+            <Parameter Name="Contra" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_EditarContra">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Contra" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="parkModelStoreContainer" CdmEntityContainer="parkEntities">
-          <FunctionImportMapping FunctionImportName="sp_CuentasUsuario" FunctionName="parkModel.Store.sp_CuentasUsuario" />
-          <FunctionImportMapping FunctionImportName="sp_configuracion" FunctionName="parkModel.Store.sp_configuracion" />
-          <FunctionImportMapping FunctionImportName="Sp_EditarContra" FunctionName="parkModel.Store.Sp_EditarContra" />
+        <EntityContainerMapping StorageEntityContainer="parkModelStoreContainer" CdmEntityContainer="parkEntities1">
           <EntitySetMapping Name="CuentasUsuario">
             <EntityTypeMapping TypeName="parkModel.CuentasUsuario">
               <MappingFragment StoreEntitySet="CuentasUsuario">
-                <ScalarProperty Name="Contra" ColumnName="Contra" />
-                <ScalarProperty Name="LoginN" ColumnName="LoginN" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
-                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="LoginN" ColumnName="LoginN" />
+                <ScalarProperty Name="Contra" ColumnName="Contra" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_configuracion" FunctionName="parkModel.Store.sp_configuracion" />
+          <FunctionImportMapping FunctionImportName="sp_CuentasUsuario" FunctionName="parkModel.Store.sp_CuentasUsuario" />
+          <FunctionImportMapping FunctionImportName="Sp_EditarContra" FunctionName="parkModel.Store.Sp_EditarContra" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

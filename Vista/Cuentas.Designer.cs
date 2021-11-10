@@ -169,9 +169,9 @@ namespace Diseño.Vista
             this.label12.ForeColor = System.Drawing.Color.Cornsilk;
             this.label12.Location = new System.Drawing.Point(143, 302);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 16);
+            this.label12.Size = new System.Drawing.Size(62, 16);
             this.label12.TabIndex = 31;
-            this.label12.Text = "Login";
+            this.label12.Text = "Usuario";
             // 
             // label10
             // 

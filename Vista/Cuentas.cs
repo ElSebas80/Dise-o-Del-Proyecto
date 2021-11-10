@@ -62,7 +62,7 @@ namespace Diseño.Vista
             {
                 cahs.Enviarpasss(txtCor.Text);
                 MessageBox.Show("Nuevo usuario creado correctamente La contraseña asignada fue enviada al " +
-                "correo de entrada en " + txtCor.Text);
+                "correo correspondiente a " + txtCor.Text);
             }
             else
             {

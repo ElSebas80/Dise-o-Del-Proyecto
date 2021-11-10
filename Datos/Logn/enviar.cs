@@ -10,12 +10,12 @@ namespace Diseño.Datos.Logn
 {
     public class enviar
     {
-        public EnvEmail Login(string user, string pass)
+        public CuentasUsuario Login(string user, string pass)
         {
            // string ClaveEncrip = Encryp.GetSHA1(pass);
-            using (emailEntities db = new emailEntities())
+            using (parkEntities db = new parkEntities())
             {
-                var registro = db.EnvEmail.Where(x => x.LoginName == user)
+                var registro = db.CuentasUsuario.Where(x => x.Nombre == user)
                         .Where(x => x.Contra == pass
                     ).FirstOrDefault();
                 return registro;

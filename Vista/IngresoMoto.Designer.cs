@@ -53,11 +53,9 @@ namespace Diseño.Vista
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label33 = new System.Windows.Forms.Label();
             this.textBox21 = new System.Windows.Forms.TextBox();
@@ -111,6 +109,8 @@ namespace Diseño.Vista
             this.label25 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -429,17 +429,6 @@ namespace Diseño.Vista
             this.label10.TabIndex = 59;
             this.label10.Text = "Placa";
             // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(32, 156);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(121, 22);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "Numero Tiket";
-            // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
@@ -473,18 +462,6 @@ namespace Diseño.Vista
             this.button2.TabIndex = 49;
             this.button2.Text = "Registrar";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.HideSelection = false;
-            this.textBox12.Location = new System.Drawing.Point(177, 156);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(145, 26);
-            this.textBox12.TabIndex = 41;
-            this.textBox12.WordWrap = false;
             // 
             // tabPage2
             // 
@@ -1151,6 +1128,29 @@ namespace Diseño.Vista
             this.label13.Text = "Salida Vehículo";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(32, 156);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 22);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "Numero Tiket";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.HideSelection = false;
+            this.textBox12.Location = new System.Drawing.Point(177, 156);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(145, 26);
+            this.textBox12.TabIndex = 41;
+            this.textBox12.WordWrap = false;
+            // 
             // FrmIngresoMoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1216,11 +1216,9 @@ namespace Diseño.Vista
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -1276,5 +1274,7 @@ namespace Diseño.Vista
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox12;
     }
 }

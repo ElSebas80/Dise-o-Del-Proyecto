@@ -9,25 +9,25 @@ namespace Diseño.Datos.Logn
 {
     public class ClsRecuperarpasss
     {
-        public EnvEmail mail(string gm)
+        public CuentasUsuario mail(string gm)
         {
-            using (emailEntities db = new emailEntities())
+            using (parkEntities db = new parkEntities())
             {
-                var registro = db.EnvEmail.Where(x => x.email == gm
+                var registro = db.CuentasUsuario.Where(x => x.email == gm
                     ).FirstOrDefault();
                 return registro;
             }
         }
         public string Recuperarpasss(string User)
         {
-            using (emailEntities db = new emailEntities())
+            using (parkEntities db = new parkEntities())
             {
-                var Find = db.EnvEmail.Where(x => x.email == User).FirstOrDefault();
+                var Find = db.CuentasUsuario.Where(x => x.email == User).FirstOrDefault();
 
                 if (Find != null)
                 {
-                    int CodiUser = int.Parse(Find.UserId.ToString());
-                    string Nombre = Find.FirstName.ToString();
+                    int CodiUser = int.Parse(Find.id.ToString());
+                    string Nombre = Find.Nombre.ToString();
 
 
                     var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -58,13 +58,13 @@ namespace Diseño.Datos.Logn
         }
         public string Enviarpasss(string User)
         {
-            using (emailEntities db = new emailEntities())
+            using (parkEntities db = new parkEntities())
             {
-                var Find = db.EnvEmail.Where(x => x.email == User).FirstOrDefault();
+                var Find = db.CuentasUsuario.Where(x => x.email == User).FirstOrDefault();
 
                 if (Find != null)
                 {
-                    int CodiUser = int.Parse(Find.UserId.ToString());
+                    int CodiUser = int.Parse(Find.id.ToString());
                     //string Nombre = Find.FirstName.ToString();
 
 

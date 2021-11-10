@@ -19,8 +19,8 @@ namespace Diseño.BaseD
         public string Apellido { get; set; }
         public Nullable<int> Cedula { get; set; }
         public string Direccion { get; set; }
+        public string email { get; set; }
         public string LoginN { get; set; }
         public string Contra { get; set; }
-        public string email { get; set; }
     }
 }

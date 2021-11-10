@@ -28,8 +28,6 @@ namespace Diseño.BaseD
         }
     
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
-        public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
-        public virtual DbSet<MovimintoEst> MovimintoEst { get; set; }
     
         public virtual int sp_CuentasUsuario(string nombre, string apellido, Nullable<int> cedula, string direccion, string email, string loginN, string contra)
         {
@@ -62,6 +60,77 @@ namespace Diseño.BaseD
                 new ObjectParameter("Contra", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CuentasUsuario", nombreParameter, apellidoParameter, cedulaParameter, direccionParameter, emailParameter, loginNParameter, contraParameter);
+        }
+    
+        public virtual int sp_configuracion(string nombreParqueadero, string nit, Nullable<int> telefono, string direccion, string correo, string horarioAtencion)
+        {
+            var nombreParqueaderoParameter = nombreParqueadero != null ?
+                new ObjectParameter("NombreParqueadero", nombreParqueadero) :
+                new ObjectParameter("NombreParqueadero", typeof(string));
+    
+            var nitParameter = nit != null ?
+                new ObjectParameter("Nit", nit) :
+                new ObjectParameter("Nit", typeof(string));
+    
+            var telefonoParameter = telefono.HasValue ?
+                new ObjectParameter("Telefono", telefono) :
+                new ObjectParameter("Telefono", typeof(int));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var horarioAtencionParameter = horarioAtencion != null ?
+                new ObjectParameter("HorarioAtencion", horarioAtencion) :
+                new ObjectParameter("HorarioAtencion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_configuracion", nombreParqueaderoParameter, nitParameter, telefonoParameter, direccionParameter, correoParameter, horarioAtencionParameter);
+        }
+    
+        public virtual int sp_tarifas(Nullable<System.DateTime> fecha, Nullable<decimal> horaEstacio, Nullable<decimal> semanaEstacio, Nullable<decimal> quincenaEstacio, Nullable<decimal> mensualidadEstacio, Nullable<int> cuposDIsponibles)
+        {
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            var horaEstacioParameter = horaEstacio.HasValue ?
+                new ObjectParameter("HoraEstacio", horaEstacio) :
+                new ObjectParameter("HoraEstacio", typeof(decimal));
+    
+            var semanaEstacioParameter = semanaEstacio.HasValue ?
+                new ObjectParameter("SemanaEstacio", semanaEstacio) :
+                new ObjectParameter("SemanaEstacio", typeof(decimal));
+    
+            var quincenaEstacioParameter = quincenaEstacio.HasValue ?
+                new ObjectParameter("QuincenaEstacio", quincenaEstacio) :
+                new ObjectParameter("QuincenaEstacio", typeof(decimal));
+    
+            var mensualidadEstacioParameter = mensualidadEstacio.HasValue ?
+                new ObjectParameter("MensualidadEstacio", mensualidadEstacio) :
+                new ObjectParameter("MensualidadEstacio", typeof(decimal));
+    
+            var cuposDIsponiblesParameter = cuposDIsponibles.HasValue ?
+                new ObjectParameter("CuposDIsponibles", cuposDIsponibles) :
+                new ObjectParameter("CuposDIsponibles", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_tarifas", fechaParameter, horaEstacioParameter, semanaEstacioParameter, quincenaEstacioParameter, mensualidadEstacioParameter, cuposDIsponiblesParameter);
+        }
+    
+        public virtual int Sp_EditarContra(Nullable<int> id, string contra)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var contraParameter = contra != null ?
+                new ObjectParameter("Contra", contra) :
+                new ObjectParameter("Contra", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_EditarContra", idParameter, contraParameter);
         }
     }
 }

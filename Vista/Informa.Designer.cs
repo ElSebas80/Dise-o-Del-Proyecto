@@ -33,20 +33,20 @@ namespace Diseño.Vista
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtHor = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
             this.btnMax = new System.Windows.Forms.PictureBox();
             this.btnSal = new System.Windows.Forms.PictureBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtTel = new System.Windows.Forms.TextBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtDir = new System.Windows.Forms.TextBox();
+            this.txtNit = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.btnCanc = new System.Windows.Forms.Button();
+            this.btnGuar = new System.Windows.Forms.Button();
+            this.btnMod = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -114,20 +114,20 @@ namespace Diseño.Vista
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage1.Controls.Add(this.pictureBox5);
-            this.tabPage1.Controls.Add(this.textBox7);
+            this.tabPage1.Controls.Add(this.txtHor);
             this.tabPage1.Controls.Add(this.textBox5);
             this.tabPage1.Controls.Add(this.pictureBox4);
             this.tabPage1.Controls.Add(this.btnMin);
             this.tabPage1.Controls.Add(this.btnMax);
             this.tabPage1.Controls.Add(this.btnSal);
-            this.tabPage1.Controls.Add(this.textBox6);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.txtTel);
+            this.tabPage1.Controls.Add(this.txtCorreo);
+            this.tabPage1.Controls.Add(this.txtDir);
+            this.tabPage1.Controls.Add(this.txtNit);
+            this.tabPage1.Controls.Add(this.txtNom);
+            this.tabPage1.Controls.Add(this.btnCanc);
+            this.tabPage1.Controls.Add(this.btnGuar);
+            this.tabPage1.Controls.Add(this.btnMod);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
@@ -154,15 +154,15 @@ namespace Diseño.Vista
             this.pictureBox5.TabIndex = 43;
             this.pictureBox5.TabStop = false;
             // 
-            // textBox7
+            // txtHor
             // 
-            this.textBox7.BackColor = System.Drawing.Color.Gray;
-            this.textBox7.Location = new System.Drawing.Point(259, 414);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(185, 26);
-            this.textBox7.TabIndex = 42;
-            this.textBox7.Text = "8:00 am -6:00pm";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtHor.BackColor = System.Drawing.Color.Gray;
+            this.txtHor.Location = new System.Drawing.Point(259, 414);
+            this.txtHor.Name = "txtHor";
+            this.txtHor.Size = new System.Drawing.Size(185, 26);
+            this.txtHor.TabIndex = 42;
+            this.txtHor.Text = "8:00 am -6:00pm";
+            this.txtHor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox5
             // 
@@ -224,67 +224,68 @@ namespace Diseño.Vista
             this.btnSal.TabStop = false;
             this.btnSal.Click += new System.EventHandler(this.btnSal_Click);
             // 
-            // textBox6
+            // txtTel
             // 
-            this.textBox6.Location = new System.Drawing.Point(421, 176);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(115, 26);
-            this.textBox6.TabIndex = 16;
+            this.txtTel.Location = new System.Drawing.Point(421, 176);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(115, 26);
+            this.txtTel.TabIndex = 16;
             // 
-            // textBox4
+            // txtCorreo
             // 
-            this.textBox4.Location = new System.Drawing.Point(211, 274);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(325, 26);
-            this.textBox4.TabIndex = 14;
+            this.txtCorreo.Location = new System.Drawing.Point(211, 274);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(325, 26);
+            this.txtCorreo.TabIndex = 14;
             // 
-            // textBox3
+            // txtDir
             // 
-            this.textBox3.Location = new System.Drawing.Point(211, 224);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(144, 26);
-            this.textBox3.TabIndex = 13;
+            this.txtDir.Location = new System.Drawing.Point(211, 224);
+            this.txtDir.Name = "txtDir";
+            this.txtDir.Size = new System.Drawing.Size(144, 26);
+            this.txtDir.TabIndex = 13;
             // 
-            // textBox2
+            // txtNit
             // 
-            this.textBox2.Location = new System.Drawing.Point(211, 177);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 26);
-            this.textBox2.TabIndex = 12;
+            this.txtNit.Location = new System.Drawing.Point(211, 177);
+            this.txtNit.Name = "txtNit";
+            this.txtNit.Size = new System.Drawing.Size(144, 26);
+            this.txtNit.TabIndex = 12;
             // 
-            // textBox1
+            // txtNom
             // 
-            this.textBox1.Location = new System.Drawing.Point(211, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(325, 26);
-            this.textBox1.TabIndex = 11;
+            this.txtNom.Location = new System.Drawing.Point(211, 126);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(325, 26);
+            this.txtNom.TabIndex = 11;
             // 
-            // button3
+            // btnCanc
             // 
-            this.button3.Location = new System.Drawing.Point(468, 474);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 33);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCanc.Location = new System.Drawing.Point(468, 474);
+            this.btnCanc.Name = "btnCanc";
+            this.btnCanc.Size = new System.Drawing.Size(93, 33);
+            this.btnCanc.TabIndex = 10;
+            this.btnCanc.Text = "Cancelar";
+            this.btnCanc.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnGuar
             // 
-            this.button2.Location = new System.Drawing.Point(302, 474);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(79, 33);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGuar.Location = new System.Drawing.Point(302, 474);
+            this.btnGuar.Name = "btnGuar";
+            this.btnGuar.Size = new System.Drawing.Size(79, 33);
+            this.btnGuar.TabIndex = 9;
+            this.btnGuar.Text = "Guardar";
+            this.btnGuar.UseVisualStyleBackColor = true;
+            this.btnGuar.Click += new System.EventHandler(this.btnGuar_Click);
             // 
-            // button1
+            // btnMod
             // 
-            this.button1.Location = new System.Drawing.Point(126, 474);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 33);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMod.Location = new System.Drawing.Point(126, 474);
+            this.btnMod.Name = "btnMod";
+            this.btnMod.Size = new System.Drawing.Size(96, 33);
+            this.btnMod.TabIndex = 8;
+            this.btnMod.Text = "Modificar";
+            this.btnMod.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -675,13 +676,13 @@ namespace Diseño.Vista
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.TextBox txtDir;
+        private System.Windows.Forms.TextBox txtNit;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.Button btnCanc;
+        private System.Windows.Forms.Button btnGuar;
+        private System.Windows.Forms.Button btnMod;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -689,7 +690,7 @@ namespace Diseño.Vista
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtTel;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox11;
@@ -712,7 +713,7 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnRes;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtHor;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;

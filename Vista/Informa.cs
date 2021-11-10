@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Diseño.BaseD;
+using Diseño.Datos;
 
 namespace Diseño.Vista
 {
@@ -53,6 +55,17 @@ namespace Diseño.Vista
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        Cruts s = new Cruts();
+        private void info()
+        {
+            s.GuardarInfo(txtNom.Text, txtNit.Text,
+                int.Parse(txtTel.Text), txtDir.Text, txtCorreo.Text, txtHor.Text);
+        }
+        parkEntities bd = new parkEntities();
+        private void btnGuar_Click(object sender, EventArgs e)
         {
 
         }

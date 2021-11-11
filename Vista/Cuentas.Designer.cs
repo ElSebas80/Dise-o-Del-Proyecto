@@ -54,14 +54,14 @@ namespace Diseño.Vista
             this.btnMax = new System.Windows.Forms.PictureBox();
             this.btnSal = new System.Windows.Forms.PictureBox();
             this.btnRes = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtApell = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCanc
@@ -109,9 +109,10 @@ namespace Diseño.Vista
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(146, 382);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(59, 222);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(387, 100);
+            this.groupBox1.Size = new System.Drawing.Size(534, 82);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Usuario";
@@ -119,9 +120,9 @@ namespace Diseño.Vista
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(259, 50);
+            this.radioButton2.Location = new System.Drawing.Point(399, 42);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(89, 17);
+            this.radioButton2.Size = new System.Drawing.Size(124, 24);
             this.radioButton2.TabIndex = 3;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Deshabilitado";
@@ -130,9 +131,10 @@ namespace Diseño.Vista
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(259, 27);
+            this.radioButton1.ForeColor = System.Drawing.Color.Black;
+            this.radioButton1.Location = new System.Drawing.Point(399, 19);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(72, 17);
+            this.radioButton1.Size = new System.Drawing.Size(98, 24);
             this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Habilitado";
@@ -141,24 +143,24 @@ namespace Diseño.Vista
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(205, 27);
+            this.pictureBox4.Location = new System.Drawing.Point(315, 10);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(48, 53);
+            this.pictureBox4.Size = new System.Drawing.Size(66, 62);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
             // 
             // listBox1
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 17;
+            this.listBox1.ItemHeight = 20;
             this.listBox1.Items.AddRange(new object[] {
             "Administrador",
             "Empleado"});
-            this.listBox1.Location = new System.Drawing.Point(24, 27);
+            this.listBox1.Location = new System.Drawing.Point(21, 25);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(124, 21);
+            this.listBox1.Size = new System.Drawing.Size(156, 24);
             this.listBox1.TabIndex = 0;
             // 
             // label12
@@ -167,7 +169,7 @@ namespace Diseño.Vista
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label12.Location = new System.Drawing.Point(143, 302);
+            this.label12.Location = new System.Drawing.Point(56, 177);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(62, 16);
             this.label12.TabIndex = 31;
@@ -179,7 +181,7 @@ namespace Diseño.Vista
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label10.Location = new System.Drawing.Point(139, 183);
+            this.label10.Location = new System.Drawing.Point(56, 130);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 16);
             this.label10.TabIndex = 30;
@@ -191,7 +193,7 @@ namespace Diseño.Vista
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label9.Location = new System.Drawing.Point(139, 222);
+            this.label9.Location = new System.Drawing.Point(253, 133);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 16);
             this.label9.TabIndex = 29;
@@ -203,51 +205,51 @@ namespace Diseño.Vista
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label7.Location = new System.Drawing.Point(140, 107);
+            this.label7.Location = new System.Drawing.Point(56, 93);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 16);
+            this.label7.Size = new System.Drawing.Size(133, 16);
             this.label7.TabIndex = 27;
-            this.label7.Text = "Nombre";
+            this.label7.Text = "Nombre Completo";
             // 
             // txtLog
             // 
-            this.txtLog.Location = new System.Drawing.Point(308, 298);
+            this.txtLog.Location = new System.Drawing.Point(119, 177);
             this.txtLog.Name = "txtLog";
-            this.txtLog.Size = new System.Drawing.Size(225, 20);
+            this.txtLog.Size = new System.Drawing.Size(128, 20);
             this.txtLog.TabIndex = 26;
             // 
             // txtDir
             // 
-            this.txtDir.Location = new System.Drawing.Point(308, 221);
+            this.txtDir.Location = new System.Drawing.Point(333, 133);
             this.txtDir.Name = "txtDir";
-            this.txtDir.Size = new System.Drawing.Size(225, 20);
+            this.txtDir.Size = new System.Drawing.Size(260, 20);
             this.txtDir.TabIndex = 25;
             // 
             // txtCed
             // 
-            this.txtCed.Location = new System.Drawing.Point(308, 183);
+            this.txtCed.Location = new System.Drawing.Point(119, 129);
             this.txtCed.Name = "txtCed";
-            this.txtCed.Size = new System.Drawing.Size(225, 20);
+            this.txtCed.Size = new System.Drawing.Size(128, 20);
             this.txtCed.TabIndex = 24;
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(308, 107);
+            this.txtNom.Location = new System.Drawing.Point(195, 93);
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(225, 20);
+            this.txtNom.Size = new System.Drawing.Size(276, 20);
             this.txtNom.TabIndex = 22;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.BackColor = System.Drawing.Color.Goldenrod;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label6.Location = new System.Drawing.Point(270, 38);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(143, 48);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 16);
+            this.label6.Size = new System.Drawing.Size(379, 18);
             this.label6.TabIndex = 37;
             this.label6.Text = "Cuentas de Usuarios";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label1
             // 
@@ -255,7 +257,7 @@ namespace Diseño.Vista
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(141, 262);
+            this.label1.Location = new System.Drawing.Point(253, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 16);
             this.label1.TabIndex = 39;
@@ -263,16 +265,16 @@ namespace Diseño.Vista
             // 
             // txtCor
             // 
-            this.txtCor.Location = new System.Drawing.Point(308, 258);
+            this.txtCor.Location = new System.Drawing.Point(333, 180);
             this.txtCor.Name = "txtCor";
-            this.txtCor.Size = new System.Drawing.Size(225, 20);
+            this.txtCor.Size = new System.Drawing.Size(260, 20);
             this.txtCor.TabIndex = 38;
             // 
             // btnMin
             // 
             this.btnMin.BackColor = System.Drawing.Color.Transparent;
             this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(576, 20);
+            this.btnMin.Location = new System.Drawing.Point(541, 20);
             this.btnMin.Name = "btnMin";
             this.btnMin.Size = new System.Drawing.Size(23, 26);
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -284,7 +286,7 @@ namespace Diseño.Vista
             // 
             this.btnMax.BackColor = System.Drawing.Color.Transparent;
             this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
-            this.btnMax.Location = new System.Drawing.Point(605, 20);
+            this.btnMax.Location = new System.Drawing.Point(570, 20);
             this.btnMax.Name = "btnMax";
             this.btnMax.Size = new System.Drawing.Size(23, 26);
             this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -310,7 +312,7 @@ namespace Diseño.Vista
             this.btnRes.BackColor = System.Drawing.Color.Transparent;
             this.btnRes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRes.Image = ((System.Drawing.Image)(resources.GetObject("btnRes.Image")));
-            this.btnRes.Location = new System.Drawing.Point(605, 52);
+            this.btnRes.Location = new System.Drawing.Point(605, 20);
             this.btnRes.Name = "btnRes";
             this.btnRes.Size = new System.Drawing.Size(23, 26);
             this.btnRes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -318,34 +320,23 @@ namespace Diseño.Vista
             this.btnRes.TabStop = false;
             this.btnRes.Click += new System.EventHandler(this.btnRes_Click);
             // 
-            // label2
+            // dataGridView1
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(140, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 16);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "Apellidos";
-            // 
-            // txtApell
-            // 
-            this.txtApell.Location = new System.Drawing.Point(308, 146);
-            this.txtApell.Name = "txtApell";
-            this.txtApell.Size = new System.Drawing.Size(225, 20);
-            this.txtApell.TabIndex = 44;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(59, 329);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(534, 150);
+            this.dataGridView1.TabIndex = 44;
             // 
             // FrmCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(671, 661);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtApell);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnRes);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.btnMax);
@@ -367,6 +358,7 @@ namespace Diseño.Vista
             this.Controls.Add(this.txtCed);
             this.Controls.Add(this.txtNom);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCuentas";
             this.Text = "Cuentas";
@@ -377,6 +369,7 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,7 +401,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnMax;
         private System.Windows.Forms.PictureBox btnSal;
         private System.Windows.Forms.PictureBox btnRes;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtApell;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

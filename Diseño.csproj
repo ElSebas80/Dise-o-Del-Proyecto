@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -87,63 +90,43 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Administrativo.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Vista\Administrativo.cs" />
     <Compile Include="Vista\Administrativo.Designer.cs">
       <DependentUpon>Administrativo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Contra.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Vista\Contra.cs" />
     <Compile Include="Vista\Contra.Designer.cs">
       <DependentUpon>Contra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Reporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Vista\Reporte.cs" />
     <Compile Include="Vista\Reporte.Designer.cs">
       <DependentUpon>Reporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\IngresoMoto.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Vista\IngresoMoto.cs" />
     <Compile Include="Vista\IngresoMoto.Designer.cs">
       <DependentUpon>IngresoMoto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Cuentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Vista\Cuentas.cs" />
     <Compile Include="Vista\Cuentas.Designer.cs">
       <DependentUpon>Cuentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Informa.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Vista\Informa.cs" />
     <Compile Include="Vista\Informa.Designer.cs">
       <DependentUpon>Informa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Autorizacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Vista\Autorizacion.cs" />
     <Compile Include="Vista\Autorizacion.Designer.cs">
       <DependentUpon>Autorizacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Vista\Login.cs" />
     <Compile Include="Vista\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Perfil.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Vista\Perfil.cs" />
     <Compile Include="Vista\Perfil.Designer.cs">
       <DependentUpon>Perfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Principal.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Vista\Principal.cs" />
     <Compile Include="Vista\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>

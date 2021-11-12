@@ -5,7 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="47e1c8d159894b83bbe25b31e02a95e7" Name="Diagram1">
-        <EntityTypeShape EntityType="parkModel.CuentasUsuario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="parkModel.Estado" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="parkModel.tipoUsuario" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="parkModel.CuentasUsuario" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="parkModel.FK__CuentasUsu__idEs__5441852A" />
+        <AssociationConnector Association="parkModel.FK__CuentasUsu__idTp__534D60F1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

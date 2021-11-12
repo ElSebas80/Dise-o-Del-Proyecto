@@ -27,6 +27,8 @@ namespace Diseño.BaseD
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Estado> Estado { get; set; }
+        public virtual DbSet<tipoUsuario> tipoUsuario { get; set; }
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
     
         public virtual int sp_configuracion(string nombreParqueadero, string nit, Nullable<int> telefono, string direccion, string correo, string horarioAtencion)
@@ -58,15 +60,11 @@ namespace Diseño.BaseD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_configuracion", nombreParqueaderoParameter, nitParameter, telefonoParameter, direccionParameter, correoParameter, horarioAtencionParameter);
         }
     
-        public virtual int sp_CuentasUsuario(string nombre, string apellido, Nullable<int> cedula, string direccion, string email, string loginN, string contra)
+        public virtual int sp_CuentasUsuario(string nombre, Nullable<int> cedula, string direccion, string email, string loginN, string contra, Nullable<int> tipo, Nullable<int> estd)
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("Nombre", nombre) :
                 new ObjectParameter("Nombre", typeof(string));
-    
-            var apellidoParameter = apellido != null ?
-                new ObjectParameter("Apellido", apellido) :
-                new ObjectParameter("Apellido", typeof(string));
     
             var cedulaParameter = cedula.HasValue ?
                 new ObjectParameter("Cedula", cedula) :
@@ -88,7 +86,15 @@ namespace Diseño.BaseD
                 new ObjectParameter("Contra", contra) :
                 new ObjectParameter("Contra", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CuentasUsuario", nombreParameter, apellidoParameter, cedulaParameter, direccionParameter, emailParameter, loginNParameter, contraParameter);
+            var tipoParameter = tipo.HasValue ?
+                new ObjectParameter("tipo", tipo) :
+                new ObjectParameter("tipo", typeof(int));
+    
+            var estdParameter = estd.HasValue ?
+                new ObjectParameter("estd", estd) :
+                new ObjectParameter("estd", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CuentasUsuario", nombreParameter, cedulaParameter, direccionParameter, emailParameter, loginNParameter, contraParameter, tipoParameter, estdParameter);
         }
     
         public virtual int Sp_EditarContra(Nullable<int> id, string contra)
@@ -102,6 +108,19 @@ namespace Diseño.BaseD
                 new ObjectParameter("Contra", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_EditarContra", idParameter, contraParameter);
+        }
+    
+        public virtual int deshUsuario(Nullable<int> id, Nullable<int> estado)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deshUsuario", idParameter, estadoParameter);
         }
     }
 }

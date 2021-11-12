@@ -43,10 +43,18 @@ namespace Diseño.Vista
         }
         Cruts s = new Cruts();
         string contra="123";
+        int tipo;
+        private void EstD()
+        {
+            if (btnHabl.Checked == true)
+                tipo = 1;
+            else if (btnDesh.Checked == true)
+                tipo = 2;
+        }
         private void guar()
         {
-            s.GuardarUser(txtNom.Text, txtApell.Text,int.Parse(txtCed.Text),txtDir.Text, txtCor.Text,
-                txtLog.Text, contra);
+            s.GuardarUser(txtNom.Text,int.Parse(txtCed.Text),txtDir.Text, txtCor.Text,
+                txtLog.Text, contra,int.Parse(txtTipo.Text),tipo);
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -60,7 +68,7 @@ namespace Diseño.Vista
                 cahs.Enviarpasss(txtLog.Text);
                 MessageBox.Show("Nuevo usuario creado correctamente La contraseña asignada fue enviada al " +
                 "correo correspondiente a " + txtCor.Text);
-            //var verificado = em.mail(txtCor.Text.Trim());
+            //var verificado = em.mail(txtCor.Text.Trim());+
             //if (verificado != null)
             //{
             //}

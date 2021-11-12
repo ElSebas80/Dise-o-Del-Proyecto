@@ -35,10 +35,10 @@ namespace Diseño.Vista
             this.button2 = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnDesh = new System.Windows.Forms.RadioButton();
+            this.btnHabl = new System.Windows.Forms.RadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.txtTipo = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -105,10 +105,10 @@ namespace Diseño.Vista
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.btnDesh);
+            this.groupBox1.Controls.Add(this.btnHabl);
             this.groupBox1.Controls.Add(this.pictureBox4);
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.txtTipo);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(59, 222);
             this.groupBox1.Name = "groupBox1";
@@ -117,28 +117,28 @@ namespace Diseño.Vista
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Usuario";
             // 
-            // radioButton2
+            // btnDesh
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(399, 42);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(124, 24);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Deshabilitado";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.btnDesh.AutoSize = true;
+            this.btnDesh.Location = new System.Drawing.Point(399, 42);
+            this.btnDesh.Name = "btnDesh";
+            this.btnDesh.Size = new System.Drawing.Size(124, 24);
+            this.btnDesh.TabIndex = 3;
+            this.btnDesh.TabStop = true;
+            this.btnDesh.Text = "Deshabilitado";
+            this.btnDesh.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // btnHabl
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.Color.Black;
-            this.radioButton1.Location = new System.Drawing.Point(399, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(98, 24);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Habilitado";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.btnHabl.AutoSize = true;
+            this.btnHabl.ForeColor = System.Drawing.Color.Black;
+            this.btnHabl.Location = new System.Drawing.Point(399, 19);
+            this.btnHabl.Name = "btnHabl";
+            this.btnHabl.Size = new System.Drawing.Size(98, 24);
+            this.btnHabl.TabIndex = 2;
+            this.btnHabl.TabStop = true;
+            this.btnHabl.Text = "Habilitado";
+            this.btnHabl.UseVisualStyleBackColor = true;
             // 
             // pictureBox4
             // 
@@ -150,18 +150,18 @@ namespace Diseño.Vista
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
             // 
-            // listBox1
+            // txtTipo
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Items.AddRange(new object[] {
+            this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipo.FormattingEnabled = true;
+            this.txtTipo.ItemHeight = 20;
+            this.txtTipo.Items.AddRange(new object[] {
             "Administrador",
             "Empleado"});
-            this.listBox1.Location = new System.Drawing.Point(21, 25);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(156, 24);
-            this.listBox1.TabIndex = 0;
+            this.txtTipo.Location = new System.Drawing.Point(21, 25);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(156, 24);
+            this.txtTipo.TabIndex = 0;
             // 
             // label12
             // 
@@ -382,10 +382,10 @@ namespace Diseño.Vista
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton btnDesh;
+        private System.Windows.Forms.RadioButton btnHabl;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox txtTipo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;

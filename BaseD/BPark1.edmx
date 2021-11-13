@@ -18,7 +18,7 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
           <Property Name="email" Type="nvarchar" MaxLength="100" />
           <Property Name="LoginN" Type="varchar" MaxLength="100" />
           <Property Name="Contra" Type="nvarchar" MaxLength="256" />
-          <Property Name="idTp" Type="int" />
+          <Property Name="idTp" Type="varchar" MaxLength="50" />
           <Property Name="idEs" Type="int" />
         </EntityType>
         <EntityType Name="Estado">
@@ -28,14 +28,7 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="150" />
         </EntityType>
-        <EntityType Name="tipoUsuario">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="150" />
-        </EntityType>
-        <Association Name="FK__CuentasUsu__idEs__5441852A">
+        <Association Name="FK__CuentasUsu__idEs__5CD6CB2B">
           <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
           <End Role="CuentasUsuario" Type="Self.CuentasUsuario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -44,18 +37,6 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
             </Principal>
             <Dependent Role="CuentasUsuario">
               <PropertyRef Name="idEs" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CuentasUsu__idTp__534D60F1">
-          <End Role="tipoUsuario" Type="Self.tipoUsuario" Multiplicity="0..1" />
-          <End Role="CuentasUsuario" Type="Self.CuentasUsuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tipoUsuario">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="CuentasUsuario">
-              <PropertyRef Name="idTp" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -78,7 +59,7 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
           <Parameter Name="email" Type="nvarchar" Mode="In" />
           <Parameter Name="LoginN" Type="varchar" Mode="In" />
           <Parameter Name="Contra" Type="nvarchar" Mode="In" />
-          <Parameter Name="tipo" Type="int" Mode="In" />
+          <Parameter Name="tipo" Type="varchar" Mode="In" />
           <Parameter Name="estd" Type="int" Mode="In" />
         </Function>
         <Function Name="Sp_EditarContra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -87,7 +68,6 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
         </Function>
         <EntityContainer Name="parkModelStoreContainer">
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tipoUsuario" EntityType="Self.tipoUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CuentasUsuario" EntityType="Self.CuentasUsuario" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [CuentasUsuario].[id] AS [id], 
@@ -101,12 +81,8 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
     [CuentasUsuario].[idEs] AS [idEs]
     FROM [dbo].[CuentasUsuario] AS [CuentasUsuario]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__CuentasUsu__idEs__5441852A" Association="Self.FK__CuentasUsu__idEs__5441852A">
+          <AssociationSet Name="FK__CuentasUsu__idEs__5CD6CB2B" Association="Self.FK__CuentasUsu__idEs__5CD6CB2B">
             <End Role="Estado" EntitySet="Estado" />
-            <End Role="CuentasUsuario" EntitySet="CuentasUsuario" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CuentasUsu__idTp__534D60F1" Association="Self.FK__CuentasUsu__idTp__534D60F1">
-            <End Role="tipoUsuario" EntitySet="tipoUsuario" />
             <End Role="CuentasUsuario" EntitySet="CuentasUsuario" />
           </AssociationSet>
         </EntityContainer>
@@ -130,7 +106,7 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="LoginN" Mode="In" Type="String" />
             <Parameter Name="Contra" Mode="In" Type="String" />
-            <Parameter Name="tipo" Mode="In" Type="Int32" />
+            <Parameter Name="tipo" Mode="In" Type="String" />
             <Parameter Name="estd" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Sp_EditarContra">
@@ -138,29 +114,17 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
             <Parameter Name="Contra" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="Estado" EntityType="parkModel.Estado" />
-          <EntitySet Name="tipoUsuario" EntityType="parkModel.tipoUsuario" />
-          <EntitySet Name="CuentasUsuario" EntityType="parkModel.CuentasUsuario" />
-          <AssociationSet Name="FK__CuentasUsu__idEs__5441852A" Association="parkModel.FK__CuentasUsu__idEs__5441852A">
-            <End Role="Estado" EntitySet="Estado" />
-            <End Role="CuentasUsuario" EntitySet="CuentasUsuario" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CuentasUsu__idTp__534D60F1" Association="parkModel.FK__CuentasUsu__idTp__534D60F1">
-            <End Role="tipoUsuario" EntitySet="tipoUsuario" />
-            <End Role="CuentasUsuario" EntitySet="CuentasUsuario" />
-          </AssociationSet>
           <FunctionImport Name="deshUsuario">
             <Parameter Name="id" Mode="In" Type="Int32" />
             <Parameter Name="estado" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="CuentasUsuario" EntityType="parkModel.CuentasUsuario" />
+          <AssociationSet Name="FK__CuentasUsu__idEs__5CD6CB2B" Association="parkModel.FK__CuentasUsu__idEs__5CD6CB2B">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="CuentasUsuario" EntitySet="CuentasUsuario" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Estado">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="tipoUsuario">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -178,10 +142,10 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="LoginN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Contra" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="idTp" Type="Int32" />
+          <Property Name="idTp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="idEs" Type="Int32" />
         </EntityType>
-        <Association Name="FK__CuentasUsu__idEs__5441852A">
+        <Association Name="FK__CuentasUsu__idEs__5CD6CB2B">
           <End Type="parkModel.Estado" Role="Estado" Multiplicity="0..1" />
           <End Type="parkModel.CuentasUsuario" Role="CuentasUsuario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -190,18 +154,6 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
             </Principal>
             <Dependent Role="CuentasUsuario">
               <PropertyRef Name="idEs" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CuentasUsu__idTp__534D60F1">
-          <End Type="parkModel.tipoUsuario" Role="tipoUsuario" Multiplicity="0..1" />
-          <End Type="parkModel.CuentasUsuario" Role="CuentasUsuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tipoUsuario">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="CuentasUsuario">
-              <PropertyRef Name="idTp" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -222,14 +174,7 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tipoUsuario">
-            <EntityTypeMapping TypeName="parkModel.tipoUsuario">
-              <MappingFragment StoreEntitySet="tipoUsuario">
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="deshUsuario" FunctionName="parkModel.Store.deshUsuario" />
           <EntitySetMapping Name="CuentasUsuario">
             <EntityTypeMapping TypeName="parkModel.CuentasUsuario">
               <MappingFragment StoreEntitySet="CuentasUsuario">
@@ -245,7 +190,6 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="deshUsuario" FunctionName="parkModel.Store.deshUsuario" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

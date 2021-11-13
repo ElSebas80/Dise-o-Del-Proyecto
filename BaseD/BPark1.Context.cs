@@ -28,7 +28,6 @@ namespace Diseño.BaseD
         }
     
         public virtual DbSet<Estado> Estado { get; set; }
-        public virtual DbSet<tipoUsuario> tipoUsuario { get; set; }
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
     
         public virtual int sp_configuracion(string nombreParqueadero, string nit, Nullable<int> telefono, string direccion, string correo, string horarioAtencion)
@@ -60,7 +59,7 @@ namespace Diseño.BaseD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_configuracion", nombreParqueaderoParameter, nitParameter, telefonoParameter, direccionParameter, correoParameter, horarioAtencionParameter);
         }
     
-        public virtual int sp_CuentasUsuario(string nombre, Nullable<int> cedula, string direccion, string email, string loginN, string contra, Nullable<int> tipo, Nullable<int> estd)
+        public virtual int sp_CuentasUsuario(string nombre, Nullable<int> cedula, string direccion, string email, string loginN, string contra, string tipo, Nullable<int> estd)
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("Nombre", nombre) :
@@ -86,9 +85,9 @@ namespace Diseño.BaseD
                 new ObjectParameter("Contra", contra) :
                 new ObjectParameter("Contra", typeof(string));
     
-            var tipoParameter = tipo.HasValue ?
+            var tipoParameter = tipo != null ?
                 new ObjectParameter("tipo", tipo) :
-                new ObjectParameter("tipo", typeof(int));
+                new ObjectParameter("tipo", typeof(string));
     
             var estdParameter = estd.HasValue ?
                 new ObjectParameter("estd", estd) :

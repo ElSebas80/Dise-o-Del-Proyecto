@@ -21,7 +21,7 @@ namespace Diseño.BaseD
         public string email { get; set; }
         public string LoginN { get; set; }
         public string Contra { get; set; }
-        public Nullable<int> idTp { get; set; }
+        public string idTp { get; set; }
         public Nullable<int> idEs { get; set; }
     }
 }

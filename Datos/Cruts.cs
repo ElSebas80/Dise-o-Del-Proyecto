@@ -9,7 +9,7 @@ namespace Diseño.Datos
 {
     public class Cruts
     {
-        public void GuardarUser(string nombre, int cc, string direc, string correo, string longin, string contra, int tipo, int estado)
+        public void GuardarUser(string nombre, int cc, string direc, string correo, string longin, string contra, string tipo, int estado)
         {
             using (parkEntities1 bd = new parkEntities1())
             {

@@ -12,6 +12,15 @@ using Diseño.Datos.Logn;
 
 namespace Diseño.Vista
 {
+    //public partial class dusuario
+    //{
+    //    public string nombre { get; set; }
+    //    public string nombre { get; set; }
+    //    public string nombre { get; set; }
+    //    public string nombre { get; set; }
+    //    public string nombre { get; set; }
+    //    public string nombre { get; set; }
+    //}
     public partial class FrmCuentas : Form
     {
         public FrmCuentas()
@@ -43,21 +52,31 @@ namespace Diseño.Vista
         }
         Cruts s = new Cruts();
         string contra="123";
-        int tipo;
+        int estd,tipoUser;
+        private void tip()
+        {
+            if (txtTipo.Text == "Administrador")
+                tipoUser = 1;
+            else if (txtTipo.Text == "Empleado")
+                tipoUser = 2;
+        }
+          
         private void EstD()
         {
             if (btnHabl.Checked == true)
-                tipo = 1;
+                estd = 1;
             else if (btnDesh.Checked == true)
-                tipo = 2;
+                estd = 2;
         }
         private void guar()
         {
             s.GuardarUser(txtNom.Text,int.Parse(txtCed.Text),txtDir.Text, txtCor.Text,
-                txtLog.Text, contra,int.Parse(txtTipo.Text),tipo);
+                txtLog.Text, contra, txtTipo.Text, estd);
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            tip();
+            EstD();
             guar();
             Contr();
         }

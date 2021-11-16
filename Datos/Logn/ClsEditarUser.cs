@@ -12,17 +12,17 @@ namespace Diseño.Datos.Logn
     {
         public void EditarUser(int Cod, string Clave)
         {
-            string ClaveEncrip = Encryp.GetSHA1(Clave);
-            using (emailEntities bd = new emailEntities())
+            //string ClaveEncrip = Encryp.GetSHA1(Clave);
+            using (parkEntities1 bd = new parkEntities1())
             {
-                bd.Sp_EditarContra(Cod, ClaveEncrip);
+                bd.Sp_EditarContra(Cod, Clave);
             }
         }
-        public IList<EnvEmail> MostrarClientes()
+        public IList<CuentasUsuario> MostrarClientes()
         {
-            using (emailEntities db = new emailEntities())
+            using (parkEntities1 db = new parkEntities1())
             {
-                return db.EnvEmail.ToList();
+                return db.CuentasUsuario.ToList();
             }
         }
     }

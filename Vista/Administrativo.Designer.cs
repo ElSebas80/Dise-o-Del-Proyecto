@@ -32,6 +32,7 @@ namespace Diseño.Vista
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdministrativo));
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnInforma = new System.Windows.Forms.Button();
             this.btnCuentas = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@ namespace Diseño.Vista
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -63,6 +63,7 @@ namespace Diseño.Vista
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnVolver);
             this.panel1.Controls.Add(this.btnInforma);
             this.panel1.Controls.Add(this.btnCuentas);
@@ -70,7 +71,6 @@ namespace Diseño.Vista
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -78,6 +78,20 @@ namespace Diseño.Vista
             this.panel1.Size = new System.Drawing.Size(237, 661);
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(43, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 26);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Perfil";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btnVolver
             // 
@@ -97,6 +111,7 @@ namespace Diseño.Vista
             // btnInforma
             // 
             this.btnInforma.BackColor = System.Drawing.Color.Transparent;
+            this.btnInforma.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInforma.FlatAppearance.BorderSize = 0;
             this.btnInforma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInforma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,6 +126,7 @@ namespace Diseño.Vista
             // btnCuentas
             // 
             this.btnCuentas.BackColor = System.Drawing.Color.Transparent;
+            this.btnCuentas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCuentas.FlatAppearance.BorderSize = 0;
             this.btnCuentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCuentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,16 +180,6 @@ namespace Diseño.Vista
             this.label2.TabIndex = 4;
             this.label2.Text = "ADMINISTRADOR";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Tipo Usuario";
-            // 
             // PanelContenedor
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.Transparent;
@@ -217,10 +223,10 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnInforma;
         private System.Windows.Forms.Button btnCuentas;
         private System.Windows.Forms.Panel PanelContenedor;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button button1;
     }
 }

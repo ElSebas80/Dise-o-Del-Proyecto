@@ -12,12 +12,15 @@ namespace Diseño.BaseD
     using System;
     using System.Collections.Generic;
     
-    public partial class EnvEmail
+    public partial class CuentasUsuario
     {
-        public int UserId { get; set; }
-        public string LoginName { get; set; }
-        public string Contra { get; set; }
-        public string FirstName { get; set; }
+        public int id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public Nullable<int> Cedula { get; set; }
+        public string Direccion { get; set; }
         public string email { get; set; }
+        public string LoginN { get; set; }
+        public string Contra { get; set; }
     }
 }

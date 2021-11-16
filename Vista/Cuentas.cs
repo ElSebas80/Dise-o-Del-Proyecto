@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Diseño.Datos;
+using Diseño.Datos.Logn;
 
 namespace Diseño.Vista
 {
@@ -39,6 +41,36 @@ namespace Diseño.Vista
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        Cruts s = new Cruts();
+        string contra="123";
+        private void guar()
+        {
+            s.GuardarUser(txtNom.Text, txtApell.Text,int.Parse(txtCed.Text),txtDir.Text, txtCor.Text,
+                txtLog.Text, contra);
+        }
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            guar();
+            Contr();
+        }
+        private void Contr()
+        {
+            ClsRecuperarpasss em = new ClsRecuperarpasss();
+            ClsRecuperarpasss cahs = new ClsRecuperarpasss();
+                cahs.Enviarpasss(txtLog.Text);
+                MessageBox.Show("Nuevo usuario creado correctamente La contraseña asignada fue enviada al " +
+                "correo correspondiente a " + txtCor.Text);
+            //var verificado = em.mail(txtCor.Text.Trim());
+            //if (verificado != null)
+            //{
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Correo incorrecto o no exixtente");
+            //}
+        }
 
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {        }
     }
 }

@@ -9,25 +9,25 @@ namespace Diseño.Datos.Logn
 {
     public class ClsRecuperarpasss
     {
-        public EnvEmail mail(string gm)
+        public CuentasUsuario mail(string gm)
         {
-            using (emailEntities db = new emailEntities())
+            using (parkEntities1 db = new parkEntities1())
             {
-                var registro = db.EnvEmail.Where(x => x.email == gm
+                var registro = db.CuentasUsuario.Where(x => x.email == gm
                     ).FirstOrDefault();
                 return registro;
             }
         }
         public string Recuperarpasss(string User)
         {
-            using (emailEntities db = new emailEntities())
+            using (parkEntities1 db = new parkEntities1())
             {
-                var Find = db.EnvEmail.Where(x => x.email == User).FirstOrDefault();
+                var Find = db.CuentasUsuario.Where(x => x.email == User).FirstOrDefault();
 
                 if (Find != null)
                 {
-                    int CodiUser = int.Parse(Find.UserId.ToString());
-                    string Nombre = Find.FirstName.ToString();
+                    int CodiUser = int.Parse(Find.id.ToString());
+                    string Nombre = Find.Nombre.ToString();
 
 
                     var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -52,7 +52,45 @@ namespace Diseño.Datos.Logn
                 }
                 else
                 {
-                    return "ALgo anda mal";
+                    return "Algo anda mal";
+                }
+            }
+        }
+        public string Enviarpasss(string user)
+        {
+            using (parkEntities1 db = new parkEntities1())
+            {
+                var Find = db.CuentasUsuario.Where(x => x.LoginN == user).FirstOrDefault();
+
+                if (Find != null)
+                {
+                    int CodiUser = int.Parse(Find.id.ToString());
+                    string correo = Find.email.ToString();
+
+
+                    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                    var Charsarr = new char[6];
+                    var random = new Random();
+
+                    for (int i = 0; i < Charsarr.Length; i++)
+                    {
+                        Charsarr[i] = characters[random.Next(characters.Length)];
+                    }
+
+                    var resultString = new String(Charsarr);
+
+                    ClsEditarUser ClsEditUs = new ClsEditarUser();
+                    ClsEditUs.EditarUser(CodiUser, resultString.ToString());
+
+                    var Emailservice = new SistemSuports("sssssssssew888@gmail.com", "3017118619.");
+                    Emailservice.Enviarmensaje(Asunto: "Solicitud para la contraseña :c",
+                        Cuerpo: "Hola " + "Nuevo usuario" + " Por algun motivo usted es el nuevo empleado, pero su clave nueva es: " + resultString,
+                        Destino: correo);
+                    return "Cambio correcto";
+                }
+                else
+                {
+                    return "Algo anda mal";
                 }
             }
         }

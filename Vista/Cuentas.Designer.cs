@@ -38,7 +38,6 @@ namespace Diseño.Vista
             this.btnDesh = new System.Windows.Forms.RadioButton();
             this.btnHabl = new System.Windows.Forms.RadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.txtTipo = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@ namespace Diseño.Vista
             this.btnSal = new System.Windows.Forms.PictureBox();
             this.btnRes = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
@@ -105,10 +105,10 @@ namespace Diseño.Vista
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.groupBox1.Controls.Add(this.cmbTipo);
             this.groupBox1.Controls.Add(this.btnDesh);
             this.groupBox1.Controls.Add(this.btnHabl);
             this.groupBox1.Controls.Add(this.pictureBox4);
-            this.groupBox1.Controls.Add(this.txtTipo);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(59, 222);
             this.groupBox1.Name = "groupBox1";
@@ -149,19 +149,6 @@ namespace Diseño.Vista
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
-            // 
-            // txtTipo
-            // 
-            this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipo.FormattingEnabled = true;
-            this.txtTipo.ItemHeight = 20;
-            this.txtTipo.Items.AddRange(new object[] {
-            "Administrador",
-            "Empleado"});
-            this.txtTipo.Location = new System.Drawing.Point(21, 25);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(156, 24);
-            this.txtTipo.TabIndex = 0;
             // 
             // label12
             // 
@@ -328,6 +315,17 @@ namespace Diseño.Vista
             this.dataGridView1.Size = new System.Drawing.Size(534, 150);
             this.dataGridView1.TabIndex = 44;
             // 
+            // cmbTipo
+            // 
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "Administrador",
+            "Empleado"});
+            this.cmbTipo.Location = new System.Drawing.Point(20, 25);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(156, 28);
+            this.cmbTipo.TabIndex = 4;
+            // 
             // FrmCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,7 +383,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.RadioButton btnDesh;
         private System.Windows.Forms.RadioButton btnHabl;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.ListBox txtTipo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -402,5 +399,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnSal;
         private System.Windows.Forms.PictureBox btnRes;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cmbTipo;
     }
 }

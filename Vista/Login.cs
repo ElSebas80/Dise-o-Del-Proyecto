@@ -45,6 +45,7 @@ namespace Diseño.Vista
 
                     if (verificado != null)
                     {
+                        //FrmIngresoMoto us = new FrmIngresoMoto();
                         FrmPrincipal us = new FrmPrincipal();
                         us.Show();
                         this.Hide();

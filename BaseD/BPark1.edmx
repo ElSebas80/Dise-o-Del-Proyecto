@@ -6,6 +6,16 @@
     <edmx:StorageModels>
     <Schema Namespace="parkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'park.dbo.configuracion' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="configuracion">
+          <Property Name="NombreParqueadero" Type="varchar" MaxLength="100" />
+          <Property Name="Nit" Type="varchar" MaxLength="30" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="Correo" Type="varchar" MaxLength="100" />
+          <Property Name="HorarioAtencion" Type="varchar" MaxLength="100" />
+        </EntityType>-->
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="CuentasUsuario">
           <Key>
@@ -28,6 +38,34 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="150" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'park.dbo.ingresoVehiculo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ingresoVehiculo">
+          <Key>
+            <PropertyRef Name="NumTicket" />
+          </Key>
+          <Property Name="NumTicket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoVhlo" Type="varchar" MaxLength="20" />
+          <Property Name="Placa" Type="varchar" MaxLength="7" />
+          <Property Name="NumCascos" Type="varchar" MaxLength="2" />
+          <Property Name="CuposDis" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="hora" Type="time" Precision="7" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'park.dbo.tarifas' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="tarifas">
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="HoraEstacioMoto" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="SemanaEstacioMoto" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="QuincenaEstacioMoto" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="MensualidadEstacioMoto" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="HoraEstacioBici" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="SemanaEstacioBici" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="QuincenaEstacioBici" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="MensualidadEstacioBici" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="CuposDIsponibles" Type="int" />
+        </EntityType>-->
         <Association Name="FK__CuentasUsu__idEs__5CD6CB2B">
           <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
           <End Role="CuentasUsuario" Type="Self.CuentasUsuario" Multiplicity="*" />
@@ -66,6 +104,26 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
           <Parameter Name="Id" Type="int" Mode="In" />
           <Parameter Name="Contra" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_ingresoVehiculo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipoVhlo" Type="varchar" Mode="In" />
+          <Parameter Name="Placa" Type="varchar" Mode="In" />
+          <Parameter Name="NumCascos" Type="varchar" Mode="In" />
+          <Parameter Name="CuposDis" Type="int" Mode="In" />
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="hora" Type="time" Mode="In" />
+        </Function>
+        <Function Name="sp_tarifas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Fecha" Type="datetime" Mode="In" />
+          <Parameter Name="HoraEstacioMoto" Type="decimal" Mode="In" />
+          <Parameter Name="SemanaEstacioMoto" Type="decimal" Mode="In" />
+          <Parameter Name="QuincenaEstacioMoto" Type="decimal" Mode="In" />
+          <Parameter Name="MensualidadEstacioMoto" Type="decimal" Mode="In" />
+          <Parameter Name="HoraEstacioBici" Type="decimal" Mode="In" />
+          <Parameter Name="SemanaEstacioBici" Type="decimal" Mode="In" />
+          <Parameter Name="QuincenaEstacioBici" Type="decimal" Mode="In" />
+          <Parameter Name="MensualidadEstacioBici" Type="decimal" Mode="In" />
+          <Parameter Name="CuposDIsponibles" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="parkModelStoreContainer">
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CuentasUsuario" EntityType="Self.CuentasUsuario" store:Type="Tables" store:Schema="dbo">
@@ -80,6 +138,17 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
     [CuentasUsuario].[idTp] AS [idTp], 
     [CuentasUsuario].[idEs] AS [idEs]
     FROM [dbo].[CuentasUsuario] AS [CuentasUsuario]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ingresoVehiculo" EntityType="Self.ingresoVehiculo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ingresoVehiculo].[NumTicket] AS [NumTicket], 
+    [ingresoVehiculo].[tipoVhlo] AS [tipoVhlo], 
+    [ingresoVehiculo].[Placa] AS [Placa], 
+    [ingresoVehiculo].[NumCascos] AS [NumCascos], 
+    [ingresoVehiculo].[CuposDis] AS [CuposDis], 
+    [ingresoVehiculo].[Fecha] AS [Fecha], 
+    [ingresoVehiculo].[hora] AS [hora]
+    FROM [dbo].[ingresoVehiculo] AS [ingresoVehiculo]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__CuentasUsu__idEs__5CD6CB2B" Association="Self.FK__CuentasUsu__idEs__5CD6CB2B">
             <End Role="Estado" EntitySet="Estado" />
@@ -123,6 +192,27 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
             <End Role="Estado" EntitySet="Estado" />
             <End Role="CuentasUsuario" EntitySet="CuentasUsuario" />
           </AssociationSet>
+          <FunctionImport Name="sp_tarifas">
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="HoraEstacioMoto" Mode="In" Type="Decimal" />
+            <Parameter Name="SemanaEstacioMoto" Mode="In" Type="Decimal" />
+            <Parameter Name="QuincenaEstacioMoto" Mode="In" Type="Decimal" />
+            <Parameter Name="MensualidadEstacioMoto" Mode="In" Type="Decimal" />
+            <Parameter Name="HoraEstacioBici" Mode="In" Type="Decimal" />
+            <Parameter Name="SemanaEstacioBici" Mode="In" Type="Decimal" />
+            <Parameter Name="QuincenaEstacioBici" Mode="In" Type="Decimal" />
+            <Parameter Name="MensualidadEstacioBici" Mode="In" Type="Decimal" />
+            <Parameter Name="CuposDIsponibles" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="ingresoVehiculo" EntityType="parkModel.ingresoVehiculo" />
+          <FunctionImport Name="sp_ingresoVehiculo">
+            <Parameter Name="tipoVhlo" Mode="In" Type="String" />
+            <Parameter Name="Placa" Mode="In" Type="String" />
+            <Parameter Name="NumCascos" Mode="In" Type="String" />
+            <Parameter Name="CuposDis" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="hora" Mode="In" Type="Time" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Estado">
           <Key>
@@ -157,6 +247,18 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ingresoVehiculo">
+          <Key>
+            <PropertyRef Name="NumTicket" />
+          </Key>
+          <Property Name="NumTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoVhlo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Placa" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="NumCascos" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CuposDis" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="hora" Type="Time" Precision="7" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -190,6 +292,21 @@ advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_tarifas" FunctionName="parkModel.Store.sp_tarifas" />
+          <EntitySetMapping Name="ingresoVehiculo">
+            <EntityTypeMapping TypeName="parkModel.ingresoVehiculo">
+              <MappingFragment StoreEntitySet="ingresoVehiculo">
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="CuposDis" ColumnName="CuposDis" />
+                <ScalarProperty Name="NumCascos" ColumnName="NumCascos" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="tipoVhlo" ColumnName="tipoVhlo" />
+                <ScalarProperty Name="NumTicket" ColumnName="NumTicket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_ingresoVehiculo" FunctionName="parkModel.Store.sp_ingresoVehiculo" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -84,7 +84,7 @@ namespace Diseño.Datos.Logn
 
                     var Emailservice = new SistemSuports("sssssssssew888@gmail.com", "3017118619.");
                     Emailservice.Enviarmensaje(Asunto: "Solicitud para la contraseña :c",
-                        Cuerpo: "Hola " + "Nuevo usuario" + " Por algun motivo usted es el nuevo empleado, pero su clave nueva es: " + resultString,
+                        Cuerpo: "Hola " + "Nuevo usuario" + " Por algun motivo usted es el nuevo empleado u administrador, pero su clave asignada es: " + resultString,
                         Destino: correo);
                     return "Cambio correcto";
                 }

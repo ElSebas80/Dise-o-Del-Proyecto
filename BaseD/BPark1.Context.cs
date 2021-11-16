@@ -29,6 +29,7 @@ namespace Diseño.BaseD
     
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
+        public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
     
         public virtual int sp_configuracion(string nombreParqueadero, string nit, Nullable<int> telefono, string direccion, string correo, string horarioAtencion)
         {
@@ -120,6 +121,80 @@ namespace Diseño.BaseD
                 new ObjectParameter("estado", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deshUsuario", idParameter, estadoParameter);
+        }
+    
+        public virtual int sp_tarifas(Nullable<System.DateTime> fecha, Nullable<decimal> horaEstacioMoto, Nullable<decimal> semanaEstacioMoto, Nullable<decimal> quincenaEstacioMoto, Nullable<decimal> mensualidadEstacioMoto, Nullable<decimal> horaEstacioBici, Nullable<decimal> semanaEstacioBici, Nullable<decimal> quincenaEstacioBici, Nullable<decimal> mensualidadEstacioBici, Nullable<int> cuposDIsponibles)
+        {
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            var horaEstacioMotoParameter = horaEstacioMoto.HasValue ?
+                new ObjectParameter("HoraEstacioMoto", horaEstacioMoto) :
+                new ObjectParameter("HoraEstacioMoto", typeof(decimal));
+    
+            var semanaEstacioMotoParameter = semanaEstacioMoto.HasValue ?
+                new ObjectParameter("SemanaEstacioMoto", semanaEstacioMoto) :
+                new ObjectParameter("SemanaEstacioMoto", typeof(decimal));
+    
+            var quincenaEstacioMotoParameter = quincenaEstacioMoto.HasValue ?
+                new ObjectParameter("QuincenaEstacioMoto", quincenaEstacioMoto) :
+                new ObjectParameter("QuincenaEstacioMoto", typeof(decimal));
+    
+            var mensualidadEstacioMotoParameter = mensualidadEstacioMoto.HasValue ?
+                new ObjectParameter("MensualidadEstacioMoto", mensualidadEstacioMoto) :
+                new ObjectParameter("MensualidadEstacioMoto", typeof(decimal));
+    
+            var horaEstacioBiciParameter = horaEstacioBici.HasValue ?
+                new ObjectParameter("HoraEstacioBici", horaEstacioBici) :
+                new ObjectParameter("HoraEstacioBici", typeof(decimal));
+    
+            var semanaEstacioBiciParameter = semanaEstacioBici.HasValue ?
+                new ObjectParameter("SemanaEstacioBici", semanaEstacioBici) :
+                new ObjectParameter("SemanaEstacioBici", typeof(decimal));
+    
+            var quincenaEstacioBiciParameter = quincenaEstacioBici.HasValue ?
+                new ObjectParameter("QuincenaEstacioBici", quincenaEstacioBici) :
+                new ObjectParameter("QuincenaEstacioBici", typeof(decimal));
+    
+            var mensualidadEstacioBiciParameter = mensualidadEstacioBici.HasValue ?
+                new ObjectParameter("MensualidadEstacioBici", mensualidadEstacioBici) :
+                new ObjectParameter("MensualidadEstacioBici", typeof(decimal));
+    
+            var cuposDIsponiblesParameter = cuposDIsponibles.HasValue ?
+                new ObjectParameter("CuposDIsponibles", cuposDIsponibles) :
+                new ObjectParameter("CuposDIsponibles", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_tarifas", fechaParameter, horaEstacioMotoParameter, semanaEstacioMotoParameter, quincenaEstacioMotoParameter, mensualidadEstacioMotoParameter, horaEstacioBiciParameter, semanaEstacioBiciParameter, quincenaEstacioBiciParameter, mensualidadEstacioBiciParameter, cuposDIsponiblesParameter);
+        }
+    
+        public virtual int sp_ingresoVehiculo(string tipoVhlo, string placa, string numCascos, Nullable<int> cuposDis, Nullable<System.DateTime> fecha, Nullable<System.TimeSpan> hora)
+        {
+            var tipoVhloParameter = tipoVhlo != null ?
+                new ObjectParameter("tipoVhlo", tipoVhlo) :
+                new ObjectParameter("tipoVhlo", typeof(string));
+    
+            var placaParameter = placa != null ?
+                new ObjectParameter("Placa", placa) :
+                new ObjectParameter("Placa", typeof(string));
+    
+            var numCascosParameter = numCascos != null ?
+                new ObjectParameter("NumCascos", numCascos) :
+                new ObjectParameter("NumCascos", typeof(string));
+    
+            var cuposDisParameter = cuposDis.HasValue ?
+                new ObjectParameter("CuposDis", cuposDis) :
+                new ObjectParameter("CuposDis", typeof(int));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            var horaParameter = hora.HasValue ?
+                new ObjectParameter("hora", hora) :
+                new ObjectParameter("hora", typeof(System.TimeSpan));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ingresoVehiculo", tipoVhloParameter, placaParameter, numCascosParameter, cuposDisParameter, fechaParameter, horaParameter);
         }
     }
 }

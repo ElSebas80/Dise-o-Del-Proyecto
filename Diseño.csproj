@@ -77,6 +77,9 @@
     <Compile Include="BaseD\Estado.cs">
       <DependentUpon>BPark1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BaseD\ingresoVehiculo.cs">
+      <DependentUpon>BPark1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Datos\Cruts.cs" />
     <Compile Include="Datos\Logn\ClsEditarUser.cs" />
     <Compile Include="Datos\Logn\Email.cs" />

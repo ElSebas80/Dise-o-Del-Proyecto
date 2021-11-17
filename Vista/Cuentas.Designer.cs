@@ -32,9 +32,10 @@ namespace Diseño.Vista
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCuentas));
             this.btnCanc = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCons = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.btnDesh = new System.Windows.Forms.RadioButton();
             this.btnHabl = new System.Windows.Forms.RadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -53,15 +54,14 @@ namespace Diseño.Vista
             this.btnMax = new System.Windows.Forms.PictureBox();
             this.btnSal = new System.Windows.Forms.PictureBox();
             this.btnRes = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.dtgUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCanc
@@ -83,14 +83,15 @@ namespace Diseño.Vista
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // button2
+            // btnCons
             // 
-            this.button2.Location = new System.Drawing.Point(246, 530);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 34;
-            this.button2.Text = "Consultar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCons.Location = new System.Drawing.Point(246, 530);
+            this.btnCons.Name = "btnCons";
+            this.btnCons.Size = new System.Drawing.Size(75, 23);
+            this.btnCons.TabIndex = 34;
+            this.btnCons.Text = "Consultar";
+            this.btnCons.UseVisualStyleBackColor = true;
+            this.btnCons.Click += new System.EventHandler(this.btnCons_Click);
             // 
             // btnActualizar
             // 
@@ -116,6 +117,17 @@ namespace Diseño.Vista
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Usuario";
+            // 
+            // cmbTipo
+            // 
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "Administrador",
+            "Empleado"});
+            this.cmbTipo.Location = new System.Drawing.Point(20, 25);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(156, 28);
+            this.cmbTipo.TabIndex = 4;
             // 
             // btnDesh
             // 
@@ -218,6 +230,7 @@ namespace Diseño.Vista
             this.txtCed.Name = "txtCed";
             this.txtCed.Size = new System.Drawing.Size(128, 20);
             this.txtCed.TabIndex = 24;
+            this.txtCed.TextChanged += new System.EventHandler(this.txtCed_TextChanged);
             // 
             // txtNom
             // 
@@ -307,24 +320,21 @@ namespace Diseño.Vista
             this.btnRes.TabStop = false;
             this.btnRes.Click += new System.EventHandler(this.btnRes_Click);
             // 
-            // dataGridView1
+            // dtgUsuarios
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(59, 329);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(534, 150);
-            this.dataGridView1.TabIndex = 44;
-            // 
-            // cmbTipo
-            // 
-            this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Items.AddRange(new object[] {
-            "Administrador",
-            "Empleado"});
-            this.cmbTipo.Location = new System.Drawing.Point(20, 25);
-            this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(156, 28);
-            this.cmbTipo.TabIndex = 4;
+            this.dtgUsuarios.AllowUserToAddRows = false;
+            this.dtgUsuarios.AllowUserToDeleteRows = false;
+            this.dtgUsuarios.AllowUserToResizeColumns = false;
+            this.dtgUsuarios.AllowUserToResizeRows = false;
+            this.dtgUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgUsuarios.Location = new System.Drawing.Point(59, 329);
+            this.dtgUsuarios.Name = "dtgUsuarios";
+            this.dtgUsuarios.Size = new System.Drawing.Size(534, 150);
+            this.dtgUsuarios.TabIndex = 44;
+            this.dtgUsuarios.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgUsuarios_CellValueChanged);
+            this.dtgUsuarios.DoubleClick += new System.EventHandler(this.dtgUsuarios_DoubleClick);
             // 
             // FrmCuentas
             // 
@@ -334,7 +344,7 @@ namespace Diseño.Vista
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(671, 661);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtgUsuarios);
             this.Controls.Add(this.btnRes);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.btnMax);
@@ -344,7 +354,7 @@ namespace Diseño.Vista
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCanc);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCons);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label12);
@@ -367,7 +377,7 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,7 +387,7 @@ namespace Diseño.Vista
 
         private System.Windows.Forms.Button btnCanc;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCons;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton btnDesh;
@@ -398,7 +408,7 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnMax;
         private System.Windows.Forms.PictureBox btnSal;
         private System.Windows.Forms.PictureBox btnRes;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgUsuarios;
         private System.Windows.Forms.ComboBox cmbTipo;
     }
 }

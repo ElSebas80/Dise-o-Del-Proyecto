@@ -196,5 +196,42 @@ namespace Diseño.BaseD
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ingresoVehiculo", tipoVhloParameter, placaParameter, numCascosParameter, cuposDisParameter, fechaParameter, horaParameter);
         }
+    
+        public virtual int sp_EdiCuentasUsuario(string nombre, Nullable<int> cedula, string direccion, string email, string loginN, string contra, string tipo, Nullable<int> estd)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("Cedula", cedula) :
+                new ObjectParameter("Cedula", typeof(int));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var loginNParameter = loginN != null ?
+                new ObjectParameter("LoginN", loginN) :
+                new ObjectParameter("LoginN", typeof(string));
+    
+            var contraParameter = contra != null ?
+                new ObjectParameter("Contra", contra) :
+                new ObjectParameter("Contra", typeof(string));
+    
+            var tipoParameter = tipo != null ?
+                new ObjectParameter("tipo", tipo) :
+                new ObjectParameter("tipo", typeof(string));
+    
+            var estdParameter = estd.HasValue ?
+                new ObjectParameter("estd", estd) :
+                new ObjectParameter("estd", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EdiCuentasUsuario", nombreParameter, cedulaParameter, direccionParameter, emailParameter, loginNParameter, contraParameter, tipoParameter, estdParameter);
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Diseño.BaseD;
 using Diseño.Datos;
 using Diseño.Datos.Logn;
 
@@ -69,9 +70,17 @@ namespace Diseño.Vista
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            EstD();
-            guar();
-            Contr();
+            try
+            {
+                EstD();
+                guar();
+                Contr();
+            }
+            catch 
+            {
+                MessageBox.Show("Algo saliio mal");
+            }
+           
         }
         private void Contr()
         {
@@ -89,8 +98,62 @@ namespace Diseño.Vista
             //    MessageBox.Show("Correo incorrecto o no exixtente");
             //}
         }
+        private void Mostrartabla()
+        {
+            using (parkEntities1 mos = new parkEntities1())
+            {
+                dtgUsuarios.DataSource = mos.CuentasUsuario.ToList();
+                dtgUsuarios.Columns[0].Visible = false;
+                dtgUsuarios.Columns[6].Visible = false;
+            }
+        }
+        private void btnCons_Click(object sender, EventArgs e)
+        {
+            Mostrartabla();
+        }
 
+        private void dtgUsuarios_DoubleClick(object sender, EventArgs e)
+        {
+            txtNom.Text = dtgUsuarios.CurrentRow.Cells[1].Value.ToString();
+            txtCed.Text = dtgUsuarios.CurrentRow.Cells[2].Value.ToString();
+            txtDir.Text = dtgUsuarios.CurrentRow.Cells[3].Value.ToString();
+            txtCor.Text = dtgUsuarios.CurrentRow.Cells[4].Value.ToString();
+            txtLog.Text = dtgUsuarios.CurrentRow.Cells[5].Value.ToString();
+            cmbTipo.Text = dtgUsuarios.CurrentRow.Cells[7].Value.ToString();
+        }
+
+        private void txtCed_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        string Rcontra, CodProd;
+        Cruts ct = new Cruts();
+        private void EncontrarCont()
+        {
+            Rcontra = ct.RetornarContra(int.Parse(CodProd));
+        }
+
+        private void dtgUsuarios_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void editar()
+        {
+            s.EditarUser(txtNom.Text, int.Parse(txtCed.Text), txtDir.Text, txtCor.Text,
+                txtLog.Text, Rcontra, cmbTipo.Text, estd);
+        }
         private void btnActualizar_Click(object sender, EventArgs e)
-        {        }
+        {
+            try
+            {
+                EncontrarCont();
+                editar();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Algo saliio mal");
+            }        
+        }
     }
 }

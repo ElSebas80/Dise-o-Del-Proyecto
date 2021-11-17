@@ -43,6 +43,7 @@ namespace Diseño.Vista
             this.btnRes = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnGnTicket = new System.Windows.Forms.Button();
             this.txtCuposD = new System.Windows.Forms.TextBox();
             this.rdtBici = new System.Windows.Forms.RadioButton();
             this.rdtMoto = new System.Windows.Forms.RadioButton();
@@ -108,7 +109,6 @@ namespace Diseño.Vista
             this.label25 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnGnTicket = new System.Windows.Forms.Button();
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -294,11 +294,20 @@ namespace Diseño.Vista
             this.tabPage1.Text = "Ingreso Vehículo";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnGnTicket
+            // 
+            this.btnGnTicket.Location = new System.Drawing.Point(412, 382);
+            this.btnGnTicket.Name = "btnGnTicket";
+            this.btnGnTicket.Size = new System.Drawing.Size(128, 29);
+            this.btnGnTicket.TabIndex = 70;
+            this.btnGnTicket.Text = "Generar ticket";
+            this.btnGnTicket.UseVisualStyleBackColor = true;
+            // 
             // txtCuposD
             // 
             this.txtCuposD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCuposD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCuposD.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCuposD.HideSelection = false;
             this.txtCuposD.Location = new System.Drawing.Point(514, 246);
             this.txtCuposD.Multiline = true;
@@ -1104,15 +1113,6 @@ namespace Diseño.Vista
             this.label13.TabIndex = 52;
             this.label13.Text = "Salida Vehículo";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnGnTicket
-            // 
-            this.btnGnTicket.Location = new System.Drawing.Point(412, 382);
-            this.btnGnTicket.Name = "btnGnTicket";
-            this.btnGnTicket.Size = new System.Drawing.Size(128, 29);
-            this.btnGnTicket.TabIndex = 70;
-            this.btnGnTicket.Text = "Generar ticket";
-            this.btnGnTicket.UseVisualStyleBackColor = true;
             // 
             // HoraFecha
             // 

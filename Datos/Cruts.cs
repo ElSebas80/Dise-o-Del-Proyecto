@@ -19,6 +19,25 @@ namespace Diseño.Datos
             }
 
         }
+        public void EditarUser(string nombre, int cc, string direc, string correo, string longin, string contra, string tipo, int estado)
+        {
+
+            using (parkEntities1 bd = new parkEntities1())
+            {
+                bd.sp_EdiCuentasUsuario(nombre, cc, direc, correo, longin, contra, tipo, estado);
+            }
+
+        }
+        public string RetornarContra (int Cod)
+        {
+            using (parkEntities1 db = new parkEntities1())
+            {
+                var Preciou = (from prod in db.CuentasUsuario
+                               where prod.id == Cod
+                               select prod).FirstOrDefault();
+                return Preciou.Contra.ToString();
+            }
+        }
         public void GuardarInfo(string nombre, string nit, int tele, string direc, string correo, string horar)
         {
             using (parkEntities1 bd = new parkEntities1())

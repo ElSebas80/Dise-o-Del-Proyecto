@@ -6,16 +6,6 @@
     <edmx:StorageModels>
     <Schema Namespace="parkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'park.dbo.configuracion' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="configuracion">
-          <Property Name="NombreParqueadero" Type="varchar" MaxLength="100" />
-          <Property Name="Nit" Type="varchar" MaxLength="30" />
-          <Property Name="Telefono" Type="int" />
-          <Property Name="Direccion" Type="varchar" MaxLength="100" />
-          <Property Name="Correo" Type="varchar" MaxLength="100" />
-          <Property Name="HorarioAtencion" Type="varchar" MaxLength="100" />
-        </EntityType>-->
-        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="CuentasUsuario">
           <Key>
@@ -52,20 +42,6 @@ advertencia 6002: La tabla o vista 'park.dbo.ingresoVehiculo' no tiene definida 
           <Property Name="Fecha" Type="date" />
           <Property Name="hora" Type="time" Precision="7" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'park.dbo.tarifas' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="tarifas">
-          <Property Name="Fecha" Type="datetime" />
-          <Property Name="HoraEstacioMoto" Type="decimal" Precision="38" Scale="0" />
-          <Property Name="SemanaEstacioMoto" Type="decimal" Precision="38" Scale="0" />
-          <Property Name="QuincenaEstacioMoto" Type="decimal" Precision="38" Scale="0" />
-          <Property Name="MensualidadEstacioMoto" Type="decimal" Precision="38" Scale="0" />
-          <Property Name="HoraEstacioBici" Type="decimal" Precision="38" Scale="0" />
-          <Property Name="SemanaEstacioBici" Type="decimal" Precision="38" Scale="0" />
-          <Property Name="QuincenaEstacioBici" Type="decimal" Precision="38" Scale="0" />
-          <Property Name="MensualidadEstacioBici" Type="decimal" Precision="38" Scale="0" />
-          <Property Name="CuposDIsponibles" Type="int" />
-        </EntityType>-->
         <Association Name="FK__CuentasUsu__idEs__5CD6CB2B">
           <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
           <End Role="CuentasUsuario" Type="Self.CuentasUsuario" Multiplicity="*" />
@@ -91,6 +67,16 @@ advertencia 6013: La tabla o vista 'park.dbo.tarifas' no tiene definida una clav
           <Parameter Name="HorarioAtencion" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_CuentasUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Cedula" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="LoginN" Type="varchar" Mode="In" />
+          <Parameter Name="Contra" Type="nvarchar" Mode="In" />
+          <Parameter Name="tipo" Type="varchar" Mode="In" />
+          <Parameter Name="estd" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_EdiCuentasUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="Cedula" Type="int" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
@@ -213,6 +199,16 @@ advertencia 6013: La tabla o vista 'park.dbo.tarifas' no tiene definida una clav
             <Parameter Name="Fecha" Mode="In" Type="DateTime" />
             <Parameter Name="hora" Mode="In" Type="Time" />
           </FunctionImport>
+          <FunctionImport Name="sp_EdiCuentasUsuario">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Cedula" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="LoginN" Mode="In" Type="String" />
+            <Parameter Name="Contra" Mode="In" Type="String" />
+            <Parameter Name="tipo" Mode="In" Type="String" />
+            <Parameter Name="estd" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Estado">
           <Key>
@@ -307,6 +303,7 @@ advertencia 6013: La tabla o vista 'park.dbo.tarifas' no tiene definida una clav
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_ingresoVehiculo" FunctionName="parkModel.Store.sp_ingresoVehiculo" />
+          <FunctionImportMapping FunctionImportName="sp_EdiCuentasUsuario" FunctionName="parkModel.Store.sp_EdiCuentasUsuario" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

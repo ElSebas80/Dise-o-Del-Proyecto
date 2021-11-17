@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Diseño.BaseD;
 using Diseño.Datos;
 using Diseño.Datos.Logn;
+using Diseño.Datos.ValidacionCampos;
 
 namespace Diseño.Vista
 {
@@ -136,6 +137,38 @@ namespace Diseño.Vista
         private void dtgUsuarios_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            valid.SoloLetras(e);
+        }
+
+        private void txtCed_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            valid.SoloNumeros(e);
+        }
+
+        private void txtLog_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtCor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtCor_Leave(object sender, EventArgs e)
+        {
+            if (valid.validarEmail(txtCor.Text))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("algo va mal");
+            }
         }
 
         private void editar()

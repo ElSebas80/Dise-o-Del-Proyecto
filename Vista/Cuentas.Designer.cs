@@ -216,6 +216,7 @@ namespace Diseño.Vista
             this.txtLog.Name = "txtLog";
             this.txtLog.Size = new System.Drawing.Size(128, 20);
             this.txtLog.TabIndex = 26;
+            this.txtLog.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLog_KeyPress);
             // 
             // txtDir
             // 
@@ -231,6 +232,7 @@ namespace Diseño.Vista
             this.txtCed.Size = new System.Drawing.Size(128, 20);
             this.txtCed.TabIndex = 24;
             this.txtCed.TextChanged += new System.EventHandler(this.txtCed_TextChanged);
+            this.txtCed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCed_KeyPress);
             // 
             // txtNom
             // 
@@ -238,6 +240,7 @@ namespace Diseño.Vista
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(276, 20);
             this.txtNom.TabIndex = 22;
+            this.txtNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNom_KeyPress);
             // 
             // label6
             // 
@@ -269,6 +272,8 @@ namespace Diseño.Vista
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(260, 20);
             this.txtCor.TabIndex = 38;
+            this.txtCor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCor_KeyPress);
+            this.txtCor.Leave += new System.EventHandler(this.txtCor_Leave);
             // 
             // btnMin
             // 

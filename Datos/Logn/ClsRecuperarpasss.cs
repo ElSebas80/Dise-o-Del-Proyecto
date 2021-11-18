@@ -18,11 +18,11 @@ namespace Diseño.Datos.Logn
                 return registro;
             }
         }
-        public string Recuperarpasss(string User)
+        public string Recuperarpasss(string User, string Correo)
         {
             using (parkEntities1 db = new parkEntities1())
             {
-                var Find = db.CuentasUsuario.Where(x => x.email == User).FirstOrDefault();
+                var Find = db.CuentasUsuario.Where(x => x.LoginN == User).Where(x => x.email == Correo).FirstOrDefault();
 
                 if (Find != null)
                 {
@@ -45,14 +45,14 @@ namespace Diseño.Datos.Logn
                     ClsEditUs.EditarUser(CodiUser, resultString.ToString());
 
                     var Emailservice = new SistemSuports("sssssssssew888@gmail.com", "3017118619.");
-                    Emailservice.Enviarmensaje(Asunto: "Solicitud para la contraseña :c",
-                        Cuerpo: "Hola " + Nombre + " Por algun motivo se te olvido tu clave :c, pero su clave nueva es: " + resultString,
-                        Destino: User);
+                    Emailservice.Enviarmensaje(Asunto: "Solicitud de nueva contraseña",
+                        Cuerpo: "Hola como estas este correo a sido enviado del sistema de informacion Sw Parking Gold, el nombre de su perfil es " + Nombre + " no sabemos el motivo de su perdida de clave pero debido al proceso solicitado se te asigno una nueva clave esta corresponde a: " + resultString,
+                        Destino: Correo);
                     return "Cambio correcto";
                 }
                 else
                 {
-                    return "Algo anda mal";
+                    return "Unos de los campos no a sido digitado correctamente";
                 }
             }
         }
@@ -83,7 +83,7 @@ namespace Diseño.Datos.Logn
                     ClsEditUs.EditarUser(CodiUser, resultString.ToString());
 
                     var Emailservice = new SistemSuports("sssssssssew888@gmail.com", "3017118619.");
-                    Emailservice.Enviarmensaje(Asunto: "Solicitud para la contraseña :c",
+                    Emailservice.Enviarmensaje(Asunto: "Asignacion de contraseña",
                         Cuerpo: "Hola " + "Nuevo usuario" + " Por algun motivo usted es el nuevo empleado u administrador, pero su clave asignada es: " + resultString,
                         Destino: correo);
                     return "Cambio correcto";

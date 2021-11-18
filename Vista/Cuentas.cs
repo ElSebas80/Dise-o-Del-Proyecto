@@ -200,7 +200,7 @@ namespace Diseño.Vista
             }
             else
             {
-                lblPrs.Text = "Cuentas de Usuarios";
+                lblPrs.Text = "Creacion de Usuarios";
                 btnEditar.Visible = true;
                 btnCrear.Visible = false;
                 groupBox.Visible = true;
@@ -283,7 +283,7 @@ namespace Diseño.Vista
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            lblPrs.Text = "Cuentas de Usuarios";
+            lblPrs.Text = "Creacion de Usuarios";
             Limpiar();
             btnEditar.Visible = true;
             btnCrear.Visible = false;

@@ -43,14 +43,26 @@ namespace Diseño.Vista
             var verificado = em.mail(txtmail.Text.Trim());
             if (verificado != null)
             {
-                cahs.Recuperarpasss(txtmail.Text);
+                cahs.Recuperarpasss(txtUser.Text,txtmail.Text);
                 MessageBox.Show("Revisa tu bandeja de entrada en " + txtmail.Text + " " +
-                    " Cambio exitoso");
+                    " El Cambio a sido exitoso");
+            }
+            else if (txtUser.Text == "" || txtmail.Text == "")
+            {
+                msgError.Visible = true;
+                msgError.Text = "Alguna de las cajas de texto esta vacia";
             }
             else
             {
-                MessageBox.Show("Correo incorrecto o no exixtente");
+                msgError.Visible = true;
+                msgError.Text = "Correo incorrecto o no exixtente";
             }
+            
+        }
+
+        private void Contra_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,20 +34,6 @@ namespace Diseño.Vista
         {
             Application.Exit();
         }
-
-        private void btnMax_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            btnMax.Visible = false;
-            btnRes.Visible = true;
-        }
-        private void btnRes_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            btnRes.Visible = false;
-            btnMax.Visible = true;
-        }
-
         private void btnMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -76,6 +62,7 @@ namespace Diseño.Vista
                 EstD();
                 guar();
                 Contr();
+                Mostrartabla();
             }
             catch 
             {
@@ -161,14 +148,183 @@ namespace Diseño.Vista
 
         private void txtCor_Leave(object sender, EventArgs e)
         {
-            if (valid.validarEmail(txtCor.Text))
+            if (txtCor.Text == "")
             {
-
+                msgError.Visible = true;
+                msgError.Text = ("El campo correo esta vacio");
+            }
+            else if (valid.validarEmail(txtCor.Text))
+            {
+                msgError.Visible = true;
+                msgError.Text = ("El campo correo si corresponde");
+                msgError.ForeColor = Color.Green;
             }
             else
             {
-                MessageBox.Show("algo va mal");
+                msgError.Visible = true;
+                msgError.Text=("El campo no correspon a un correo electronico");
+                msgError.ForeColor = Color.Red;
             }
+        }
+
+        private void FrmCuentas_Load(object sender, EventArgs e)
+        {
+            vistas();
+            Mostrartabla();
+        }
+        private void cargarD()
+        {
+            if (txtNom.Text == "" || txtCed.Text == "" || txtDir.Text == "" || txtCor.Text == "" || txtLog.Text == "")
+	        {
+                lblPrs.Text = "Datos Personales";
+                txtNom.Text = clsDatosUser.nombre;
+                txtCed.Text = clsDatosUser.cedula;
+                txtDir.Text = clsDatosUser.dirrecion;
+                txtCor.Text = clsDatosUser.correo; 
+                txtLog.Text = clsDatosUser.login;
+            }
+
+        }
+        private void vistas()
+        {
+            if(clsDatosUser.roles != "Administrador")
+            {
+                btnEditar.Visible = false;
+                btnCrear.Visible = false;
+                btnEdiPf.Visible = false;
+                groupBox.Visible = false;
+                btnGuardar.Visible = false;
+                dtgUsuarios.Visible = false;
+                LugarPerf();
+                cargarD();
+            }
+            else
+            {
+                lblPrs.Text = "Cuentas de Usuarios";
+                btnEditar.Visible = true;
+                btnCrear.Visible = false;
+                groupBox.Visible = true;
+                dtgUsuarios.Visible = true;
+                btnActualizar.Visible = false;
+                LugarOrig();
+            }
+        }
+        private void LugarOrig()
+        {
+            txtNom.Location = new Point(195, 93);
+            lblNom.Location = new Point(56, 93);
+            txtCed.Location = new Point(119, 129);
+            lblCed.Location = new Point(56, 130);
+            txtDir.Location = new Point(333, 133);
+            lblDir.Location = new Point(253, 133);
+            txtLog.Location = new Point(119, 177);
+            lblLog.Location = new Point(56, 177);
+            txtCor.Location = new Point(333, 180);
+            lblCorreo.Location = new Point(253, 181);
+            msgError.Location = new Point(331, 203);
+            groupBox.Location = new Point(59, 222);
+            dtgUsuarios.Location = new Point(59, 329);
+        }
+        private void LugarPerf()
+        {
+            txtNom.Location = new Point(299, 113);
+            lblNom.Location = new Point(143, 114);
+            txtCed.Location = new Point(299, 169);
+            lblCed.Location = new Point(143, 169);
+            txtDir.Location = new Point(299, 222);
+            lblDir.Location = new Point(143, 222);
+            txtLog.Location = new Point(299, 278);
+            lblLog.Location = new Point(143, 278);
+            txtCor.Location = new Point(299, 336);
+            lblCorreo.Location = new Point(143, 336);
+            msgError.Location = new Point(331, 203);
+            groupBox.Location = new Point(59, 222);
+            dtgUsuarios.Location = new Point(59, 329);
+        }
+        private void Limpiar()
+        {
+            txtNom.Clear();
+            txtCed.Clear();
+            txtDir.Clear();
+            txtLog.Clear();
+            txtCor.Clear();
+        }
+        private void btnCanc_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (clsDatosUser.roles == "Administrador")
+            {
+                lblPrs.Text = "Cuentas de Usuarios";
+                Limpiar();
+                Mostrartabla();
+                btnEditar.Visible = false;
+                btnCrear.Visible = true;
+                txtNom.Visible = true;
+                txtNom.Enabled = false;
+                txtCed.Visible = true;
+                txtCed.Enabled = false;
+                txtDir.Visible = true;
+                txtDir.Enabled = false;
+                txtLog.Visible = true;
+                txtLog.Enabled = false;
+                txtCor.Visible = true;
+                txtCor.Enabled = false;
+                groupBox.Visible = true;
+                dtgUsuarios.Visible = true;
+                btnGuardar.Visible = false;
+                btnActualizar.Visible = true;
+                LugarOrig();
+            }
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            lblPrs.Text = "Cuentas de Usuarios";
+            Limpiar();
+            btnEditar.Visible = true;
+            btnCrear.Visible = false;
+            txtNom.Visible = true;
+            txtNom.Enabled = true;
+            txtCed.Visible = true;
+            txtCed.Enabled = true;
+            txtDir.Visible = true;
+            txtDir.Enabled = true;
+            txtLog.Visible = true;
+            txtLog.Enabled = true;
+            txtCor.Visible = true;
+            txtCor.Enabled = true;
+            groupBox.Visible = true;
+            dtgUsuarios.Visible = true;
+            btnGuardar.Visible = true;
+            btnActualizar.Visible = false;
+            LugarOrig();
+        }
+
+        private void btnEdiPf_Click(object sender, EventArgs e)
+        {
+            lblPrs.Text = "Datos Personales";
+            btnEditar.Visible = true;
+            btnCrear.Visible = true;
+            txtNom.Visible = true;
+            txtNom.Enabled = true;
+            txtCed.Visible = true;
+            txtCed.Enabled = true;
+            txtDir.Visible = true;
+            txtDir.Enabled = true;
+            txtLog.Visible = true;
+            txtLog.Enabled = true;
+            txtCor.Visible = true;
+            txtCor.Enabled = true;
+            groupBox.Visible = false;
+            dtgUsuarios.Visible = false;
+            btnGuardar.Visible = false;
+            btnActualizar.Visible = true;
+            LugarPerf();
+            cargarD();
         }
 
         private void editar()
@@ -182,6 +338,7 @@ namespace Diseño.Vista
             {
                 EncontrarCont();
                 editar();
+                Mostrartabla();
             }
             catch (Exception)
             {

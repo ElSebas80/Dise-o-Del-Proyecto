@@ -41,6 +41,9 @@ namespace Diseño.Vista
             this.btnSal = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblCc = new System.Windows.Forms.Label();
+            this.lblNmb = new System.Windows.Forms.Label();
+            this.lblEm = new System.Windows.Forms.Label();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
@@ -104,6 +107,9 @@ namespace Diseño.Vista
             // 
             this.panelContenedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContenedor.BackColor = System.Drawing.Color.Transparent;
+            this.panelContenedor.Controls.Add(this.lblEm);
+            this.panelContenedor.Controls.Add(this.lblNmb);
+            this.panelContenedor.Controls.Add(this.lblCc);
             this.panelContenedor.Controls.Add(this.btnRes);
             this.panelContenedor.Controls.Add(this.btnMin);
             this.panelContenedor.Controls.Add(this.btnMax);
@@ -194,6 +200,36 @@ namespace Diseño.Vista
             this.label1.TabIndex = 0;
             this.label1.Text = "BIENVENIDOS";
             // 
+            // lblCc
+            // 
+            this.lblCc.AutoSize = true;
+            this.lblCc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.lblCc.Location = new System.Drawing.Point(3, 573);
+            this.lblCc.Name = "lblCc";
+            this.lblCc.Size = new System.Drawing.Size(39, 13);
+            this.lblCc.TabIndex = 41;
+            this.lblCc.Text = "cedula";
+            // 
+            // lblNmb
+            // 
+            this.lblNmb.AutoSize = true;
+            this.lblNmb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.lblNmb.Location = new System.Drawing.Point(3, 543);
+            this.lblNmb.Name = "lblNmb";
+            this.lblNmb.Size = new System.Drawing.Size(42, 13);
+            this.lblNmb.TabIndex = 42;
+            this.lblNmb.Text = "nombre";
+            // 
+            // lblEm
+            // 
+            this.lblEm.AutoSize = true;
+            this.lblEm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.lblEm.Location = new System.Drawing.Point(3, 604);
+            this.lblEm.Name = "lblEm";
+            this.lblEm.Size = new System.Drawing.Size(37, 13);
+            this.lblEm.TabIndex = 43;
+            this.lblEm.Text = "correo";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,5 +276,8 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnMax;
         private System.Windows.Forms.PictureBox btnSal;
         private System.Windows.Forms.PictureBox btnRes;
+        private System.Windows.Forms.Label lblEm;
+        private System.Windows.Forms.Label lblNmb;
+        private System.Windows.Forms.Label lblCc;
     }
 }

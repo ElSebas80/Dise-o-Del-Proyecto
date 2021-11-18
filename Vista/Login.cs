@@ -15,6 +15,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Diseño.Datos;
 
 namespace Diseño.Vista
 {
@@ -45,6 +46,13 @@ namespace Diseño.Vista
 
                     if (verificado != null)
                     {
+                        clsDatosUser.nombre = verificado.Nombre.ToString();
+                        clsDatosUser.cedula = verificado.Cedula.ToString();
+                        clsDatosUser.dirrecion = verificado.Direccion.ToString();
+                        clsDatosUser.correo = verificado.email.ToString();
+                        clsDatosUser.login = verificado.LoginN.ToString();
+                        clsDatosUser.contraseña = verificado.Contra.ToString();
+                        clsDatosUser.roles = verificado.idTp.ToString();
                         //FrmIngresoMoto us = new FrmIngresoMoto();
                         FrmPrincipal us = new FrmPrincipal();
                         us.Show();

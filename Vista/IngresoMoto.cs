@@ -80,8 +80,8 @@ namespace Diseño.Vista
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            //FrmPrincipal f = new FrmPrincipal();
-            //f.Show();
+        //    FrmPrincipal f = new FrmPrincipal();
+        //    f.Show();
             
             if (MessageBox.Show("Seguro que quiere volver a la pantalla de inicio?", "Warning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)

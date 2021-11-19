@@ -99,28 +99,29 @@ namespace Diseño.Vista
         {
             Mostrartabla();
         }
-
+        int idUser, bandera;
         private void dtgUsuarios_DoubleClick(object sender, EventArgs e)
         {
+            if (bandera == 1)
+            {
+            idUser=int.Parse(dtgUsuarios.CurrentRow.Cells[0].Value.ToString());
             txtNom.Text = dtgUsuarios.CurrentRow.Cells[1].Value.ToString();
             txtCed.Text = dtgUsuarios.CurrentRow.Cells[2].Value.ToString();
             txtDir.Text = dtgUsuarios.CurrentRow.Cells[3].Value.ToString();
             txtCor.Text = dtgUsuarios.CurrentRow.Cells[4].Value.ToString();
             txtLog.Text = dtgUsuarios.CurrentRow.Cells[5].Value.ToString();
             cmbTipo.Text = dtgUsuarios.CurrentRow.Cells[7].Value.ToString();
+            }
+            else
+            {
+
+            }
         }
 
         private void txtCed_TextChanged(object sender, EventArgs e)
         {
 
         }
-        string Rcontra, CodProd;
-        Cruts ct = new Cruts();
-        private void EncontrarCont()
-        {
-            Rcontra = ct.RetornarContra(int.Parse(CodProd));
-        }
-
         private void dtgUsuarios_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -152,6 +153,7 @@ namespace Diseño.Vista
             {
                 msgError.Visible = true;
                 msgError.Text = ("El campo correo esta vacio");
+                msgError.ForeColor = Color.Red;
             }
             else if (valid.validarEmail(txtCor.Text))
             {
@@ -189,23 +191,31 @@ namespace Diseño.Vista
         {
             if(clsDatosUser.roles != "Administrador")
             {
+                btnActualizarP.Visible = true;
+                btnActualizar.Visible = false;
                 btnEditar.Visible = false;
                 btnCrear.Visible = false;
                 btnEdiPf.Visible = false;
                 groupBox.Visible = false;
                 btnGuardar.Visible = false;
                 dtgUsuarios.Visible = false;
+                lblContra.Visible = true;
+                txtContra.Visible = true;
                 LugarPerf();
                 cargarD();
             }
             else
             {
+                btnActualizarP.Visible = false;
+                bandera = 2;
                 lblPrs.Text = "Creacion de Usuarios";
                 btnEditar.Visible = true;
                 btnCrear.Visible = false;
                 groupBox.Visible = true;
                 dtgUsuarios.Visible = true;
                 btnActualizar.Visible = false;
+                lblContra.Visible = false;
+                txtContra.Visible = false;
                 LugarOrig();
             }
         }
@@ -237,9 +247,11 @@ namespace Diseño.Vista
             lblLog.Location = new Point(143, 278);
             txtCor.Location = new Point(299, 336);
             lblCorreo.Location = new Point(143, 336);
-            msgError.Location = new Point(331, 203);
+            msgError.Location = new Point(296, 359); 
             groupBox.Location = new Point(59, 222);
             dtgUsuarios.Location = new Point(59, 329);
+            lblContra.Location = new Point(143, 398);
+            txtContra.Location = new Point(299, 398);
         }
         private void Limpiar()
         {
@@ -256,8 +268,12 @@ namespace Diseño.Vista
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            bandera = 1;
             if (clsDatosUser.roles == "Administrador")
             {
+                btnActualizarP.Visible = false;
+                msgError.Visible = false;
+                btnEdiPf.Visible = true;
                 lblPrs.Text = "Cuentas de Usuarios";
                 Limpiar();
                 Mostrartabla();
@@ -273,6 +289,8 @@ namespace Diseño.Vista
                 txtLog.Enabled = false;
                 txtCor.Visible = true;
                 txtCor.Enabled = false;
+                lblContra.Visible = false;
+                txtContra.Visible = false;
                 groupBox.Visible = true;
                 dtgUsuarios.Visible = true;
                 btnGuardar.Visible = false;
@@ -283,8 +301,11 @@ namespace Diseño.Vista
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            msgError.Visible = false;
+            bandera = 2;
             lblPrs.Text = "Creacion de Usuarios";
             Limpiar();
+            btnEdiPf.Visible = true;
             btnEditar.Visible = true;
             btnCrear.Visible = false;
             txtNom.Visible = true;
@@ -298,6 +319,8 @@ namespace Diseño.Vista
             txtCor.Visible = true;
             txtCor.Enabled = true;
             groupBox.Visible = true;
+            lblContra.Visible = false;
+            txtContra.Visible = false;
             dtgUsuarios.Visible = true;
             btnGuardar.Visible = true;
             btnActualizar.Visible = false;
@@ -306,7 +329,11 @@ namespace Diseño.Vista
 
         private void btnEdiPf_Click(object sender, EventArgs e)
         {
+            btnActualizar.Visible = false;
+            btnActualizarP.Visible = true;
+            msgError.Visible = false;
             lblPrs.Text = "Datos Personales";
+            btnEdiPf.Visible = false;
             btnEditar.Visible = true;
             btnCrear.Visible = true;
             txtNom.Visible = true;
@@ -319,6 +346,8 @@ namespace Diseño.Vista
             txtLog.Enabled = true;
             txtCor.Visible = true;
             txtCor.Enabled = true;
+            lblContra.Visible = true;
+            txtContra.Visible = true;
             groupBox.Visible = false;
             dtgUsuarios.Visible = false;
             btnGuardar.Visible = false;
@@ -327,23 +356,49 @@ namespace Diseño.Vista
             cargarD();
         }
 
+        private void msgError_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void editar()
         {
-            s.EditarUser(txtNom.Text, int.Parse(txtCed.Text), txtDir.Text, txtCor.Text,
-                txtLog.Text, Rcontra, cmbTipo.Text, estd);
+            s.EditarUser(idUser, cmbTipo.Text, estd);
+        }
+
+        private void btnActualizarP_Click(object sender, EventArgs e)
+        {
+            cambiarDPersonales();
+        }
+
+        private void cambiarDPersonales()
+        {
+            idUser = int.Parse(dtgUsuarios.CurrentRow.Cells[0].Value.ToString());
+            if (txtContra.Text.Trim() == clsDatosUser.contraseña)
+            {
+                MessageBox.Show("La contraseña no es la correcta");
+            }
+            else
+            {
+                s.EditarPerfil(idUser, txtNom.Text, int.Parse(txtCed.Text), txtDir.Text, txtCor.Text,
+                txtLog.Text, txtContra.Text);
+                MessageBox.Show("El perfil a sido editado");
+            }
         }
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+           
             try
             {
-                EncontrarCont();
+                EstD();
                 editar();
                 Mostrartabla();
             }
             catch (Exception)
             {
-                MessageBox.Show("Algo saliio mal");
-            }        
+                MessageBox.Show("Algo esta mal");
+            }
+            
         }
     }
 }

@@ -77,14 +77,18 @@ advertencia 6002: La tabla o vista 'park.dbo.ingresoVehiculo' no tiene definida 
           <Parameter Name="estd" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_EdiCuentasUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="tipo" Type="varchar" Mode="In" />
+          <Parameter Name="estd" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_EdiPerfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="Cedula" Type="int" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
           <Parameter Name="email" Type="nvarchar" Mode="In" />
           <Parameter Name="LoginN" Type="varchar" Mode="In" />
           <Parameter Name="Contra" Type="nvarchar" Mode="In" />
-          <Parameter Name="tipo" Type="varchar" Mode="In" />
-          <Parameter Name="estd" Type="int" Mode="In" />
         </Function>
         <Function Name="Sp_EditarContra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
@@ -200,14 +204,18 @@ advertencia 6002: La tabla o vista 'park.dbo.ingresoVehiculo' no tiene definida 
             <Parameter Name="hora" Mode="In" Type="Time" />
           </FunctionImport>
           <FunctionImport Name="sp_EdiCuentasUsuario">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="tipo" Mode="In" Type="String" />
+            <Parameter Name="estd" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_EdiPerfil">
+            <Parameter Name="id" Mode="In" Type="Int32" />
             <Parameter Name="Nombre" Mode="In" Type="String" />
             <Parameter Name="Cedula" Mode="In" Type="Int32" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="LoginN" Mode="In" Type="String" />
             <Parameter Name="Contra" Mode="In" Type="String" />
-            <Parameter Name="tipo" Mode="In" Type="String" />
-            <Parameter Name="estd" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Estado">
@@ -304,6 +312,7 @@ advertencia 6002: La tabla o vista 'park.dbo.ingresoVehiculo' no tiene definida 
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_ingresoVehiculo" FunctionName="parkModel.Store.sp_ingresoVehiculo" />
           <FunctionImportMapping FunctionImportName="sp_EdiCuentasUsuario" FunctionName="parkModel.Store.sp_EdiCuentasUsuario" />
+          <FunctionImportMapping FunctionImportName="sp_EdiPerfil" FunctionName="parkModel.Store.sp_EdiPerfil" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

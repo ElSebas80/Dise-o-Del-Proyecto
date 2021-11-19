@@ -51,7 +51,7 @@ namespace Diseño.Vista
                         clsDatosUser.dirrecion = verificado.Direccion.ToString();
                         clsDatosUser.correo = verificado.email.ToString();
                         clsDatosUser.login = verificado.LoginN.ToString();
-                        clsDatosUser.contraseña = verificado.Contra.ToString();
+                        clsDatosUser.contraseña = txtPass.ToString();
                         clsDatosUser.roles = verificado.idTp.ToString();
                         //FrmIngresoMoto us = new FrmIngresoMoto();
                         FrmPrincipal us = new FrmPrincipal();

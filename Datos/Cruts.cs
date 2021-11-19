@@ -19,12 +19,21 @@ namespace Diseño.Datos
             }
 
         }
-        public void EditarUser(string nombre, int cc, string direc, string correo, string longin, string contra, string tipo, int estado)
+        public void EditarUser(int id, string tipo, int estado)
         {
 
             using (parkEntities1 bd = new parkEntities1())
             {
-                bd.sp_EdiCuentasUsuario(nombre, cc, direc, correo, longin, contra, tipo, estado);
+                bd.sp_EdiCuentasUsuario(id, tipo, estado);
+            }
+
+        }
+        public void EditarPerfil(int id, string nombre, int cc, string direc, string correo, string longin, string contra)
+        {
+
+            using (parkEntities1 bd = new parkEntities1())
+            {
+                bd.sp_EdiPerfil(id, nombre, cc, direc, correo, longin, contra);
             }
 
         }

@@ -197,8 +197,29 @@ namespace Diseño.BaseD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ingresoVehiculo", tipoVhloParameter, placaParameter, numCascosParameter, cuposDisParameter, fechaParameter, horaParameter);
         }
     
-        public virtual int sp_EdiCuentasUsuario(string nombre, Nullable<int> cedula, string direccion, string email, string loginN, string contra, string tipo, Nullable<int> estd)
+        public virtual int sp_EdiCuentasUsuario(Nullable<int> id, string tipo, Nullable<int> estd)
         {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var tipoParameter = tipo != null ?
+                new ObjectParameter("tipo", tipo) :
+                new ObjectParameter("tipo", typeof(string));
+    
+            var estdParameter = estd.HasValue ?
+                new ObjectParameter("estd", estd) :
+                new ObjectParameter("estd", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EdiCuentasUsuario", idParameter, tipoParameter, estdParameter);
+        }
+    
+        public virtual int sp_EdiPerfil(Nullable<int> id, string nombre, Nullable<int> cedula, string direccion, string email, string loginN, string contra)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
             var nombreParameter = nombre != null ?
                 new ObjectParameter("Nombre", nombre) :
                 new ObjectParameter("Nombre", typeof(string));
@@ -223,15 +244,7 @@ namespace Diseño.BaseD
                 new ObjectParameter("Contra", contra) :
                 new ObjectParameter("Contra", typeof(string));
     
-            var tipoParameter = tipo != null ?
-                new ObjectParameter("tipo", tipo) :
-                new ObjectParameter("tipo", typeof(string));
-    
-            var estdParameter = estd.HasValue ?
-                new ObjectParameter("estd", estd) :
-                new ObjectParameter("estd", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EdiCuentasUsuario", nombreParameter, cedulaParameter, direccionParameter, emailParameter, loginNParameter, contraParameter, tipoParameter, estdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EdiPerfil", idParameter, nombreParameter, cedulaParameter, direccionParameter, emailParameter, loginNParameter, contraParameter);
         }
     }
 }

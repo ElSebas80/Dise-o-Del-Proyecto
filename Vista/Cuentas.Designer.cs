@@ -34,7 +34,9 @@ namespace Diseño.Vista
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.lblContra = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.txtContra = new System.Windows.Forms.TextBox();
             this.btnDesh = new System.Windows.Forms.RadioButton();
             this.btnHabl = new System.Windows.Forms.RadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -56,6 +58,7 @@ namespace Diseño.Vista
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnEdiPf = new System.Windows.Forms.Button();
+            this.btnActualizarP = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
@@ -113,12 +116,25 @@ namespace Diseño.Vista
             this.groupBox.Controls.Add(this.btnHabl);
             this.groupBox.Controls.Add(this.pictureBox4);
             this.groupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox.Location = new System.Drawing.Point(94, 375);
+            this.groupBox.Location = new System.Drawing.Point(94, 572);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(534, 82);
             this.groupBox.TabIndex = 32;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Tipo de Usuario";
+            // 
+            // lblContra
+            // 
+            this.lblContra.AutoSize = true;
+            this.lblContra.BackColor = System.Drawing.Color.Transparent;
+            this.lblContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContra.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblContra.Location = new System.Drawing.Point(143, 398);
+            this.lblContra.Name = "lblContra";
+            this.lblContra.Size = new System.Drawing.Size(87, 16);
+            this.lblContra.TabIndex = 50;
+            this.lblContra.Text = "Contraseña";
+            this.lblContra.Visible = false;
             // 
             // cmbTipo
             // 
@@ -130,6 +146,14 @@ namespace Diseño.Vista
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(156, 28);
             this.cmbTipo.TabIndex = 4;
+            // 
+            // txtContra
+            // 
+            this.txtContra.Location = new System.Drawing.Point(299, 398);
+            this.txtContra.Name = "txtContra";
+            this.txtContra.Size = new System.Drawing.Size(260, 20);
+            this.txtContra.TabIndex = 49;
+            this.txtContra.Visible = false;
             // 
             // btnDesh
             // 
@@ -310,8 +334,9 @@ namespace Diseño.Vista
             this.dtgUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgUsuarios.Location = new System.Drawing.Point(83, 336);
+            this.dtgUsuarios.Location = new System.Drawing.Point(94, 543);
             this.dtgUsuarios.Name = "dtgUsuarios";
+            this.dtgUsuarios.ReadOnly = true;
             this.dtgUsuarios.Size = new System.Drawing.Size(534, 150);
             this.dtgUsuarios.TabIndex = 44;
             this.dtgUsuarios.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgUsuarios_CellValueChanged);
@@ -328,6 +353,7 @@ namespace Diseño.Vista
             this.msgError.TabIndex = 45;
             this.msgError.Text = "Error";
             this.msgError.Visible = false;
+            this.msgError.Click += new System.EventHandler(this.msgError_Click);
             // 
             // btnEditar
             // 
@@ -375,6 +401,21 @@ namespace Diseño.Vista
             this.btnEdiPf.UseVisualStyleBackColor = false;
             this.btnEdiPf.Click += new System.EventHandler(this.btnEdiPf_Click);
             // 
+            // btnActualizarP
+            // 
+            this.btnActualizarP.BackColor = System.Drawing.Color.Transparent;
+            this.btnActualizarP.FlatAppearance.BorderSize = 0;
+            this.btnActualizarP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarP.ForeColor = System.Drawing.Color.White;
+            this.btnActualizarP.Location = new System.Drawing.Point(149, 530);
+            this.btnActualizarP.Name = "btnActualizarP";
+            this.btnActualizarP.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizarP.TabIndex = 51;
+            this.btnActualizarP.Text = "Actualizar";
+            this.btnActualizarP.UseVisualStyleBackColor = false;
+            this.btnActualizarP.Visible = false;
+            this.btnActualizarP.Click += new System.EventHandler(this.btnActualizarP_Click);
+            // 
             // FrmCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,6 +424,9 @@ namespace Diseño.Vista
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(671, 661);
+            this.Controls.Add(this.btnActualizarP);
+            this.Controls.Add(this.lblContra);
+            this.Controls.Add(this.txtContra);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.btnEdiPf);
             this.Controls.Add(this.btnCrear);
@@ -450,5 +494,8 @@ namespace Diseño.Vista
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnEdiPf;
+        private System.Windows.Forms.Label lblContra;
+        private System.Windows.Forms.TextBox txtContra;
+        private System.Windows.Forms.Button btnActualizarP;
     }
 }

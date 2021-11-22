@@ -62,11 +62,19 @@ namespace Diseño.Vista
                         clsDatosUser.login = verificado.LoginN.ToString();
                         clsDatosUser.contraseña = txtPass.Text.Trim();
                         clsDatosUser.roles = verificado.idTp.ToString();
-                        //FrmIngresoMoto us = new FrmIngresoMoto();
+                        clsDatosUser.estado = verificado.idEs.ToString();
+                        if (clsDatosUser.estado != "1")
+                        {
+                            MessageBox.Show("Este usuario no tiene acceso al sistema");
+                        }
+                        else
+                        {
                         FrmPrincipal us = new FrmPrincipal();
                         us.Show();
                         us.FormClosed += Logout;
                         this.Hide();
+                        }
+                        //FrmIngresoMoto us = new FrmIngresoMoto();
                     }
                     else
                     {

@@ -153,7 +153,8 @@ namespace Diseño.Vista
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCbiarPass";
-            this.Text = "FrmCbiarPass";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FrmCbiarPass_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

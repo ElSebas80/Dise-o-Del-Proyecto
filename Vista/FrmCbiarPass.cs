@@ -19,7 +19,19 @@ namespace Diseño.Vista
         {
             InitializeComponent();
         }
-        
+        private void Salir()
+        {
+            FormCollection s = Application.OpenForms;
+            foreach (Form Nom in s)
+            {
+                if (Nom.Name != "FrmLogin")
+                {
+                    Nom.Hide();
+                }
+            }
+            FrmLogin login = new FrmLogin();
+            login.Show();
+        }
         private void btnCamb_Click(object sender, EventArgs e)
         {
             msmError.Visible = true;
@@ -36,9 +48,7 @@ namespace Diseño.Vista
                 {
                     cp.EditarUser(clsDatosUser.id, txtConNueCon.Text);
                     msmError.Text = ("la contraseña se a cambiado correctamente");
-                    this.Close();
-                    FrmLogin us = new FrmLogin();
-                    us.Show();
+                    Salir();
                 }
                 else
                 {
@@ -52,6 +62,10 @@ namespace Diseño.Vista
             if (MessageBox.Show("Seguro que quiere cancelar el proceso de cambiar la contraseña?", "Warning",
                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 this.Close();
+        }
+
+        private void FrmCbiarPass_Load(object sender, EventArgs e)
+        {
         }
     }
 }

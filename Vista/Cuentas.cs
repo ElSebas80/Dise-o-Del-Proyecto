@@ -111,6 +111,14 @@ namespace Diseño.Vista
             txtCor.Text = dtgUsuarios.CurrentRow.Cells[4].Value.ToString();
             txtLog.Text = dtgUsuarios.CurrentRow.Cells[5].Value.ToString();
             cmbTipo.Text = dtgUsuarios.CurrentRow.Cells[7].Value.ToString();
+                if (dtgUsuarios.CurrentRow.Cells[8].Value.ToString() != "1")
+                {
+                    btnDesh.Checked = true;
+                }
+                else
+                {
+                    btnHabl.Checked = true;
+                }
             }
             else
             {
@@ -155,18 +163,7 @@ namespace Diseño.Vista
                 msgError.Text = ("El campo correo esta vacio");
                 msgError.ForeColor = Color.Red;
             }
-            else if (valid.validarEmail(txtCor.Text))
-            {
-                msgError.Visible = true;
-                msgError.Text = ("El campo correo si corresponde");
-                msgError.ForeColor = Color.Green;
-            }
-            else
-            {
-                msgError.Visible = true;
-                msgError.Text=("El campo no correspon a un correo electronico");
-                msgError.ForeColor = Color.Red;
-            }
+            
         }
 
         private void FrmCuentas_Load(object sender, EventArgs e)
@@ -191,6 +188,7 @@ namespace Diseño.Vista
         {
             if(clsDatosUser.roles != "Administrador")
             {
+                txtLog.Enabled = false;
                 btnCamb.Visible = true;
                 btnActualizarP.Visible = true;
                 btnActualizar.Visible = false;
@@ -207,6 +205,7 @@ namespace Diseño.Vista
             }
             else
             {
+                
                 btnCamb.Visible = false;
                 btnActualizarP.Visible = false;
                 bandera = 2;
@@ -304,6 +303,8 @@ namespace Diseño.Vista
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            txtLog.Enabled = true;
+            btnActualizarP.Visible = false;
             btnCamb.Visible = false;
             msgError.Visible = false;
             bandera = 2;
@@ -333,6 +334,8 @@ namespace Diseño.Vista
 
         private void btnEdiPf_Click(object sender, EventArgs e)
         {
+            Limpiar();
+            txtLog.ReadOnly = true;
             btnCamb.Visible = true;
             btnActualizar.Visible = false;
             btnActualizarP.Visible = true;
@@ -384,9 +387,27 @@ namespace Diseño.Vista
         {
             btnCamb.Visible = true;
             FrmCbiarPass us = new FrmCbiarPass();
-            us.Show();
-            us.FormClosed += Logout;
-            this.Hide();
+            us.ShowDialog();
+        }
+
+        private void txtCor_TextChanged(object sender, EventArgs e)
+        {
+            if (valid.valiCorreo(txtCor.Text.Trim()))
+            {
+                msgError.Visible = true;
+                msgError.Text = ("El campo correo si corresponde");
+                msgError.ForeColor = Color.Green;
+            }
+            else
+            {
+                msgError.Visible = true;
+                msgError.Text = ("El campo no correspon a un correo electronico");
+                msgError.ForeColor = Color.Red;
+            }
+        }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
 
         private void cambiarDPersonales()

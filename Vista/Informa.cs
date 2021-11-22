@@ -58,6 +58,7 @@ namespace Diseño.Vista
         {
 
         }
+
         Cruts s = new Cruts();
         private void info()
         {

@@ -51,12 +51,14 @@ namespace Diseño.Datos.ValidacionCampos
                 MessageBox.Show("Solo puede digitar numeros");
             }
         }
-        public static bool validarEmail(string email)
+        public static bool valiCorreo(String email) // Establece el formato del correo
         {
-            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+
+            String expresion;
+            expresion = @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$";
             if (Regex.IsMatch(email, expresion))
             {
-                if (Regex.Replace(email, expresion, string.Empty).Length == 0)
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
                 {
                     return true;
                 }
@@ -70,11 +72,10 @@ namespace Diseño.Datos.ValidacionCampos
                 return false;
             }
         }
-        public static bool CorreosVal(string email) // Establece el formato del correo
+            public static bool validarEmail(string email)
         {
 
-            string expresion;
-            expresion = @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\\+/=\?\^`\{\}\|~\w]))(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$";
+            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
             if (Regex.IsMatch(email, expresion))
             {
                 if (Regex.Replace(email, expresion, string.Empty).Length == 0)

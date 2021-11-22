@@ -10,6 +10,7 @@ namespace Diseño.Datos
     {
         public static int id;
         public static string roles;
+        public static string estado;
         public static string nombre;
         public static string cedula;
         public static string dirrecion;

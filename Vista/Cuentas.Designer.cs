@@ -126,6 +126,7 @@ namespace Diseño.Vista
             // 
             // cmbTipo
             // 
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipo.FormattingEnabled = true;
             this.cmbTipo.Items.AddRange(new object[] {
             "Administrador",
@@ -134,6 +135,7 @@ namespace Diseño.Vista
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(156, 28);
             this.cmbTipo.TabIndex = 4;
+            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
             // 
             // btnDesh
             // 
@@ -241,6 +243,7 @@ namespace Diseño.Vista
             // 
             this.txtLog.Location = new System.Drawing.Point(299, 278);
             this.txtLog.Name = "txtLog";
+            this.txtLog.ShortcutsEnabled = false;
             this.txtLog.Size = new System.Drawing.Size(128, 20);
             this.txtLog.TabIndex = 26;
             this.txtLog.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLog_KeyPress);
@@ -249,6 +252,7 @@ namespace Diseño.Vista
             // 
             this.txtDir.Location = new System.Drawing.Point(299, 222);
             this.txtDir.Name = "txtDir";
+            this.txtDir.ShortcutsEnabled = false;
             this.txtDir.Size = new System.Drawing.Size(260, 20);
             this.txtDir.TabIndex = 25;
             // 
@@ -256,6 +260,7 @@ namespace Diseño.Vista
             // 
             this.txtCed.Location = new System.Drawing.Point(299, 169);
             this.txtCed.Name = "txtCed";
+            this.txtCed.ShortcutsEnabled = false;
             this.txtCed.Size = new System.Drawing.Size(128, 20);
             this.txtCed.TabIndex = 24;
             this.txtCed.TextChanged += new System.EventHandler(this.txtCed_TextChanged);
@@ -265,6 +270,7 @@ namespace Diseño.Vista
             // 
             this.txtNom.Location = new System.Drawing.Point(299, 113);
             this.txtNom.Name = "txtNom";
+            this.txtNom.ShortcutsEnabled = false;
             this.txtNom.Size = new System.Drawing.Size(276, 20);
             this.txtNom.TabIndex = 22;
             this.txtNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNom_KeyPress);
@@ -297,8 +303,10 @@ namespace Diseño.Vista
             // 
             this.txtCor.Location = new System.Drawing.Point(299, 336);
             this.txtCor.Name = "txtCor";
+            this.txtCor.ShortcutsEnabled = false;
             this.txtCor.Size = new System.Drawing.Size(260, 20);
             this.txtCor.TabIndex = 38;
+            this.txtCor.TextChanged += new System.EventHandler(this.txtCor_TextChanged);
             this.txtCor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCor_KeyPress);
             this.txtCor.Leave += new System.EventHandler(this.txtCor_Leave);
             // 
@@ -338,6 +346,7 @@ namespace Diseño.Vista
             this.dtgUsuarios.Location = new System.Drawing.Point(94, 543);
             this.dtgUsuarios.Name = "dtgUsuarios";
             this.dtgUsuarios.ReadOnly = true;
+            this.dtgUsuarios.RowHeadersVisible = false;
             this.dtgUsuarios.Size = new System.Drawing.Size(534, 150);
             this.dtgUsuarios.TabIndex = 44;
             this.dtgUsuarios.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgUsuarios_CellValueChanged);

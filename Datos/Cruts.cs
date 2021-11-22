@@ -30,10 +30,10 @@ namespace Diseño.Datos
         }
         public void EditarPerfil(int id, string nombre, int cc, string direc, string correo, string longin, string contra)
         {
-
+            string pass = Encryp.GetSHA1(contra);
             using (parkEntities1 bd = new parkEntities1())
             {
-                bd.sp_EdiPerfil(id, nombre, cc, direc, correo, longin, contra);
+                bd.sp_EdiPerfil(id, nombre, cc, direc, correo, longin, pass);
             }
 
         }

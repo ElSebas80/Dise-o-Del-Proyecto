@@ -108,6 +108,12 @@
     <Compile Include="Vista\Contra.Designer.cs">
       <DependentUpon>Contra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\FrmCbiarPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\FrmCbiarPass.Designer.cs">
+      <DependentUpon>FrmCbiarPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Reporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Contra.resx">
       <DependentUpon>Contra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\FrmCbiarPass.resx">
+      <DependentUpon>FrmCbiarPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reporte.resx">
       <DependentUpon>Reporte.cs</DependentUpon>

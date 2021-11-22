@@ -32,6 +32,14 @@ namespace Diseño.Vista
         {
 
         }
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            txtPass.Text = "Pasword";
+            txtPass.UseSystemPasswordChar = false;
+            txtUser.Text = "Nombre Usuario";
+            lblmsgErro.Visible = false;
+            this.Show();
+        }
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             if (txtUser.Text != "Nombre Usuario")
@@ -46,16 +54,18 @@ namespace Diseño.Vista
 
                     if (verificado != null)
                     {
+                        clsDatosUser.id = verificado.id;
                         clsDatosUser.nombre = verificado.Nombre.ToString();
                         clsDatosUser.cedula = verificado.Cedula.ToString();
                         clsDatosUser.dirrecion = verificado.Direccion.ToString();
                         clsDatosUser.correo = verificado.email.ToString();
                         clsDatosUser.login = verificado.LoginN.ToString();
-                        clsDatosUser.contraseña = txtPass.ToString();
+                        clsDatosUser.contraseña = txtPass.Text.Trim();
                         clsDatosUser.roles = verificado.idTp.ToString();
                         //FrmIngresoMoto us = new FrmIngresoMoto();
                         FrmPrincipal us = new FrmPrincipal();
                         us.Show();
+                        us.FormClosed += Logout;
                         this.Hide();
                     }
                     else

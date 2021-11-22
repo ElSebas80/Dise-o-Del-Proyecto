@@ -34,12 +34,12 @@ namespace Diseño.Vista
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.lblContra = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.txtContra = new System.Windows.Forms.TextBox();
             this.btnDesh = new System.Windows.Forms.RadioButton();
             this.btnHabl = new System.Windows.Forms.RadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblContra = new System.Windows.Forms.Label();
+            this.txtContra = new System.Windows.Forms.TextBox();
             this.lblLog = new System.Windows.Forms.Label();
             this.lblCed = new System.Windows.Forms.Label();
             this.lblDir = new System.Windows.Forms.Label();
@@ -59,6 +59,7 @@ namespace Diseño.Vista
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnEdiPf = new System.Windows.Forms.Button();
             this.btnActualizarP = new System.Windows.Forms.Button();
+            this.btnCamb = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
@@ -123,19 +124,6 @@ namespace Diseño.Vista
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Tipo de Usuario";
             // 
-            // lblContra
-            // 
-            this.lblContra.AutoSize = true;
-            this.lblContra.BackColor = System.Drawing.Color.Transparent;
-            this.lblContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContra.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblContra.Location = new System.Drawing.Point(143, 398);
-            this.lblContra.Name = "lblContra";
-            this.lblContra.Size = new System.Drawing.Size(87, 16);
-            this.lblContra.TabIndex = 50;
-            this.lblContra.Text = "Contraseña";
-            this.lblContra.Visible = false;
-            // 
             // cmbTipo
             // 
             this.cmbTipo.FormattingEnabled = true;
@@ -146,14 +134,6 @@ namespace Diseño.Vista
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(156, 28);
             this.cmbTipo.TabIndex = 4;
-            // 
-            // txtContra
-            // 
-            this.txtContra.Location = new System.Drawing.Point(299, 398);
-            this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(260, 20);
-            this.txtContra.TabIndex = 49;
-            this.txtContra.Visible = false;
             // 
             // btnDesh
             // 
@@ -187,6 +167,27 @@ namespace Diseño.Vista
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
+            // 
+            // lblContra
+            // 
+            this.lblContra.AutoSize = true;
+            this.lblContra.BackColor = System.Drawing.Color.Transparent;
+            this.lblContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContra.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblContra.Location = new System.Drawing.Point(143, 398);
+            this.lblContra.Name = "lblContra";
+            this.lblContra.Size = new System.Drawing.Size(87, 16);
+            this.lblContra.TabIndex = 50;
+            this.lblContra.Text = "Contraseña";
+            this.lblContra.Visible = false;
+            // 
+            // txtContra
+            // 
+            this.txtContra.Location = new System.Drawing.Point(299, 398);
+            this.txtContra.Name = "txtContra";
+            this.txtContra.Size = new System.Drawing.Size(260, 20);
+            this.txtContra.TabIndex = 49;
+            this.txtContra.Visible = false;
             // 
             // lblLog
             // 
@@ -416,6 +417,21 @@ namespace Diseño.Vista
             this.btnActualizarP.Visible = false;
             this.btnActualizarP.Click += new System.EventHandler(this.btnActualizarP_Click);
             // 
+            // btnCamb
+            // 
+            this.btnCamb.BackColor = System.Drawing.Color.Transparent;
+            this.btnCamb.FlatAppearance.BorderSize = 0;
+            this.btnCamb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCamb.ForeColor = System.Drawing.Color.White;
+            this.btnCamb.Location = new System.Drawing.Point(529, 461);
+            this.btnCamb.Name = "btnCamb";
+            this.btnCamb.Size = new System.Drawing.Size(112, 23);
+            this.btnCamb.TabIndex = 52;
+            this.btnCamb.Text = "Cambiar Contraseña";
+            this.btnCamb.UseVisualStyleBackColor = false;
+            this.btnCamb.Visible = false;
+            this.btnCamb.Click += new System.EventHandler(this.btnCamb_Click);
+            // 
             // FrmCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,6 +440,7 @@ namespace Diseño.Vista
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(671, 661);
+            this.Controls.Add(this.btnCamb);
             this.Controls.Add(this.btnActualizarP);
             this.Controls.Add(this.lblContra);
             this.Controls.Add(this.txtContra);
@@ -497,5 +514,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.Label lblContra;
         private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.Button btnActualizarP;
+        private System.Windows.Forms.Button btnCamb;
     }
 }

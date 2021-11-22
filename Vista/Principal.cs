@@ -111,5 +111,12 @@ namespace Diseño.Vista
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void btnCerrarScion_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seguro que quiere cerrar secion?", "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
+        }
     }
 }

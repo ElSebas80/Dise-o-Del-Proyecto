@@ -46,6 +46,7 @@ namespace Diseño.Vista
                 cahs.Recuperarpasss(txtUser.Text,txtmail.Text);
                 MessageBox.Show("Revisa tu bandeja de entrada en " + txtmail.Text + " " +
                     " El Cambio a sido exitoso");
+                this.Close();
             }
             else if (txtUser.Text == "" || txtmail.Text == "")
             {

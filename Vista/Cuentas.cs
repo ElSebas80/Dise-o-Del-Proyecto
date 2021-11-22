@@ -191,6 +191,7 @@ namespace Diseño.Vista
         {
             if(clsDatosUser.roles != "Administrador")
             {
+                btnCamb.Visible = true;
                 btnActualizarP.Visible = true;
                 btnActualizar.Visible = false;
                 btnEditar.Visible = false;
@@ -201,11 +202,12 @@ namespace Diseño.Vista
                 dtgUsuarios.Visible = false;
                 lblContra.Visible = true;
                 txtContra.Visible = true;
-                LugarPerf();
+                LugarPerf(); 
                 cargarD();
             }
             else
             {
+                btnCamb.Visible = false;
                 btnActualizarP.Visible = false;
                 bandera = 2;
                 lblPrs.Text = "Creacion de Usuarios";
@@ -271,6 +273,7 @@ namespace Diseño.Vista
             bandera = 1;
             if (clsDatosUser.roles == "Administrador")
             {
+                btnCamb.Visible = false;
                 btnActualizarP.Visible = false;
                 msgError.Visible = false;
                 btnEdiPf.Visible = true;
@@ -301,6 +304,7 @@ namespace Diseño.Vista
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            btnCamb.Visible = false;
             msgError.Visible = false;
             bandera = 2;
             lblPrs.Text = "Creacion de Usuarios";
@@ -329,6 +333,7 @@ namespace Diseño.Vista
 
         private void btnEdiPf_Click(object sender, EventArgs e)
         {
+            btnCamb.Visible = true;
             btnActualizar.Visible = false;
             btnActualizarP.Visible = true;
             msgError.Visible = false;
@@ -369,18 +374,30 @@ namespace Diseño.Vista
         private void btnActualizarP_Click(object sender, EventArgs e)
         {
             cambiarDPersonales();
+
+        }
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            this.Show();
+        }
+        private void btnCamb_Click(object sender, EventArgs e)
+        {
+            btnCamb.Visible = true;
+            FrmCbiarPass us = new FrmCbiarPass();
+            us.Show();
+            us.FormClosed += Logout;
+            this.Hide();
         }
 
         private void cambiarDPersonales()
         {
-            idUser = int.Parse(dtgUsuarios.CurrentRow.Cells[0].Value.ToString());
-            if (txtContra.Text.Trim() == clsDatosUser.contraseña)
+            if (txtContra.Text.Trim() != clsDatosUser.contraseña)
             {
                 MessageBox.Show("La contraseña no es la correcta");
             }
             else
             {
-                s.EditarPerfil(idUser, txtNom.Text, int.Parse(txtCed.Text), txtDir.Text, txtCor.Text,
+                s.EditarPerfil(clsDatosUser.id, txtNom.Text, int.Parse(txtCed.Text), txtDir.Text, txtCor.Text,
                 txtLog.Text, txtContra.Text);
                 MessageBox.Show("El perfil a sido editado");
             }

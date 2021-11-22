@@ -8,6 +8,7 @@ namespace Diseño.Datos
 {
     public class clsDatosUser
     {
+        public static int id;
         public static string roles;
         public static string nombre;
         public static string cedula;

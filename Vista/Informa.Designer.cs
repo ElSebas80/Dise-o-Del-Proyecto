@@ -80,6 +80,7 @@ namespace Diseño.Vista
             this.lblFecha = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.dtgfalso = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -94,6 +95,7 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgfalso)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -113,6 +115,7 @@ namespace Diseño.Vista
             // 
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.dtgfalso);
             this.tabPage1.Controls.Add(this.pictureBox5);
             this.tabPage1.Controls.Add(this.txtHorATenc);
             this.tabPage1.Controls.Add(this.textBox5);
@@ -403,6 +406,7 @@ namespace Diseño.Vista
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tarifas";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // txtCupos
             // 
@@ -640,6 +644,15 @@ namespace Diseño.Vista
             this.label9.Text = "Tarifas";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // dtgfalso
+            // 
+            this.dtgfalso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgfalso.Location = new System.Drawing.Point(550, 388);
+            this.dtgfalso.Name = "dtgfalso";
+            this.dtgfalso.Size = new System.Drawing.Size(53, 38);
+            this.dtgfalso.TabIndex = 44;
+            this.dtgfalso.Visible = false;
+            // 
             // FrmInforma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,6 +665,7 @@ namespace Diseño.Vista
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmInforma";
             this.Text = "Informa";
+            this.Load += new System.EventHandler(this.FrmInforma_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -668,6 +682,7 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgfalso)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -724,5 +739,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.TextBox txtCupos;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dtgfalso;
     }
 }

@@ -37,16 +37,16 @@ namespace Diseño.Datos
             }
 
         }
-        public string RetornarContra (int Cod)
-        {
-            using (parkEntities1 db = new parkEntities1())
-            {
-                var Preciou = (from prod in db.CuentasUsuario
-                               where prod.id == Cod
-                               select prod).FirstOrDefault();
-                return Preciou.Contra.ToString();
-            }
-        }
+        //public string RetornarContra (int Cod)
+        //{
+        //    using (parkEntities1 db = new parkEntities1())
+        //    {
+        //        var Preciou = (from prod in db.Configuration
+        //                       where prod. == Cod
+        //                       select prod).FirstOrDefault();
+        //        return Preciou.Contra.ToString();
+        //    }
+        //}
         public void GuardarInfo(string nombre, string nit, int tele, string direc, string correo, string horar)
         {
             using (parkEntities1 bd = new parkEntities1())

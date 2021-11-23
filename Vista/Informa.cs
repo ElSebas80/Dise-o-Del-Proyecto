@@ -91,10 +91,27 @@ namespace Diseño.Vista
                 infoTarifas();
                 MessageBox.Show("Dato ingresado");
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Algo salio mal");
             }
         }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void Mostrartabla()
+        {
+            using (parkEntities1 mos = new parkEntities1())
+            {
+                dtgfalso.DataSource=mos.Configuracion.to
+            }
+        } 
+        private void FrmInforma_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

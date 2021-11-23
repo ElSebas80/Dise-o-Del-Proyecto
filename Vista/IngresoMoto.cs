@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diseño.Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -79,11 +80,48 @@ namespace Diseño.Vista
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
+        //    FrmPrincipal f = new FrmPrincipal();
+        //    f.Show();
+            
             if (MessageBox.Show("Seguro que quiere volver a la pantalla de inicio?", "Warning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 this.Close();
             
 
         }
+        private void HoraFecha_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("hh:mm:ss");
+            lblFecha.Text = DateTime.Now.ToShortDateString();
+        }
+        Cruts bd = new Cruts();
+        string tVhlO;
+        private void EstD()
+        {
+            if (rdtMoto.Checked == true)
+                tVhlO = "Moto";
+            else if (rdtBici.Checked == true)
+                tVhlO = "Bicicleta";
+        }
+
+        private void ingresarVehiculo()
+        {
+            bd.RegistrarVehvls(tVhlO, txtPlaca.Text, txtNCascos.Text, int.Parse(txtCuposD.Text), DateTime.Parse(lblFecha.Text), TimeSpan.Parse(lblHora.Text)
+                );
+        }
+        private void btnRegistrarCli_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ingresarVehiculo();
+            }
+            catch 
+            {
+                MessageBox.Show("Algo saliio mal");
+            }
+        }
+
     }
+
+
 }

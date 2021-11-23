@@ -12,16 +12,14 @@ namespace Diseño.BaseD
     using System;
     using System.Collections.Generic;
     
-    public partial class CuentasUsuario
+    public partial class ingresoVehiculo
     {
-        public int id { get; set; }
-        public string Nombre { get; set; }
-        public Nullable<int> Cedula { get; set; }
-        public string Direccion { get; set; }
-        public string email { get; set; }
-        public string LoginN { get; set; }
-        public string Contra { get; set; }
-        public string idTp { get; set; }
-        public Nullable<int> idEs { get; set; }
+        public int NumTicket { get; set; }
+        public string tipoVhlo { get; set; }
+        public string Placa { get; set; }
+        public string NumCascos { get; set; }
+        public Nullable<int> CuposDis { get; set; }
+        public Nullable<System.DateTime> Fecha { get; set; }
+        public Nullable<System.TimeSpan> hora { get; set; }
     }
 }

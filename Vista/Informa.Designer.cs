@@ -33,7 +33,7 @@ namespace Diseño.Vista
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txtHor = new System.Windows.Forms.TextBox();
+            this.txtHorATenc = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
@@ -55,29 +55,29 @@ namespace Diseño.Vista
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txtCupos = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txtMsB = new System.Windows.Forms.TextBox();
+            this.txtQnB = new System.Windows.Forms.TextBox();
+            this.txtSmB = new System.Windows.Forms.TextBox();
+            this.txtHrB = new System.Windows.Forms.TextBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRes = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.btnGuarda = new System.Windows.Forms.Button();
+            this.btnModi = new System.Windows.Forms.Button();
+            this.txtMsM = new System.Windows.Forms.TextBox();
+            this.txtQnM = new System.Windows.Forms.TextBox();
+            this.txtSmM = new System.Windows.Forms.TextBox();
+            this.txtHrM = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
@@ -114,7 +114,7 @@ namespace Diseño.Vista
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage1.Controls.Add(this.pictureBox5);
-            this.tabPage1.Controls.Add(this.txtHor);
+            this.tabPage1.Controls.Add(this.txtHorATenc);
             this.tabPage1.Controls.Add(this.textBox5);
             this.tabPage1.Controls.Add(this.pictureBox4);
             this.tabPage1.Controls.Add(this.btnMin);
@@ -154,15 +154,15 @@ namespace Diseño.Vista
             this.pictureBox5.TabIndex = 43;
             this.pictureBox5.TabStop = false;
             // 
-            // txtHor
+            // txtHorATenc
             // 
-            this.txtHor.BackColor = System.Drawing.Color.Gray;
-            this.txtHor.Location = new System.Drawing.Point(259, 414);
-            this.txtHor.Name = "txtHor";
-            this.txtHor.Size = new System.Drawing.Size(185, 26);
-            this.txtHor.TabIndex = 42;
-            this.txtHor.Text = "8:00 am -6:00pm";
-            this.txtHor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtHorATenc.BackColor = System.Drawing.Color.Gray;
+            this.txtHorATenc.Location = new System.Drawing.Point(259, 414);
+            this.txtHorATenc.Name = "txtHorATenc";
+            this.txtHorATenc.Size = new System.Drawing.Size(185, 26);
+            this.txtHorATenc.TabIndex = 42;
+            this.txtHorATenc.Text = "8:00 am -6:00pm";
+            this.txtHorATenc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox5
             // 
@@ -370,29 +370,29 @@ namespace Diseño.Vista
             // 
             this.tabPage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage2.BackgroundImage")));
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage2.Controls.Add(this.textBox16);
+            this.tabPage2.Controls.Add(this.txtCupos);
             this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.textBox12);
-            this.tabPage2.Controls.Add(this.textBox13);
-            this.tabPage2.Controls.Add(this.textBox14);
-            this.tabPage2.Controls.Add(this.textBox15);
+            this.tabPage2.Controls.Add(this.txtMsB);
+            this.tabPage2.Controls.Add(this.txtQnB);
+            this.tabPage2.Controls.Add(this.txtSmB);
+            this.tabPage2.Controls.Add(this.txtHrB);
             this.tabPage2.Controls.Add(this.pictureBox7);
             this.tabPage2.Controls.Add(this.pictureBox6);
             this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Controls.Add(this.btnRes);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.pictureBox3);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.textBox11);
-            this.tabPage2.Controls.Add(this.textBox10);
-            this.tabPage2.Controls.Add(this.textBox9);
-            this.tabPage2.Controls.Add(this.textBox8);
+            this.tabPage2.Controls.Add(this.btnGuarda);
+            this.tabPage2.Controls.Add(this.btnModi);
+            this.tabPage2.Controls.Add(this.txtMsM);
+            this.tabPage2.Controls.Add(this.txtQnM);
+            this.tabPage2.Controls.Add(this.txtSmM);
+            this.tabPage2.Controls.Add(this.txtHrM);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.label14);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.lblFecha);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -404,12 +404,12 @@ namespace Diseño.Vista
             this.tabPage2.Text = "Tarifas";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox16
+            // txtCupos
             // 
-            this.textBox16.Location = new System.Drawing.Point(465, 469);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(150, 26);
-            this.textBox16.TabIndex = 48;
+            this.txtCupos.Location = new System.Drawing.Point(386, 469);
+            this.txtCupos.Name = "txtCupos";
+            this.txtCupos.Size = new System.Drawing.Size(150, 26);
+            this.txtCupos.TabIndex = 48;
             // 
             // label7
             // 
@@ -421,33 +421,33 @@ namespace Diseño.Vista
             this.label7.TabIndex = 47;
             this.label7.Text = "Cupos disponibles en el estacionamiento";
             // 
-            // textBox12
+            // txtMsB
             // 
-            this.textBox12.Location = new System.Drawing.Point(464, 400);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(150, 26);
-            this.textBox12.TabIndex = 46;
+            this.txtMsB.Location = new System.Drawing.Point(464, 400);
+            this.txtMsB.Name = "txtMsB";
+            this.txtMsB.Size = new System.Drawing.Size(150, 26);
+            this.txtMsB.TabIndex = 46;
             // 
-            // textBox13
+            // txtQnB
             // 
-            this.textBox13.Location = new System.Drawing.Point(464, 328);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(150, 26);
-            this.textBox13.TabIndex = 45;
+            this.txtQnB.Location = new System.Drawing.Point(464, 328);
+            this.txtQnB.Name = "txtQnB";
+            this.txtQnB.Size = new System.Drawing.Size(150, 26);
+            this.txtQnB.TabIndex = 45;
             // 
-            // textBox14
+            // txtSmB
             // 
-            this.textBox14.Location = new System.Drawing.Point(464, 260);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(150, 26);
-            this.textBox14.TabIndex = 44;
+            this.txtSmB.Location = new System.Drawing.Point(464, 260);
+            this.txtSmB.Name = "txtSmB";
+            this.txtSmB.Size = new System.Drawing.Size(150, 26);
+            this.txtSmB.TabIndex = 44;
             // 
-            // textBox15
+            // txtHrB
             // 
-            this.textBox15.Location = new System.Drawing.Point(464, 193);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(150, 26);
-            this.textBox15.TabIndex = 43;
+            this.txtHrB.Location = new System.Drawing.Point(464, 193);
+            this.txtHrB.Name = "txtHrB";
+            this.txtHrB.Size = new System.Drawing.Size(150, 26);
+            this.txtHrB.TabIndex = 43;
             // 
             // pictureBox7
             // 
@@ -519,51 +519,52 @@ namespace Diseño.Vista
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // button5
+            // btnGuarda
             // 
-            this.button5.Location = new System.Drawing.Point(521, 542);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 34);
-            this.button5.TabIndex = 17;
-            this.button5.Text = "Guardar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnGuarda.Location = new System.Drawing.Point(521, 542);
+            this.btnGuarda.Name = "btnGuarda";
+            this.btnGuarda.Size = new System.Drawing.Size(94, 34);
+            this.btnGuarda.TabIndex = 17;
+            this.btnGuarda.Text = "Guardar";
+            this.btnGuarda.UseVisualStyleBackColor = true;
+            this.btnGuarda.Click += new System.EventHandler(this.btnGuarda_Click);
             // 
-            // button4
+            // btnModi
             // 
-            this.button4.Location = new System.Drawing.Point(340, 542);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(102, 34);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Modificar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnModi.Location = new System.Drawing.Point(340, 542);
+            this.btnModi.Name = "btnModi";
+            this.btnModi.Size = new System.Drawing.Size(102, 34);
+            this.btnModi.TabIndex = 16;
+            this.btnModi.Text = "Modificar";
+            this.btnModi.UseVisualStyleBackColor = true;
             // 
-            // textBox11
+            // txtMsM
             // 
-            this.textBox11.Location = new System.Drawing.Point(292, 400);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(150, 26);
-            this.textBox11.TabIndex = 15;
+            this.txtMsM.Location = new System.Drawing.Point(292, 400);
+            this.txtMsM.Name = "txtMsM";
+            this.txtMsM.Size = new System.Drawing.Size(150, 26);
+            this.txtMsM.TabIndex = 15;
             // 
-            // textBox10
+            // txtQnM
             // 
-            this.textBox10.Location = new System.Drawing.Point(292, 328);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(150, 26);
-            this.textBox10.TabIndex = 14;
+            this.txtQnM.Location = new System.Drawing.Point(292, 328);
+            this.txtQnM.Name = "txtQnM";
+            this.txtQnM.Size = new System.Drawing.Size(150, 26);
+            this.txtQnM.TabIndex = 14;
             // 
-            // textBox9
+            // txtSmM
             // 
-            this.textBox9.Location = new System.Drawing.Point(292, 260);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(150, 26);
-            this.textBox9.TabIndex = 13;
+            this.txtSmM.Location = new System.Drawing.Point(292, 260);
+            this.txtSmM.Name = "txtSmM";
+            this.txtSmM.Size = new System.Drawing.Size(150, 26);
+            this.txtSmM.TabIndex = 13;
             // 
-            // textBox8
+            // txtHrM
             // 
-            this.textBox8.Location = new System.Drawing.Point(292, 193);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(150, 26);
-            this.textBox8.TabIndex = 12;
+            this.txtHrM.Location = new System.Drawing.Point(292, 193);
+            this.txtHrM.Name = "txtHrM";
+            this.txtHrM.Size = new System.Drawing.Size(150, 26);
+            this.txtHrM.TabIndex = 12;
             // 
             // label15
             // 
@@ -605,16 +606,16 @@ namespace Diseño.Vista
             this.label12.TabIndex = 3;
             this.label12.Text = "Hora de Estacionamiento $:";
             // 
-            // label11
+            // lblFecha
             // 
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(466, 37);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 21);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "20/09/2021";
+            this.lblFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.Black;
+            this.lblFecha.Location = new System.Drawing.Point(466, 37);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(84, 21);
+            this.lblFecha.TabIndex = 2;
+            this.lblFecha.Text = "20/09/2021";
             // 
             // label10
             // 
@@ -691,17 +692,17 @@ namespace Diseño.Vista
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTel;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button btnGuarda;
+        private System.Windows.Forms.Button btnModi;
+        private System.Windows.Forms.TextBox txtMsM;
+        private System.Windows.Forms.TextBox txtQnM;
+        private System.Windows.Forms.TextBox txtSmM;
+        private System.Windows.Forms.TextBox txtHrM;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox btnMin;
@@ -713,15 +714,15 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnRes;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox txtHor;
+        private System.Windows.Forms.TextBox txtHorATenc;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txtMsB;
+        private System.Windows.Forms.TextBox txtQnB;
+        private System.Windows.Forms.TextBox txtSmB;
+        private System.Windows.Forms.TextBox txtHrB;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txtCupos;
         private System.Windows.Forms.Label label7;
     }
 }

@@ -34,15 +34,18 @@ namespace Diseño.Vista
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSal = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.msgError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnSal)).BeginInit();
             this.SuspendLayout();
             // 
             // txtmail
             // 
-            this.txtmail.Location = new System.Drawing.Point(115, 72);
+            this.txtmail.Location = new System.Drawing.Point(135, 138);
             this.txtmail.Name = "txtmail";
             this.txtmail.Size = new System.Drawing.Size(193, 20);
-            this.txtmail.TabIndex = 0;
+            this.txtmail.TabIndex = 1;
             // 
             // button1
             // 
@@ -59,7 +62,7 @@ namespace Diseño.Vista
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(36, 72);
+            this.label1.Location = new System.Drawing.Point(56, 138);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 2;
@@ -79,6 +82,36 @@ namespace Diseño.Vista
             this.btnSal.TabStop = false;
             this.btnSal.Click += new System.EventHandler(this.btnSal_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(56, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Usuario";
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(135, 103);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(193, 20);
+            this.txtUser.TabIndex = 0;
+            // 
+            // msgError
+            // 
+            this.msgError.AutoSize = true;
+            this.msgError.BackColor = System.Drawing.Color.Transparent;
+            this.msgError.ForeColor = System.Drawing.Color.Red;
+            this.msgError.Location = new System.Drawing.Point(132, 161);
+            this.msgError.Name = "msgError";
+            this.msgError.Size = new System.Drawing.Size(29, 13);
+            this.msgError.TabIndex = 46;
+            this.msgError.Text = "Error";
+            this.msgError.Visible = false;
+            // 
             // Contra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -86,6 +119,9 @@ namespace Diseño.Vista
             this.BackgroundImage = global::Diseño.Properties.Resources.FONDO_PROYECTO_s_jpg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(427, 364);
+            this.Controls.Add(this.msgError);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtUser);
             this.Controls.Add(this.btnSal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -95,6 +131,7 @@ namespace Diseño.Vista
             this.Name = "Contra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contra";
+            this.Load += new System.EventHandler(this.Contra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnSal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -107,5 +144,8 @@ namespace Diseño.Vista
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox btnSal;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.Label msgError;
     }
 }

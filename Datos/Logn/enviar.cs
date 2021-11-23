@@ -12,11 +12,11 @@ namespace Diseño.Datos.Logn
     {
         public CuentasUsuario Login(string user, string pass)
         {
-           // string ClaveEncrip = Encryp.GetSHA1(pass);
+           string ClaveEncrip = Encryp.GetSHA1(pass);
             using (parkEntities1 db = new parkEntities1())
             {
                 var registro = db.CuentasUsuario.Where(x => x.LoginN == user)
-                        .Where(x => x.Contra == pass
+                        .Where(x => x.Contra == ClaveEncrip
                     ).FirstOrDefault();
                 return registro;
             }

@@ -27,7 +27,9 @@ namespace Diseño.BaseD
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
+        public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
     
         public virtual int sp_configuracion(string nombreParqueadero, string nit, Nullable<int> telefono, string direccion, string correo, string horarioAtencion)
         {
@@ -58,15 +60,11 @@ namespace Diseño.BaseD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_configuracion", nombreParqueaderoParameter, nitParameter, telefonoParameter, direccionParameter, correoParameter, horarioAtencionParameter);
         }
     
-        public virtual int sp_CuentasUsuario(string nombre, string apellido, Nullable<int> cedula, string direccion, string email, string loginN, string contra)
+        public virtual int sp_CuentasUsuario(string nombre, Nullable<int> cedula, string direccion, string email, string loginN, string contra, string tipo, Nullable<int> estd)
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("Nombre", nombre) :
                 new ObjectParameter("Nombre", typeof(string));
-    
-            var apellidoParameter = apellido != null ?
-                new ObjectParameter("Apellido", apellido) :
-                new ObjectParameter("Apellido", typeof(string));
     
             var cedulaParameter = cedula.HasValue ?
                 new ObjectParameter("Cedula", cedula) :
@@ -88,7 +86,15 @@ namespace Diseño.BaseD
                 new ObjectParameter("Contra", contra) :
                 new ObjectParameter("Contra", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CuentasUsuario", nombreParameter, apellidoParameter, cedulaParameter, direccionParameter, emailParameter, loginNParameter, contraParameter);
+            var tipoParameter = tipo != null ?
+                new ObjectParameter("tipo", tipo) :
+                new ObjectParameter("tipo", typeof(string));
+    
+            var estdParameter = estd.HasValue ?
+                new ObjectParameter("estd", estd) :
+                new ObjectParameter("estd", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CuentasUsuario", nombreParameter, cedulaParameter, direccionParameter, emailParameter, loginNParameter, contraParameter, tipoParameter, estdParameter);
         }
     
         public virtual int Sp_EditarContra(Nullable<int> id, string contra)
@@ -102,6 +108,143 @@ namespace Diseño.BaseD
                 new ObjectParameter("Contra", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_EditarContra", idParameter, contraParameter);
+        }
+    
+        public virtual int deshUsuario(Nullable<int> id, Nullable<int> estado)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deshUsuario", idParameter, estadoParameter);
+        }
+    
+        public virtual int sp_tarifas(Nullable<System.DateTime> fecha, Nullable<decimal> horaEstacioMoto, Nullable<decimal> semanaEstacioMoto, Nullable<decimal> quincenaEstacioMoto, Nullable<decimal> mensualidadEstacioMoto, Nullable<decimal> horaEstacioBici, Nullable<decimal> semanaEstacioBici, Nullable<decimal> quincenaEstacioBici, Nullable<decimal> mensualidadEstacioBici, Nullable<int> cuposDIsponibles)
+        {
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            var horaEstacioMotoParameter = horaEstacioMoto.HasValue ?
+                new ObjectParameter("HoraEstacioMoto", horaEstacioMoto) :
+                new ObjectParameter("HoraEstacioMoto", typeof(decimal));
+    
+            var semanaEstacioMotoParameter = semanaEstacioMoto.HasValue ?
+                new ObjectParameter("SemanaEstacioMoto", semanaEstacioMoto) :
+                new ObjectParameter("SemanaEstacioMoto", typeof(decimal));
+    
+            var quincenaEstacioMotoParameter = quincenaEstacioMoto.HasValue ?
+                new ObjectParameter("QuincenaEstacioMoto", quincenaEstacioMoto) :
+                new ObjectParameter("QuincenaEstacioMoto", typeof(decimal));
+    
+            var mensualidadEstacioMotoParameter = mensualidadEstacioMoto.HasValue ?
+                new ObjectParameter("MensualidadEstacioMoto", mensualidadEstacioMoto) :
+                new ObjectParameter("MensualidadEstacioMoto", typeof(decimal));
+    
+            var horaEstacioBiciParameter = horaEstacioBici.HasValue ?
+                new ObjectParameter("HoraEstacioBici", horaEstacioBici) :
+                new ObjectParameter("HoraEstacioBici", typeof(decimal));
+    
+            var semanaEstacioBiciParameter = semanaEstacioBici.HasValue ?
+                new ObjectParameter("SemanaEstacioBici", semanaEstacioBici) :
+                new ObjectParameter("SemanaEstacioBici", typeof(decimal));
+    
+            var quincenaEstacioBiciParameter = quincenaEstacioBici.HasValue ?
+                new ObjectParameter("QuincenaEstacioBici", quincenaEstacioBici) :
+                new ObjectParameter("QuincenaEstacioBici", typeof(decimal));
+    
+            var mensualidadEstacioBiciParameter = mensualidadEstacioBici.HasValue ?
+                new ObjectParameter("MensualidadEstacioBici", mensualidadEstacioBici) :
+                new ObjectParameter("MensualidadEstacioBici", typeof(decimal));
+    
+            var cuposDIsponiblesParameter = cuposDIsponibles.HasValue ?
+                new ObjectParameter("CuposDIsponibles", cuposDIsponibles) :
+                new ObjectParameter("CuposDIsponibles", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_tarifas", fechaParameter, horaEstacioMotoParameter, semanaEstacioMotoParameter, quincenaEstacioMotoParameter, mensualidadEstacioMotoParameter, horaEstacioBiciParameter, semanaEstacioBiciParameter, quincenaEstacioBiciParameter, mensualidadEstacioBiciParameter, cuposDIsponiblesParameter);
+        }
+    
+        public virtual int sp_ingresoVehiculo(string tipoVhlo, string placa, string numCascos, Nullable<int> cuposDis, Nullable<System.DateTime> fecha, Nullable<System.TimeSpan> hora)
+        {
+            var tipoVhloParameter = tipoVhlo != null ?
+                new ObjectParameter("tipoVhlo", tipoVhlo) :
+                new ObjectParameter("tipoVhlo", typeof(string));
+    
+            var placaParameter = placa != null ?
+                new ObjectParameter("Placa", placa) :
+                new ObjectParameter("Placa", typeof(string));
+    
+            var numCascosParameter = numCascos != null ?
+                new ObjectParameter("NumCascos", numCascos) :
+                new ObjectParameter("NumCascos", typeof(string));
+    
+            var cuposDisParameter = cuposDis.HasValue ?
+                new ObjectParameter("CuposDis", cuposDis) :
+                new ObjectParameter("CuposDis", typeof(int));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            var horaParameter = hora.HasValue ?
+                new ObjectParameter("hora", hora) :
+                new ObjectParameter("hora", typeof(System.TimeSpan));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ingresoVehiculo", tipoVhloParameter, placaParameter, numCascosParameter, cuposDisParameter, fechaParameter, horaParameter);
+        }
+    
+        public virtual int sp_EdiCuentasUsuario(Nullable<int> id, string tipo, Nullable<int> estd)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var tipoParameter = tipo != null ?
+                new ObjectParameter("tipo", tipo) :
+                new ObjectParameter("tipo", typeof(string));
+    
+            var estdParameter = estd.HasValue ?
+                new ObjectParameter("estd", estd) :
+                new ObjectParameter("estd", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EdiCuentasUsuario", idParameter, tipoParameter, estdParameter);
+        }
+    
+        public virtual int sp_EdiPerfil(Nullable<int> id, string nombre, Nullable<int> cedula, string direccion, string email, string loginN, string contra)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("Cedula", cedula) :
+                new ObjectParameter("Cedula", typeof(int));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var loginNParameter = loginN != null ?
+                new ObjectParameter("LoginN", loginN) :
+                new ObjectParameter("LoginN", typeof(string));
+    
+            var contraParameter = contra != null ?
+                new ObjectParameter("Contra", contra) :
+                new ObjectParameter("Contra", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EdiPerfil", idParameter, nombreParameter, cedulaParameter, direccionParameter, emailParameter, loginNParameter, contraParameter);
         }
     }
 }

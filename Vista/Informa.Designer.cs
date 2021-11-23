@@ -33,20 +33,20 @@ namespace Diseño.Vista
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtHorATenc = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
             this.btnMax = new System.Windows.Forms.PictureBox();
             this.btnSal = new System.Windows.Forms.PictureBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtTel = new System.Windows.Forms.TextBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtDir = new System.Windows.Forms.TextBox();
+            this.txtNit = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.btnCanc = new System.Windows.Forms.Button();
+            this.btnGuar = new System.Windows.Forms.Button();
+            this.btnMod = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,29 +55,32 @@ namespace Diseño.Vista
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txtCupos = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMsB = new System.Windows.Forms.TextBox();
+            this.txtQnB = new System.Windows.Forms.TextBox();
+            this.txtSmB = new System.Windows.Forms.TextBox();
+            this.txtHrB = new System.Windows.Forms.TextBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRes = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.btnGuarda = new System.Windows.Forms.Button();
+            this.btnModi = new System.Windows.Forms.Button();
+            this.txtMsM = new System.Windows.Forms.TextBox();
+            this.txtQnM = new System.Windows.Forms.TextBox();
+            this.txtSmM = new System.Windows.Forms.TextBox();
+            this.txtHrM = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.dtgfalso = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -92,6 +95,7 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgfalso)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -111,21 +115,22 @@ namespace Diseño.Vista
             // 
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.dtgfalso);
             this.tabPage1.Controls.Add(this.pictureBox5);
-            this.tabPage1.Controls.Add(this.textBox7);
+            this.tabPage1.Controls.Add(this.txtHorATenc);
             this.tabPage1.Controls.Add(this.textBox5);
             this.tabPage1.Controls.Add(this.pictureBox4);
             this.tabPage1.Controls.Add(this.btnMin);
             this.tabPage1.Controls.Add(this.btnMax);
             this.tabPage1.Controls.Add(this.btnSal);
-            this.tabPage1.Controls.Add(this.textBox6);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.txtTel);
+            this.tabPage1.Controls.Add(this.txtCorreo);
+            this.tabPage1.Controls.Add(this.txtDir);
+            this.tabPage1.Controls.Add(this.txtNit);
+            this.tabPage1.Controls.Add(this.txtNom);
+            this.tabPage1.Controls.Add(this.btnCanc);
+            this.tabPage1.Controls.Add(this.btnGuar);
+            this.tabPage1.Controls.Add(this.btnMod);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
@@ -137,7 +142,7 @@ namespace Diseño.Vista
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(662, 628);
+            this.tabPage1.Size = new System.Drawing.Size(663, 628);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Información";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -152,15 +157,15 @@ namespace Diseño.Vista
             this.pictureBox5.TabIndex = 43;
             this.pictureBox5.TabStop = false;
             // 
-            // textBox7
+            // txtHorATenc
             // 
-            this.textBox7.BackColor = System.Drawing.Color.Gray;
-            this.textBox7.Location = new System.Drawing.Point(259, 414);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(185, 26);
-            this.textBox7.TabIndex = 42;
-            this.textBox7.Text = "8:00 am -6:00pm";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtHorATenc.BackColor = System.Drawing.Color.Gray;
+            this.txtHorATenc.Location = new System.Drawing.Point(259, 414);
+            this.txtHorATenc.Name = "txtHorATenc";
+            this.txtHorATenc.Size = new System.Drawing.Size(185, 26);
+            this.txtHorATenc.TabIndex = 42;
+            this.txtHorATenc.Text = "8:00 am -6:00pm";
+            this.txtHorATenc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox5
             // 
@@ -222,67 +227,68 @@ namespace Diseño.Vista
             this.btnSal.TabStop = false;
             this.btnSal.Click += new System.EventHandler(this.btnSal_Click);
             // 
-            // textBox6
+            // txtTel
             // 
-            this.textBox6.Location = new System.Drawing.Point(421, 176);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(115, 26);
-            this.textBox6.TabIndex = 16;
+            this.txtTel.Location = new System.Drawing.Point(421, 176);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(115, 26);
+            this.txtTel.TabIndex = 16;
             // 
-            // textBox4
+            // txtCorreo
             // 
-            this.textBox4.Location = new System.Drawing.Point(211, 274);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(325, 26);
-            this.textBox4.TabIndex = 14;
+            this.txtCorreo.Location = new System.Drawing.Point(211, 274);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(325, 26);
+            this.txtCorreo.TabIndex = 14;
             // 
-            // textBox3
+            // txtDir
             // 
-            this.textBox3.Location = new System.Drawing.Point(211, 224);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(144, 26);
-            this.textBox3.TabIndex = 13;
+            this.txtDir.Location = new System.Drawing.Point(211, 224);
+            this.txtDir.Name = "txtDir";
+            this.txtDir.Size = new System.Drawing.Size(144, 26);
+            this.txtDir.TabIndex = 13;
             // 
-            // textBox2
+            // txtNit
             // 
-            this.textBox2.Location = new System.Drawing.Point(211, 177);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 26);
-            this.textBox2.TabIndex = 12;
+            this.txtNit.Location = new System.Drawing.Point(211, 177);
+            this.txtNit.Name = "txtNit";
+            this.txtNit.Size = new System.Drawing.Size(144, 26);
+            this.txtNit.TabIndex = 12;
             // 
-            // textBox1
+            // txtNom
             // 
-            this.textBox1.Location = new System.Drawing.Point(211, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(325, 26);
-            this.textBox1.TabIndex = 11;
+            this.txtNom.Location = new System.Drawing.Point(211, 126);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(325, 26);
+            this.txtNom.TabIndex = 11;
             // 
-            // button3
+            // btnCanc
             // 
-            this.button3.Location = new System.Drawing.Point(468, 474);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 33);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCanc.Location = new System.Drawing.Point(468, 474);
+            this.btnCanc.Name = "btnCanc";
+            this.btnCanc.Size = new System.Drawing.Size(93, 33);
+            this.btnCanc.TabIndex = 10;
+            this.btnCanc.Text = "Cancelar";
+            this.btnCanc.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnGuar
             // 
-            this.button2.Location = new System.Drawing.Point(302, 474);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(79, 33);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGuar.Location = new System.Drawing.Point(302, 474);
+            this.btnGuar.Name = "btnGuar";
+            this.btnGuar.Size = new System.Drawing.Size(79, 33);
+            this.btnGuar.TabIndex = 9;
+            this.btnGuar.Text = "Guardar";
+            this.btnGuar.UseVisualStyleBackColor = true;
+            this.btnGuar.Click += new System.EventHandler(this.btnGuar_Click);
             // 
-            // button1
+            // btnMod
             // 
-            this.button1.Location = new System.Drawing.Point(126, 474);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 33);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMod.Location = new System.Drawing.Point(126, 474);
+            this.btnMod.Name = "btnMod";
+            this.btnMod.Size = new System.Drawing.Size(96, 33);
+            this.btnMod.TabIndex = 8;
+            this.btnMod.Text = "Modificar";
+            this.btnMod.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -367,27 +373,29 @@ namespace Diseño.Vista
             // 
             this.tabPage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage2.BackgroundImage")));
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage2.Controls.Add(this.textBox12);
-            this.tabPage2.Controls.Add(this.textBox13);
-            this.tabPage2.Controls.Add(this.textBox14);
-            this.tabPage2.Controls.Add(this.textBox15);
+            this.tabPage2.Controls.Add(this.txtCupos);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.txtMsB);
+            this.tabPage2.Controls.Add(this.txtQnB);
+            this.tabPage2.Controls.Add(this.txtSmB);
+            this.tabPage2.Controls.Add(this.txtHrB);
             this.tabPage2.Controls.Add(this.pictureBox7);
             this.tabPage2.Controls.Add(this.pictureBox6);
             this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Controls.Add(this.btnRes);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.pictureBox3);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.textBox11);
-            this.tabPage2.Controls.Add(this.textBox10);
-            this.tabPage2.Controls.Add(this.textBox9);
-            this.tabPage2.Controls.Add(this.textBox8);
+            this.tabPage2.Controls.Add(this.btnGuarda);
+            this.tabPage2.Controls.Add(this.btnModi);
+            this.tabPage2.Controls.Add(this.txtMsM);
+            this.tabPage2.Controls.Add(this.txtQnM);
+            this.tabPage2.Controls.Add(this.txtSmM);
+            this.tabPage2.Controls.Add(this.txtHrM);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.label14);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.lblFecha);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -398,34 +406,52 @@ namespace Diseño.Vista
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tarifas";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // textBox12
+            // txtCupos
             // 
-            this.textBox12.Location = new System.Drawing.Point(457, 400);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(150, 26);
-            this.textBox12.TabIndex = 46;
+            this.txtCupos.Location = new System.Drawing.Point(386, 469);
+            this.txtCupos.Name = "txtCupos";
+            this.txtCupos.Size = new System.Drawing.Size(150, 26);
+            this.txtCupos.TabIndex = 48;
             // 
-            // textBox13
+            // label7
             // 
-            this.textBox13.Location = new System.Drawing.Point(457, 328);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(150, 26);
-            this.textBox13.TabIndex = 45;
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(32, 475);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(297, 20);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "Cupos disponibles en el estacionamiento";
             // 
-            // textBox14
+            // txtMsB
             // 
-            this.textBox14.Location = new System.Drawing.Point(457, 260);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(150, 26);
-            this.textBox14.TabIndex = 44;
+            this.txtMsB.Location = new System.Drawing.Point(464, 400);
+            this.txtMsB.Name = "txtMsB";
+            this.txtMsB.Size = new System.Drawing.Size(150, 26);
+            this.txtMsB.TabIndex = 46;
             // 
-            // textBox15
+            // txtQnB
             // 
-            this.textBox15.Location = new System.Drawing.Point(457, 193);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(150, 26);
-            this.textBox15.TabIndex = 43;
+            this.txtQnB.Location = new System.Drawing.Point(464, 328);
+            this.txtQnB.Name = "txtQnB";
+            this.txtQnB.Size = new System.Drawing.Size(150, 26);
+            this.txtQnB.TabIndex = 45;
+            // 
+            // txtSmB
+            // 
+            this.txtSmB.Location = new System.Drawing.Point(464, 260);
+            this.txtSmB.Name = "txtSmB";
+            this.txtSmB.Size = new System.Drawing.Size(150, 26);
+            this.txtSmB.TabIndex = 44;
+            // 
+            // txtHrB
+            // 
+            this.txtHrB.Location = new System.Drawing.Point(464, 193);
+            this.txtHrB.Name = "txtHrB";
+            this.txtHrB.Size = new System.Drawing.Size(150, 26);
+            this.txtHrB.TabIndex = 43;
             // 
             // pictureBox7
             // 
@@ -497,51 +523,52 @@ namespace Diseño.Vista
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // button5
+            // btnGuarda
             // 
-            this.button5.Location = new System.Drawing.Point(398, 455);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 34);
-            this.button5.TabIndex = 17;
-            this.button5.Text = "Guardar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnGuarda.Location = new System.Drawing.Point(521, 542);
+            this.btnGuarda.Name = "btnGuarda";
+            this.btnGuarda.Size = new System.Drawing.Size(94, 34);
+            this.btnGuarda.TabIndex = 17;
+            this.btnGuarda.Text = "Guardar";
+            this.btnGuarda.UseVisualStyleBackColor = true;
+            this.btnGuarda.Click += new System.EventHandler(this.btnGuarda_Click);
             // 
-            // button4
+            // btnModi
             // 
-            this.button4.Location = new System.Drawing.Point(174, 455);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(102, 34);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Modificar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnModi.Location = new System.Drawing.Point(340, 542);
+            this.btnModi.Name = "btnModi";
+            this.btnModi.Size = new System.Drawing.Size(102, 34);
+            this.btnModi.TabIndex = 16;
+            this.btnModi.Text = "Modificar";
+            this.btnModi.UseVisualStyleBackColor = true;
             // 
-            // textBox11
+            // txtMsM
             // 
-            this.textBox11.Location = new System.Drawing.Point(285, 400);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(150, 26);
-            this.textBox11.TabIndex = 15;
+            this.txtMsM.Location = new System.Drawing.Point(292, 400);
+            this.txtMsM.Name = "txtMsM";
+            this.txtMsM.Size = new System.Drawing.Size(150, 26);
+            this.txtMsM.TabIndex = 15;
             // 
-            // textBox10
+            // txtQnM
             // 
-            this.textBox10.Location = new System.Drawing.Point(285, 328);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(150, 26);
-            this.textBox10.TabIndex = 14;
+            this.txtQnM.Location = new System.Drawing.Point(292, 328);
+            this.txtQnM.Name = "txtQnM";
+            this.txtQnM.Size = new System.Drawing.Size(150, 26);
+            this.txtQnM.TabIndex = 14;
             // 
-            // textBox9
+            // txtSmM
             // 
-            this.textBox9.Location = new System.Drawing.Point(285, 260);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(150, 26);
-            this.textBox9.TabIndex = 13;
+            this.txtSmM.Location = new System.Drawing.Point(292, 260);
+            this.txtSmM.Name = "txtSmM";
+            this.txtSmM.Size = new System.Drawing.Size(150, 26);
+            this.txtSmM.TabIndex = 13;
             // 
-            // textBox8
+            // txtHrM
             // 
-            this.textBox8.Location = new System.Drawing.Point(285, 193);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(150, 26);
-            this.textBox8.TabIndex = 12;
+            this.txtHrM.Location = new System.Drawing.Point(292, 193);
+            this.txtHrM.Name = "txtHrM";
+            this.txtHrM.Size = new System.Drawing.Size(150, 26);
+            this.txtHrM.TabIndex = 12;
             // 
             // label15
             // 
@@ -549,9 +576,9 @@ namespace Diseño.Vista
             this.label15.ForeColor = System.Drawing.Color.Transparent;
             this.label15.Location = new System.Drawing.Point(32, 406);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(244, 20);
+            this.label15.Size = new System.Drawing.Size(261, 20);
             this.label15.TabIndex = 6;
-            this.label15.Text = "Mensualidad de Estacionamiento";
+            this.label15.Text = "Mensualidad de Estacionamiento $:";
             // 
             // label14
             // 
@@ -559,9 +586,9 @@ namespace Diseño.Vista
             this.label14.ForeColor = System.Drawing.Color.Transparent;
             this.label14.Location = new System.Drawing.Point(32, 330);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(222, 20);
+            this.label14.Size = new System.Drawing.Size(239, 20);
             this.label14.TabIndex = 5;
-            this.label14.Text = "Quincena de Estacionamiento";
+            this.label14.Text = "Quincena de Estacionamiento $:";
             // 
             // label13
             // 
@@ -569,9 +596,9 @@ namespace Diseño.Vista
             this.label13.ForeColor = System.Drawing.Color.Transparent;
             this.label13.Location = new System.Drawing.Point(32, 266);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(214, 20);
+            this.label13.Size = new System.Drawing.Size(231, 20);
             this.label13.TabIndex = 4;
-            this.label13.Text = "Semana de Estacionamiento";
+            this.label13.Text = "Semana de Estacionamiento $:";
             // 
             // label12
             // 
@@ -579,20 +606,20 @@ namespace Diseño.Vista
             this.label12.ForeColor = System.Drawing.Color.Transparent;
             this.label12.Location = new System.Drawing.Point(32, 199);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(189, 20);
+            this.label12.Size = new System.Drawing.Size(206, 20);
             this.label12.TabIndex = 3;
-            this.label12.Text = "Hora de Estacionamiento";
+            this.label12.Text = "Hora de Estacionamiento $:";
             // 
-            // label11
+            // lblFecha
             // 
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(466, 37);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 21);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "20/09/2021";
+            this.lblFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.Black;
+            this.lblFecha.Location = new System.Drawing.Point(466, 37);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(84, 21);
+            this.lblFecha.TabIndex = 2;
+            this.lblFecha.Text = "20/09/2021";
             // 
             // label10
             // 
@@ -617,6 +644,15 @@ namespace Diseño.Vista
             this.label9.Text = "Tarifas";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // dtgfalso
+            // 
+            this.dtgfalso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgfalso.Location = new System.Drawing.Point(550, 388);
+            this.dtgfalso.Name = "dtgfalso";
+            this.dtgfalso.Size = new System.Drawing.Size(53, 38);
+            this.dtgfalso.TabIndex = 44;
+            this.dtgfalso.Visible = false;
+            // 
             // FrmInforma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -629,6 +665,7 @@ namespace Diseño.Vista
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmInforma";
             this.Text = "Informa";
+            this.Load += new System.EventHandler(this.FrmInforma_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -645,6 +682,7 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgfalso)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -654,13 +692,13 @@ namespace Diseño.Vista
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.TextBox txtDir;
+        private System.Windows.Forms.TextBox txtNit;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.Button btnCanc;
+        private System.Windows.Forms.Button btnGuar;
+        private System.Windows.Forms.Button btnMod;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -668,18 +706,18 @@ namespace Diseño.Vista
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtTel;
+        private System.Windows.Forms.Button btnGuarda;
+        private System.Windows.Forms.Button btnModi;
+        private System.Windows.Forms.TextBox txtMsM;
+        private System.Windows.Forms.TextBox txtQnM;
+        private System.Windows.Forms.TextBox txtSmM;
+        private System.Windows.Forms.TextBox txtHrM;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox btnMin;
@@ -691,13 +729,16 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnRes;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtHorATenc;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txtMsB;
+        private System.Windows.Forms.TextBox txtQnB;
+        private System.Windows.Forms.TextBox txtSmB;
+        private System.Windows.Forms.TextBox txtHrB;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.TextBox txtCupos;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dtgfalso;
     }
 }

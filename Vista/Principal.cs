@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diseño.Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,7 +42,16 @@ namespace Diseño.Vista
         {
 
         }
+        private void cargarD()
+        {
+            if (lblNmb.Text == "nombre" || lblCc.Text == "cedula" || lblEm.Text == "correo")
+            {
+                lblNmb.Text = clsDatosUser.nombre;
+                lblCc.Text = clsDatosUser.cedula;
+                lblEm.Text = clsDatosUser.correo;
+            }
 
+        }
         private void btnSal_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -83,6 +93,7 @@ namespace Diseño.Vista
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             btnRes.Visible = false;
+            cargarD();
         }
 
         private void FrmPrincipal_MouseDown(object sender, MouseEventArgs e)
@@ -99,6 +110,13 @@ namespace Diseño.Vista
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnCerrarScion_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seguro que quiere cerrar secion?", "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
         }
     }
 }

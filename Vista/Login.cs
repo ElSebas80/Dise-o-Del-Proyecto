@@ -15,6 +15,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Diseño.Datos;
 
 namespace Diseño.Vista
 {
@@ -31,6 +32,14 @@ namespace Diseño.Vista
         {
 
         }
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            txtPass.Text = "Pasword";
+            txtPass.UseSystemPasswordChar = false;
+            txtUser.Text = "Nombre Usuario";
+            lblmsgErro.Visible = false;
+            this.Show();
+        }
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             if (txtUser.Text != "Nombre Usuario")
@@ -45,9 +54,27 @@ namespace Diseño.Vista
 
                     if (verificado != null)
                     {
+                        clsDatosUser.id = verificado.id;
+                        clsDatosUser.nombre = verificado.Nombre.ToString();
+                        clsDatosUser.cedula = verificado.Cedula.ToString();
+                        clsDatosUser.dirrecion = verificado.Direccion.ToString();
+                        clsDatosUser.correo = verificado.email.ToString();
+                        clsDatosUser.login = verificado.LoginN.ToString();
+                        clsDatosUser.contraseña = txtPass.Text.Trim();
+                        clsDatosUser.roles = verificado.idTp.ToString();
+                        clsDatosUser.estado = verificado.idEs.ToString();
+                        if (clsDatosUser.estado != "1")
+                        {
+                            MessageBox.Show("Este usuario no tiene acceso al sistema");
+                        }
+                        else
+                        {
                         FrmPrincipal us = new FrmPrincipal();
                         us.Show();
+                        us.FormClosed += Logout;
                         this.Hide();
+                        }
+                        //FrmIngresoMoto us = new FrmIngresoMoto();
                     }
                     else
                     {

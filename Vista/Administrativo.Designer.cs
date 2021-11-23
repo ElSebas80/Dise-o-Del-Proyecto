@@ -32,7 +32,6 @@ namespace Diseño.Vista
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdministrativo));
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnInforma = new System.Windows.Forms.Button();
             this.btnCuentas = new System.Windows.Forms.Button();
@@ -63,7 +62,6 @@ namespace Diseño.Vista
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnVolver);
             this.panel1.Controls.Add(this.btnInforma);
             this.panel1.Controls.Add(this.btnCuentas);
@@ -79,25 +77,12 @@ namespace Diseño.Vista
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(43, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 26);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Perfil";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // btnVolver
             // 
             this.btnVolver.BackgroundImage = global::Diseño.Properties.Resources.panel_2;
             this.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVolver.FlatAppearance.BorderSize = 0;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.Location = new System.Drawing.Point(64, 565);
@@ -227,6 +212,5 @@ namespace Diseño.Vista
         private System.Windows.Forms.Button btnCuentas;
         private System.Windows.Forms.Panel PanelContenedor;
         private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.Button button1;
     }
 }

@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -56,24 +59,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseD\BPark1.Context.cs">
+    <Compile Include="BaseD\EnvEmail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseD\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BPark1.Context.tt</DependentUpon>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseD\BPark1.cs">
+    <Compile Include="BaseD\Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BPark1.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseD\BPark1.Designer.cs">
+    <Compile Include="BaseD\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BPark1.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="BaseD\CuentasUsuario.cs">
-      <DependentUpon>BPark1.tt</DependentUpon>
-    </Compile>
+<<<<<<< HEAD
+=======
     <Compile Include="BaseD\Estado.cs">
       <DependentUpon>BPark1.tt</DependentUpon>
     </Compile>
@@ -82,6 +87,7 @@
     </Compile>
     <Compile Include="Datos\clsDatosUser.cs" />
     <Compile Include="Datos\Cruts.cs" />
+>>>>>>> bd6a72d5a3788f0660cbefb0e47ed297ebb79c0e
     <Compile Include="Datos\Logn\ClsEditarUser.cs" />
     <Compile Include="Datos\Logn\Email.cs" />
     <Compile Include="Datos\Encriptacion\Encryp.cs" />
@@ -200,12 +206,12 @@
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="BaseD\BPark1.edmx">
+    <EntityDeploy Include="BaseD\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BPark1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="BaseD\BPark1.edmx.diagram">
-      <DependentUpon>BPark1.edmx</DependentUpon>
+    <None Include="BaseD\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -222,6 +228,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BaseD\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="BaseD\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Sin Bordes.png" />
   </ItemGroup>
   <ItemGroup>
@@ -232,18 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="BaseD\BPark1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BPark1.edmx</DependentUpon>
-      <LastGenOutput>BPark1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="BaseD\BPark1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BPark1.edmx</DependentUpon>
-      <LastGenOutput>BPark1.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

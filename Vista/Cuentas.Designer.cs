@@ -347,6 +347,7 @@ namespace Diseño.Vista
             this.dtgUsuarios.Name = "dtgUsuarios";
             this.dtgUsuarios.ReadOnly = true;
             this.dtgUsuarios.RowHeadersVisible = false;
+            this.dtgUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgUsuarios.Size = new System.Drawing.Size(534, 150);
             this.dtgUsuarios.TabIndex = 44;
             this.dtgUsuarios.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgUsuarios_CellValueChanged);

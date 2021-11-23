@@ -14,15 +14,6 @@ using Diseño.Datos.ValidacionCampos;
 
 namespace Diseño.Vista
 {
-    //public partial class dusuario
-    //{
-    //    public string nombre { get; set; }
-    //    public string nombre { get; set; }
-    //    public string nombre { get; set; }
-    //    public string nombre { get; set; }
-    //    public string nombre { get; set; }
-    //    public string nombre { get; set; }
-    //}
     public partial class FrmCuentas : Form
     {
         public FrmCuentas()
@@ -66,7 +57,10 @@ namespace Diseño.Vista
             }
             catch 
             {
-                MessageBox.Show("Algo saliio mal");
+                if (txtNom.Text == "" || txtCed.Text == "" || txtDir.Text == "" || txtCor.Text == "" || txtLog.Text == "" || cmbTipo.Text == "" || btnHabl.Checked == false || btnDesh.Checked == false)
+                {
+                    MessageBox.Show("Los campos estan vacio");
+                }
             }
            
         }
@@ -91,6 +85,10 @@ namespace Diseño.Vista
             using (parkEntities1 mos = new parkEntities1())
             {
                 dtgUsuarios.DataSource = mos.CuentasUsuario.ToList();
+                dtgUsuarios.Columns[4].HeaderText = "Email";
+                dtgUsuarios.Columns[5].HeaderText = "Usuario";
+                dtgUsuarios.Columns[7].HeaderText = "Tipo";
+                dtgUsuarios.Columns[8].HeaderText = "Estado";
                 dtgUsuarios.Columns[0].Visible = false;
                 dtgUsuarios.Columns[6].Visible = false;
             }
@@ -157,12 +155,7 @@ namespace Diseño.Vista
 
         private void txtCor_Leave(object sender, EventArgs e)
         {
-            if (txtCor.Text == "")
-            {
-                msgError.Visible = true;
-                msgError.Text = ("El campo correo esta vacio");
-                msgError.ForeColor = Color.Red;
-            }
+            
             
         }
 
@@ -303,6 +296,7 @@ namespace Diseño.Vista
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            txtLog.ReadOnly = false;
             txtLog.Enabled = true;
             btnActualizarP.Visible = false;
             btnCamb.Visible = false;
@@ -392,7 +386,13 @@ namespace Diseño.Vista
 
         private void txtCor_TextChanged(object sender, EventArgs e)
         {
-            if (valid.valiCorreo(txtCor.Text.Trim()))
+            if (txtCor.Text == "")
+            {
+                msgError.Visible = true;
+                msgError.Text = ("El campo correo esta vacio");
+                msgError.ForeColor = Color.Red;
+            }
+            else if (valid.valiCorreo(txtCor.Text.Trim()))
             {
                 msgError.Visible = true;
                 msgError.Text = ("El campo correo si corresponde");

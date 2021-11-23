@@ -43,7 +43,6 @@ namespace Diseño.Vista
             this.btnRes = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnGnTicket = new System.Windows.Forms.Button();
             this.txtCuposD = new System.Windows.Forms.TextBox();
             this.rdtBici = new System.Windows.Forms.RadioButton();
             this.rdtMoto = new System.Windows.Forms.RadioButton();
@@ -273,7 +272,6 @@ namespace Diseño.Vista
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
-            this.tabPage1.Controls.Add(this.btnGnTicket);
             this.tabPage1.Controls.Add(this.txtCuposD);
             this.tabPage1.Controls.Add(this.rdtBici);
             this.tabPage1.Controls.Add(this.rdtMoto);
@@ -293,15 +291,6 @@ namespace Diseño.Vista
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ingreso Vehículo";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // btnGnTicket
-            // 
-            this.btnGnTicket.Location = new System.Drawing.Point(412, 382);
-            this.btnGnTicket.Name = "btnGnTicket";
-            this.btnGnTicket.Size = new System.Drawing.Size(128, 29);
-            this.btnGnTicket.TabIndex = 70;
-            this.btnGnTicket.Text = "Generar ticket";
-            this.btnGnTicket.UseVisualStyleBackColor = true;
             // 
             // txtCuposD
             // 
@@ -441,7 +430,7 @@ namespace Diseño.Vista
             // 
             // btnRegistrarCli
             // 
-            this.btnRegistrarCli.Location = new System.Drawing.Point(197, 382);
+            this.btnRegistrarCli.Location = new System.Drawing.Point(274, 380);
             this.btnRegistrarCli.Name = "btnRegistrarCli";
             this.btnRegistrarCli.Size = new System.Drawing.Size(75, 29);
             this.btnRegistrarCli.TabIndex = 49;
@@ -1240,7 +1229,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.TextBox txtCuposD;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.Button btnGnTicket;
         private System.Windows.Forms.Timer HoraFecha;
     }
 }

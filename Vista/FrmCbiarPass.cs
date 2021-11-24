@@ -16,5 +16,20 @@ namespace Diseño.Vista
         {
             InitializeComponent();
         }
+
+        private void btnSal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConf_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCanc_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

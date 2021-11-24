@@ -21,6 +21,15 @@ namespace Diseño.Datos.Logn
                 return registro;
             }
         }
-        
+        public CuentasUsuario Repedidas(string user, int cedula)
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                var registro = db.CuentasUsuario.Where(x => x.LoginN == user)
+                        .Where(x => x.Cedula == cedula
+                    ).FirstOrDefault();
+                return registro;
+            }
+        }
     }
 }

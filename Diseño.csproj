@@ -179,6 +179,9 @@
     <EmbeddedResource Include="Vista\Contra.resx">
       <DependentUpon>Contra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\FrmCbiarPass.resx">
+      <DependentUpon>FrmCbiarPass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Reporte.resx">
       <DependentUpon>Reporte.cs</DependentUpon>
     </EmbeddedResource>

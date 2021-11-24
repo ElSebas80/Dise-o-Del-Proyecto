@@ -36,7 +36,7 @@ namespace Diseño.Vista
 
         private void EstD()
         {
-            if (radioButton1.Checked == true)
+            if (btnHabl.Checked == true)
                 estd = 1;
             else if (btnDesh.Checked == true)
                 estd = 2;
@@ -57,7 +57,7 @@ namespace Diseño.Vista
             }
             catch
             {
-                if (txtNom.Text == "" || txtCed.Text == "" || txtDir.Text == "" || txtCor.Text == "" || txtLog.Text == "" || cmbTipo.Text == "" || radioButton1.Checked == false || btnDesh.Checked == false)
+                if (txtNom.Text == "" || txtCed.Text == "" || txtDir.Text == "" || txtCor.Text == "" || txtLog.Text == "" || cmbTipo.Text == "" || btnHabl.Checked == false || btnDesh.Checked == false)
                 {
                     MessageBox.Show("Los campos estan vacio");
                 }
@@ -120,7 +120,7 @@ namespace Diseño.Vista
                 }
                 else
                 {
-                    radioButton1.Checked = true;
+                    btnHabl.Checked = true;
                 }
             }
             else
@@ -175,12 +175,15 @@ namespace Diseño.Vista
                 dtgUsuarios.Visible = false;
                 lblContra.Visible = true;
                 txtContra.Visible = true;
+                msgCedula.Visible = false;
+                msgUsuario.Visible = false;
                 LugarPerf();
                 cargarD();
             }
             else
             {
-
+                msgCedula.Visible = false;
+                msgUsuario.Visible = false;
                 btnCamb.Visible = false;
                 btnActualizarP.Visible = false;
                 bandera = 2;
@@ -201,10 +204,12 @@ namespace Diseño.Vista
             lblNom.Location = new Point(56, 93);
             txtCed.Location = new Point(119, 129);
             lblCed.Location = new Point(56, 130);
+            msgCedula.Location = new Point(116, 152);
             txtDir.Location = new Point(333, 133);
             lblDir.Location = new Point(253, 133);
             txtLog.Location = new Point(119, 177);
             lblLog.Location = new Point(56, 177);
+            msgUsuario.Location = new Point(117, 200);
             txtCor.Location = new Point(333, 180);
             lblCorreo.Location = new Point(253, 181);
             msgError.Location = new Point(331, 203);
@@ -250,24 +255,7 @@ namespace Diseño.Vista
 
         private void txtCor_TextChanged(object sender, EventArgs e)
         {
-            if (txtCor.Text == "")
-            {
-                msgError.Visible = true;
-                msgError.Text = ("El campo correo esta vacio");
-                msgError.ForeColor = Color.Red;
-            }
-            else if (valid.valiCorreo(txtCor.Text.Trim()))
-            {
-                msgError.Visible = true;
-                msgError.Text = ("El campo correo si corresponde");
-                msgError.ForeColor = Color.Green;
-            }
-            else
-            {
-                msgError.Visible = true;
-                msgError.Text = ("El campo no correspon a un correo electronico");
-                msgError.ForeColor = Color.Red;
-            }
+            
         }
         private void cambiarDPersonales()
         {
@@ -286,6 +274,8 @@ namespace Diseño.Vista
         private void btnEdiPf_Click_1(object sender, EventArgs e)
         {
             Limpiar();
+            LugarPerf();
+            cargarD();
             txtLog.ReadOnly = true;
             btnCamb.Visible = true;
             btnActualizar.Visible = false;
@@ -310,9 +300,8 @@ namespace Diseño.Vista
             groupBox.Visible = false;
             dtgUsuarios.Visible = false;
             btnGuardar.Visible = false;
-            btnActualizar.Visible = true;
-            LugarPerf();
-            cargarD();
+            msgCedula.Visible = false;
+            msgUsuario.Visible = false;
         }
 
         private void btnEditar_Click_1(object sender, EventArgs e)
@@ -327,6 +316,8 @@ namespace Diseño.Vista
                 lblPrs.Text = "Cuentas de Usuarios";
                 Limpiar();
                 Mostrartabla();
+                msgCedula.Visible = false;
+                msgUsuario.Visible = false;
                 btnEditar.Visible = false;
                 btnCrear.Visible = true;
                 txtNom.Visible = true;
@@ -359,6 +350,8 @@ namespace Diseño.Vista
             bandera = 2;
             lblPrs.Text = "Creacion de Usuarios";
             Limpiar();
+            msgCedula.Visible = false;
+            msgUsuario.Visible = false;
             btnEdiPf.Visible = true;
             btnEditar.Visible = true;
             btnCrear.Visible = false;
@@ -401,8 +394,29 @@ namespace Diseño.Vista
         }
 
         private void btnGuardar_Click_2(object sender, EventArgs e)
-        {
+        { 
+            if (txtNom.Text == "" || txtCed.Text == "" || txtDir.Text == "" || txtCor.Text == "" || txtLog.Text == "" || cmbTipo.Text == "" || btnHabl.Checked == false || btnDesh.Checked == false)
+            {
+                    enviar user = new enviar();
+                var verificado = user.Repedidas(txtLog.Text, int.Parse(txtCed.Text));
 
+                if(  verificado.LoginN != txtLog.Text /*|| verificado.Cedula != int.Parse(txtCed.Text)*/)
+                {
+                    EstD();
+                    guar();
+                    Contr();
+                    Mostrartabla();
+                }
+                else
+                {
+                    MessageBox.Show("El usuario o cedula ya existen");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Los campos estan vacio");
+            }
+            
         }
 
         private void btnCanc_Click_1(object sender, EventArgs e)
@@ -422,26 +436,47 @@ namespace Diseño.Vista
 
         }
 
+        private void txtCed_TextChanged_1(object sender, EventArgs e)
+        {
+            msgCedula.Visible = true;
+        }
+
+        private void txtLog_TextChanged(object sender, EventArgs e)
+        {
+            msgUsuario.Visible = true;
+        }
+
+        private void txtCed_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            valid.SoloNumeros(e);
+        }
+
+        private void txtCor_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtCor.Text == "")
+            {
+                msgError.Visible = true;
+                msgError.Text = ("El campo correo esta vacio");
+                msgError.ForeColor = Color.Red;
+            }
+            else if (valid.valiCorreo(txtCor.Text.Trim()))
+            {
+                msgError.Visible = true;
+                msgError.Text = ("El campo correo si corresponde");
+                msgError.ForeColor = Color.Green;
+            }
+            else
+            {
+                msgError.Visible = true;
+                msgError.Text = ("El campo no correspon a un correo electronico");
+                msgError.ForeColor = Color.Red;
+            }
+        }
+
         private void FrmCuentas_Load_1(object sender, EventArgs e)
         {
             vistas();
             Mostrartabla();
-        }
-
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                EstD();
-                editar();
-                Mostrartabla();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Algo esta mal");
-            }
-
         }
     }
 }

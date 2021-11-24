@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="parkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'park.dbo.configuracion' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="configuracion">
+          <Property Name="NombreParqueadero" Type="varchar" MaxLength="100" />
+          <Property Name="Nit" Type="varchar" MaxLength="30" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="Correo" Type="varchar" MaxLength="100" />
+          <Property Name="HorarioAtencion" Type="varchar" MaxLength="100" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'park.dbo.CuentasUsuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="CuentasUsuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="150" />
+          <Property Name="Cedula" Type="int" />
+          <Property Name="Direccion" Type="varchar" MaxLength="60" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="LoginN" Type="varchar" MaxLength="100" />
+          <Property Name="Contra" Type="nvarchar" MaxLength="256" />
+          <Property Name="idTp" Type="varchar" MaxLength="50" />
+          <Property Name="idEs" Type="int" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'park.dbo.ingresoVehiculo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ingresoVehiculo">
+          <Key>
+            <PropertyRef Name="NumTicket" />
+          </Key>
+          <Property Name="NumTicket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoVhlo" Type="varchar" MaxLength="20" />
+          <Property Name="Placa" Type="varchar" MaxLength="7" />
+          <Property Name="NumCascos" Type="varchar" MaxLength="2" />
+          <Property Name="CuposDis" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="hora" Type="time" Precision="7" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'park.dbo.tarifas' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="tarifas">
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="HoraEstacioMoto" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="SemanaEstacioMoto" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="QuincenaEstacioMoto" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="MensualidadEstacioMoto" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="HoraEstacioBici" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="SemanaEstacioBici" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="QuincenaEstacioBici" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="MensualidadEstacioBici" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="CuposDIsponibles" Type="int" />
+        </EntityType>-->
+        <Association Name="FK__CuentasUsu__idEs__5CD6CB2B">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="CuentasUsuario" Type="Self.CuentasUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CuentasUsuario">
+              <PropertyRef Name="idEs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="deshUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_configuracion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreParqueadero" Type="varchar" Mode="In" />
+          <Parameter Name="Nit" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="HorarioAtencion" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_CuentasUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Cedula" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="LoginN" Type="varchar" Mode="In" />
+          <Parameter Name="Contra" Type="nvarchar" Mode="In" />
+          <Parameter Name="tipo" Type="varchar" Mode="In" />
+          <Parameter Name="estd" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_EdiCuentasUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="tipo" Type="varchar" Mode="In" />
+          <Parameter Name="estd" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_EdiPerfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Cedula" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="LoginN" Type="varchar" Mode="In" />
+          <Parameter Name="Contra" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_EditarContra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Contra" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_ingresoVehiculo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipoVhlo" Type="varchar" Mode="In" />
+          <Parameter Name="Placa" Type="varchar" Mode="In" />
+          <Parameter Name="NumCascos" Type="varchar" Mode="In" />
+          <Parameter Name="CuposDis" Type="int" Mode="In" />
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="hora" Type="time" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_tarifas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Fecha" Type="datetime" Mode="In" />
+          <Parameter Name="HoraEstacioMoto" Type="decimal" Mode="In" />
+          <Parameter Name="SemanaEstacioMoto" Type="decimal" Mode="In" />
+          <Parameter Name="QuincenaEstacioMoto" Type="decimal" Mode="In" />
+          <Parameter Name="MensualidadEstacioMoto" Type="decimal" Mode="In" />
+          <Parameter Name="HoraEstacioBici" Type="decimal" Mode="In" />
+          <Parameter Name="SemanaEstacioBici" Type="decimal" Mode="In" />
+          <Parameter Name="QuincenaEstacioBici" Type="decimal" Mode="In" />
+          <Parameter Name="MensualidadEstacioBici" Type="decimal" Mode="In" />
+          <Parameter Name="CuposDIsponibles" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="parkModelStoreContainer">
+          <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CuentasUsuario" EntityType="Self.CuentasUsuario" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CuentasUsuario].[id] AS [id], 
+    [CuentasUsuario].[Nombre] AS [Nombre], 
+    [CuentasUsuario].[Cedula] AS [Cedula], 
+    [CuentasUsuario].[Direccion] AS [Direccion], 
+    [CuentasUsuario].[email] AS [email], 
+    [CuentasUsuario].[LoginN] AS [LoginN], 
+    [CuentasUsuario].[Contra] AS [Contra], 
+    [CuentasUsuario].[idTp] AS [idTp], 
+    [CuentasUsuario].[idEs] AS [idEs]
+    FROM [dbo].[CuentasUsuario] AS [CuentasUsuario]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ingresoVehiculo" EntityType="Self.ingresoVehiculo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ingresoVehiculo].[NumTicket] AS [NumTicket], 
+    [ingresoVehiculo].[tipoVhlo] AS [tipoVhlo], 
+    [ingresoVehiculo].[Placa] AS [Placa], 
+    [ingresoVehiculo].[NumCascos] AS [NumCascos], 
+    [ingresoVehiculo].[CuposDis] AS [CuposDis], 
+    [ingresoVehiculo].[Fecha] AS [Fecha], 
+    [ingresoVehiculo].[hora] AS [hora]
+    FROM [dbo].[ingresoVehiculo] AS [ingresoVehiculo]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__CuentasUsu__idEs__5CD6CB2B" Association="Self.FK__CuentasUsu__idEs__5CD6CB2B">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="CuentasUsuario" EntitySet="CuentasUsuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="parkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CuentasUsuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="Int32" />
+          <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LoginN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contra" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="idTp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idEs" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ingresoVehiculo">
+          <Key>
+            <PropertyRef Name="NumTicket" />
+          </Key>
+          <Property Name="NumTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoVhlo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Placa" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="NumCascos" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CuposDis" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="hora" Type="Time" Precision="7" />
+        </EntityType>
+        <Association Name="FK__CuentasUsu__idEs__5CD6CB2B">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="CuentasUsuario" Type="Self.CuentasUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CuentasUsuario">
+              <PropertyRef Name="idEs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="parkEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Estado" EntityType="Self.Estado" />
+          <EntitySet Name="CuentasUsuario" EntityType="Self.CuentasUsuario" />
+          <EntitySet Name="ingresoVehiculo" EntityType="Self.ingresoVehiculo" />
+          <AssociationSet Name="FK__CuentasUsu__idEs__5CD6CB2B" Association="Self.FK__CuentasUsu__idEs__5CD6CB2B">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="CuentasUsuario" EntitySet="CuentasUsuario" />
+          </AssociationSet>
+          <FunctionImport Name="deshUsuario">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_configuracion">
+            <Parameter Name="NombreParqueadero" Mode="In" Type="String" />
+            <Parameter Name="Nit" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="HorarioAtencion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_CuentasUsuario">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Cedula" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="LoginN" Mode="In" Type="String" />
+            <Parameter Name="Contra" Mode="In" Type="String" />
+            <Parameter Name="tipo" Mode="In" Type="String" />
+            <Parameter Name="estd" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_EdiCuentasUsuario">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="tipo" Mode="In" Type="String" />
+            <Parameter Name="estd" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_EdiPerfil">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Cedula" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="LoginN" Mode="In" Type="String" />
+            <Parameter Name="Contra" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_EditarContra">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Contra" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(parkModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(parkModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ingresoVehiculo">
+            <Parameter Name="tipoVhlo" Mode="In" Type="String" />
+            <Parameter Name="Placa" Mode="In" Type="String" />
+            <Parameter Name="NumCascos" Mode="In" Type="String" />
+            <Parameter Name="CuposDis" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="hora" Mode="In" Type="Time" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_tarifas">
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="HoraEstacioMoto" Mode="In" Type="Decimal" />
+            <Parameter Name="SemanaEstacioMoto" Mode="In" Type="Decimal" />
+            <Parameter Name="QuincenaEstacioMoto" Mode="In" Type="Decimal" />
+            <Parameter Name="MensualidadEstacioMoto" Mode="In" Type="Decimal" />
+            <Parameter Name="HoraEstacioBici" Mode="In" Type="Decimal" />
+            <Parameter Name="SemanaEstacioBici" Mode="In" Type="Decimal" />
+            <Parameter Name="QuincenaEstacioBici" Mode="In" Type="Decimal" />
+            <Parameter Name="MensualidadEstacioBici" Mode="In" Type="Decimal" />
+            <Parameter Name="CuposDIsponibles" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="parkModelStoreContainer" CdmEntityContainer="parkEntities">
+          <EntitySetMapping Name="Estado">
+            <EntityTypeMapping TypeName="parkModel.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CuentasUsuario">
+            <EntityTypeMapping TypeName="parkModel.CuentasUsuario">
+              <MappingFragment StoreEntitySet="CuentasUsuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="LoginN" ColumnName="LoginN" />
+                <ScalarProperty Name="Contra" ColumnName="Contra" />
+                <ScalarProperty Name="idTp" ColumnName="idTp" />
+                <ScalarProperty Name="idEs" ColumnName="idEs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ingresoVehiculo">
+            <EntityTypeMapping TypeName="parkModel.ingresoVehiculo">
+              <MappingFragment StoreEntitySet="ingresoVehiculo">
+                <ScalarProperty Name="NumTicket" ColumnName="NumTicket" />
+                <ScalarProperty Name="tipoVhlo" ColumnName="tipoVhlo" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="NumCascos" ColumnName="NumCascos" />
+                <ScalarProperty Name="CuposDis" ColumnName="CuposDis" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="deshUsuario" FunctionName="parkModel.Store.deshUsuario" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="parkModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_configuracion" FunctionName="parkModel.Store.sp_configuracion" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="parkModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_CuentasUsuario" FunctionName="parkModel.Store.sp_CuentasUsuario" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="parkModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_EdiCuentasUsuario" FunctionName="parkModel.Store.sp_EdiCuentasUsuario" />
+          <FunctionImportMapping FunctionImportName="sp_EdiPerfil" FunctionName="parkModel.Store.sp_EdiPerfil" />
+          <FunctionImportMapping FunctionImportName="Sp_EditarContra" FunctionName="parkModel.Store.Sp_EditarContra" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="parkModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="parkModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="parkModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="parkModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_ingresoVehiculo" FunctionName="parkModel.Store.sp_ingresoVehiculo" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="parkModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_tarifas" FunctionName="parkModel.Store.sp_tarifas" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="parkModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

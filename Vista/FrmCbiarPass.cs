@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Diseño.Vista
 {
-    public partial class AdminConf : Form
+    public partial class FrmCbiarPass : Form
     {
-        public AdminConf()
+        public FrmCbiarPass()
         {
             InitializeComponent();
         }

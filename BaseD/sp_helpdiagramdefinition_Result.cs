@@ -10,14 +10,10 @@
 namespace Diseño.BaseD
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class EnvEmail
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int UserId { get; set; }
-        public string LoginName { get; set; }
-        public string Contra { get; set; }
-        public string FirstName { get; set; }
-        public string email { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

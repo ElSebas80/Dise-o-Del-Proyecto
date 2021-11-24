@@ -56,42 +56,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseD\EnvEmail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BaseD\Model1.Context.cs">
+    <Compile Include="BaseD\connet.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>connet.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseD\Model1.cs">
+    <Compile Include="BaseD\connet.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>connet.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseD\Model1.Designer.cs">
+    <Compile Include="BaseD\connet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>connet.edmx</DependentUpon>
     </Compile>
+    <Compile Include="BaseD\CuentasUsuario.cs">
+      <DependentUpon>connet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseD\Estado.cs">
+      <DependentUpon>connet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseD\ingresoVehiculo.cs">
+      <DependentUpon>connet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseD\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>connet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseD\sp_helpdiagrams_Result.cs">
+      <DependentUpon>connet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\clsDatosUser.cs" />
+    <Compile Include="Datos\Cruts.cs" />
     <Compile Include="Datos\Logn\ClsEditarUser.cs" />
     <Compile Include="Datos\Logn\Email.cs" />
     <Compile Include="Datos\Encriptacion\Encryp.cs" />
     <Compile Include="Datos\Logn\enviar.cs" />
     <Compile Include="Datos\Logn\ClsRecuperarpasss.cs" />
     <Compile Include="Datos\Logn\SistemSuports.cs" />
+    <Compile Include="Datos\ValidacionCampos\valid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\AdminConf.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\AdminConf.Designer.cs">
-      <DependentUpon>AdminConf.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\Administrativo.cs">
       <SubType>Form</SubType>
@@ -104,6 +113,12 @@
     </Compile>
     <Compile Include="Vista\Contra.Designer.cs">
       <DependentUpon>Contra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\FrmCbiarPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\FrmCbiarPass.Designer.cs">
+      <DependentUpon>FrmCbiarPass.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\Reporte.cs">
       <SubType>Form</SubType>
@@ -158,9 +173,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\AdminConf.resx">
-      <DependentUpon>AdminConf.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Administrativo.resx">
       <DependentUpon>Administrativo.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,12 +203,12 @@
     <EmbeddedResource Include="Vista\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="BaseD\Model1.edmx">
+    <EntityDeploy Include="BaseD\connet.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>connet.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="BaseD\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="BaseD\connet.edmx.diagram">
+      <DependentUpon>connet.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -213,18 +225,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BaseD\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="BaseD\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Sin Bordes.png" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +235,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BaseD\connet.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>connet.edmx</DependentUpon>
+      <LastGenOutput>connet.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BaseD\connet.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>connet.edmx</DependentUpon>
+      <LastGenOutput>connet.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

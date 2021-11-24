@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diseño.Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,9 +46,19 @@ namespace Diseño.Vista
 
         private void FrmAdministrativo_Load(object sender, EventArgs e)
         {
-
+            vistas();
         }
-
+        private void vistas()
+        {
+            if (clsDatosUser.roles != "Administrador")
+            {
+                btnInforma.Enabled = false;
+            }
+            else
+            {
+                btnInforma.Enabled = true;
+            }
+        }
         private void PanelContenedor_Paint(object sender, PaintEventArgs e)
         {
 

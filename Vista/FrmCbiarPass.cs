@@ -31,5 +31,10 @@ namespace Diseño.Vista
         {
 
         }
+
+        private void FrmCbiarPass_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -80,6 +80,29 @@ namespace Diseño.Vista
             //    MessageBox.Show("Correo incorrecto o no exixtente");
             //}
         }
+        Cruts db = new Cruts();
+        private void MostrarEst()
+        {
+            
+            //if (banderacc == "1")
+            //{
+            //var x = db.MostrarCc(int.Parse(txtCed.Text));
+            //    if(x.Count() >= 1)
+            //    {
+            //        msgCedula.ForeColor = Color.Red;
+            //        msgCedula.Text = "Esta Cedula ya existe";
+            //    }
+            //    else
+            //    {
+            //        msgCedula.ForeColor = Color.Green;
+            //        msgCedula.Text = "La Cedula es unica";
+            //    }
+            //}
+            //else
+            //{
+
+            //}
+        }
         private void Mostrartabla()
         {
             using (parkEntities mos = new parkEntities())
@@ -163,6 +186,7 @@ namespace Diseño.Vista
         {
             if (clsDatosUser.roles != "Administrador")
             {
+                banderacc = "0";
                 txtLog.Enabled = false;
                 btnCamb.Visible = true;
                 btnActualizarP.Visible = true;
@@ -182,6 +206,7 @@ namespace Diseño.Vista
             }
             else
             {
+                banderacc = "1";
                 msgCedula.Visible = false;
                 msgUsuario.Visible = false;
                 btnCamb.Visible = false;
@@ -241,6 +266,10 @@ namespace Diseño.Vista
             txtDir.Clear();
             txtLog.Clear();
             txtCor.Clear();
+            cmbTipo.Text = "";
+            btnHabl.Checked = false;
+            btnDesh.Checked = false;
+
         }
         int bandera, idUser;
         private void editar()
@@ -270,9 +299,10 @@ namespace Diseño.Vista
                 MessageBox.Show("El perfil a sido editado");
             }
         }
-
+        string banderacc;
         private void btnEdiPf_Click_1(object sender, EventArgs e)
         {
+            banderacc = "1";
             Limpiar();
             LugarPerf();
             cargarD();
@@ -306,6 +336,7 @@ namespace Diseño.Vista
 
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
+            banderacc = "0";
             bandera = 1;
             if (clsDatosUser.roles == "Administrador")
             {
@@ -342,6 +373,7 @@ namespace Diseño.Vista
 
         private void btnCrear_Click_1(object sender, EventArgs e)
         {
+            banderacc = "1";
             txtLog.ReadOnly = false;
             txtLog.Enabled = true;
             btnActualizarP.Visible = false;
@@ -394,31 +426,22 @@ namespace Diseño.Vista
         }
 
         private void btnGuardar_Click_2(object sender, EventArgs e)
-        { 
-            if (txtNom.Text == "" || txtCed.Text == "" || txtDir.Text == "" || txtCor.Text == "" || txtLog.Text == "" || cmbTipo.Text == "" || btnHabl.Checked == false || btnDesh.Checked == false)
+        {
+            try
             {
-                    enviar user = new enviar();
-                var verificado = user.Repedidas(txtLog.Text, int.Parse(txtCed.Text));
+                EstD();
+                guar();
+                Contr();
+                Mostrartabla();
+                Limpiar();
 
-                if(  verificado.LoginN != txtLog.Text /*|| verificado.Cedula != int.Parse(txtCed.Text)*/)
-                {
-                    EstD();
-                    guar();
-                    Contr();
-                    Mostrartabla();
-                }
-                else
-                {
-                    MessageBox.Show("El usuario o cedula ya existen");
-                }
             }
-            else
+            catch 
             {
-                MessageBox.Show("Los campos estan vacio");
+                if(txtNom.Text == "" || txtCed.Text == "" || txtDir.Text == "" || txtCor.Text == "" || txtLog.Text == "" || cmbTipo.Text == "" || btnHabl.Checked == false || btnDesh.Checked == false)
+                    MessageBox.Show("rebizar los campos puede faltar uno");
             }
-            
-        }
-
+        } 
         private void btnCanc_Click_1(object sender, EventArgs e)
         {
             Limpiar();
@@ -435,15 +458,17 @@ namespace Diseño.Vista
         {
 
         }
-
         private void txtCed_TextChanged_1(object sender, EventArgs e)
         {
             msgCedula.Visible = true;
+            MostrarEst();
         }
 
         private void txtLog_TextChanged(object sender, EventArgs e)
         {
-            msgUsuario.Visible = true;
+            //msgUsuario.Visible = true;
+            //if(txtLog.Text == )
+            //msgUsuario.Text = "Este usuario ya esta en uso";
         }
 
         private void txtCed_KeyPress_1(object sender, KeyPressEventArgs e)

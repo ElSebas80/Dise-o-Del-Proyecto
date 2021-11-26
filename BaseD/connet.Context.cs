@@ -30,6 +30,7 @@ namespace Diseño.BaseD
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
         public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
+        public virtual DbSet<RegistroCliente> RegistroCliente { get; set; }
     
         public virtual int deshUsuario(Nullable<int> id, Nullable<int> estado)
         {
@@ -348,6 +349,47 @@ namespace Diseño.BaseD
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int sp_RegistroCliente(string nombre, Nullable<int> cedula, Nullable<int> telefono, string placa, string tipoVhlo, string mensualidad, Nullable<decimal> valorPagar, Nullable<System.DateTime> fecha, Nullable<System.TimeSpan> hora)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("Cedula", cedula) :
+                new ObjectParameter("Cedula", typeof(int));
+    
+            var telefonoParameter = telefono.HasValue ?
+                new ObjectParameter("Telefono", telefono) :
+                new ObjectParameter("Telefono", typeof(int));
+    
+            var placaParameter = placa != null ?
+                new ObjectParameter("Placa", placa) :
+                new ObjectParameter("Placa", typeof(string));
+    
+            var tipoVhloParameter = tipoVhlo != null ?
+                new ObjectParameter("tipoVhlo", tipoVhlo) :
+                new ObjectParameter("tipoVhlo", typeof(string));
+    
+            var mensualidadParameter = mensualidad != null ?
+                new ObjectParameter("mensualidad", mensualidad) :
+                new ObjectParameter("mensualidad", typeof(string));
+    
+            var valorPagarParameter = valorPagar.HasValue ?
+                new ObjectParameter("ValorPagar", valorPagar) :
+                new ObjectParameter("ValorPagar", typeof(decimal));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            var horaParameter = hora.HasValue ?
+                new ObjectParameter("hora", hora) :
+                new ObjectParameter("hora", typeof(System.TimeSpan));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RegistroCliente", nombreParameter, cedulaParameter, telefonoParameter, placaParameter, tipoVhloParameter, mensualidadParameter, valorPagarParameter, fechaParameter, horaParameter);
         }
     }
 }

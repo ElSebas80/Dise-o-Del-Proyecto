@@ -28,6 +28,16 @@ namespace Diseño.Datos
             }
 
         }
+        public List<CuentasUsuario> MostrarCc(int Cc)
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                var reg = db.CuentasUsuario.Where(x => x.Cedula == Cc).ToList();
+                
+                    return reg;
+                
+            }
+        }
         public void EditarPerfil(int id, string nombre, int cc, string direc, string correo, string longin, string contra)
         {
             string pass = Encryp.GetSHA1(contra);
@@ -66,6 +76,13 @@ namespace Diseño.Datos
             using (parkEntities bd = new parkEntities())
             {
                 bd.sp_ingresoVehiculo(tipoVh, placa, numcs, cuposD, fecha, hora);
+            }
+        }
+        public void RegistrarClientes(string nombre, int Cedula, int telefon, string placa, string tipoVhlo,string mensualidad, Decimal valor, DateTime fecha, TimeSpan hora)
+        {
+            using (parkEntities bd = new parkEntities())
+            {
+                bd.sp_RegistroCliente(nombre, Cedula, telefon, placa, tipoVhlo, mensualidad, valor, fecha, hora);
             }
         }
     }

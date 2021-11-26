@@ -80,6 +80,9 @@
     <Compile Include="BaseD\ingresoVehiculo.cs">
       <DependentUpon>connet.tt</DependentUpon>
     </Compile>
+    <Compile Include="BaseD\RegistroCliente.cs">
+      <DependentUpon>connet.tt</DependentUpon>
+    </Compile>
     <Compile Include="BaseD\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>connet.tt</DependentUpon>
     </Compile>

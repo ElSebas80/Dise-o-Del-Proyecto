@@ -123,7 +123,7 @@ namespace Diseño.Vista
 
         }
         //modulo de clientes
-        string TpVhCli,MEnsuCLi;
+        string TpVhCli,MEnsuCLi,pago;
         private void TipoVhculo()
         {
             if (rdMotoCli.Checked == true)
@@ -134,17 +134,29 @@ namespace Diseño.Vista
         private void mensualid()
         {
             if (rdSemana.Checked == true)
+            {
                 MEnsuCLi = "Semanal";
+                pago = "30000";
+                txtPago.Text = pago;
+            }
             else if (rdQuincena.Checked == true)
+            {
                 MEnsuCLi = "Quincenal";
+                pago = "45000";
+                txtPago.Text = pago;
+            }
             else if (rdMensualidad.Checked == true)
+            {
                 MEnsuCLi = "Mensual";
+                pago = "60000";
+                txtPago.Text = pago;
+            }
         }
         private void btnRegis_Click(object sender, EventArgs e)
         {
             TipoVhculo();
             mensualid();
-            if (MessageBox.Show("Seguro que quiere volver a la pantalla de inicio?", "Warning",
+            if (MessageBox.Show("Seguro que quiere registrar este cliente?", "Warning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) 
             bd.RegistrarClientes(txtNombre.Text, int.Parse(txtCedula.Text), int.Parse(txtTelefono.Text), txtPlacaCli.Text.Trim(),
              TpVhCli, MEnsuCLi, Decimal.Parse(txtPago.Text), DateTime.Parse(lblfechaCli.Text), TimeSpan.Parse(lblhoraCLi.Text));
@@ -173,7 +185,7 @@ namespace Diseño.Vista
             }
             else
             {
-                MessageBox.Show("Esta placa no esat registrada");
+                MessageBox.Show("Esta placa no esta registrada");
             }
         }
 

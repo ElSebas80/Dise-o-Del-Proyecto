@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Diseño.Datos
 {
@@ -47,16 +48,16 @@ namespace Diseño.Datos
             }
 
         }
-        //public string RetornarContra (int Cod)
-        //{
-        //    using (parkEntities1 db = new parkEntities1())
-        //    {
-        //        var Preciou = (from prod in db.Configuration
-        //                       where prod. == Cod
-        //                       select prod).FirstOrDefault();
-        //        return Preciou.Contra.ToString();
-        //    }
-        //}
+        public IList RetornarEst()
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                var Preciou = (from prod in db.CuentasUsuario
+                               join Est in db.Estado on prod.idEs equals Est.id
+                              select new {prod.id,prod.Nombre,prod.Cedula,prod.Direccion,prod.email,prod.LoginN,Estado = Est.nombre}).ToList();
+                return Preciou;
+            }
+        }
         public void GuardarInfo(string nombre, string nit, int tele, string direc, string correo, string horar)
         {
             using (parkEntities bd = new parkEntities())

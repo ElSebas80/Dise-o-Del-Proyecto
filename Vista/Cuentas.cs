@@ -83,21 +83,28 @@ namespace Diseño.Vista
         Cruts db = new Cruts();
         private void MostrarEst()
         {
-            
-            //if (banderacc == "1")
-            //{
-            //var x = db.MostrarCc(int.Parse(txtCed.Text));
-            //    if(x.Count() >= 1)
-            //    {
-            //        msgCedula.ForeColor = Color.Red;
-            //        msgCedula.Text = "Esta Cedula ya existe";
-            //    }
-            //    else
-            //    {
-            //        msgCedula.ForeColor = Color.Green;
-            //        msgCedula.Text = "La Cedula es unica";
-            //    }
-            //}
+            try
+            {
+                if (banderacc != "")
+                {
+                    var x = db.MostrarCc(int.Parse(txtCed.Text));
+                    if (x.Count() >= 1)
+                    {
+                        msgCedula.ForeColor = Color.Red;
+                        msgCedula.Text = "Esta Cedula ya existe";
+                    }
+                    else
+                    {
+                        msgCedula.ForeColor = Color.Green;
+                        msgCedula.Text = "La Cedula es unica";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+           
             //else
             //{
 
@@ -105,16 +112,10 @@ namespace Diseño.Vista
         }
         private void Mostrartabla()
         {
-            using (parkEntities mos = new parkEntities())
-            {
-                dtgUsuarios.DataSource = mos.CuentasUsuario.ToList();
-                dtgUsuarios.Columns[4].HeaderText = "Email";
-                dtgUsuarios.Columns[5].HeaderText = "Usuario";
-                dtgUsuarios.Columns[7].HeaderText = "Tipo";
-                dtgUsuarios.Columns[8].HeaderText = "Estado";
+                Cruts r = new Cruts();
+                dtgUsuarios.DataSource=r.RetornarEst();
                 dtgUsuarios.Columns[0].Visible = false;
-                dtgUsuarios.Columns[6].Visible = false;
-            }
+            
         }
         private void btnCons_Click(object sender, EventArgs e)
         {
@@ -186,7 +187,7 @@ namespace Diseño.Vista
         {
             if (clsDatosUser.roles != "Administrador")
             {
-                banderacc = "0";
+                banderacc = "";
                 txtLog.Enabled = false;
                 btnCamb.Visible = true;
                 btnActualizarP.Visible = true;
@@ -262,7 +263,7 @@ namespace Diseño.Vista
         private void Limpiar()
         {
             txtNom.Clear();
-            txtCed.Clear();
+            txtCed.Text = "";
             txtDir.Clear();
             txtLog.Clear();
             txtCor.Clear();
@@ -302,8 +303,8 @@ namespace Diseño.Vista
         string banderacc;
         private void btnEdiPf_Click_1(object sender, EventArgs e)
         {
-            banderacc = "1";
             Limpiar();
+            banderacc = "";
             LugarPerf();
             cargarD();
             txtLog.ReadOnly = true;
@@ -336,7 +337,7 @@ namespace Diseño.Vista
 
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
-            banderacc = "0";
+            banderacc = "";
             bandera = 1;
             if (clsDatosUser.roles == "Administrador")
             {
@@ -373,6 +374,7 @@ namespace Diseño.Vista
 
         private void btnCrear_Click_1(object sender, EventArgs e)
         {
+            Limpiar();
             banderacc = "1";
             txtLog.ReadOnly = false;
             txtLog.Enabled = true;
@@ -381,7 +383,6 @@ namespace Diseño.Vista
             msgError.Visible = false;
             bandera = 2;
             lblPrs.Text = "Creacion de Usuarios";
-            Limpiar();
             msgCedula.Visible = false;
             msgUsuario.Visible = false;
             btnEdiPf.Visible = true;

@@ -39,6 +39,16 @@ namespace Diseño.Datos
                 
             }
         }
+        public List<CuentasUsuario> MostrarUser(string Long)
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                var reg = db.CuentasUsuario.Where(x => x.LoginN == Long).ToList();
+
+                return reg;
+
+            }
+        }
         public void EditarPerfil(int id, string nombre, int cc, string direc, string correo, string longin, string contra)
         {
             string pass = Encryp.GetSHA1(contra);
@@ -54,7 +64,7 @@ namespace Diseño.Datos
             {
                 var Preciou = (from prod in db.CuentasUsuario
                                join Est in db.Estado on prod.idEs equals Est.id
-                              select new {prod.id,prod.Nombre,prod.Cedula,prod.Direccion,prod.email,prod.LoginN,Estado = Est.nombre}).ToList();
+                              select new {prod.id,prod.Nombre,prod.Cedula,prod.Direccion,prod.email,prod.LoginN,prod.idTp,Estado = Est.nombre}).ToList();
                 return Preciou;
             }
         }

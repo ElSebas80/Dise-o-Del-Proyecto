@@ -101,21 +101,18 @@ namespace Diseño.Vista
                 }
             }
             catch (Exception)
-            {
-
-            }
-           
-            //else
-            //{
-
-            //}
+            {            }
         }
         private void Mostrartabla()
         {
+        parkEntities mos = new parkEntities();
                 Cruts r = new Cruts();
-                dtgUsuarios.DataSource=r.RetornarEst();
-                dtgUsuarios.Columns[0].Visible = false;
-            
+          //  dtgUsuarios.DataSource = mos.CuentasUsuario.ToList();
+            dtgUsuarios.DataSource = r.RetornarEst();
+            dtgUsuarios.Columns[0].Visible = false;
+            dtgUsuarios.Columns[4].HeaderText = "Email";
+            dtgUsuarios.Columns[5].HeaderText = "Usuario";
+            dtgUsuarios.Columns[6].HeaderText = "Tipo";
         }
         private void btnCons_Click(object sender, EventArgs e)
         {
@@ -137,8 +134,8 @@ namespace Diseño.Vista
                 txtDir.Text = dtgUsuarios.CurrentRow.Cells[3].Value.ToString();
                 txtCor.Text = dtgUsuarios.CurrentRow.Cells[4].Value.ToString();
                 txtLog.Text = dtgUsuarios.CurrentRow.Cells[5].Value.ToString();
-                cmbTipo.Text = dtgUsuarios.CurrentRow.Cells[7].Value.ToString();
-                if (dtgUsuarios.CurrentRow.Cells[8].Value.ToString() != "1")
+                cmbTipo.Text = dtgUsuarios.CurrentRow.Cells[6].Value.ToString();
+                if (dtgUsuarios.CurrentRow.Cells[7].Value.ToString() != "Habilitado")
                 {
                     btnDesh.Checked = true;
                 }
@@ -146,6 +143,9 @@ namespace Diseño.Vista
                 {
                     btnHabl.Checked = true;
                 }
+                msgCedula.Visible = false;
+                msgUsuario.Visible = false;
+                msgError.Visible = false;
             }
             else
             {
@@ -187,7 +187,7 @@ namespace Diseño.Vista
         {
             if (clsDatosUser.roles != "Administrador")
             {
-                banderacc = "";
+                banderacc = ""; banderaUser = "";
                 txtLog.Enabled = false;
                 btnCamb.Visible = true;
                 btnActualizarP.Visible = true;
@@ -207,7 +207,7 @@ namespace Diseño.Vista
             }
             else
             {
-                banderacc = "1";
+                banderacc = "1"; banderaUser = "1";
                 msgCedula.Visible = false;
                 msgUsuario.Visible = false;
                 btnCamb.Visible = false;
@@ -300,11 +300,11 @@ namespace Diseño.Vista
                 MessageBox.Show("El perfil a sido editado");
             }
         }
-        string banderacc;
+        string banderacc,banderaUser;
         private void btnEdiPf_Click_1(object sender, EventArgs e)
         {
             Limpiar();
-            banderacc = "";
+            banderacc = ""; banderaUser = "";
             LugarPerf();
             cargarD();
             txtLog.ReadOnly = true;
@@ -338,6 +338,7 @@ namespace Diseño.Vista
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
             banderacc = "";
+            banderaUser = "";
             bandera = 1;
             if (clsDatosUser.roles == "Administrador")
             {
@@ -376,6 +377,7 @@ namespace Diseño.Vista
         {
             Limpiar();
             banderacc = "1";
+            banderaUser = "1";
             txtLog.ReadOnly = false;
             txtLog.Enabled = true;
             btnActualizarP.Visible = false;
@@ -464,12 +466,34 @@ namespace Diseño.Vista
             msgCedula.Visible = true;
             MostrarEst();
         }
-
+        private void MostrarUser()
+        {
+            try
+            {
+                if (banderacc != "")
+                {
+                    var x = db.MostrarUser(txtLog.Text);
+                    if (x.Count() >= 1)
+                    {
+                        msgUsuario.ForeColor = Color.Red;
+                        msgUsuario.Text = "Este Usuario ya existe";
+                    }
+                    else
+                    {
+                        msgUsuario.ForeColor = Color.Green;
+                        msgUsuario.Text = "Este Usuario es unico";
+                    }
+                }
+            }
+            catch (Exception)
+            { }
+        }
         private void txtLog_TextChanged(object sender, EventArgs e)
         {
-            //msgUsuario.Visible = true;
-            //if(txtLog.Text == )
-            //msgUsuario.Text = "Este usuario ya esta en uso";
+            msgUsuario.Visible = true;
+            MostrarUser();
+
+
         }
 
         private void txtCed_KeyPress_1(object sender, KeyPressEventArgs e)

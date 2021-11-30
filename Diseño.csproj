@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseD\confi.cs">
+      <DependentUpon>connet.tt</DependentUpon>
+    </Compile>
     <Compile Include="BaseD\connet.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

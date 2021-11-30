@@ -31,6 +31,7 @@ namespace Diseño.BaseD
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
         public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
         public virtual DbSet<RegistroCliente> RegistroCliente { get; set; }
+        public virtual DbSet<confi> confi { get; set; }
     
         public virtual int deshUsuario(Nullable<int> id, Nullable<int> estado)
         {

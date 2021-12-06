@@ -75,6 +75,22 @@ namespace Diseño.Datos
                 bd.sp_configuracion(nombre, nit, tele, direc, correo, horar);
             }
         }
+        public confi MosDtConfi(int id)
+        {
+            using (parkEntities bd = new parkEntities())
+            {
+                confi reg = bd.confi.Where(x => x.Id == id).FirstOrDefault();
+                return reg;
+            }
+        }
+        public tari MosDtTari(int id)
+        {
+            using (parkEntities bd = new parkEntities())
+            {
+                tari reg = bd.tari.Where(x => x.Id == id).FirstOrDefault();
+                return reg;
+            }
+        }
         public void GuardarInfoTarifas(DateTime fecha, Decimal hormt, Decimal semmt, Decimal quinmt, Decimal mensrmt, Decimal horbc, Decimal sembc, Decimal quinbc, Decimal mensbc, int cupos)
         {
             using (parkEntities bd = new parkEntities())

@@ -105,8 +105,7 @@ namespace Diseño.Vista
         }
         private void Mostrartabla()
         {
-        parkEntities mos = new parkEntities();
-                Cruts r = new Cruts();
+            Cruts r = new Cruts();
           //  dtgUsuarios.DataSource = mos.CuentasUsuario.ToList();
             dtgUsuarios.DataSource = r.RetornarEst();
             dtgUsuarios.Columns[0].Visible = false;

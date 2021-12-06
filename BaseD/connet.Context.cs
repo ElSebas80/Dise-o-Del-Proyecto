@@ -32,6 +32,7 @@ namespace Diseño.BaseD
         public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
         public virtual DbSet<RegistroCliente> RegistroCliente { get; set; }
         public virtual DbSet<confi> confi { get; set; }
+        public virtual DbSet<tari> tari { get; set; }
     
         public virtual int deshUsuario(Nullable<int> id, Nullable<int> estado)
         {
@@ -391,6 +392,80 @@ namespace Diseño.BaseD
                 new ObjectParameter("hora", typeof(System.TimeSpan));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RegistroCliente", nombreParameter, cedulaParameter, telefonoParameter, placaParameter, tipoVhloParameter, mensualidadParameter, valorPagarParameter, fechaParameter, horaParameter);
+        }
+    
+        public virtual int sp_Alterconfi(string nombreParqueadero, string nit, Nullable<int> telefono, string direccion, string correo, string horarioAtencion)
+        {
+            var nombreParqueaderoParameter = nombreParqueadero != null ?
+                new ObjectParameter("NombreParqueadero", nombreParqueadero) :
+                new ObjectParameter("NombreParqueadero", typeof(string));
+    
+            var nitParameter = nit != null ?
+                new ObjectParameter("Nit", nit) :
+                new ObjectParameter("Nit", typeof(string));
+    
+            var telefonoParameter = telefono.HasValue ?
+                new ObjectParameter("Telefono", telefono) :
+                new ObjectParameter("Telefono", typeof(int));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var horarioAtencionParameter = horarioAtencion != null ?
+                new ObjectParameter("HorarioAtencion", horarioAtencion) :
+                new ObjectParameter("HorarioAtencion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Alterconfi", nombreParqueaderoParameter, nitParameter, telefonoParameter, direccionParameter, correoParameter, horarioAtencionParameter);
+        }
+    
+        public virtual int sp_Altertarifas(Nullable<System.DateTime> fecha, Nullable<decimal> horaEstacioMoto, Nullable<decimal> semanaEstacioMoto, Nullable<decimal> quincenaEstacioMoto, Nullable<decimal> mensualidadEstacioMoto, Nullable<decimal> horaEstacioBici, Nullable<decimal> semanaEstacioBici, Nullable<decimal> quincenaEstacioBici, Nullable<decimal> mensualidadEstacioBici, Nullable<int> cuposDIsponibles)
+        {
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            var horaEstacioMotoParameter = horaEstacioMoto.HasValue ?
+                new ObjectParameter("HoraEstacioMoto", horaEstacioMoto) :
+                new ObjectParameter("HoraEstacioMoto", typeof(decimal));
+    
+            var semanaEstacioMotoParameter = semanaEstacioMoto.HasValue ?
+                new ObjectParameter("SemanaEstacioMoto", semanaEstacioMoto) :
+                new ObjectParameter("SemanaEstacioMoto", typeof(decimal));
+    
+            var quincenaEstacioMotoParameter = quincenaEstacioMoto.HasValue ?
+                new ObjectParameter("QuincenaEstacioMoto", quincenaEstacioMoto) :
+                new ObjectParameter("QuincenaEstacioMoto", typeof(decimal));
+    
+            var mensualidadEstacioMotoParameter = mensualidadEstacioMoto.HasValue ?
+                new ObjectParameter("MensualidadEstacioMoto", mensualidadEstacioMoto) :
+                new ObjectParameter("MensualidadEstacioMoto", typeof(decimal));
+    
+            var horaEstacioBiciParameter = horaEstacioBici.HasValue ?
+                new ObjectParameter("HoraEstacioBici", horaEstacioBici) :
+                new ObjectParameter("HoraEstacioBici", typeof(decimal));
+    
+            var semanaEstacioBiciParameter = semanaEstacioBici.HasValue ?
+                new ObjectParameter("SemanaEstacioBici", semanaEstacioBici) :
+                new ObjectParameter("SemanaEstacioBici", typeof(decimal));
+    
+            var quincenaEstacioBiciParameter = quincenaEstacioBici.HasValue ?
+                new ObjectParameter("QuincenaEstacioBici", quincenaEstacioBici) :
+                new ObjectParameter("QuincenaEstacioBici", typeof(decimal));
+    
+            var mensualidadEstacioBiciParameter = mensualidadEstacioBici.HasValue ?
+                new ObjectParameter("MensualidadEstacioBici", mensualidadEstacioBici) :
+                new ObjectParameter("MensualidadEstacioBici", typeof(decimal));
+    
+            var cuposDIsponiblesParameter = cuposDIsponibles.HasValue ?
+                new ObjectParameter("CuposDIsponibles", cuposDIsponibles) :
+                new ObjectParameter("CuposDIsponibles", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Altertarifas", fechaParameter, horaEstacioMotoParameter, semanaEstacioMotoParameter, quincenaEstacioMotoParameter, mensualidadEstacioMotoParameter, horaEstacioBiciParameter, semanaEstacioBiciParameter, quincenaEstacioBiciParameter, mensualidadEstacioBiciParameter, cuposDIsponiblesParameter);
         }
     }
 }

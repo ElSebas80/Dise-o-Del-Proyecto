@@ -51,9 +51,10 @@ namespace Diseño.Vista
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(7, 67);
+            this.pictureBox2.Location = new System.Drawing.Point(9, 82);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(77, 92);
+            this.pictureBox2.Size = new System.Drawing.Size(103, 113);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -74,8 +75,9 @@ namespace Diseño.Vista
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 661);
+            this.panel1.Size = new System.Drawing.Size(316, 814);
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -86,9 +88,10 @@ namespace Diseño.Vista
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(43, 12);
+            this.button1.Location = new System.Drawing.Point(57, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 26);
+            this.button1.Size = new System.Drawing.Size(167, 32);
             this.button1.TabIndex = 24;
             this.button1.Text = "Perfil";
             this.button1.UseVisualStyleBackColor = false;
@@ -100,9 +103,10 @@ namespace Diseño.Vista
             this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(64, 565);
+            this.btnVolver.Location = new System.Drawing.Point(85, 695);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(93, 35);
+            this.btnVolver.Size = new System.Drawing.Size(124, 43);
             this.btnVolver.TabIndex = 0;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
@@ -115,9 +119,10 @@ namespace Diseño.Vista
             this.btnInforma.FlatAppearance.BorderSize = 0;
             this.btnInforma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInforma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInforma.Location = new System.Drawing.Point(104, 387);
+            this.btnInforma.Location = new System.Drawing.Point(139, 476);
+            this.btnInforma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInforma.Name = "btnInforma";
-            this.btnInforma.Size = new System.Drawing.Size(100, 23);
+            this.btnInforma.Size = new System.Drawing.Size(133, 28);
             this.btnInforma.TabIndex = 23;
             this.btnInforma.Text = "Información";
             this.btnInforma.UseVisualStyleBackColor = false;
@@ -130,9 +135,10 @@ namespace Diseño.Vista
             this.btnCuentas.FlatAppearance.BorderSize = 0;
             this.btnCuentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCuentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCuentas.Location = new System.Drawing.Point(118, 256);
+            this.btnCuentas.Location = new System.Drawing.Point(157, 315);
+            this.btnCuentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCuentas.Name = "btnCuentas";
-            this.btnCuentas.Size = new System.Drawing.Size(75, 23);
+            this.btnCuentas.Size = new System.Drawing.Size(100, 28);
             this.btnCuentas.TabIndex = 22;
             this.btnCuentas.Text = "Cuentas";
             this.btnCuentas.UseVisualStyleBackColor = false;
@@ -142,9 +148,10 @@ namespace Diseño.Vista
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(24, 377);
+            this.pictureBox3.Location = new System.Drawing.Point(32, 464);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(60, 53);
+            this.pictureBox3.Size = new System.Drawing.Size(80, 65);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
@@ -153,9 +160,10 @@ namespace Diseño.Vista
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 203);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 250);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(91, 125);
+            this.pictureBox1.Size = new System.Drawing.Size(121, 154);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -164,9 +172,10 @@ namespace Diseño.Vista
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(90, 113);
+            this.label3.Location = new System.Drawing.Point(120, 139);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 16);
+            this.label3.Size = new System.Drawing.Size(133, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nora Saavedra";
             // 
@@ -174,9 +183,10 @@ namespace Diseño.Vista
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(90, 91);
+            this.label2.Location = new System.Drawing.Point(120, 112);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 16);
+            this.label2.Size = new System.Drawing.Size(162, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "ADMINISTRADOR";
             // 
@@ -184,23 +194,25 @@ namespace Diseño.Vista
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.Transparent;
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContenedor.Location = new System.Drawing.Point(237, 0);
+            this.PanelContenedor.Location = new System.Drawing.Point(316, 0);
+            this.PanelContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(671, 661);
+            this.PanelContenedor.Size = new System.Drawing.Size(895, 814);
             this.PanelContenedor.TabIndex = 3;
             this.PanelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
             // FrmAdministrativo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(908, 661);
+            this.ClientSize = new System.Drawing.Size(1211, 814);
             this.Controls.Add(this.PanelContenedor);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmAdministrativo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrativo";

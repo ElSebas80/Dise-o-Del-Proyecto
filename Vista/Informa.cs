@@ -94,7 +94,11 @@ namespace Diseño.Vista
         {
             s.GuardarInfo(txtNom.Text, txtNit.Text,
                 int.Parse(txtTel.Text), txtDir.Text, txtCorreo.Text, txtHorATenc.Text);
-            MessageBox.Show("Dato ingresado");
+        }
+        private void ALterinfo()
+        {
+            s.AlterarInfo(txtNom.Text, txtNit.Text,
+                int.Parse(txtTel.Text), txtDir.Text, txtCorreo.Text, txtHorATenc.Text);
         }
         int id =1;
         private void buscaid()
@@ -112,7 +116,10 @@ namespace Diseño.Vista
                 btnModInfo.Visible = true;
                 btnCanInfo.Visible = true;
             }
-
+            else
+            {
+                BtnGuarInfo.Visible = true;
+            }
         }
         private void buscaidTari()
         {
@@ -132,11 +139,23 @@ namespace Diseño.Vista
                 btnModiTari.Visible = true;
                 btnCanTari.Visible = true;
             }
-
+            else
+            {
+                btnGuarTari.Visible = true;
+            }
         }
         private void btnModInfo_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ALterinfo();
+                MessageBox.Show("Los datos han sido modificados");
+            }
+            catch
+            {
 
+                
+            }
         }
 
         private void BtnGuarInfo_Click(object sender, EventArgs e)
@@ -146,10 +165,11 @@ namespace Diseño.Vista
             {
                 info();
                 MessageBox.Show("Dato ingresado");
+                llenar();
             }
             catch
             {
-                MessageBox.Show("Algo salio mal");
+                MessageBox.Show("Rectificar los datos que ingreso");
             }
         }
 
@@ -167,9 +187,23 @@ namespace Diseño.Vista
             s.GuardarInfoTarifas(DateTime.Parse(lblFecha.Text), decimal.Parse(txtHrM.Text), decimal.Parse(txtSmM.Text), decimal.Parse(txtQnM.Text),
                 decimal.Parse(txtMsM.Text), decimal.Parse(txtHrB.Text), decimal.Parse(txtSmB.Text), decimal.Parse(txtQnB.Text), decimal.Parse(txtMsB.Text), int.Parse(txtCupos.Text));
         }
+        private void AlterinfoTarifas()
+        {
+            s.AlterarInfoTarifas(DateTime.Parse(lblFecha.Text), decimal.Parse(txtHrM.Text), decimal.Parse(txtSmM.Text), decimal.Parse(txtQnM.Text),
+                decimal.Parse(txtMsM.Text), decimal.Parse(txtHrB.Text), decimal.Parse(txtSmB.Text), decimal.Parse(txtQnB.Text), decimal.Parse(txtMsB.Text), int.Parse(txtCupos.Text));
+        }
         private void btnModiTari_Click(object sender, EventArgs e)
         {
+            try
+            {
+                AlterinfoTarifas();
+                MessageBox.Show("Los datos han sido modificados");
+            }
+            catch 
+            {
 
+                
+            }
         }
 
         private void btnGuarTari_Click(object sender, EventArgs e)
@@ -178,12 +212,19 @@ namespace Diseño.Vista
             {
                 infoTarifas();
                 MessageBox.Show("Dato ingresado");
+                llenarTari();
             }
             catch
             {
-                MessageBox.Show("Algo salio mal");
+                MessageBox.Show("Rectificar los datos que ingreso");
             }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToShortDateString();
+            //lblhoraCLi.Text = DateTime.Now.ToString("hh:mm:ss");
+            
+        }
     }
 }

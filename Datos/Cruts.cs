@@ -75,6 +75,13 @@ namespace Diseño.Datos
                 bd.sp_configuracion(nombre, nit, tele, direc, correo, horar);
             }
         }
+        public void AlterarInfo(string nombre, string nit, int tele, string direc, string correo, string horar)
+        {
+            using (parkEntities bd = new parkEntities())
+            {
+                bd.sp_Alterconfi(nombre, nit, tele, direc, correo, horar);
+            }
+        }
         public confi MosDtConfi(int id)
         {
             using (parkEntities bd = new parkEntities())
@@ -96,6 +103,13 @@ namespace Diseño.Datos
             using (parkEntities bd = new parkEntities())
             {
                 bd.sp_tarifas(fecha, hormt, semmt, quinmt, mensrmt, horbc, sembc, quinbc, mensbc, cupos);
+            }
+        }
+        public void AlterarInfoTarifas(DateTime fecha, Decimal hormt, Decimal semmt, Decimal quinmt, Decimal mensrmt, Decimal horbc, Decimal sembc, Decimal quinbc, Decimal mensbc, int cupos)
+        {
+            using (parkEntities bd = new parkEntities())
+            {
+                bd.sp_Altertarifas(fecha, hormt, semmt, quinmt, mensrmt, horbc, sembc, quinbc, mensbc, cupos);
             }
         }
         public void RegistrarVehvls(string tipoVh, string placa, string numcs, int cuposD, DateTime fecha, TimeSpan hora)

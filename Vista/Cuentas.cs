@@ -203,6 +203,7 @@ namespace Diseño.Vista
                 msgUsuario.Visible = false;
                 LugarPerf();
                 cargarD();
+                ocultarmsm();
             }
             else
             {
@@ -246,14 +247,16 @@ namespace Diseño.Vista
             txtNom.Location = new Point(299, 113);
             lblNom.Location = new Point(143, 114);
             txtCed.Location = new Point(299, 169);
+            msgCedula.Location = new Point(299, 189);
             lblCed.Location = new Point(143, 169);
             txtDir.Location = new Point(299, 222);
             lblDir.Location = new Point(143, 222);
             txtLog.Location = new Point(299, 278);
+            msgUsuario.Location = new Point(299, 290);
             lblLog.Location = new Point(143, 278);
             txtCor.Location = new Point(299, 336);
+            msgError.Location = new Point(299, 354);
             lblCorreo.Location = new Point(143, 336);
-            msgError.Location = new Point(296, 359);
             groupBox.Location = new Point(59, 222);
             dtgUsuarios.Location = new Point(59, 329);
             lblContra.Location = new Point(143, 398);
@@ -333,7 +336,12 @@ namespace Diseño.Vista
             msgCedula.Visible = false;
             msgUsuario.Visible = false;
         }
-
+        private void ocultarmsm()
+        {
+            msgError.Visible = false;
+            msgUsuario.Visible = false;
+            msgCedula.Visible = false;
+        }
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
             banderacc = "";
@@ -343,13 +351,13 @@ namespace Diseño.Vista
             {
                 btnCamb.Visible = false;
                 btnActualizarP.Visible = false;
-                msgError.Visible = false;
                 btnEdiPf.Visible = true;
                 lblPrs.Text = "Cuentas de Usuarios";
                 Limpiar();
                 Mostrartabla();
-                msgCedula.Visible = false;
+                msgError.Visible = false;
                 msgUsuario.Visible = false;
+                msgCedula.Visible = false;
                 btnEditar.Visible = false;
                 btnCrear.Visible = true;
                 txtNom.Visible = true;
@@ -436,7 +444,7 @@ namespace Diseño.Vista
                 Contr();
                 Mostrartabla();
                 Limpiar();
-
+                ocultarmsm();
             }
             catch 
             {

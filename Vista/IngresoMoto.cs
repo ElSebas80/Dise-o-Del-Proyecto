@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -178,6 +179,21 @@ namespace Diseño.Vista
         }
 
             parkEntities Pla = new parkEntities();
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //printDocument1 = new System.Drawing.Printing.PrintDocument();
+            //PrinterSettings ps = new PrinterSettings();
+            //printDocument1.PrinterSettings = ps;
+            //printDocument1.PrintPage += Imprimir;
+            //printDocument1.Print(); 
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (true)

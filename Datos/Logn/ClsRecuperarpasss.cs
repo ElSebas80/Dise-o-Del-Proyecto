@@ -44,7 +44,7 @@ namespace Diseño.Datos.Logn
                     ClsEditarUser ClsEditUs = new ClsEditarUser();
                     ClsEditUs.EditarUser(CodiUser, resultString.ToString());
 
-                    var Emailservice = new SistemSuports("sssssssssew888@gmail.com", "3017118619.");
+                    var Emailservice = new SistemSuports("sssssssssew888@gmail.com", "@sebas62746");
                     Emailservice.Enviarmensaje(Asunto: "Solicitud de nueva contraseña",
                         Cuerpo: "Hola como estas este correo a sido enviado del sistema de informacion Sw Parking Gold, el nombre de su perfil es " + Nombre + " no sabemos el motivo de su perdida de clave pero debido al proceso solicitado se te asigno una nueva clave esta corresponde a: " + resultString,
                         Destino: Correo);
@@ -82,7 +82,7 @@ namespace Diseño.Datos.Logn
                     ClsEditarUser ClsEditUs = new ClsEditarUser();
                     ClsEditUs.EditarUser(CodiUser, resultString.ToString());
 
-                    var Emailservice = new SistemSuports("sssssssssew888@gmail.com", "3017118619.");
+                    var Emailservice = new SistemSuports("sssssssssew888@gmail.com", "@sebas62746");
                     Emailservice.Enviarmensaje(Asunto: "Asignacion de contraseña",
                         Cuerpo: "Hola " + "Nuevo usuario" + " Por algun motivo usted es el nuevo empleado u administrador, pero su clave asignada es: " + resultString,
                         Destino: correo);

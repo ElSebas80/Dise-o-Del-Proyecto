@@ -88,6 +88,7 @@ namespace Diseño.Vista
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.printPreviewControl1 = new System.Windows.Forms.PrintPreviewControl();
             this.button6 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.textBox18 = new System.Windows.Forms.TextBox();
@@ -111,7 +112,6 @@ namespace Diseño.Vista
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewControl1 = new System.Windows.Forms.PrintPreviewControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -604,7 +604,6 @@ namespace Diseño.Vista
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPago.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtPago.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPago.Enabled = false;
             this.txtPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPago.HideSelection = false;
             this.txtPago.Location = new System.Drawing.Point(267, 378);
@@ -612,7 +611,27 @@ namespace Diseño.Vista
             this.txtPago.Name = "txtPago";
             this.txtPago.Size = new System.Drawing.Size(145, 30);
             this.txtPago.TabIndex = 75;
-            this.txtPago.WordWrap = false;
+            this.txtPago.TextAlignChanged += new System.EventHandler(this.txtPago_TextAlignChanged);
+            this.txtPago.AcceptsTabChanged += new System.EventHandler(this.txtPago_AcceptsTabChanged);
+            this.txtPago.ReadOnlyChanged += new System.EventHandler(this.txtPago_ReadOnlyChanged);
+            this.txtPago.DockChanged += new System.EventHandler(this.txtPago_DockChanged);
+            this.txtPago.FontChanged += new System.EventHandler(this.txtPago_FontChanged);
+            this.txtPago.RightToLeftChanged += new System.EventHandler(this.txtPago_RightToLeftChanged);
+            this.txtPago.SizeChanged += new System.EventHandler(this.txtPago_SizeChanged);
+            this.txtPago.TabIndexChanged += new System.EventHandler(this.txtPago_TabIndexChanged);
+            this.txtPago.TextChanged += new System.EventHandler(this.txtPago_TextChanged);
+            this.txtPago.VisibleChanged += new System.EventHandler(this.txtPago_VisibleChanged);
+            this.txtPago.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtPago_DragDrop);
+            this.txtPago.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtPago_DragEnter);
+            this.txtPago.DragOver += new System.Windows.Forms.DragEventHandler(this.txtPago_DragOver);
+            this.txtPago.DragLeave += new System.EventHandler(this.txtPago_DragLeave);
+            this.txtPago.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.txtPago_GiveFeedback);
+            this.txtPago.QueryContinueDrag += new System.Windows.Forms.QueryContinueDragEventHandler(this.txtPago_QueryContinueDrag);
+            this.txtPago.Enter += new System.EventHandler(this.txtPago_Enter);
+            this.txtPago.Leave += new System.EventHandler(this.txtPago_Leave);
+            this.txtPago.MouseCaptureChanged += new System.EventHandler(this.txtPago_MouseCaptureChanged);
+            this.txtPago.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtPago_PreviewKeyDown);
+            this.txtPago.Resize += new System.EventHandler(this.txtPago_Resize);
             // 
             // txtPlacaCli
             // 
@@ -880,6 +899,13 @@ namespace Diseño.Vista
             this.tabPage4.Text = " Salida Vehiculos";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // printPreviewControl1
+            // 
+            this.printPreviewControl1.Location = new System.Drawing.Point(384, 143);
+            this.printPreviewControl1.Name = "printPreviewControl1";
+            this.printPreviewControl1.Size = new System.Drawing.Size(230, 297);
+            this.printPreviewControl1.TabIndex = 82;
+            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(264, 523);
@@ -1135,13 +1161,6 @@ namespace Diseño.Vista
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // printPreviewControl1
-            // 
-            this.printPreviewControl1.Location = new System.Drawing.Point(384, 143);
-            this.printPreviewControl1.Name = "printPreviewControl1";
-            this.printPreviewControl1.Size = new System.Drawing.Size(230, 297);
-            this.printPreviewControl1.TabIndex = 82;
             // 
             // FrmIngresoMoto
             // 

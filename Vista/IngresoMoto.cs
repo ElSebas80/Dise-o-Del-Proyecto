@@ -101,6 +101,34 @@ namespace Diseño.Vista
             bd.RegistrarVehvls(tVhlO, txtPlaca.Text, txtNCascos.Text, int.Parse(txtCuposD.Text), DateTime.Parse(lblFecha.Text), TimeSpan.Parse(lblHora.Text)
                 );
         }
+        Cruts s = new Cruts();
+        int id = 1;
+        private void buscaidTari()
+        {
+            var x = s.MosDtTari(id);
+            if (rdSemana.Checked == true && rdMotoCli.Checked == true)
+            {
+                txtPago.Text =  x.SemanaEstacioMoto.ToString();
+            }
+            else if (rdSemana.Checked == true && rdMotoCli.Checked == true)
+            {
+                txtPago.Text = x.QuincenaEstacioMoto.ToString();
+            }
+            //    txtPago.Text = x.MensualidadEstacioMoto.ToString();
+            //    txtPago.Text = x.HoraEstacioBici.ToString();
+            //    txtPago.Text = x.SemanaEstacioBici.ToString();
+            //    txtPago.Text = x.QuincenaEstacioBici.ToString();
+            //    txtMsB.Text = x.MensualidadEstacioBici.ToString();
+            //    txtCupos.Text = x.CuposDIsponibles.ToString();
+            //    btnGuarTari.Visible = false;
+            //    btnModiTari.Visible = true;
+            //    btnCanTari.Visible = true;
+            //}
+            //else
+            //{
+            //    btnGuarTari.Visible = true;
+            //}
+        }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             try
@@ -192,6 +220,116 @@ namespace Diseño.Vista
             //printDocument1.PrinterSettings = ps;
             //printDocument1.PrintPage += Imprimir;
             //printDocument1.Print(); 
+        }
+
+        private void txtPago_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtPago_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_TextAlignChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_TabIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_VisibleChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_AcceptsTabChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txtPago_RightToLeftChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_ReadOnlyChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_DockChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_Resize(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_FontChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+
+        }
+
+        private void txtPago_DragLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_DragDrop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void txtPago_DragEnter(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void txtPago_DragOver(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void txtPago_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+
+        }
+
+        private void txtPago_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
+        {
+
+        }
+
+        private void txtPago_Validated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPago_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            buscaidTari();
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

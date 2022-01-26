@@ -226,5 +226,10 @@ namespace Diseño.Vista
             //lblhoraCLi.Text = DateTime.Now.ToString("hh:mm:ss");
             
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,4 +32,12 @@ namespace Diseño.Datos
         public static string quinBici;
         public static string menBici;
     }
+    public class FpmostrarrdtgInv
+    {
+        public string tipoVhlo { get; set; }
+        public string Placa { get; set; }
+        public string NumCascos { get; set; }
+        public DateTime Fecha { get; set; }
+        public DateTime hora { get; set; }
+    }
 }

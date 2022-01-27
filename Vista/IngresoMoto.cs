@@ -23,12 +23,12 @@ namespace Diseño.Vista
 
         private void FrmIngresoMoto_Load(object sender, EventArgs e)
         {
-          
+            MostrarPlaca();
         }
 
         private void FrmIngresoMoto_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
         }
 
         private void txtAU_KeyPress(object sender, KeyPressEventArgs e)
@@ -38,7 +38,7 @@ namespace Diseño.Vista
 
         private void txtAU_MouseHover(object sender, EventArgs e)
         {
-          
+
         }
 
         private void txtAU_TextChanged(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace Diseño.Vista
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -84,7 +84,7 @@ namespace Diseño.Vista
             if (MessageBox.Show("Seguro que quiere volver a la pantalla de inicio?", "Warning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 this.Close();
-            
+
 
         }
         Cruts bd = new Cruts();
@@ -108,7 +108,7 @@ namespace Diseño.Vista
             var x = s.MosDtTari(id);
             if (rdSemana.Checked == true && rdMotoCli.Checked == true)
             {
-                txtPago.Text =  x.SemanaEstacioMoto.ToString();
+                txtPago.Text = x.SemanaEstacioMoto.ToString();
             }
             else if (rdSemana.Checked == true && rdMotoCli.Checked == true)
             {
@@ -152,7 +152,7 @@ namespace Diseño.Vista
 
         }
         //modulo de clientes
-        string TpVhCli,MEnsuCLi,pago;
+        string TpVhCli, MEnsuCLi, pago;
         private void TipoVhculo()
         {
             if (rdMotoCli.Checked == true)
@@ -186,9 +186,9 @@ namespace Diseño.Vista
             TipoVhculo();
             mensualid();
             if (MessageBox.Show("Seguro que quiere registrar este cliente?", "Warning",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) 
-            bd.RegistrarClientes(txtNombre.Text, int.Parse(txtCedula.Text), int.Parse(txtTelefono.Text), txtPlacaCli.Text.Trim(),
-             TpVhCli, MEnsuCLi, Decimal.Parse(txtPago.Text), DateTime.Parse(lblfechaCli.Text), TimeSpan.Parse(lblhoraCLi.Text));
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                bd.RegistrarClientes(txtNombre.Text, int.Parse(txtCedula.Text), int.Parse(txtTelefono.Text), txtPlacaCli.Text.Trim(),
+                 TpVhCli, MEnsuCLi, Decimal.Parse(txtPago.Text), DateTime.Parse(lblfechaCli.Text), TimeSpan.Parse(lblhoraCLi.Text));
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -206,25 +206,30 @@ namespace Diseño.Vista
 
         }
 
-            parkEntities Pla = new parkEntities();
+        parkEntities Pla = new parkEntities();
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            e.Graphics.DrawString(numplacasal.Text, new Font("Arial", 100), Brushes.Blue, 10, 10);
+            e.Graphics.DrawString(txtfeinsal.Text, new Font("Arial", 100), Brushes.Blue, 10, 130);
+            e.Graphics.DrawString(txtheinsal.Text, new Font("Arial", 100), Brushes.Blue, 10, 250);
+            e.Graphics.DrawString(txtfcsali.Text, new Font("Arial", 100), Brushes.Blue, 10, 370);
+            e.Graphics.DrawString(txthrsali.Text, new Font("Arial", 100), Brushes.Blue, 10, 490);
+            e.Graphics.DrawString(txtvalpago.Text, new Font("Arial", 100), Brushes.Blue, 10, 610);
+            e.Graphics.DrawString(txtefect.Text, new Font("Arial", 100), Brushes.Blue, 10, 730);
+            e.Graphics.DrawString(txtcambefect.Text, new Font("Arial", 100), Brushes.Blue, 10, 850);
 
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //printDocument1 = new System.Drawing.Printing.PrintDocument();
-            //PrinterSettings ps = new PrinterSettings();
-            //printDocument1.PrinterSettings = ps;
-            //printDocument1.PrintPage += Imprimir;
-            //printDocument1.Print(); 
+            printPreviewControl1.Document = printDocument1;
+
         }
 
         private void txtPago_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtPago_SizeChanged(object sender, EventArgs e)
@@ -332,20 +337,39 @@ namespace Diseño.Vista
 
         }
 
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+        string Producto1;
+        private void cmbMovim_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Producto1 = cmbMovim.SelectedValue.ToString();
+        }
+        private void MostrarPlaca()
+        {
+            cmbMovim.DataSource = db.MostrarPlac();
+            cmbMovim.DisplayMember = "Placa";
+            cmbMovim.ValueMember = "NumTicket";
+
+        }
+        Cruts db = new Cruts();
+        private void Mostrartabla()
+        {
+            dtgMovim.DataSource = db.ingresoVehiculosm(int.Parse(cmbMovim.SelectedValue.ToString()));
+            dtgMovim.Columns[0].Visible = false;
+            dtgMovim.Columns[1].HeaderText = "Vehiculo";
+            dtgMovim.Columns[3].HeaderText = "Cascos";
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (true)
-            {
-            }
-            else
-            {
-                MessageBox.Show("Esta placa no esta registrada");
-            }
+            Mostrartabla();
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
         }
-    }
-}
+    } 
+

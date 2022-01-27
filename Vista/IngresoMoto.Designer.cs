@@ -80,39 +80,37 @@ namespace Diseño.Vista
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cmbMovim = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgMovim = new System.Windows.Forms.DataGridView();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.printPreviewControl1 = new System.Windows.Forms.PrintPreviewControl();
             this.button6 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txtcambefect = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txtefect = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txtvalpago = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.txthrsali = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txtfcsali = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtheinsal = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtfeinsal = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.numplacasal = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -126,7 +124,7 @@ namespace Diseño.Vista
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -546,7 +544,6 @@ namespace Diseño.Vista
             this.btnCancelar.TabIndex = 84;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // rdBiciCli
             // 
@@ -776,12 +773,12 @@ namespace Diseño.Vista
             // tabPage3
             // 
             this.tabPage3.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
+            this.tabPage3.Controls.Add(this.cmbMovim);
             this.tabPage3.Controls.Add(this.btnBuscar);
             this.tabPage3.Controls.Add(this.dateTimePicker1);
             this.tabPage3.Controls.Add(this.button5);
-            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.dtgMovim);
             this.tabPage3.Controls.Add(this.label24);
-            this.tabPage3.Controls.Add(this.textBox9);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
@@ -792,10 +789,22 @@ namespace Diseño.Vista
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // cmbMovim
+            // 
+            this.cmbMovim.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbMovim.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbMovim.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMovim.FormattingEnabled = true;
+            this.cmbMovim.Location = new System.Drawing.Point(127, 105);
+            this.cmbMovim.Name = "cmbMovim";
+            this.cmbMovim.Size = new System.Drawing.Size(127, 37);
+            this.cmbMovim.TabIndex = 71;
+            this.cmbMovim.SelectedValueChanged += new System.EventHandler(this.cmbMovim_SelectedValueChanged);
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(260, 112);
+            this.btnBuscar.Location = new System.Drawing.Point(260, 105);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(38, 37);
             this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -819,17 +828,22 @@ namespace Diseño.Vista
             this.button5.Text = "Generar Ticket";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dtgMovim
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(47, 207);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(498, 150);
-            this.dataGridView1.TabIndex = 67;
+            this.dtgMovim.AllowUserToAddRows = false;
+            this.dtgMovim.AllowUserToDeleteRows = false;
+            this.dtgMovim.AllowUserToResizeColumns = false;
+            this.dtgMovim.AllowUserToResizeRows = false;
+            this.dtgMovim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgMovim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgMovim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgMovim.Location = new System.Drawing.Point(47, 207);
+            this.dtgMovim.Name = "dtgMovim";
+            this.dtgMovim.ReadOnly = true;
+            this.dtgMovim.RowHeadersVisible = false;
+            this.dtgMovim.RowHeadersWidth = 51;
+            this.dtgMovim.Size = new System.Drawing.Size(498, 150);
+            this.dtgMovim.TabIndex = 67;
             // 
             // label24
             // 
@@ -841,19 +855,6 @@ namespace Diseño.Vista
             this.label24.Size = new System.Drawing.Size(57, 22);
             this.label24.TabIndex = 66;
             this.label24.Text = "Placa";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.HideSelection = false;
-            this.textBox9.Location = new System.Drawing.Point(127, 108);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(127, 41);
-            this.textBox9.TabIndex = 65;
-            this.textBox9.WordWrap = false;
             // 
             // label12
             // 
@@ -875,21 +876,21 @@ namespace Diseño.Vista
             this.tabPage4.Controls.Add(this.printPreviewControl1);
             this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.label32);
-            this.tabPage4.Controls.Add(this.textBox18);
+            this.tabPage4.Controls.Add(this.txtcambefect);
             this.tabPage4.Controls.Add(this.label31);
-            this.tabPage4.Controls.Add(this.textBox17);
+            this.tabPage4.Controls.Add(this.txtefect);
             this.tabPage4.Controls.Add(this.label30);
-            this.tabPage4.Controls.Add(this.textBox16);
+            this.tabPage4.Controls.Add(this.txtvalpago);
             this.tabPage4.Controls.Add(this.label28);
-            this.tabPage4.Controls.Add(this.textBox14);
+            this.tabPage4.Controls.Add(this.txthrsali);
             this.tabPage4.Controls.Add(this.label29);
-            this.tabPage4.Controls.Add(this.textBox15);
+            this.tabPage4.Controls.Add(this.txtfcsali);
             this.tabPage4.Controls.Add(this.label27);
-            this.tabPage4.Controls.Add(this.textBox13);
+            this.tabPage4.Controls.Add(this.txtheinsal);
             this.tabPage4.Controls.Add(this.label26);
-            this.tabPage4.Controls.Add(this.textBox11);
+            this.tabPage4.Controls.Add(this.txtfeinsal);
             this.tabPage4.Controls.Add(this.label25);
-            this.tabPage4.Controls.Add(this.textBox10);
+            this.tabPage4.Controls.Add(this.numplacasal);
             this.tabPage4.Controls.Add(this.label13);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
@@ -927,17 +928,17 @@ namespace Diseño.Vista
             this.label32.TabIndex = 80;
             this.label32.Text = "Cambio";
             // 
-            // textBox18
+            // txtcambefect
             // 
-            this.textBox18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtcambefect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox18.HideSelection = false;
-            this.textBox18.Location = new System.Drawing.Point(171, 414);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(159, 26);
-            this.textBox18.TabIndex = 79;
-            this.textBox18.WordWrap = false;
+            this.txtcambefect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcambefect.HideSelection = false;
+            this.txtcambefect.Location = new System.Drawing.Point(171, 414);
+            this.txtcambefect.Name = "txtcambefect";
+            this.txtcambefect.Size = new System.Drawing.Size(159, 26);
+            this.txtcambefect.TabIndex = 79;
+            this.txtcambefect.WordWrap = false;
             // 
             // label31
             // 
@@ -950,17 +951,17 @@ namespace Diseño.Vista
             this.label31.TabIndex = 78;
             this.label31.Text = "Recibio";
             // 
-            // textBox17
+            // txtefect
             // 
-            this.textBox17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtefect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox17.HideSelection = false;
-            this.textBox17.Location = new System.Drawing.Point(171, 369);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(159, 26);
-            this.textBox17.TabIndex = 77;
-            this.textBox17.WordWrap = false;
+            this.txtefect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtefect.HideSelection = false;
+            this.txtefect.Location = new System.Drawing.Point(171, 369);
+            this.txtefect.Name = "txtefect";
+            this.txtefect.Size = new System.Drawing.Size(159, 26);
+            this.txtefect.TabIndex = 77;
+            this.txtefect.WordWrap = false;
             // 
             // label30
             // 
@@ -973,18 +974,18 @@ namespace Diseño.Vista
             this.label30.TabIndex = 76;
             this.label30.Text = "Valor a pagar";
             // 
-            // textBox16
+            // txtvalpago
             // 
-            this.textBox16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtvalpago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox16.Enabled = false;
-            this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox16.HideSelection = false;
-            this.textBox16.Location = new System.Drawing.Point(171, 325);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(159, 26);
-            this.textBox16.TabIndex = 75;
-            this.textBox16.WordWrap = false;
+            this.txtvalpago.Enabled = false;
+            this.txtvalpago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtvalpago.HideSelection = false;
+            this.txtvalpago.Location = new System.Drawing.Point(171, 325);
+            this.txtvalpago.Name = "txtvalpago";
+            this.txtvalpago.Size = new System.Drawing.Size(159, 26);
+            this.txtvalpago.TabIndex = 75;
+            this.txtvalpago.WordWrap = false;
             // 
             // label28
             // 
@@ -997,17 +998,17 @@ namespace Diseño.Vista
             this.label28.TabIndex = 74;
             this.label28.Text = "Hora de salida";
             // 
-            // textBox14
+            // txthrsali
             // 
-            this.textBox14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txthrsali.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.HideSelection = false;
-            this.textBox14.Location = new System.Drawing.Point(171, 281);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(159, 26);
-            this.textBox14.TabIndex = 73;
-            this.textBox14.WordWrap = false;
+            this.txthrsali.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txthrsali.HideSelection = false;
+            this.txthrsali.Location = new System.Drawing.Point(171, 281);
+            this.txthrsali.Name = "txthrsali";
+            this.txthrsali.Size = new System.Drawing.Size(159, 26);
+            this.txthrsali.TabIndex = 73;
+            this.txthrsali.WordWrap = false;
             // 
             // label29
             // 
@@ -1020,17 +1021,17 @@ namespace Diseño.Vista
             this.label29.TabIndex = 72;
             this.label29.Text = "Fecha de salida";
             // 
-            // textBox15
+            // txtfcsali
             // 
-            this.textBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtfcsali.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.HideSelection = false;
-            this.textBox15.Location = new System.Drawing.Point(171, 235);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(159, 26);
-            this.textBox15.TabIndex = 71;
-            this.textBox15.WordWrap = false;
+            this.txtfcsali.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfcsali.HideSelection = false;
+            this.txtfcsali.Location = new System.Drawing.Point(171, 235);
+            this.txtfcsali.Name = "txtfcsali";
+            this.txtfcsali.Size = new System.Drawing.Size(159, 26);
+            this.txtfcsali.TabIndex = 71;
+            this.txtfcsali.WordWrap = false;
             // 
             // label27
             // 
@@ -1043,17 +1044,17 @@ namespace Diseño.Vista
             this.label27.TabIndex = 70;
             this.label27.Text = "Hora de ingreso";
             // 
-            // textBox13
+            // txtheinsal
             // 
-            this.textBox13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtheinsal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.HideSelection = false;
-            this.textBox13.Location = new System.Drawing.Point(171, 189);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(159, 26);
-            this.textBox13.TabIndex = 69;
-            this.textBox13.WordWrap = false;
+            this.txtheinsal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtheinsal.HideSelection = false;
+            this.txtheinsal.Location = new System.Drawing.Point(171, 189);
+            this.txtheinsal.Name = "txtheinsal";
+            this.txtheinsal.Size = new System.Drawing.Size(159, 26);
+            this.txtheinsal.TabIndex = 69;
+            this.txtheinsal.WordWrap = false;
             // 
             // label26
             // 
@@ -1066,17 +1067,17 @@ namespace Diseño.Vista
             this.label26.TabIndex = 68;
             this.label26.Text = "Fecha de ingreso";
             // 
-            // textBox11
+            // txtfeinsal
             // 
-            this.textBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtfeinsal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.HideSelection = false;
-            this.textBox11.Location = new System.Drawing.Point(171, 143);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(159, 26);
-            this.textBox11.TabIndex = 67;
-            this.textBox11.WordWrap = false;
+            this.txtfeinsal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfeinsal.HideSelection = false;
+            this.txtfeinsal.Location = new System.Drawing.Point(171, 143);
+            this.txtfeinsal.Name = "txtfeinsal";
+            this.txtfeinsal.Size = new System.Drawing.Size(159, 26);
+            this.txtfeinsal.TabIndex = 67;
+            this.txtfeinsal.WordWrap = false;
             // 
             // label25
             // 
@@ -1089,17 +1090,17 @@ namespace Diseño.Vista
             this.label25.TabIndex = 66;
             this.label25.Text = "Placa";
             // 
-            // textBox10
+            // numplacasal
             // 
-            this.textBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.numplacasal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.HideSelection = false;
-            this.textBox10.Location = new System.Drawing.Point(197, 86);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(116, 40);
-            this.textBox10.TabIndex = 65;
-            this.textBox10.WordWrap = false;
+            this.numplacasal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numplacasal.HideSelection = false;
+            this.numplacasal.Location = new System.Drawing.Point(197, 86);
+            this.numplacasal.Name = "numplacasal";
+            this.numplacasal.Size = new System.Drawing.Size(116, 40);
+            this.numplacasal.TabIndex = 65;
+            this.numplacasal.WordWrap = false;
             // 
             // label13
             // 
@@ -1148,16 +1149,6 @@ namespace Diseño.Vista
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
@@ -1181,7 +1172,7 @@ namespace Diseño.Vista
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmIngresoMoto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IngresoMoto";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.FrmIngresoMoto_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmIngresoMoto_KeyPress);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmIngresoMoto_MouseDown);
@@ -1201,9 +1192,8 @@ namespace Diseño.Vista
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1262,28 +1252,27 @@ namespace Diseño.Vista
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgMovim;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox numplacasal;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txtcambefect;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox txtefect;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txtvalpago;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txthrsali;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txtfcsali;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtheinsal;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtfeinsal;
         private System.Windows.Forms.Timer HoraFecha;
         private System.Windows.Forms.Label lblfechaCli;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -1291,9 +1280,8 @@ namespace Diseño.Vista
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.PictureBox btnBuscar;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewControl printPreviewControl1;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ComboBox cmbMovim;
     }
 }

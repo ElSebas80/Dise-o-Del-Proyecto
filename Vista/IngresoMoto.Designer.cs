@@ -66,7 +66,7 @@ namespace Diseño.Vista
             this.rdMotoCli = new System.Windows.Forms.RadioButton();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.txtPago = new System.Windows.Forms.TextBox();
+            this.txtPago1 = new System.Windows.Forms.TextBox();
             this.txtPlacaCli = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -108,8 +108,6 @@ namespace Diseño.Vista
             this.numplacasal = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -126,8 +124,6 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -155,7 +151,7 @@ namespace Diseño.Vista
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(20, 18);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(226, 631);
+            this.panel1.Size = new System.Drawing.Size(222, 619);
             this.panel1.TabIndex = 2;
             // 
             // label2
@@ -210,7 +206,7 @@ namespace Diseño.Vista
             this.btnSal.BackColor = System.Drawing.Color.Transparent;
             this.btnSal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSal.Image = ((System.Drawing.Image)(resources.GetObject("btnSal.Image")));
-            this.btnSal.Location = new System.Drawing.Point(994, 17);
+            this.btnSal.Location = new System.Drawing.Point(869, 18);
             this.btnSal.Name = "btnSal";
             this.btnSal.Size = new System.Drawing.Size(23, 26);
             this.btnSal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -224,7 +220,7 @@ namespace Diseño.Vista
             this.btnMax.BackColor = System.Drawing.Color.Transparent;
             this.btnMax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
-            this.btnMax.Location = new System.Drawing.Point(965, 17);
+            this.btnMax.Location = new System.Drawing.Point(845, 18);
             this.btnMax.Name = "btnMax";
             this.btnMax.Size = new System.Drawing.Size(23, 26);
             this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -238,7 +234,7 @@ namespace Diseño.Vista
             this.btnMin.BackColor = System.Drawing.Color.Transparent;
             this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(936, 17);
+            this.btnMin.Location = new System.Drawing.Point(816, 18);
             this.btnMin.Name = "btnMin";
             this.btnMin.Size = new System.Drawing.Size(23, 26);
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -252,7 +248,7 @@ namespace Diseño.Vista
             this.btnRes.BackColor = System.Drawing.Color.Transparent;
             this.btnRes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRes.Image = ((System.Drawing.Image)(resources.GetObject("btnRes.Image")));
-            this.btnRes.Location = new System.Drawing.Point(965, 17);
+            this.btnRes.Location = new System.Drawing.Point(845, 18);
             this.btnRes.Name = "btnRes";
             this.btnRes.Size = new System.Drawing.Size(23, 26);
             this.btnRes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -267,7 +263,7 @@ namespace Diseño.Vista
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(248, 25);
+            this.tabControl1.Location = new System.Drawing.Point(248, 27);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -450,7 +446,7 @@ namespace Diseño.Vista
             this.tabPage2.Controls.Add(this.rdMotoCli);
             this.tabPage2.Controls.Add(this.label23);
             this.tabPage2.Controls.Add(this.label22);
-            this.tabPage2.Controls.Add(this.txtPago);
+            this.tabPage2.Controls.Add(this.txtPago1);
             this.tabPage2.Controls.Add(this.txtPlacaCli);
             this.tabPage2.Controls.Add(this.txtTelefono);
             this.tabPage2.Controls.Add(this.label21);
@@ -544,6 +540,7 @@ namespace Diseño.Vista
             this.btnCancelar.TabIndex = 84;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // rdBiciCli
             // 
@@ -595,40 +592,19 @@ namespace Diseño.Vista
             this.label22.TabIndex = 76;
             this.label22.Text = "Tipo de Pago";
             // 
-            // txtPago
+            // txtPago1
             // 
-            this.txtPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtPago1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPago.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtPago.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPago.HideSelection = false;
-            this.txtPago.Location = new System.Drawing.Point(267, 378);
-            this.txtPago.Multiline = true;
-            this.txtPago.Name = "txtPago";
-            this.txtPago.Size = new System.Drawing.Size(145, 30);
-            this.txtPago.TabIndex = 75;
-            this.txtPago.TextAlignChanged += new System.EventHandler(this.txtPago_TextAlignChanged);
-            this.txtPago.AcceptsTabChanged += new System.EventHandler(this.txtPago_AcceptsTabChanged);
-            this.txtPago.ReadOnlyChanged += new System.EventHandler(this.txtPago_ReadOnlyChanged);
-            this.txtPago.DockChanged += new System.EventHandler(this.txtPago_DockChanged);
-            this.txtPago.FontChanged += new System.EventHandler(this.txtPago_FontChanged);
-            this.txtPago.RightToLeftChanged += new System.EventHandler(this.txtPago_RightToLeftChanged);
-            this.txtPago.SizeChanged += new System.EventHandler(this.txtPago_SizeChanged);
-            this.txtPago.TabIndexChanged += new System.EventHandler(this.txtPago_TabIndexChanged);
-            this.txtPago.TextChanged += new System.EventHandler(this.txtPago_TextChanged);
-            this.txtPago.VisibleChanged += new System.EventHandler(this.txtPago_VisibleChanged);
-            this.txtPago.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtPago_DragDrop);
-            this.txtPago.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtPago_DragEnter);
-            this.txtPago.DragOver += new System.Windows.Forms.DragEventHandler(this.txtPago_DragOver);
-            this.txtPago.DragLeave += new System.EventHandler(this.txtPago_DragLeave);
-            this.txtPago.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.txtPago_GiveFeedback);
-            this.txtPago.QueryContinueDrag += new System.Windows.Forms.QueryContinueDragEventHandler(this.txtPago_QueryContinueDrag);
-            this.txtPago.Enter += new System.EventHandler(this.txtPago_Enter);
-            this.txtPago.Leave += new System.EventHandler(this.txtPago_Leave);
-            this.txtPago.MouseCaptureChanged += new System.EventHandler(this.txtPago_MouseCaptureChanged);
-            this.txtPago.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtPago_PreviewKeyDown);
-            this.txtPago.Resize += new System.EventHandler(this.txtPago_Resize);
+            this.txtPago1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtPago1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPago1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPago1.HideSelection = false;
+            this.txtPago1.Location = new System.Drawing.Point(267, 378);
+            this.txtPago1.Multiline = true;
+            this.txtPago1.Name = "txtPago1";
+            this.txtPago1.Size = new System.Drawing.Size(145, 30);
+            this.txtPago1.TabIndex = 75;
             // 
             // txtPlacaCli
             // 
@@ -1121,34 +1097,6 @@ namespace Diseño.Vista
             this.HoraFecha.Enabled = true;
             this.HoraFecha.Tick += new System.EventHandler(this.HoraFecha_Tick);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(843, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(23, 26);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 41;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(871, 15);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(23, 26);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 40;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
@@ -1160,9 +1108,7 @@ namespace Diseño.Vista
             this.BackgroundImage = global::Diseño.Properties.Resources.FONDO_PROYECTO_s_jpg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(908, 661);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSal);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.btnRes);
             this.Controls.Add(this.btnMax);
             this.Controls.Add(this.btnMin);
@@ -1196,8 +1142,6 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1239,7 +1183,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.RadioButton rdQuincena;
         private System.Windows.Forms.RadioButton rdSemana;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox txtPago;
         private System.Windows.Forms.TextBox txtPlacaCli;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label21;
@@ -1275,13 +1218,12 @@ namespace Diseño.Vista
         private System.Windows.Forms.TextBox txtfeinsal;
         private System.Windows.Forms.Timer HoraFecha;
         private System.Windows.Forms.Label lblfechaCli;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.PictureBox btnBuscar;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewControl printPreviewControl1;
         private System.Windows.Forms.ComboBox cmbMovim;
+        private System.Windows.Forms.TextBox txtPago1;
     }
 }

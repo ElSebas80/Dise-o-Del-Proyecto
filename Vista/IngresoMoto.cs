@@ -108,26 +108,43 @@ namespace Diseño.Vista
             var x = s.MosDtTari(id);
             if (rdSemana.Checked == true && rdMotoCli.Checked == true)
             {
-                txtPago.Text = x.SemanaEstacioMoto.ToString();
+                txtPago1.Text = x.SemanaEstacioMoto.ToString();
             }
-            else if (rdSemana.Checked == true && rdMotoCli.Checked == true)
+            else if (rdQuincena.Checked == true && rdMotoCli.Checked == true)
             {
-                txtPago.Text = x.QuincenaEstacioMoto.ToString();
+                txtPago1.Text = x.QuincenaEstacioMoto.ToString();
             }
-            //    txtPago.Text = x.MensualidadEstacioMoto.ToString();
-            //    txtPago.Text = x.HoraEstacioBici.ToString();
-            //    txtPago.Text = x.SemanaEstacioBici.ToString();
-            //    txtPago.Text = x.QuincenaEstacioBici.ToString();
-            //    txtMsB.Text = x.MensualidadEstacioBici.ToString();
-            //    txtCupos.Text = x.CuposDIsponibles.ToString();
-            //    btnGuarTari.Visible = false;
-            //    btnModiTari.Visible = true;
-            //    btnCanTari.Visible = true;
-            //}
-            //else
-            //{
-            //    btnGuarTari.Visible = true;
-            //}
+            else if (rdMensualidad.Checked == true && rdMotoCli.Checked == true)
+            {
+                txtPago1.Text = x.MensualidadEstacioMoto.ToString();
+            }
+            else if (rdSemana.Checked == true && rdBiciCli.Checked == true)
+            {
+                txtPago1.Text = x.SemanaEstacioBici.ToString();
+            }
+            else if (rdQuincena.Checked == true && rdBiciCli.Checked == true)
+            {
+                txtPago1.Text = x.QuincenaEstacioBici.ToString();
+            }
+            else if (rdMensualidad.Checked == true && rdBiciCli.Checked == true)
+            {
+                txtPago1.Text = x.MensualidadEstacioBici.ToString();
+            }
+        }
+        private void mensualid()
+        {
+            if (rdSemana.Checked == true)
+            {
+                MEnsuCLi = "Semanal";
+            }
+            else if (rdQuincena.Checked == true)
+            {
+                MEnsuCLi = "Quincenal";
+            }
+            else if (rdMensualidad.Checked == true)
+            {
+                MEnsuCLi = "Mensual";
+            }
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
@@ -149,7 +166,7 @@ namespace Diseño.Vista
             lblFecha.Text = DateTime.Now.ToShortDateString();
             lblhoraCLi.Text = DateTime.Now.ToString("hh:mm:ss");
             lblfechaCli.Text = DateTime.Now.ToShortDateString();
-
+            buscaidTari();
         }
         //modulo de clientes
         string TpVhCli, MEnsuCLi, pago;
@@ -160,27 +177,6 @@ namespace Diseño.Vista
             else if (rdBiciCli.Checked == true)
                 TpVhCli = "Bicicleta";
         }
-        private void mensualid()
-        {
-            if (rdSemana.Checked == true)
-            {
-                MEnsuCLi = "Semanal";
-                pago = "30000";
-                txtPago.Text = pago;
-            }
-            else if (rdQuincena.Checked == true)
-            {
-                MEnsuCLi = "Quincenal";
-                pago = "45000";
-                txtPago.Text = pago;
-            }
-            else if (rdMensualidad.Checked == true)
-            {
-                MEnsuCLi = "Mensual";
-                pago = "60000";
-                txtPago.Text = pago;
-            }
-        }
         private void btnRegis_Click(object sender, EventArgs e)
         {
             TipoVhculo();
@@ -188,7 +184,7 @@ namespace Diseño.Vista
             if (MessageBox.Show("Seguro que quiere registrar este cliente?", "Warning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 bd.RegistrarClientes(txtNombre.Text, int.Parse(txtCedula.Text), int.Parse(txtTelefono.Text), txtPlacaCli.Text.Trim(),
-                 TpVhCli, MEnsuCLi, Decimal.Parse(txtPago.Text), DateTime.Parse(lblfechaCli.Text), TimeSpan.Parse(lblhoraCLi.Text));
+                 TpVhCli, MEnsuCLi, Decimal.Parse(txtPago1.Text), DateTime.Parse(lblfechaCli.Text), TimeSpan.Parse(lblhoraCLi.Text));
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -226,117 +222,6 @@ namespace Diseño.Vista
             printPreviewControl1.Document = printDocument1;
 
         }
-
-        private void txtPago_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_SizeChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_TextAlignChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_TabIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_VisibleChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_AcceptsTabChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void txtPago_RightToLeftChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_ReadOnlyChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_DockChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_Resize(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_FontChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-
-        }
-
-        private void txtPago_DragLeave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_DragDrop(object sender, DragEventArgs e)
-        {
-
-        }
-
-        private void txtPago_DragEnter(object sender, DragEventArgs e)
-        {
-
-        }
-
-        private void txtPago_DragOver(object sender, DragEventArgs e)
-        {
-
-        }
-
-        private void txtPago_GiveFeedback(object sender, GiveFeedbackEventArgs e)
-        {
-
-        }
-
-        private void txtPago_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
-        {
-
-        }
-
-        private void txtPago_Validated(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPago_MouseCaptureChanged(object sender, EventArgs e)
-        {
-            buscaidTari();
-
-        }
-
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
 
@@ -351,6 +236,7 @@ namespace Diseño.Vista
         {
             Producto1 = cmbMovim.SelectedValue.ToString();
         }
+        Cruts db = new Cruts();
         private void MostrarPlaca()
         {
             cmbMovim.DataSource = db.MostrarPlac();
@@ -358,7 +244,27 @@ namespace Diseño.Vista
             cmbMovim.ValueMember = "NumTicket";
 
         }
-        Cruts db = new Cruts();
+
+        private void limp()
+        {
+
+            txtNombre.Clear();
+            txtCedula.Clear();
+            txtTelefono.Clear();
+            txtPlacaCli.Clear();
+            txtPago1.Clear();
+            rdSemana.Checked = false;
+            rdQuincena.Checked = false;
+            rdMensualidad.Checked = false;
+            rdMotoCli.Checked = false;
+            rdBiciCli.Checked = false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limp();
+        }
+
         private void Mostrartabla()
         {
             dtgMovim.DataSource = db.ingresoVehiculosm(int.Parse(cmbMovim.SelectedValue.ToString()));

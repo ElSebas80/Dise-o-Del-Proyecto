@@ -1,5 +1,6 @@
 ﻿using Diseño.BaseD;
 using Diseño.Datos;
+using Diseño.Datos.Logn;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,8 +25,10 @@ namespace Diseño.Vista
         private void FrmIngresoMoto_Load(object sender, EventArgs e)
         {
             MostrarPlaca();
+            dtgMovim.DataSource = bd.MostrarPlac().ToList();
+            descon();
         }
-
+        
         private void FrmIngresoMoto_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -81,11 +84,6 @@ namespace Diseño.Vista
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Seguro que quiere volver a la pantalla de inicio?", "Warning",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                this.Close();
-
-
         }
         Cruts bd = new Cruts();
         string tVhlO;
@@ -153,10 +151,11 @@ namespace Diseño.Vista
                 EstD();
                 ingresarVehiculo();
                 MessageBox.Show("Vehiculo ingresado");
+                limp();
             }
             catch
             {
-                MessageBox.Show("Un campo vacio");
+                MessageBox.Show("Revise nuevamente puede haber un campo vacio");
             }
         }
 
@@ -179,12 +178,20 @@ namespace Diseño.Vista
         }
         private void btnRegis_Click(object sender, EventArgs e)
         {
+            try
+            {
             TipoVhculo();
             mensualid();
             if (MessageBox.Show("Seguro que quiere registrar este cliente?", "Warning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 bd.RegistrarClientes(txtNombre.Text, int.Parse(txtCedula.Text), int.Parse(txtTelefono.Text), txtPlacaCli.Text.Trim(),
                  TpVhCli, MEnsuCLi, Decimal.Parse(txtPago1.Text), DateTime.Parse(lblfechaCli.Text), TimeSpan.Parse(lblhoraCLi.Text));
+            limp();
+            }
+            catch
+            {
+                MessageBox.Show ("Revise nuevamente puede haber un campo vacio");
+            }
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -244,8 +251,18 @@ namespace Diseño.Vista
             cmbMovim.ValueMember = "NumTicket";
 
         }
-
-        private void limp()
+        int va = 1;
+        private void descon()
+        {
+            var x = s.MosDtTari(id);
+            if (x != null)
+            {
+                txtCuposD.Text = x.CuposDIsponibles.ToString();
+                clsOPerci objo1 = new clsOPerci(); //Constructor
+                txtCuposD.Text = objo1.Resta(double.Parse(txtCuposD.Text), va).ToString();
+            }
+        }
+            private void limp()
         {
 
             txtNombre.Clear();
@@ -258,11 +275,28 @@ namespace Diseño.Vista
             rdMensualidad.Checked = false;
             rdMotoCli.Checked = false;
             rdBiciCli.Checked = false;
+            txtPlaca.Clear();
+            txtNCascos.Clear();
+            txtCuposD.Clear();
+            rdtMoto.Checked = false;
+            rdtBici.Checked = false;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limp();
+        }
+
+        private void btncancIn_Click(object sender, EventArgs e)
+        {
+            limp();
+        }
+
+        private void btnVol_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seguro que quiere volver a la pantalla de inicio?", "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
         }
 
         private void Mostrartabla()

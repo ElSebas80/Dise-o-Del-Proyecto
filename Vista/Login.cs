@@ -85,9 +85,9 @@ namespace Diseño.Vista
                     }
 
                 }
-                else msgErro("Por favor  poner su Password");
+                else msgErro("Por favor digite su Password");
             }
-            else msgErro("Debe poner su Usuario por favor");
+            else msgErro("Digite su Usuario por favor");
         }
         private void msgErro(string msg)
         {

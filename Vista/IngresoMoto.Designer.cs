@@ -33,8 +33,6 @@ namespace Diseño.Vista
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIngresoMoto));
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNota = new System.Windows.Forms.TextBox();
             this.btnVolver = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSal = new System.Windows.Forms.PictureBox();
@@ -43,6 +41,7 @@ namespace Diseño.Vista
             this.btnRes = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btncancIn = new System.Windows.Forms.Button();
             this.rdtBici = new System.Windows.Forms.RadioButton();
             this.rdtMoto = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
@@ -109,6 +108,7 @@ namespace Diseño.Vista
             this.label13 = new System.Windows.Forms.Label();
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.btnVol = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -144,39 +144,14 @@ namespace Diseño.Vista
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::Diseño.Properties.Resources.panel_2;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtNota);
+            this.panel1.Controls.Add(this.btnVol);
             this.panel1.Controls.Add(this.btnVolver);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(20, 18);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(222, 619);
+            this.panel1.Size = new System.Drawing.Size(212, 619);
             this.panel1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.YellowGreen;
-            this.label2.Location = new System.Drawing.Point(32, 548);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 26);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "NORA SAAVEDRA RUEDA \r\nPROPIETARIA";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtNota
-            // 
-            this.txtNota.BackColor = System.Drawing.Color.YellowGreen;
-            this.txtNota.Enabled = false;
-            this.txtNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(0)));
-            this.txtNota.Location = new System.Drawing.Point(10, 541);
-            this.txtNota.Name = "txtNota";
-            this.txtNota.ReadOnly = true;
-            this.txtNota.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtNota.Size = new System.Drawing.Size(187, 41);
-            this.txtNota.TabIndex = 3;
-            this.txtNota.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnVolver
             // 
@@ -220,7 +195,7 @@ namespace Diseño.Vista
             this.btnMax.BackColor = System.Drawing.Color.Transparent;
             this.btnMax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
-            this.btnMax.Location = new System.Drawing.Point(845, 18);
+            this.btnMax.Location = new System.Drawing.Point(840, 18);
             this.btnMax.Name = "btnMax";
             this.btnMax.Size = new System.Drawing.Size(23, 26);
             this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -234,7 +209,7 @@ namespace Diseño.Vista
             this.btnMin.BackColor = System.Drawing.Color.Transparent;
             this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(816, 18);
+            this.btnMin.Location = new System.Drawing.Point(811, 18);
             this.btnMin.Name = "btnMin";
             this.btnMin.Size = new System.Drawing.Size(23, 26);
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -248,7 +223,7 @@ namespace Diseño.Vista
             this.btnRes.BackColor = System.Drawing.Color.Transparent;
             this.btnRes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRes.Image = ((System.Drawing.Image)(resources.GetObject("btnRes.Image")));
-            this.btnRes.Location = new System.Drawing.Point(845, 18);
+            this.btnRes.Location = new System.Drawing.Point(840, 18);
             this.btnRes.Name = "btnRes";
             this.btnRes.Size = new System.Drawing.Size(23, 26);
             this.btnRes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -273,6 +248,7 @@ namespace Diseño.Vista
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
+            this.tabPage1.Controls.Add(this.btncancIn);
             this.tabPage1.Controls.Add(this.rdtBici);
             this.tabPage1.Controls.Add(this.rdtMoto);
             this.tabPage1.Controls.Add(this.label6);
@@ -292,6 +268,16 @@ namespace Diseño.Vista
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ingreso Vehículo";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btncancIn
+            // 
+            this.btncancIn.Location = new System.Drawing.Point(348, 381);
+            this.btncancIn.Name = "btncancIn";
+            this.btncancIn.Size = new System.Drawing.Size(77, 32);
+            this.btncancIn.TabIndex = 68;
+            this.btncancIn.Text = "Cancelar";
+            this.btncancIn.UseVisualStyleBackColor = true;
+            this.btncancIn.Click += new System.EventHandler(this.btncancIn_Click);
             // 
             // rdtBici
             // 
@@ -372,9 +358,9 @@ namespace Diseño.Vista
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlaca.HideSelection = false;
-            this.txtPlaca.Location = new System.Drawing.Point(210, 150);
+            this.txtPlaca.Location = new System.Drawing.Point(182, 150);
             this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(126, 44);
+            this.txtPlaca.Size = new System.Drawing.Size(154, 44);
             this.txtPlaca.TabIndex = 60;
             this.txtPlaca.WordWrap = false;
             // 
@@ -416,7 +402,7 @@ namespace Diseño.Vista
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(250, 366);
+            this.btnIngresar.Location = new System.Drawing.Point(177, 381);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(77, 32);
             this.btnIngresar.TabIndex = 49;
@@ -878,9 +864,9 @@ namespace Diseño.Vista
             // 
             // printPreviewControl1
             // 
-            this.printPreviewControl1.Location = new System.Drawing.Point(384, 143);
+            this.printPreviewControl1.Location = new System.Drawing.Point(351, 86);
             this.printPreviewControl1.Name = "printPreviewControl1";
-            this.printPreviewControl1.Size = new System.Drawing.Size(230, 297);
+            this.printPreviewControl1.Size = new System.Drawing.Size(270, 354);
             this.printPreviewControl1.TabIndex = 82;
             // 
             // button6
@@ -1101,6 +1087,20 @@ namespace Diseño.Vista
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // btnVol
+            // 
+            this.btnVol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVol.FlatAppearance.BorderSize = 0;
+            this.btnVol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVol.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVol.Location = new System.Drawing.Point(62, 536);
+            this.btnVol.Name = "btnVol";
+            this.btnVol.Size = new System.Drawing.Size(102, 35);
+            this.btnVol.TabIndex = 5;
+            this.btnVol.Text = "volver";
+            this.btnVol.UseVisualStyleBackColor = true;
+            this.btnVol.Click += new System.EventHandler(this.btnVol_Click);
+            // 
             // FrmIngresoMoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1149,10 +1149,8 @@ namespace Diseño.Vista
         #endregion
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtNota;
         private System.Windows.Forms.PictureBox btnVolver;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox btnSal;
         private System.Windows.Forms.PictureBox btnMax;
         private System.Windows.Forms.PictureBox btnMin;
@@ -1225,5 +1223,7 @@ namespace Diseño.Vista
         private System.Windows.Forms.PrintPreviewControl printPreviewControl1;
         private System.Windows.Forms.ComboBox cmbMovim;
         private System.Windows.Forms.TextBox txtPago1;
+        private System.Windows.Forms.Button btncancIn;
+        private System.Windows.Forms.Button btnVol;
     }
 }

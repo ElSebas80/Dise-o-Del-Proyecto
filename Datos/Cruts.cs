@@ -126,44 +126,11 @@ namespace Diseño.Datos
                 bd.sp_RegistroCliente(nombre, Cedula, telefon, placa, tipoVhlo, mensualidad, valor, fecha, hora);
             }
         }
-        public string REtornarValProductos(int Cod)
-        {
-            using (parkEntities db = new parkEntities())
-            {
-                var Preciou = (from veh in db.ingresoVehiculo
-                               where veh.NumTicket == Cod
-                               select veh).FirstOrDefault();
-                //var Land = db.productos.Where(x => x.codigo == Cod).FirstOrDefault();
-                return Preciou.CuposDis.ToString();
-            }
-        }
-        public string REtornarCanProductos(int Cant)
-        {
-            using (parkEntities db = new parkEntities())
-            {
-                var PreCant = (from veh in db.tari
-                               where veh.Id == Cant
-                               select veh).FirstOrDefault();
-                //  var Land = db.productos.Where(x => x.Cantidad == Cant).FirstOrDefault();
-
-                return PreCant.Id.ToString();
-            }
-        }
         public IList<ingresoVehiculo> MostrarPlac()
         {
             using (parkEntities db = new parkEntities())
             {
                 return db.ingresoVehiculo.ToList();
-            }
-        }
-        public IList RetornarPla()
-        {
-            using (parkEntities db = new parkEntities())
-            {
-                var Preciou = (from prod in db.ingresoVehiculo
-                               join Est in db.Estado on prod.NumTicket equals Est.id
-                               select new { prod.tipoVhlo, prod.Placa, prod.NumCascos, prod.Fecha, prod.hora }).FirstOrDefault();
-                return Preciou.Placa.ToList();
             }
         }
         public IList<ingresoVehiculo> ingresoVehiculosm(int ID)

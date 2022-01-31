@@ -1,6 +1,7 @@
 ﻿using Diseño.BaseD;
 using Diseño.Datos;
 using Diseño.Datos.Logn;
+using Diseño.Datos.ValidacionCampos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,9 +25,9 @@ namespace Diseño.Vista
 
         private void FrmIngresoMoto_Load(object sender, EventArgs e)
         {
-            MostrarPlaca();
+            //MostrarPlaca();
             dtgMovim.DataSource = bd.MostrarPlac().ToList();
-            descon();
+           
         }
         
         private void FrmIngresoMoto_KeyPress(object sender, KeyPressEventArgs e)
@@ -147,11 +148,12 @@ namespace Diseño.Vista
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             try
-            {
-                EstD();
-                ingresarVehiculo();
-                MessageBox.Show("Vehiculo ingresado");
-                limp();
+            {            
+            EstD();
+            ingresarVehiculo();
+            MessageBox.Show("Vehiculo ingresado");
+            db.ActualizarCanti(va, int.Parse(txtCuposD.Text));
+            limp();
             }
             catch
             {
@@ -166,6 +168,7 @@ namespace Diseño.Vista
             lblhoraCLi.Text = DateTime.Now.ToString("hh:mm:ss");
             lblfechaCli.Text = DateTime.Now.ToShortDateString();
             buscaidTari();
+            descon();
         }
         //modulo de clientes
         string TpVhCli, MEnsuCLi, pago;
@@ -241,15 +244,14 @@ namespace Diseño.Vista
         string Producto1;
         private void cmbMovim_SelectedValueChanged(object sender, EventArgs e)
         {
-            Producto1 = cmbMovim.SelectedValue.ToString();
+           // Producto1 = cmbMovim.SelectedValue.ToString();
         }
         Cruts db = new Cruts();
         private void MostrarPlaca()
         {
-            cmbMovim.DataSource = db.MostrarPlac();
-            cmbMovim.DisplayMember = "Placa";
-            cmbMovim.ValueMember = "NumTicket";
-
+            //cmbMovim.DataSource = db.MostrarPlac();//buscar la plca mediante el primary key
+            //cmbMovim.DisplayMember = "Placa";
+            //cmbMovim.ValueMember = "NumTicket";
         }
         int va = 1;
         private void descon()
@@ -258,8 +260,7 @@ namespace Diseño.Vista
             if (x != null)
             {
                 txtCuposD.Text = x.CuposDIsponibles.ToString();
-                clsOPerci objo1 = new clsOPerci(); //Constructor
-                txtCuposD.Text = objo1.Resta(double.Parse(txtCuposD.Text), va).ToString();
+                //txtCuposD.Text = objo1.Resta(double.Parse(txtCuposD.Text), va).ToString();
             }
         }
             private void limp()
@@ -277,9 +278,9 @@ namespace Diseño.Vista
             rdBiciCli.Checked = false;
             txtPlaca.Clear();
             txtNCascos.Clear();
-            txtCuposD.Clear();
             rdtMoto.Checked = false;
             rdtBici.Checked = false;
+            msmErP.Visible = false;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -299,9 +300,89 @@ namespace Diseño.Vista
                 this.Close();
         }
 
+        private void txtBuscarPla_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPlaca_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPlaca.Text != "")
+            {
+                var x = db.ingresoVehiculosm(txtPlaca.Text);
+                var s = db.ingresoClientesm(txtPlaca.Text);
+                if (x.Count() >= 1 != s.Count() >= 1)
+                {
+                    if (s.Count() >= 1)
+                    {
+                        msmErP.ForeColor = Color.Green;
+                        msmErP.Text = "este cliente cuenta con una mensualidad";
+                        msmErP.Visible = true;
+                    }
+                    else if(x.Count() >= 1)
+                    {
+                        msmErP.ForeColor = Color.Red;
+                        msmErP.Text = "Este vehiculo ya esta en el parqueadero";
+                        msmErP.Visible = true;
+                    }
+                }
+                else
+                {
+                    msmErP.ForeColor = Color.Green;
+                    msmErP.Text = "nuevo cliente";
+                    msmErP.Visible = true;
+                }
+            }
+            else
+            {
+                msmErP.ForeColor = Color.Red;
+                msmErP.Visible = false;
+            }
+        }
+
+        private void txtPlacaCli_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPlacaCli.Text != "")
+            {
+                var x = db.ingresoClientesm(txtPlacaCli.Text);
+                if (x.Count() >= 1)
+                {
+                    msmErPCli.ForeColor = Color.Red;
+                    msmErPCli.Text = "Este vehiculo ya \nesta en el parqueadero";
+                    msmErPCli.Visible = true;
+                }
+                else
+                {
+                    msmErPCli.ForeColor = Color.Green;
+                    msmErPCli.Text = "nuevo cliente";
+                    msmErPCli.Visible = true;
+                }
+            }
+            else
+            {
+                msmErPCli.ForeColor = Color.Red;
+                msmErPCli.Visible = false;
+            }
+        }
+
+        private void txtPago1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            valid.SoloNumeros(e);
+        }
+
+        private void txtCuposD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            valid.SoloNumeros(e);
+        }
+
         private void Mostrartabla()
         {
-            dtgMovim.DataSource = db.ingresoVehiculosm(int.Parse(cmbMovim.SelectedValue.ToString()));
+            dtgMovim.DataSource = db.ingresoVehiculosm(txtBuscarPla.Text.ToString());//buscar la paca por escrito
             dtgMovim.Columns[0].Visible = false;
             dtgMovim.Columns[1].HeaderText = "Vehiculo";
             dtgMovim.Columns[3].HeaderText = "Cascos";

@@ -467,5 +467,18 @@ namespace Diseño.BaseD
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Altertarifas", fechaParameter, horaEstacioMotoParameter, semanaEstacioMotoParameter, quincenaEstacioMotoParameter, mensualidadEstacioMotoParameter, horaEstacioBiciParameter, semanaEstacioBiciParameter, quincenaEstacioBiciParameter, mensualidadEstacioBiciParameter, cuposDIsponiblesParameter);
         }
+    
+        public virtual int Sp_DesconCant(Nullable<int> codc, Nullable<int> cupo)
+        {
+            var codcParameter = codc.HasValue ?
+                new ObjectParameter("Codc", codc) :
+                new ObjectParameter("Codc", typeof(int));
+    
+            var cupoParameter = cupo.HasValue ?
+                new ObjectParameter("Cupo", cupo) :
+                new ObjectParameter("Cupo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_DesconCant", codcParameter, cupoParameter);
+        }
     }
 }

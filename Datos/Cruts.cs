@@ -133,11 +133,25 @@ namespace Diseño.Datos
                 return db.ingresoVehiculo.ToList();
             }
         }
-        public IList<ingresoVehiculo> ingresoVehiculosm(int ID)
+        public IList<ingresoVehiculo> ingresoVehiculosm(string ID)
         {
             using (parkEntities db = new parkEntities())
             {
-                return db.ingresoVehiculo.Where(x => x.NumTicket == ID).ToList();
+                return db.ingresoVehiculo.Where(x => x.Placa == ID).ToList();
+            }
+        }
+        public IList<RegistroCliente> ingresoClientesm(string ID)
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                return db.RegistroCliente.Where(x => x.Placa == ID).ToList();
+            }
+        }
+        public void ActualizarCanti(int CodProd, int Cant)
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                db.Sp_DesconCant(CodProd, Cant);
             }
         }
     }

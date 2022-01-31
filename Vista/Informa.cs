@@ -1,5 +1,6 @@
 ﻿using Diseño.BaseD;
 using Diseño.Datos;
+using Diseño.Datos.ValidacionCampos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -230,6 +231,16 @@ namespace Diseño.Vista
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            valid.SoloNumeros(e);
+        }
+
+        private void txtSmB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            valid.SoloNumeros(e);
         }
     }
 }

@@ -316,7 +316,7 @@ namespace Diseño.Vista
                     if (s.Count() >= 1)
                     {
                         msmErP.ForeColor = Color.Green;
-                        msmErP.Text = "este cliente cuenta con una mensualidad";
+                        msmErP.Text = "este cliente cuenta con una mensualidad";//nO pido mas
                         msmErP.Visible = true;
                     }
                     else if(x.Count() >= 1)

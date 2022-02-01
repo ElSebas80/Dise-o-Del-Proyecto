@@ -30,9 +30,9 @@ namespace Diseño.BaseD
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
         public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
-        public virtual DbSet<RegistroCliente> RegistroCliente { get; set; }
         public virtual DbSet<confi> confi { get; set; }
         public virtual DbSet<tari> tari { get; set; }
+        public virtual DbSet<RegistroCliente> RegistroCliente { get; set; }
     
         public virtual int deshUsuario(Nullable<int> id, Nullable<int> estado)
         {
@@ -353,7 +353,7 @@ namespace Diseño.BaseD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
-        public virtual int sp_RegistroCliente(string nombre, Nullable<int> cedula, Nullable<int> telefono, string placa, string tipoVhlo, string mensualidad, Nullable<decimal> valorPagar, Nullable<System.DateTime> fecha, Nullable<System.TimeSpan> hora)
+        public virtual int sp_RegistroCliente(string nombre, Nullable<int> cedula, Nullable<int> telefono, string placa, string tipoVhlo, string mensualidad, Nullable<decimal> valorPagar, Nullable<System.DateTime> fechaIni, Nullable<System.DateTime> fechaFin, Nullable<System.TimeSpan> hora)
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("Nombre", nombre) :
@@ -383,15 +383,19 @@ namespace Diseño.BaseD
                 new ObjectParameter("ValorPagar", valorPagar) :
                 new ObjectParameter("ValorPagar", typeof(decimal));
     
-            var fechaParameter = fecha.HasValue ?
-                new ObjectParameter("Fecha", fecha) :
-                new ObjectParameter("Fecha", typeof(System.DateTime));
+            var fechaIniParameter = fechaIni.HasValue ?
+                new ObjectParameter("FechaIni", fechaIni) :
+                new ObjectParameter("FechaIni", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
     
             var horaParameter = hora.HasValue ?
                 new ObjectParameter("hora", hora) :
                 new ObjectParameter("hora", typeof(System.TimeSpan));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RegistroCliente", nombreParameter, cedulaParameter, telefonoParameter, placaParameter, tipoVhloParameter, mensualidadParameter, valorPagarParameter, fechaParameter, horaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RegistroCliente", nombreParameter, cedulaParameter, telefonoParameter, placaParameter, tipoVhloParameter, mensualidadParameter, valorPagarParameter, fechaIniParameter, fechaFinParameter, horaParameter);
         }
     
         public virtual int sp_Alterconfi(string nombreParqueadero, string nit, Nullable<int> telefono, string direccion, string correo, string horarioAtencion)

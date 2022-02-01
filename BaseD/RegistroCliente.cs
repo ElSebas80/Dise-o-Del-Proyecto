@@ -22,7 +22,8 @@ namespace Diseño.BaseD
         public string tipoVhlo { get; set; }
         public string mensualidad { get; set; }
         public Nullable<decimal> ValorPagar { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
+        public Nullable<System.DateTime> FechaIni { get; set; }
+        public Nullable<System.DateTime> FechaFin { get; set; }
         public Nullable<System.TimeSpan> hora { get; set; }
     }
 }

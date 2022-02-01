@@ -169,6 +169,7 @@ namespace Diseño.Vista
             lblfechaCli.Text = DateTime.Now.ToShortDateString();
             buscaidTari();
             descon();
+            mensu();
         }
         //modulo de clientes
         string TpVhCli, MEnsuCLi, pago;
@@ -179,6 +180,11 @@ namespace Diseño.Vista
             else if (rdBiciCli.Checked == true)
                 TpVhCli = "Bicicleta";
         }
+        private void mensu()
+        {
+            DateTime FeFin = DateTime.Today.AddMonths(1);
+            lblFeFin.Text= FeFin.ToShortDateString().ToString();
+        }
         private void btnRegis_Click(object sender, EventArgs e)
         {
             try
@@ -188,7 +194,7 @@ namespace Diseño.Vista
             if (MessageBox.Show("Seguro que quiere registrar este cliente?", "Warning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 bd.RegistrarClientes(txtNombre.Text, int.Parse(txtCedula.Text), int.Parse(txtTelefono.Text), txtPlacaCli.Text.Trim(),
-                 TpVhCli, MEnsuCLi, Decimal.Parse(txtPago1.Text), DateTime.Parse(lblfechaCli.Text), TimeSpan.Parse(lblhoraCLi.Text));
+                 TpVhCli, MEnsuCLi, Decimal.Parse(txtPago1.Text), DateTime.Parse(lblfechaCli.Text), DateTime.Parse(lblFeFin.Text), TimeSpan.Parse(lblhoraCLi.Text));
             limp();
             }
             catch
@@ -304,22 +310,28 @@ namespace Diseño.Vista
         {
 
         }
-
         private void txtPlaca_TextChanged(object sender, EventArgs e)
         {
             if (txtPlaca.Text != "")
             {
-                var x = db.ingresoVehiculosm(txtPlaca.Text);
-                var s = db.ingresoClientesm(txtPlaca.Text);
-                if (x.Count() >= 1 != s.Count() >= 1)
+                var ServicioParqueo = db.ingresoVehiculosm(txtPlaca.Text).Count();
+                var Mensualidades = db.ingresoClientesm(txtPlaca.Text).Count();
+                if (ServicioParqueo >= 1 || Mensualidades >= 1)
                 {
-                    if (s.Count() >= 1)
+                    if (ServicioParqueo >= 1 && Mensualidades >= 1)
                     {
-                        msmErP.ForeColor = Color.Green;
-                        msmErP.Text = "este cliente cuenta con una mensualidad";//nO pido mas
+                        msmErP.ForeColor = Color.Red;
+                        msmErP.Text = "Este cliente se encunetra registrado";
                         msmErP.Visible = true;
                     }
-                    else if(x.Count() >= 1)
+                    else if (Mensualidades >= 1)
+                    {
+                        msmErP.ForeColor = Color.Green;
+                        msmErP.Text = "Este cliente cuenta con una mensualidad \n" +
+                            "que temina el dia";//nO pido mas
+                        msmErP.Visible = true;
+                    }
+                    else if(ServicioParqueo >= 1)
                     {
                         msmErP.ForeColor = Color.Red;
                         msmErP.Text = "Este vehiculo ya esta en el parqueadero";
@@ -329,7 +341,7 @@ namespace Diseño.Vista
                 else
                 {
                     msmErP.ForeColor = Color.Green;
-                    msmErP.Text = "nuevo cliente";
+                    msmErP.Text = "Nuevo cliente";
                     msmErP.Visible = true;
                 }
             }
@@ -348,13 +360,15 @@ namespace Diseño.Vista
                 if (x.Count() >= 1)
                 {
                     msmErPCli.ForeColor = Color.Red;
-                    msmErPCli.Text = "Este vehiculo ya \nesta en el parqueadero";
+                    msmErPCli.Text = "El cliente ya se encientra registrado";
                     msmErPCli.Visible = true;
+                    //DateTime FeFin =  DateTime.Today.AddMonths(1);
+                    //MessageBox.Show(FeFin.ToShortDateString().ToString());
                 }
                 else
                 {
                     msmErPCli.ForeColor = Color.Green;
-                    msmErPCli.Text = "nuevo cliente";
+                    msmErPCli.Text = "Nuevo cliente";
                     msmErPCli.Visible = true;
                 }
             }

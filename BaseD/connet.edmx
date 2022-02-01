@@ -56,8 +56,6 @@ advertencia 6002: La tabla o vista 'park.dbo.ingresoVehiculo' no tiene definida 
           <Property Name="Fecha" Type="date" />
           <Property Name="hora" Type="time" Precision="7" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'park.dbo.RegistroCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="RegistroCliente">
           <Key>
             <PropertyRef Name="id" />
@@ -70,7 +68,8 @@ advertencia 6002: La tabla o vista 'park.dbo.RegistroCliente' no tiene definida 
           <Property Name="tipoVhlo" Type="varchar" MaxLength="20" />
           <Property Name="mensualidad" Type="varchar" MaxLength="20" />
           <Property Name="ValorPagar" Type="decimal" Precision="38" Scale="0" />
-          <Property Name="Fecha" Type="date" />
+          <Property Name="FechaIni" Type="date" />
+          <Property Name="FechaFin" Type="date" />
           <Property Name="hora" Type="time" Precision="7" />
         </EntityType>
         <!--Errores durante la generación:
@@ -208,7 +207,8 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
           <Parameter Name="tipoVhlo" Type="varchar" Mode="In" />
           <Parameter Name="mensualidad" Type="varchar" Mode="In" />
           <Parameter Name="ValorPagar" Type="decimal" Mode="In" />
-          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="FechaIni" Type="date" Mode="In" />
+          <Parameter Name="FechaFin" Type="date" Mode="In" />
           <Parameter Name="hora" Type="time" Mode="In" />
         </Function>
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -231,6 +231,7 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="parkModelStoreContainer">
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistroCliente" EntityType="Self.RegistroCliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="confi" EntityType="Self.confi" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [confi].[Id] AS [Id], 
@@ -265,20 +266,6 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
     [ingresoVehiculo].[Fecha] AS [Fecha], 
     [ingresoVehiculo].[hora] AS [hora]
     FROM [dbo].[ingresoVehiculo] AS [ingresoVehiculo]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="RegistroCliente" EntityType="Self.RegistroCliente" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [RegistroCliente].[id] AS [id], 
-    [RegistroCliente].[Nombre] AS [Nombre], 
-    [RegistroCliente].[Cedula] AS [Cedula], 
-    [RegistroCliente].[Telefono] AS [Telefono], 
-    [RegistroCliente].[Placa] AS [Placa], 
-    [RegistroCliente].[tipoVhlo] AS [tipoVhlo], 
-    [RegistroCliente].[mensualidad] AS [mensualidad], 
-    [RegistroCliente].[ValorPagar] AS [ValorPagar], 
-    [RegistroCliente].[Fecha] AS [Fecha], 
-    [RegistroCliente].[hora] AS [hora]
-    FROM [dbo].[RegistroCliente] AS [RegistroCliente]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="tari" EntityType="Self.tari" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -455,10 +442,10 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
             <Parameter Name="tipoVhlo" Mode="In" Type="String" />
             <Parameter Name="mensualidad" Mode="In" Type="String" />
             <Parameter Name="ValorPagar" Mode="In" Type="Decimal" />
-            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
             <Parameter Name="hora" Mode="In" Type="Time" />
           </FunctionImport>
-          <EntitySet Name="RegistroCliente" EntityType="parkModel.RegistroCliente" />
           <EntitySet Name="confi" EntityType="parkModel.confi" />
           <EntitySet Name="tari" EntityType="parkModel.tari" />
           <FunctionImport Name="sp_Alterconfi">
@@ -485,6 +472,7 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
             <Parameter Name="Codc" Mode="In" Type="Int32" />
             <Parameter Name="Cupo" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="RegistroCliente" EntityType="parkModel.RegistroCliente" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -497,21 +485,6 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="RegistroCliente">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="Cedula" Type="Int32" />
-          <Property Name="Telefono" Type="Int32" />
-          <Property Name="Placa" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Name="tipoVhlo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="mensualidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ValorPagar" Type="Decimal" Precision="38" Scale="0" />
-          <Property Name="Fecha" Type="DateTime" Precision="0" />
-          <Property Name="hora" Type="Time" Precision="7" />
-        </EntityType>
         <EntityType Name="confi">
           <Key>
             <PropertyRef Name="Id" />
@@ -539,6 +512,22 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
           <Property Name="QuincenaEstacioBici" Type="Decimal" Precision="38" Scale="0" />
           <Property Name="MensualidadEstacioBici" Type="Decimal" Precision="38" Scale="0" />
           <Property Name="CuposDIsponibles" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RegistroCliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="Int32" />
+          <Property Name="Telefono" Type="Int32" />
+          <Property Name="Placa" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="tipoVhlo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mensualidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ValorPagar" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="FechaIni" Type="DateTime" Precision="0" />
+          <Property Name="FechaFin" Type="DateTime" Precision="0" />
+          <Property Name="hora" Type="Time" Precision="7" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -615,22 +604,6 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
           <FunctionImportMapping FunctionImportName="sp_tarifas" FunctionName="parkModel.Store.sp_tarifas" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="parkModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="sp_RegistroCliente" FunctionName="parkModel.Store.sp_RegistroCliente" />
-          <EntitySetMapping Name="RegistroCliente">
-            <EntityTypeMapping TypeName="parkModel.RegistroCliente">
-              <MappingFragment StoreEntitySet="RegistroCliente">
-                <ScalarProperty Name="hora" ColumnName="hora" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="ValorPagar" ColumnName="ValorPagar" />
-                <ScalarProperty Name="mensualidad" ColumnName="mensualidad" />
-                <ScalarProperty Name="tipoVhlo" ColumnName="tipoVhlo" />
-                <ScalarProperty Name="Placa" ColumnName="Placa" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="confi">
             <EntityTypeMapping TypeName="parkModel.confi">
               <MappingFragment StoreEntitySet="confi">
@@ -664,6 +637,23 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
           <FunctionImportMapping FunctionImportName="sp_Alterconfi" FunctionName="parkModel.Store.sp_Alterconfi" />
           <FunctionImportMapping FunctionImportName="sp_Altertarifas" FunctionName="parkModel.Store.sp_Altertarifas" />
           <FunctionImportMapping FunctionImportName="Sp_DesconCant" FunctionName="parkModel.Store.Sp_DesconCant" />
+          <EntitySetMapping Name="RegistroCliente">
+            <EntityTypeMapping TypeName="parkModel.RegistroCliente">
+              <MappingFragment StoreEntitySet="RegistroCliente">
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="FechaIni" ColumnName="FechaIni" />
+                <ScalarProperty Name="ValorPagar" ColumnName="ValorPagar" />
+                <ScalarProperty Name="mensualidad" ColumnName="mensualidad" />
+                <ScalarProperty Name="tipoVhlo" ColumnName="tipoVhlo" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

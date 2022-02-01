@@ -119,11 +119,11 @@ namespace Diseño.Datos
                 bd.sp_ingresoVehiculo(tipoVh, placa, numcs, cuposD, fecha, hora);
             }
         }
-        public void RegistrarClientes(string nombre, int Cedula, int telefon, string placa, string tipoVhlo,string mensualidad, Decimal valor, DateTime fecha, TimeSpan hora)
+        public void RegistrarClientes(string nombre, int Cedula, int telefon, string placa, string tipoVhlo,string mensualidad, Decimal valor, DateTime fechaini, DateTime fechafin, TimeSpan hora)
         {
             using (parkEntities bd = new parkEntities())
             {
-                bd.sp_RegistroCliente(nombre, Cedula, telefon, placa, tipoVhlo, mensualidad, valor, fecha, hora);
+                bd.sp_RegistroCliente(nombre, Cedula, telefon, placa, tipoVhlo, mensualidad, valor, fechaini, fechafin, hora);
             }
         }
         public IList<ingresoVehiculo> MostrarPlac()

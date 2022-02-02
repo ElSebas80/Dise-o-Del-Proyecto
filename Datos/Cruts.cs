@@ -154,5 +154,17 @@ namespace Diseño.Datos
                 db.Sp_DesconCant(CodProd, Cant);
             }
         }
+        public string REtornarFecha(int Cant)
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                var PreCant = (from prod in db.RegistroCliente
+                               where prod.id == Cant
+                               select prod).FirstOrDefault();
+                //  var Land = db.productos.Where(x => x.Cantidad == Cant).FirstOrDefault();
+
+                return PreCant.FechaFin.ToString();
+            }
+        }
     }
 }

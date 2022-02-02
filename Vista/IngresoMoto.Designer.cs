@@ -40,7 +40,7 @@ namespace Diseño.Vista
             this.btnMax = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
             this.btnRes = new System.Windows.Forms.PictureBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabContPrimc = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.msmErP = new System.Windows.Forms.Label();
             this.btncancIn = new System.Windows.Forms.Button();
@@ -57,6 +57,7 @@ namespace Diseño.Vista
             this.btnIngresar = new System.Windows.Forms.Button();
             this.txtCuposD = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblFeFin = new System.Windows.Forms.Label();
             this.msmErPCli = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdSemana = new System.Windows.Forms.RadioButton();
@@ -85,7 +86,7 @@ namespace Diseño.Vista
             this.txtBuscarPla = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnGenTic = new System.Windows.Forms.Button();
             this.dtgMovim = new System.Windows.Forms.DataGridView();
             this.label24 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -111,7 +112,9 @@ namespace Diseño.Vista
             this.label13 = new System.Windows.Forms.Label();
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.lblFeFin = new System.Windows.Forms.Label();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -119,7 +122,7 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.tabContPrimc.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -248,19 +251,19 @@ namespace Diseño.Vista
             this.btnRes.TabStop = false;
             this.btnRes.Click += new System.EventHandler(this.btnRes_Click);
             // 
-            // tabControl1
+            // tabContPrimc
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(250, 27);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(648, 610);
-            this.tabControl1.TabIndex = 38;
+            this.tabContPrimc.Controls.Add(this.tabPage1);
+            this.tabContPrimc.Controls.Add(this.tabPage2);
+            this.tabContPrimc.Controls.Add(this.tabPage3);
+            this.tabContPrimc.Controls.Add(this.tabPage4);
+            this.tabContPrimc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabContPrimc.Location = new System.Drawing.Point(250, 27);
+            this.tabContPrimc.Multiline = true;
+            this.tabContPrimc.Name = "tabContPrimc";
+            this.tabContPrimc.SelectedIndex = 0;
+            this.tabContPrimc.Size = new System.Drawing.Size(648, 610);
+            this.tabContPrimc.TabIndex = 38;
             // 
             // tabPage1
             // 
@@ -281,7 +284,7 @@ namespace Diseño.Vista
             this.tabPage1.Controls.Add(this.txtCuposD);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(640, 581);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ingreso Vehículo";
@@ -485,11 +488,23 @@ namespace Diseño.Vista
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(640, 581);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Registro Clientes";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lblFeFin
+            // 
+            this.lblFeFin.BackColor = System.Drawing.Color.Transparent;
+            this.lblFeFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFeFin.ForeColor = System.Drawing.Color.White;
+            this.lblFeFin.Location = new System.Drawing.Point(359, 82);
+            this.lblFeFin.Name = "lblFeFin";
+            this.lblFeFin.Size = new System.Drawing.Size(121, 22);
+            this.lblFeFin.TabIndex = 88;
+            this.lblFeFin.Text = "Fecha";
+            this.lblFeFin.Visible = false;
             // 
             // msmErPCli
             // 
@@ -795,13 +810,13 @@ namespace Diseño.Vista
             this.tabPage3.Controls.Add(this.txtBuscarPla);
             this.tabPage3.Controls.Add(this.btnBuscar);
             this.tabPage3.Controls.Add(this.dateTimePicker1);
-            this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.btnGenTic);
             this.tabPage3.Controls.Add(this.dtgMovim);
             this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(640, 581);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Movimiento del Estacionamiento";
@@ -839,14 +854,15 @@ namespace Diseño.Vista
             this.dateTimePicker1.Size = new System.Drawing.Size(241, 22);
             this.dateTimePicker1.TabIndex = 69;
             // 
-            // button5
+            // btnGenTic
             // 
-            this.button5.Location = new System.Drawing.Point(439, 442);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(117, 23);
-            this.button5.TabIndex = 68;
-            this.button5.Text = "Generar Ticket";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnGenTic.Location = new System.Drawing.Point(439, 442);
+            this.btnGenTic.Name = "btnGenTic";
+            this.btnGenTic.Size = new System.Drawing.Size(117, 23);
+            this.btnGenTic.TabIndex = 68;
+            this.btnGenTic.Text = "Generar Ticket";
+            this.btnGenTic.UseVisualStyleBackColor = true;
+            this.btnGenTic.Click += new System.EventHandler(this.btnGenTic_Click);
             // 
             // dtgMovim
             // 
@@ -862,6 +878,7 @@ namespace Diseño.Vista
             this.dtgMovim.ReadOnly = true;
             this.dtgMovim.RowHeadersVisible = false;
             this.dtgMovim.RowHeadersWidth = 51;
+            this.dtgMovim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dtgMovim.Size = new System.Drawing.Size(555, 149);
             this.dtgMovim.TabIndex = 67;
             // 
@@ -914,7 +931,7 @@ namespace Diseño.Vista
             this.tabPage4.Controls.Add(this.label13);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(640, 581);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = " Salida Vehiculos";
@@ -1022,6 +1039,7 @@ namespace Diseño.Vista
             // 
             this.txthrsali.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txthrsali.Enabled = false;
             this.txthrsali.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txthrsali.HideSelection = false;
             this.txthrsali.Location = new System.Drawing.Point(171, 281);
@@ -1045,6 +1063,7 @@ namespace Diseño.Vista
             // 
             this.txtfcsali.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtfcsali.Enabled = false;
             this.txtfcsali.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtfcsali.HideSelection = false;
             this.txtfcsali.Location = new System.Drawing.Point(171, 235);
@@ -1068,6 +1087,7 @@ namespace Diseño.Vista
             // 
             this.txtheinsal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtheinsal.Enabled = false;
             this.txtheinsal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtheinsal.HideSelection = false;
             this.txtheinsal.Location = new System.Drawing.Point(171, 189);
@@ -1091,6 +1111,7 @@ namespace Diseño.Vista
             // 
             this.txtfeinsal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtfeinsal.Enabled = false;
             this.txtfeinsal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtfeinsal.HideSelection = false;
             this.txtfeinsal.Location = new System.Drawing.Point(171, 143);
@@ -1114,6 +1135,7 @@ namespace Diseño.Vista
             // 
             this.numplacasal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.numplacasal.Enabled = false;
             this.numplacasal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numplacasal.HideSelection = false;
             this.numplacasal.Location = new System.Drawing.Point(197, 86);
@@ -1145,16 +1167,25 @@ namespace Diseño.Vista
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // lblFeFin
+            // printDialog1
             // 
-            this.lblFeFin.BackColor = System.Drawing.Color.Transparent;
-            this.lblFeFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFeFin.ForeColor = System.Drawing.Color.White;
-            this.lblFeFin.Location = new System.Drawing.Point(232, 105);
-            this.lblFeFin.Name = "lblFeFin";
-            this.lblFeFin.Size = new System.Drawing.Size(121, 22);
-            this.lblFeFin.TabIndex = 88;
-            this.lblFeFin.Text = "Fecha";
+            this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // pageSetupDialog1
+            // 
+            this.pageSetupDialog1.Document = this.printDocument1;
             // 
             // FrmIngresoMoto
             // 
@@ -1167,7 +1198,7 @@ namespace Diseño.Vista
             this.Controls.Add(this.btnRes);
             this.Controls.Add(this.btnMax);
             this.Controls.Add(this.btnMin);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabContPrimc);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1185,7 +1216,7 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.tabContPrimc.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1211,7 +1242,7 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnMax;
         private System.Windows.Forms.PictureBox btnMin;
         private System.Windows.Forms.PictureBox btnRes;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabContPrimc;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.RadioButton rdtBici;
         private System.Windows.Forms.RadioButton rdtMoto;
@@ -1248,7 +1279,7 @@ namespace Diseño.Vista
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnGenTic;
         private System.Windows.Forms.DataGridView dtgMovim;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label12;
@@ -1284,5 +1315,8 @@ namespace Diseño.Vista
         private System.Windows.Forms.Label msmErP;
         private System.Windows.Forms.Label msmErPCli;
         private System.Windows.Forms.Label lblFeFin;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }

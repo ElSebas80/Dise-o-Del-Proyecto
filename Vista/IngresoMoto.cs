@@ -27,7 +27,7 @@ namespace Diseño.Vista
         {
             //MostrarPlaca();
             dtgMovim.DataSource = bd.MostrarPlac().ToList();
-           
+            
         }
         
         private void FrmIngresoMoto_KeyPress(object sender, KeyPressEventArgs e)
@@ -135,15 +135,60 @@ namespace Diseño.Vista
             if (rdSemana.Checked == true)
             {
                 MEnsuCLi = "Semanal";
+                DateTime FeFin = DateTime.Today.AddDays(7);
+                lblFeFin.Text = FeFin.ToShortDateString().ToString();
+                lblFeFin.Visible = true;
             }
             else if (rdQuincena.Checked == true)
             {
                 MEnsuCLi = "Quincenal";
+                DateTime FeFin = DateTime.Today.AddDays(14);
+                lblFeFin.Text = FeFin.ToShortDateString().ToString();
+                lblFeFin.Visible = true;
             }
             else if (rdMensualidad.Checked == true)
             {
                 MEnsuCLi = "Mensual";
+                DateTime FeFin = DateTime.Today.AddMonths(1);
+                lblFeFin.Text = FeFin.ToShortDateString().ToString();
+                lblFeFin.Visible = true;
             }
+        }
+        
+        private void Imprimir(object sender, PrintPageEventArgs e)
+        {
+            //if (btnIngresar == )
+            //{
+            Font font = new Font("Arial", 14/*, FontStyle.Regular, GraphicsUnit.Point*/);
+            e.Graphics.DrawString(txtPlaca.Text, font, Brushes.Blue ,new Rectangle(0,10,120,20));
+            //e.Graphics.DrawString(numplacasal.Text, new Font("Arial", 100), Brushes.Blue, 10, 10);
+
+            //e.Graphics.DrawString(txtfeinsal.Text, new Font("Arial", 100), Brushes.Blue, 10, 130);
+            //e.Graphics.DrawString(txtheinsal.Text, new Font("Arial", 100), Brushes.Blue, 10, 250);
+            //e.Graphics.DrawString(txtfcsali.Text, new Font("Arial", 100), Brushes.Blue, 10, 370);
+            //e.Graphics.DrawString(txthrsali.Text, new Font("Arial", 100), Brushes.Blue, 10, 490);
+            //e.Graphics.DrawString(txtvalpago.Text, new Font("Arial", 100), Brushes.Blue, 10, 610);
+            //e.Graphics.DrawString(txtefect.Text, new Font("Arial", 100), Brushes.Blue, 10, 730);
+            //e.Graphics.DrawString(txtcambefect.Text, new Font("Arial", 100), Brushes.Blue, 10, 850);
+
+            //}
+
+        }
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            imp();
+        }
+        private void imp()
+        {
+            // pageSetupDialog1.ShowDialog();
+            // printDialog1.ShowDialog();
+            //            printPreviewDialog1.ShowDialog();
+            printDocument1 = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            printDocument1.PrinterSettings = ps;
+            printDocument1.PrintPage += Imprimir;
+            printDocument1.Print();
+
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
@@ -153,7 +198,8 @@ namespace Diseño.Vista
             ingresarVehiculo();
             MessageBox.Show("Vehiculo ingresado");
             db.ActualizarCanti(va, int.Parse(txtCuposD.Text));
-            limp();
+            imp();
+            //limp();
             }
             catch
             {
@@ -167,9 +213,12 @@ namespace Diseño.Vista
             lblFecha.Text = DateTime.Now.ToShortDateString();
             lblhoraCLi.Text = DateTime.Now.ToString("hh:mm:ss");
             lblfechaCli.Text = DateTime.Now.ToShortDateString();
+            txthrsali.Text = DateTime.Now.ToString("hh:mm:ss");
+            txtfcsali.Text = DateTime.Now.ToShortDateString();
             buscaidTari();
             descon();
-            mensu();
+            //mensu();
+            mensualid();
         }
         //modulo de clientes
         string TpVhCli, MEnsuCLi, pago;
@@ -220,19 +269,6 @@ namespace Diseño.Vista
 
         parkEntities Pla = new parkEntities();
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawString(numplacasal.Text, new Font("Arial", 100), Brushes.Blue, 10, 10);
-            e.Graphics.DrawString(txtfeinsal.Text, new Font("Arial", 100), Brushes.Blue, 10, 130);
-            e.Graphics.DrawString(txtheinsal.Text, new Font("Arial", 100), Brushes.Blue, 10, 250);
-            e.Graphics.DrawString(txtfcsali.Text, new Font("Arial", 100), Brushes.Blue, 10, 370);
-            e.Graphics.DrawString(txthrsali.Text, new Font("Arial", 100), Brushes.Blue, 10, 490);
-            e.Graphics.DrawString(txtvalpago.Text, new Font("Arial", 100), Brushes.Blue, 10, 610);
-            e.Graphics.DrawString(txtefect.Text, new Font("Arial", 100), Brushes.Blue, 10, 730);
-            e.Graphics.DrawString(txtcambefect.Text, new Font("Arial", 100), Brushes.Blue, 10, 850);
-
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             printPreviewControl1.Document = printDocument1;
@@ -247,17 +283,22 @@ namespace Diseño.Vista
         {
 
         }
-        string Producto1;
+        string bFech;
         private void cmbMovim_SelectedValueChanged(object sender, EventArgs e)
         {
            // Producto1 = cmbMovim.SelectedValue.ToString();
         }
         Cruts db = new Cruts();
-        private void MostrarPlaca()
+        private void MostrarFecha()
         {
-            //cmbMovim.DataSource = db.MostrarPlac();//buscar la plca mediante el primary key
+            foreach(var fato in db.ingresoClientesm(txtPlaca.Text))
+            {
+                bFech = fato.FechaFin.ToString();
+                    //= db.MostrarPlac();//buscar la plca mediante el primary key
+
+            }
             //cmbMovim.DisplayMember = "Placa";
-            //cmbMovim.ValueMember = "NumTicket";
+            msmErP.Text = "NumTicket";
         }
         int va = 1;
         private void descon()
@@ -310,11 +351,19 @@ namespace Diseño.Vista
         {
 
         }
+        string ValUnd;
+        string CodProd;
+        string fech;
+        private void EncontarCant()
+        {
+            fech = db.REtornarFecha(int.Parse(CodProd));
+        }
         private void txtPlaca_TextChanged(object sender, EventArgs e)
         {
             if (txtPlaca.Text != "")
             {
-                var ServicioParqueo = db.ingresoVehiculosm(txtPlaca.Text).Count();
+                MostrarFecha();
+                 var ServicioParqueo = db.ingresoVehiculosm(txtPlaca.Text).Count();
                 var Mensualidades = db.ingresoClientesm(txtPlaca.Text).Count();
                 if (ServicioParqueo >= 1 || Mensualidades >= 1)
                 {
@@ -328,7 +377,7 @@ namespace Diseño.Vista
                     {
                         msmErP.ForeColor = Color.Green;
                         msmErP.Text = "Este cliente cuenta con una mensualidad \n" +
-                            "que temina el dia";//nO pido mas
+                            "que temina el dia "+bFech;//nO pido mas
                         msmErP.Visible = true;
                     }
                     else if(ServicioParqueo >= 1)
@@ -392,6 +441,28 @@ namespace Diseño.Vista
         private void txtCuposD_KeyPress(object sender, KeyPressEventArgs e)
         {
             valid.SoloNumeros(e);
+        }
+        int bandera, idUser;
+
+        private void btnGenTick_CheckedChanged(object sender, EventArgs e){        }
+
+        private void btnGenTic_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                idUser = int.Parse(dtgMovim.CurrentRow.Cells[0].Value.ToString());
+                numplacasal.Text = dtgMovim.CurrentRow.Cells[2].Value.ToString();
+                txtfeinsal.Text = dtgMovim.CurrentRow.Cells[3].Value.ToString();
+                txtheinsal.Text = dtgMovim.CurrentRow.Cells[4].Value.ToString();
+                //txtCor.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
+                //txtLog.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
+                //cmbTipo.Text = dtgMovim.CurrentRow.Cells[6].Value.ToString();
+                tabContPrimc.SelectTab(3);
+            }
+            catch
+            {
+                MessageBox.Show("selccione una placa");
+            }
         }
 
         private void Mostrartabla()

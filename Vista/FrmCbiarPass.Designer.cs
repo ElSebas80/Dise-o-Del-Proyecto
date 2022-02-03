@@ -33,13 +33,13 @@ namespace Diseño.Vista
             this.btnSal = new System.Windows.Forms.PictureBox();
             this.btnConf = new System.Windows.Forms.Button();
             this.btnCanc = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtConAlt = new System.Windows.Forms.TextBox();
+            this.txtConNueCon = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.msmError = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtConConfCont = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnSal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,19 +75,19 @@ namespace Diseño.Vista
             this.btnCanc.UseVisualStyleBackColor = true;
             this.btnCanc.Click += new System.EventHandler(this.btnCanc_Click);
             // 
-            // textBox1
+            // txtConAlt
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
-            this.textBox1.TabIndex = 46;
+            this.txtConAlt.Location = new System.Drawing.Point(155, 75);
+            this.txtConAlt.Name = "txtConAlt";
+            this.txtConAlt.Size = new System.Drawing.Size(144, 20);
+            this.txtConAlt.TabIndex = 46;
             // 
-            // textBox2
+            // txtConNueCon
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 118);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 20);
-            this.textBox2.TabIndex = 47;
+            this.txtConNueCon.Location = new System.Drawing.Point(155, 118);
+            this.txtConNueCon.Name = "txtConNueCon";
+            this.txtConNueCon.Size = new System.Drawing.Size(144, 20);
+            this.txtConNueCon.TabIndex = 47;
             // 
             // label1
             // 
@@ -134,12 +134,12 @@ namespace Diseño.Vista
             this.label4.TabIndex = 52;
             this.label4.Text = "Confirma contraseña";
             // 
-            // textBox3
+            // txtConConfCont
             // 
-            this.textBox3.Location = new System.Drawing.Point(155, 166);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(144, 20);
-            this.textBox3.TabIndex = 51;
+            this.txtConConfCont.Location = new System.Drawing.Point(155, 166);
+            this.txtConConfCont.Name = "txtConConfCont";
+            this.txtConConfCont.Size = new System.Drawing.Size(144, 20);
+            this.txtConConfCont.TabIndex = 51;
             // 
             // FrmCbiarPass
             // 
@@ -149,12 +149,12 @@ namespace Diseño.Vista
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(411, 325);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtConConfCont);
             this.Controls.Add(this.msmError);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtConNueCon);
+            this.Controls.Add(this.txtConAlt);
             this.Controls.Add(this.btnConf);
             this.Controls.Add(this.btnCanc);
             this.Controls.Add(this.btnSal);
@@ -175,12 +175,12 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnSal;
         private System.Windows.Forms.Button btnConf;
         private System.Windows.Forms.Button btnCanc;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtConAlt;
+        private System.Windows.Forms.TextBox txtConNueCon;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label msmError;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtConConfCont;
     }
 }

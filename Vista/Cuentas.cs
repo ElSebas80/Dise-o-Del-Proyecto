@@ -299,7 +299,7 @@ namespace Diseño.Vista
             {
                 s.EditarPerfil(clsDatosUser.id, txtNom.Text, int.Parse(txtCed.Text), txtDir.Text, txtCor.Text,
                 txtLog.Text, txtContra.Text);
-                MessageBox.Show("El perfil a sido editado");
+                MessageBox.Show("Su perfil a sido editado correctamente");
             }
         }
         string banderacc,banderaUser;

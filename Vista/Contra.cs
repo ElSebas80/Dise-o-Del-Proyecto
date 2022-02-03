@@ -51,7 +51,7 @@ namespace Diseño.Vista
             else if (txtUser.Text == "" || txtmail.Text == "")
             {
                 msgError.Visible = true;
-                msgError.Text = "Alguna de las cajas de texto esta vacia";
+                msgError.Text = "Alguna de las cajas de texto debe esta vacia";
             }
             else
             {

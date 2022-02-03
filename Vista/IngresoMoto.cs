@@ -26,10 +26,13 @@ namespace Diseño.Vista
         private void FrmIngresoMoto_Load(object sender, EventArgs e)
         {
             //MostrarPlaca();
-            dtgMovim.DataSource = bd.MostrarPlac().ToList();
-            
+            dtg();
+            buscaid();
         }
-        
+        private void dtg()
+        {
+            dtgMovim.DataSource = bd.MostrarPlac().ToList();
+        }
         private void FrmIngresoMoto_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -154,22 +157,43 @@ namespace Diseño.Vista
                 lblFeFin.Visible = true;
             }
         }
-        
+        string nom; int idc = 1;
+        private void buscaid()
+        {
+            var x = s.MosDtConfi(idc);
+            if (x != null)
+            {
+                nom = x.NombreParqueadero.ToString();
+                //txtNit.Text = x.Nit.ToString();
+                //txtTel.Text = x.Telefono.ToString();
+                //txtDir.Text = x.Direccion.ToString();
+                //txtCorreo.Text = x.Correo.ToString();
+                //txtHorATenc.Text = x.HorarioAtencion.ToString();
+                //BtnGuarInfo.Visible = false;
+                //btnModInfo.Visible = true;
+                //btnCanInfo.Visible = true;
+            }
+           
+        }
         private void Imprimir(object sender, PrintPageEventArgs e)
         {
             //if (btnIngresar == )
             //{
-            Font font = new Font("Arial", 14/*, FontStyle.Regular, GraphicsUnit.Point*/);
-            e.Graphics.DrawString(txtPlaca.Text, font, Brushes.Blue ,new Rectangle(0,10,120,20));
-            //e.Graphics.DrawString(numplacasal.Text, new Font("Arial", 100), Brushes.Blue, 10, 10);
-
-            //e.Graphics.DrawString(txtfeinsal.Text, new Font("Arial", 100), Brushes.Blue, 10, 130);
-            //e.Graphics.DrawString(txtheinsal.Text, new Font("Arial", 100), Brushes.Blue, 10, 250);
-            //e.Graphics.DrawString(txtfcsali.Text, new Font("Arial", 100), Brushes.Blue, 10, 370);
-            //e.Graphics.DrawString(txthrsali.Text, new Font("Arial", 100), Brushes.Blue, 10, 490);
-            //e.Graphics.DrawString(txtvalpago.Text, new Font("Arial", 100), Brushes.Blue, 10, 610);
-            //e.Graphics.DrawString(txtefect.Text, new Font("Arial", 100), Brushes.Blue, 10, 730);
-            //e.Graphics.DrawString(txtcambefect.Text, new Font("Arial", 100), Brushes.Blue, 10, 850);
+           // Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
+            e.Graphics.DrawString("Parqueadero " + nom, new Font("Arial", 14), Brushes.Blue, 20, 10);
+            e.Graphics.DrawString("Numero de la placa: "+ txtPlaca.Text, new Font("Arial", 14), Brushes.Blue, new Rectangle(0, 35, 250, 20));
+            e.Graphics.DrawString("Numero de cascos: " + txtNCascos.Text, new Font("Arial", 14), Brushes.Blue, new Rectangle(0, 60, 370, 20));
+            e.Graphics.DrawString("fecha de ingreso: " + lblFecha.Text, new Font("Arial", 14), Brushes.Blue, 0, 85);
+            e.Graphics.DrawString("Hora de ingreso: " + lblHora.Text, new Font("Arial", 14), Brushes.Blue, 0, 110);
+            //e.Graphics.DrawString(txtPlaca.Text, new Font("Arial", 14), Brushes.Blue ,new Rectangle(0,10,120,20));
+            //e.Graphics.DrawString(numplacasal.Text, new Font("Arial", 14), Brushes.Blue, 10, 10);
+            
+            //e.Graphics.DrawString(txtheinsal.Text, new Font("Arial", 14), Brushes.Blue, 10, 250);
+            //e.Graphics.DrawString(txtfcsali.Text, new Font("Arial", 14), Brushes.Blue, 10, 370);
+            //e.Graphics.DrawString(txthrsali.Text, new Font("Arial", 14), Brushes.Blue, 10, 490);
+            //e.Graphics.DrawString(txtvalpago.Text, new Font("Arial", 14), Brushes.Blue, 10, 610);
+            //e.Graphics.DrawString(txtefect.Text, new Font("Arial", 14), Brushes.Blue, 10, 730);
+            //e.Graphics.DrawString(txtcambefect.Text, new Font("Arial", 14), Brushes.Blue, 10, 850);
 
             //}
 
@@ -180,9 +204,7 @@ namespace Diseño.Vista
         }
         private void imp()
         {
-            // pageSetupDialog1.ShowDialog();
-            // printDialog1.ShowDialog();
-            //            printPreviewDialog1.ShowDialog();
+            //printDialog1.ShowDialog();
             printDocument1 = new PrintDocument();
             PrinterSettings ps = new PrinterSettings();
             printDocument1.PrinterSettings = ps;
@@ -199,7 +221,8 @@ namespace Diseño.Vista
             MessageBox.Show("Vehiculo ingresado");
             db.ActualizarCanti(va, int.Parse(txtCuposD.Text));
             imp();
-            //limp();
+            limp();
+            dtg();
             }
             catch
             {
@@ -452,8 +475,8 @@ namespace Diseño.Vista
             {
                 idUser = int.Parse(dtgMovim.CurrentRow.Cells[0].Value.ToString());
                 numplacasal.Text = dtgMovim.CurrentRow.Cells[2].Value.ToString();
-                txtfeinsal.Text = dtgMovim.CurrentRow.Cells[3].Value.ToString();
-                txtheinsal.Text = dtgMovim.CurrentRow.Cells[4].Value.ToString();
+                txtfeinsal.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
+                txtheinsal.Text = dtgMovim.CurrentRow.Cells[6].Value.ToString();
                 //txtCor.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
                 //txtLog.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
                 //cmbTipo.Text = dtgMovim.CurrentRow.Cells[6].Value.ToString();

@@ -41,12 +41,17 @@ namespace Diseño.Vista
             this.btnSal = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.BtnCerSec = new System.Windows.Forms.PictureBox();
+            this.lblNmb = new System.Windows.Forms.Label();
+            this.lblCc = new System.Windows.Forms.Label();
+            this.lblEm = new System.Windows.Forms.Label();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnCerSec)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTipo
@@ -104,6 +109,10 @@ namespace Diseño.Vista
             // 
             this.panelContenedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContenedor.BackColor = System.Drawing.Color.Transparent;
+            this.panelContenedor.Controls.Add(this.lblEm);
+            this.panelContenedor.Controls.Add(this.lblCc);
+            this.panelContenedor.Controls.Add(this.lblNmb);
+            this.panelContenedor.Controls.Add(this.BtnCerSec);
             this.panelContenedor.Controls.Add(this.btnRes);
             this.panelContenedor.Controls.Add(this.btnMin);
             this.panelContenedor.Controls.Add(this.btnMax);
@@ -194,6 +203,47 @@ namespace Diseño.Vista
             this.label1.TabIndex = 0;
             this.label1.Text = "BIENVENIDOS";
             // 
+            // BtnCerSec
+            // 
+            this.BtnCerSec.Image = ((System.Drawing.Image)(resources.GetObject("BtnCerSec.Image")));
+            this.BtnCerSec.Location = new System.Drawing.Point(0, 538);
+            this.BtnCerSec.Name = "BtnCerSec";
+            this.BtnCerSec.Size = new System.Drawing.Size(83, 96);
+            this.BtnCerSec.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BtnCerSec.TabIndex = 41;
+            this.BtnCerSec.TabStop = false;
+            this.BtnCerSec.Click += new System.EventHandler(this.BtnCerSec_Click);
+            // 
+            // lblNmb
+            // 
+            this.lblNmb.AutoSize = true;
+            this.lblNmb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.lblNmb.Location = new System.Drawing.Point(314, 485);
+            this.lblNmb.Name = "lblNmb";
+            this.lblNmb.Size = new System.Drawing.Size(42, 13);
+            this.lblNmb.TabIndex = 42;
+            this.lblNmb.Text = "nombre";
+            // 
+            // lblCc
+            // 
+            this.lblCc.AutoSize = true;
+            this.lblCc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.lblCc.Location = new System.Drawing.Point(314, 513);
+            this.lblCc.Name = "lblCc";
+            this.lblCc.Size = new System.Drawing.Size(39, 13);
+            this.lblCc.TabIndex = 43;
+            this.lblCc.Text = "cedula";
+            // 
+            // lblEm
+            // 
+            this.lblEm.AutoSize = true;
+            this.lblEm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.lblEm.Location = new System.Drawing.Point(314, 538);
+            this.lblEm.Name = "lblEm";
+            this.lblEm.Size = new System.Drawing.Size(37, 13);
+            this.lblEm.TabIndex = 44;
+            this.lblEm.Text = "correo";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +272,7 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnCerSec)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +291,9 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnMax;
         private System.Windows.Forms.PictureBox btnSal;
         private System.Windows.Forms.PictureBox btnRes;
+        private System.Windows.Forms.PictureBox BtnCerSec;
+        private System.Windows.Forms.Label lblNmb;
+        private System.Windows.Forms.Label lblEm;
+        private System.Windows.Forms.Label lblCc;
     }
 }

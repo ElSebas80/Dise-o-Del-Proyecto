@@ -157,14 +157,18 @@ namespace Diseño.Vista
                 lblFeFin.Visible = true;
             }
         }
-        string nom; int idc = 1;
+        string nom, nit, tel, dir,corr;
+        int idc = 1, numTk;
         private void buscaid()
         {
             var x = s.MosDtConfi(idc);
             if (x != null)
             {
                 nom = x.NombreParqueadero.ToString();
-                //txtNit.Text = x.Nit.ToString();
+                nit = x.Nit.ToString();
+                tel = x.Telefono.ToString();
+                dir = x.Direccion.ToString();
+                corr = x.Correo.ToString();
                 //txtTel.Text = x.Telefono.ToString();
                 //txtDir.Text = x.Direccion.ToString();
                 //txtCorreo.Text = x.Correo.ToString();
@@ -172,31 +176,39 @@ namespace Diseño.Vista
                 //BtnGuarInfo.Visible = false;
                 //btnModInfo.Visible = true;
                 //btnCanInfo.Visible = true;
-            }
+            }   
            
         }
         private void Imprimir(object sender, PrintPageEventArgs e)
         {
+                foreach (var fato in db.MostrarPlac())
+                {
+                numTk = fato.NumTicket;
+                    //= db.MostrarPlac();//buscar la plca mediante el primary key
+
+                }
             //if (btnIngresar == )
             //{
-           // Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
-            e.Graphics.DrawString("Parqueadero " + nom, new Font("Arial", 14), Brushes.Blue, 20, 10);
-            e.Graphics.DrawString("Numero de la placa: "+ txtPlaca.Text, new Font("Arial", 14), Brushes.Blue, new Rectangle(0, 35, 250, 20));
-            e.Graphics.DrawString("Numero de cascos: " + txtNCascos.Text, new Font("Arial", 14), Brushes.Blue, new Rectangle(0, 60, 370, 20));
-            e.Graphics.DrawString("fecha de ingreso: " + lblFecha.Text, new Font("Arial", 14), Brushes.Blue, 0, 85);
-            e.Graphics.DrawString("Hora de ingreso: " + lblHora.Text, new Font("Arial", 14), Brushes.Blue, 0, 110);
-            //e.Graphics.DrawString(txtPlaca.Text, new Font("Arial", 14), Brushes.Blue ,new Rectangle(0,10,120,20));
-            //e.Graphics.DrawString(numplacasal.Text, new Font("Arial", 14), Brushes.Blue, 10, 10);
-            
-            //e.Graphics.DrawString(txtheinsal.Text, new Font("Arial", 14), Brushes.Blue, 10, 250);
-            //e.Graphics.DrawString(txtfcsali.Text, new Font("Arial", 14), Brushes.Blue, 10, 370);
-            //e.Graphics.DrawString(txthrsali.Text, new Font("Arial", 14), Brushes.Blue, 10, 490);
-            //e.Graphics.DrawString(txtvalpago.Text, new Font("Arial", 14), Brushes.Blue, 10, 610);
-            //e.Graphics.DrawString(txtefect.Text, new Font("Arial", 14), Brushes.Blue, 10, 730);
-            //e.Graphics.DrawString(txtcambefect.Text, new Font("Arial", 14), Brushes.Blue, 10, 850);
-
-            //}
-
+            // Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
+            e.Graphics.DrawString("Parqueadero ", new Font("Arial", 14), Brushes.Black, 40, 10);//(x,y)x se mueve en horizontal. y en vertical
+            e.Graphics.DrawString( nom, new Font("Arial", 14), Brushes.Black, 30, 30);
+            e.Graphics.DrawString("No. Ticket: " , new Font("Arial", 14), Brushes.Black, 250, 10);
+            e.Graphics.DrawString(""+ numTk, new Font("Arial", 14), Brushes.Black, 270, 30);
+            e.Graphics.DrawString("Nit: " + nit, new Font("Arial", 14), Brushes.Black, 80, 55);
+            e.Graphics.DrawString("Regimen Simplificado", new Font("Arial", 14), Brushes.Black, 80,75);
+            e.Graphics.DrawString("Dirección: " + dir, new Font("Arial", 14), Brushes.Black, 80, 95);
+            e.Graphics.DrawString("WhatsApp: " + tel, new Font("Arial", 14), Brushes.Black, 80, 115);
+            e.Graphics.DrawString("Numero de la placa: "+ txtPlaca.Text, new Font("Arial", 17), Brushes.Black,0, 140);
+            e.Graphics.DrawString("Tipo de vehículo: " + tVhlO, new Font("Arial", 14), Brushes.Black, new Rectangle(0, 170, 250, 20));
+            e.Graphics.DrawString("Numero de cascos: " + txtNCascos.Text, new Font("Arial", 14), Brushes.Black, new Rectangle(0, 190, 370, 20));
+            e.Graphics.DrawString("Fecha de ingreso: " + lblFecha.Text, new Font("Arial", 14), Brushes.Black, 0, 210);
+            e.Graphics.DrawString("Hora de ingreso: " + lblHora.Text, new Font("Arial", 14), Brushes.Black, 0, 230);
+            e.Graphics.DrawString("Software: Sw Parking Gold", new Font("Arial", 14), Brushes.DarkGoldenrod, 80, 270);
+            e.Graphics.DrawString("REGLAMENTO", new Font("Arial", 14), Brushes.Red, 120, 290);
+            e.Graphics.DrawString("El Vehículo se entregará al portador del recibo. \n" +
+                "No aceptamos órdenes telefónicas, Retirado el \nautomotor " +
+                "no se aceptan reclamos de ningún tipo.", new Font("Arial", 14), Brushes.Black, 0, 310);
+            e.Graphics.DrawString("CONSERVE SU RECIBO", new Font("Arial", 14), Brushes.Red, 100, 380);
         }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -220,6 +232,7 @@ namespace Diseño.Vista
             ingresarVehiculo();
             MessageBox.Show("Vehiculo ingresado");
             db.ActualizarCanti(va, int.Parse(txtCuposD.Text));
+
             imp();
             limp();
             dtg();
@@ -400,7 +413,7 @@ namespace Diseño.Vista
                     {
                         msmErP.ForeColor = Color.Green;
                         msmErP.Text = "Este cliente cuenta con una mensualidad \n" +
-                            "que temina el dia "+bFech;//nO pido mas
+                            "que temina el dia "+bFech;
                         msmErP.Visible = true;
                     }
                     else if(ServicioParqueo >= 1)

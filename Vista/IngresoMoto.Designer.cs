@@ -113,6 +113,7 @@ namespace Diseño.Vista
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -390,6 +391,7 @@ namespace Diseño.Vista
             // 
             this.txtPlaca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPlaca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlaca.HideSelection = false;
             this.txtPlaca.Location = new System.Drawing.Point(182, 150);
@@ -908,6 +910,7 @@ namespace Diseño.Vista
             // tabPage4
             // 
             this.tabPage4.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
+            this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.printPreviewControl1);
             this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.label32);
@@ -944,7 +947,7 @@ namespace Diseño.Vista
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(264, 523);
+            this.button6.Location = new System.Drawing.Point(128, 509);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(102, 23);
             this.button6.TabIndex = 81;
@@ -1170,6 +1173,15 @@ namespace Diseño.Vista
             this.printDialog1.Document = this.printDocument1;
             this.printDialog1.UseEXDialog = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(301, 508);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 23);
+            this.button1.TabIndex = 83;
+            this.button1.Text = "Imprimir";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FrmIngresoMoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1299,5 +1311,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.Label msmErPCli;
         private System.Windows.Forms.Label lblFeFin;
         private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Button button1;
     }
 }

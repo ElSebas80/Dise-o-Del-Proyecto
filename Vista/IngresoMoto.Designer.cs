@@ -91,6 +91,7 @@ namespace Diseño.Vista
             this.label24 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.printPreviewControl1 = new System.Windows.Forms.PrintPreviewControl();
             this.button6 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
@@ -113,7 +114,6 @@ namespace Diseño.Vista
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -395,6 +395,7 @@ namespace Diseño.Vista
             this.txtPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlaca.HideSelection = false;
             this.txtPlaca.Location = new System.Drawing.Point(182, 150);
+            this.txtPlaca.MaxLength = 6;
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(154, 44);
             this.txtPlaca.TabIndex = 60;
@@ -668,6 +669,7 @@ namespace Diseño.Vista
             this.txtPlacaCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlacaCli.HideSelection = false;
             this.txtPlacaCli.Location = new System.Drawing.Point(245, 246);
+            this.txtPlacaCli.MaxLength = 6;
             this.txtPlacaCli.Multiline = true;
             this.txtPlacaCli.Name = "txtPlacaCli";
             this.txtPlacaCli.Size = new System.Drawing.Size(167, 40);
@@ -830,6 +832,7 @@ namespace Diseño.Vista
             this.txtBuscarPla.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarPla.HideSelection = false;
             this.txtBuscarPla.Location = new System.Drawing.Point(127, 112);
+            this.txtBuscarPla.MaxLength = 6;
             this.txtBuscarPla.Name = "txtBuscarPla";
             this.txtBuscarPla.Size = new System.Drawing.Size(154, 44);
             this.txtBuscarPla.TabIndex = 72;
@@ -937,6 +940,15 @@ namespace Diseño.Vista
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = " Salida Vehiculos";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(301, 508);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 23);
+            this.button1.TabIndex = 83;
+            this.button1.Text = "Imprimir";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // printPreviewControl1
             // 
@@ -1172,15 +1184,6 @@ namespace Diseño.Vista
             // 
             this.printDialog1.Document = this.printDocument1;
             this.printDialog1.UseEXDialog = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(301, 508);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 23);
-            this.button1.TabIndex = 83;
-            this.button1.Text = "Imprimir";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // FrmIngresoMoto
             // 

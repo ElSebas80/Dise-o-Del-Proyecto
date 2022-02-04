@@ -481,7 +481,74 @@ namespace Diseño.Vista
         int bandera, idUser;
 
         private void btnGenTick_CheckedChanged(object sender, EventArgs e){        }
+        //        nt segundosTotales;
 
+        //        int dias = segundosTotales / (60 * 60 * 24);
+        //        int segundosRestantes = segundosTotales % (60 * 60 * 24);
+
+        //        int horas = segundosRestantes / (60 * 60);
+        //        segundosRestantes segundosRestantes % (60 * 60);
+
+        //int minutos = segundosRestantes / 60;
+        //        int segundos = segundosRestantes % 60;
+        //        int numHoras = 0;
+        //        double precioTotal = 0;
+        //        numHoras = 7;
+        //        prcioTotal = calcularPrecio(numHoras);
+        //public static double calcularPrecio(int horas)
+        //{
+        //    double precio, precioReto;
+        //    int restoHoras;
+        //    int dias;
+        //    if (horas <= 24)
+        //    {
+        //        if (horas <= 3)
+        //        {
+        //            precio = horas * 15;
+        //        }
+        //        else
+        //        {
+        //            precio = (3 * 20) + ((horas - 3) * 15);
+        //            if (precio >= 250)
+        //            {
+        //                precio = 250;
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        dias = horas / 24;
+        //        restoHoras = horas % 24;
+        //        precioResto = restoHoras * 15;
+        //        if (precioResto >= 250)
+        //        {
+        //            precioResto = 250;
+        //        }
+        //        precio = dias * 250 + precioResto;
+        //    }
+        //    return precio;
+        //}
+        DateTime ahora = DateTime.Now;
+        DateTime final;
+        int fin;
+        string[] fecha = new string[3];
+        private void diferenciastime()
+        {
+            foreach (var fato in db.MostrarPlac())
+            {
+                fin = int.Parse(fato.hora.ToString());
+                //= db.MostrarPlac();//buscar la plca mediante el primary key
+
+            }
+            DateTime hoy = DateTime.Now;
+            string temp = txthrsali.Text;
+            fecha = temp.Split(':');
+            int año = int.Parse(fecha[0]);
+            final = new DateTime(ahora.Year, ahora.Month, ahora.Day, año, int.Parse(fecha[1]), int.Parse(fecha[2]));
+            TimeSpan Diferen = new TimeSpan();
+            Diferen = TimeSpan.FromHours(fin - int.Parse(txtheinsal.Text.ToString()));
+            txtefect.Text = Diferen.Hours + Diferen.Minutes + (Diferen.Seconds + 1).ToString();
+        }
         private void btnGenTic_Click(object sender, EventArgs e)
         {
             try
@@ -494,10 +561,11 @@ namespace Diseño.Vista
                 //txtLog.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
                 //cmbTipo.Text = dtgMovim.CurrentRow.Cells[6].Value.ToString();
                 tabContPrimc.SelectTab(3);
+                diferenciastime();
             }
             catch
             {
-                MessageBox.Show("selccione una placa");
+                MessageBox.Show("seleccione una placa");
             }
         }
 

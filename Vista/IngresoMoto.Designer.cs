@@ -114,6 +114,10 @@ namespace Diseño.Vista
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printPreviewControl2 = new System.Windows.Forms.PrintPreviewControl();
+            this.btnImpIn = new System.Windows.Forms.Button();
+            this.printPreviewControl3 = new System.Windows.Forms.PrintPreviewControl();
+            this.brnImpCopi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -267,6 +271,8 @@ namespace Diseño.Vista
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
+            this.tabPage1.Controls.Add(this.btnImpIn);
+            this.tabPage1.Controls.Add(this.printPreviewControl2);
             this.tabPage1.Controls.Add(this.msmErP);
             this.tabPage1.Controls.Add(this.btncancIn);
             this.tabPage1.Controls.Add(this.rdtBici);
@@ -295,7 +301,7 @@ namespace Diseño.Vista
             this.msmErP.BackColor = System.Drawing.Color.Transparent;
             this.msmErP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.msmErP.ForeColor = System.Drawing.Color.Red;
-            this.msmErP.Location = new System.Drawing.Point(182, 197);
+            this.msmErP.Location = new System.Drawing.Point(141, 197);
             this.msmErP.Name = "msmErP";
             this.msmErP.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.msmErP.Size = new System.Drawing.Size(52, 20);
@@ -305,7 +311,7 @@ namespace Diseño.Vista
             // 
             // btncancIn
             // 
-            this.btncancIn.Location = new System.Drawing.Point(348, 381);
+            this.btncancIn.Location = new System.Drawing.Point(329, 484);
             this.btncancIn.Name = "btncancIn";
             this.btncancIn.Size = new System.Drawing.Size(77, 32);
             this.btncancIn.TabIndex = 68;
@@ -323,13 +329,13 @@ namespace Diseño.Vista
             this.rdtBici.Name = "rdtBici";
             this.rdtBici.Size = new System.Drawing.Size(95, 24);
             this.rdtBici.TabIndex = 67;
-            this.rdtBici.TabStop = true;
             this.rdtBici.Text = "Bicicleta";
             this.rdtBici.UseVisualStyleBackColor = true;
             // 
             // rdtMoto
             // 
             this.rdtMoto.AutoSize = true;
+            this.rdtMoto.Checked = true;
             this.rdtMoto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdtMoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdtMoto.ForeColor = System.Drawing.Color.White;
@@ -346,7 +352,7 @@ namespace Diseño.Vista
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(360, 275);
+            this.label6.Location = new System.Drawing.Point(88, 358);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 22);
             this.label6.TabIndex = 64;
@@ -440,12 +446,13 @@ namespace Diseño.Vista
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(177, 381);
+            this.btnIngresar.Location = new System.Drawing.Point(195, 484);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(77, 32);
             this.btnIngresar.TabIndex = 49;
             this.btnIngresar.Text = "Registrar";
             this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Visible = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // txtCuposD
@@ -455,7 +462,7 @@ namespace Diseño.Vista
             this.txtCuposD.Enabled = false;
             this.txtCuposD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCuposD.HideSelection = false;
-            this.txtCuposD.Location = new System.Drawing.Point(458, 275);
+            this.txtCuposD.Location = new System.Drawing.Point(186, 358);
             this.txtCuposD.Name = "txtCuposD";
             this.txtCuposD.Size = new System.Drawing.Size(145, 26);
             this.txtCuposD.TabIndex = 41;
@@ -513,7 +520,7 @@ namespace Diseño.Vista
             this.msmErPCli.BackColor = System.Drawing.Color.Transparent;
             this.msmErPCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.msmErPCli.ForeColor = System.Drawing.Color.Red;
-            this.msmErPCli.Location = new System.Drawing.Point(242, 288);
+            this.msmErPCli.Location = new System.Drawing.Point(216, 179);
             this.msmErPCli.Name = "msmErPCli";
             this.msmErPCli.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.msmErPCli.Size = new System.Drawing.Size(52, 20);
@@ -668,7 +675,7 @@ namespace Diseño.Vista
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPlacaCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlacaCli.HideSelection = false;
-            this.txtPlacaCli.Location = new System.Drawing.Point(245, 246);
+            this.txtPlacaCli.Location = new System.Drawing.Point(220, 136);
             this.txtPlacaCli.MaxLength = 6;
             this.txtPlacaCli.Multiline = true;
             this.txtPlacaCli.Name = "txtPlacaCli";
@@ -683,7 +690,7 @@ namespace Diseño.Vista
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.HideSelection = false;
-            this.txtTelefono.Location = new System.Drawing.Point(337, 192);
+            this.txtTelefono.Location = new System.Drawing.Point(337, 292);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(108, 26);
             this.txtTelefono.TabIndex = 73;
@@ -728,7 +735,7 @@ namespace Diseño.Vista
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(122, 249);
+            this.label18.Location = new System.Drawing.Point(52, 136);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(109, 49);
             this.label18.TabIndex = 69;
@@ -739,7 +746,7 @@ namespace Diseño.Vista
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(260, 192);
+            this.label17.Location = new System.Drawing.Point(260, 292);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(71, 22);
             this.label17.TabIndex = 68;
@@ -751,7 +758,7 @@ namespace Diseño.Vista
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedula.HideSelection = false;
-            this.txtCedula.Location = new System.Drawing.Point(109, 192);
+            this.txtCedula.Location = new System.Drawing.Point(109, 292);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(142, 26);
             this.txtCedula.TabIndex = 67;
@@ -763,7 +770,7 @@ namespace Diseño.Vista
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(41, 147);
+            this.label15.Location = new System.Drawing.Point(41, 247);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(139, 22);
             this.label15.TabIndex = 64;
@@ -774,7 +781,7 @@ namespace Diseño.Vista
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(41, 198);
+            this.label16.Location = new System.Drawing.Point(41, 298);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(62, 22);
             this.label16.TabIndex = 63;
@@ -786,7 +793,7 @@ namespace Diseño.Vista
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.HideSelection = false;
-            this.txtNombre.Location = new System.Drawing.Point(186, 147);
+            this.txtNombre.Location = new System.Drawing.Point(186, 247);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(259, 26);
             this.txtNombre.TabIndex = 62;
@@ -809,6 +816,8 @@ namespace Diseño.Vista
             // tabPage3
             // 
             this.tabPage3.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
+            this.tabPage3.Controls.Add(this.brnImpCopi);
+            this.tabPage3.Controls.Add(this.printPreviewControl3);
             this.tabPage3.Controls.Add(this.txtBuscarPla);
             this.tabPage3.Controls.Add(this.btnBuscar);
             this.tabPage3.Controls.Add(this.dateTimePicker1);
@@ -859,7 +868,7 @@ namespace Diseño.Vista
             // 
             // btnGenTic
             // 
-            this.btnGenTic.Location = new System.Drawing.Point(439, 442);
+            this.btnGenTic.Location = new System.Drawing.Point(307, 445);
             this.btnGenTic.Name = "btnGenTic";
             this.btnGenTic.Size = new System.Drawing.Size(117, 23);
             this.btnGenTic.TabIndex = 68;
@@ -1185,6 +1194,44 @@ namespace Diseño.Vista
             this.printDialog1.Document = this.printDocument1;
             this.printDialog1.UseEXDialog = true;
             // 
+            // printPreviewControl2
+            // 
+            this.printPreviewControl2.Location = new System.Drawing.Point(407, 131);
+            this.printPreviewControl2.Name = "printPreviewControl2";
+            this.printPreviewControl2.Size = new System.Drawing.Size(206, 297);
+            this.printPreviewControl2.TabIndex = 83;
+            this.printPreviewControl2.Visible = false;
+            // 
+            // btnImpIn
+            // 
+            this.btnImpIn.Location = new System.Drawing.Point(461, 484);
+            this.btnImpIn.Name = "btnImpIn";
+            this.btnImpIn.Size = new System.Drawing.Size(77, 32);
+            this.btnImpIn.TabIndex = 84;
+            this.btnImpIn.Text = "Imprimir";
+            this.btnImpIn.UseVisualStyleBackColor = true;
+            this.btnImpIn.Visible = false;
+            this.btnImpIn.Click += new System.EventHandler(this.btnImpIn_Click);
+            // 
+            // printPreviewControl3
+            // 
+            this.printPreviewControl3.Location = new System.Drawing.Point(75, 362);
+            this.printPreviewControl3.Name = "printPreviewControl3";
+            this.printPreviewControl3.Size = new System.Drawing.Size(206, 193);
+            this.printPreviewControl3.TabIndex = 84;
+            this.printPreviewControl3.Visible = false;
+            // 
+            // brnImpCopi
+            // 
+            this.brnImpCopi.Location = new System.Drawing.Point(428, 503);
+            this.brnImpCopi.Name = "brnImpCopi";
+            this.brnImpCopi.Size = new System.Drawing.Size(117, 26);
+            this.brnImpCopi.TabIndex = 85;
+            this.brnImpCopi.Text = "Imprimir";
+            this.brnImpCopi.UseVisualStyleBackColor = true;
+            this.brnImpCopi.Visible = false;
+            this.brnImpCopi.Click += new System.EventHandler(this.brnImpCopi_Click);
+            // 
             // FrmIngresoMoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1315,5 +1362,9 @@ namespace Diseño.Vista
         private System.Windows.Forms.Label lblFeFin;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnImpIn;
+        private System.Windows.Forms.PrintPreviewControl printPreviewControl2;
+        private System.Windows.Forms.PrintPreviewControl printPreviewControl3;
+        private System.Windows.Forms.Button brnImpCopi;
     }
 }

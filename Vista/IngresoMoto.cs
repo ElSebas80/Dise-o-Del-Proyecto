@@ -190,25 +190,25 @@ namespace Diseño.Vista
             //if (btnIngresar == )
             //{
             // Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
-            e.Graphics.DrawString("Parqueadero ", new Font("Arial", 14), Brushes.Black, 40, 10);//(x,y)x se mueve en horizontal. y en vertical
-            e.Graphics.DrawString( nom, new Font("Arial", 14), Brushes.Black, 30, 30);
-            e.Graphics.DrawString("No. Ticket: " , new Font("Arial", 14), Brushes.Black, 250, 10);
-            e.Graphics.DrawString(""+ numTk, new Font("Arial", 14), Brushes.Black, 270, 30);
-            e.Graphics.DrawString("Nit: " + nit, new Font("Arial", 14), Brushes.Black, 80, 55);
-            e.Graphics.DrawString("Regimen Simplificado", new Font("Arial", 14), Brushes.Black, 80,75);
-            e.Graphics.DrawString("Dirección: " + dir, new Font("Arial", 14), Brushes.Black, 80, 95);
-            e.Graphics.DrawString("WhatsApp: " + tel, new Font("Arial", 14), Brushes.Black, 80, 115);
-            e.Graphics.DrawString("Numero de la placa: "+ txtPlaca.Text, new Font("Arial", 17), Brushes.Black,0, 140);
-            e.Graphics.DrawString("Tipo de vehículo: " + tVhlO, new Font("Arial", 14), Brushes.Black, new Rectangle(0, 170, 250, 20));
-            e.Graphics.DrawString("Numero de cascos: " + txtNCascos.Text, new Font("Arial", 14), Brushes.Black, new Rectangle(0, 190, 370, 20));
-            e.Graphics.DrawString("Fecha de ingreso: " + lblFecha.Text, new Font("Arial", 14), Brushes.Black, 0, 210);
-            e.Graphics.DrawString("Hora de ingreso: " + lblHora.Text, new Font("Arial", 14), Brushes.Black, 0, 230);
-            e.Graphics.DrawString("Software: Sw Parking Gold", new Font("Arial", 14), Brushes.DarkGoldenrod, 80, 270);
-            e.Graphics.DrawString("REGLAMENTO", new Font("Arial", 14), Brushes.Red, 120, 290);
+            e.Graphics.DrawString("Parqueadero ", new Font("Arial", 30), Brushes.Black, 65, 10);//(x,y)x se mueve en horizontal. y en vertical
+            e.Graphics.DrawString( nom, new Font("Arial", 30), Brushes.Black, 55, 50);
+            e.Graphics.DrawString("No. Ticket: " , new Font("Arial", 30), Brushes.Black, 550, 10);
+            e.Graphics.DrawString(""+ numTk, new Font("Arial", 30), Brushes.Black, 610, 50);
+            e.Graphics.DrawString("Nit: " + nit, new Font("Arial", 30), Brushes.Black, 285, 95);
+            e.Graphics.DrawString("Regimen Simplificado", new Font("Arial", 30), Brushes.Black, 200, 130);
+            e.Graphics.DrawString("Dirección: " + dir, new Font("Arial", 30), Brushes.Black, 190, 165);
+            e.Graphics.DrawString("WhatsApp: " + tel, new Font("Arial", 30), Brushes.Black, 205, 200);
+            e.Graphics.DrawString("Numero de la placa: " + txtPlaca.Text, new Font("Arial", 40), Brushes.Black, 0, 235);
+            e.Graphics.DrawString("Tipo de vehículo: " + tVhlO, new Font("Arial", 30), Brushes.Black,0, 290);
+            e.Graphics.DrawString("Numero de cascos: " + txtNCascos.Text, new Font("Arial", 30), Brushes.Black,0, 325);
+            e.Graphics.DrawString("Fecha de ingreso: " + lblFecha.Text, new Font("Arial", 30), Brushes.Black, 0, 360);
+            e.Graphics.DrawString("Hora de ingreso: " + lblHora.Text, new Font("Arial", 30), Brushes.Black, 0, 395);
+            e.Graphics.DrawString("Software: Sw Parking Gold", new Font("Arial", 30), Brushes.DarkGoldenrod, 160, 435);
+            e.Graphics.DrawString("REGLAMENTO", new Font("Arial", 30), Brushes.Red, 240, 470);
             e.Graphics.DrawString("El Vehículo se entregará al portador del recibo. \n" +
                 "No aceptamos órdenes telefónicas, Retirado el \nautomotor " +
-                "no se aceptan reclamos de ningún tipo.", new Font("Arial", 14), Brushes.Black, 0, 310);
-            e.Graphics.DrawString("CONSERVE SU RECIBO", new Font("Arial", 14), Brushes.Red, 100, 380);
+                "no se aceptan reclamos de ningún tipo.", new Font("Arial", 25), Brushes.Black, 10, 505);
+            e.Graphics.DrawString("CONSERVE SU RECIBO", new Font("Arial", 30), Brushes.Red, 130, 620);
         }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -221,23 +221,26 @@ namespace Diseño.Vista
             PrinterSettings ps = new PrinterSettings();
             printDocument1.PrinterSettings = ps;
             printDocument1.PrintPage += Imprimir;
-            printDocument1.Print();
+            printPreviewControl2.Document = printDocument1;
 
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            try
+            if(txtPlaca.Text != "" && txtNCascos.Text != "")
             {            
             EstD();
             ingresarVehiculo();
             MessageBox.Show("Vehiculo ingresado");
             db.ActualizarCanti(va, int.Parse(txtCuposD.Text));
-
             imp();
-            limp();
+            //limp();
             dtg();
+                btnIngresar.Visible = false;
+                btncancIn.Visible = false;
+                btnImpIn.Visible = true;
+                printPreviewControl2.Visible = true;
             }
-            catch
+            else
             {
                 MessageBox.Show("Revise nuevamente puede haber un campo vacio");
             }
@@ -246,7 +249,7 @@ namespace Diseño.Vista
         private void HoraFecha_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("hh:mm:ss");
-            lblFecha.Text = DateTime.Now.ToShortDateString();
+            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lblhoraCLi.Text = DateTime.Now.ToString("hh:mm:ss");
             lblfechaCli.Text = DateTime.Now.ToShortDateString();
             txthrsali.Text = DateTime.Now.ToString("hh:mm:ss");
@@ -406,21 +409,23 @@ namespace Diseño.Vista
                     if (ServicioParqueo >= 1 && Mensualidades >= 1)
                     {
                         msmErP.ForeColor = Color.Red;
-                        msmErP.Text = "Este cliente se encunetra registrado";
+                        msmErP.Text = "Este cliente ya se encunetra \nen el parqueadero";
                         msmErP.Visible = true;
+                        btnIngresar.Visible = false;
                     }
                     else if (Mensualidades >= 1)
                     {
                         msmErP.ForeColor = Color.Green;
-                        msmErP.Text = "Este cliente cuenta con una mensualidad \n" +
-                            "que temina el dia "+bFech;
+                        msmErP.Text = "Este cliente cuenta con una \nmensualidad " +
+                            "que temina el dia \n" + bFech;
                         msmErP.Visible = true;
                     }
                     else if(ServicioParqueo >= 1)
                     {
                         msmErP.ForeColor = Color.Red;
-                        msmErP.Text = "Este vehiculo ya esta en el parqueadero";
+                        msmErP.Text = "Este vehiculo ya esta en el \nparqueadero";
                         msmErP.Visible = true;
+                        btnIngresar.Visible = false;
                     }
                 }
                 else
@@ -428,12 +433,14 @@ namespace Diseño.Vista
                     msmErP.ForeColor = Color.Green;
                     msmErP.Text = "Nuevo cliente";
                     msmErP.Visible = true;
+                    btnIngresar.Visible = true;
                 }
             }
             else
             {
                 msmErP.ForeColor = Color.Red;
                 msmErP.Visible = false;
+                btnIngresar.Visible = false;
             }
         }
 
@@ -445,7 +452,7 @@ namespace Diseño.Vista
                 if (x.Count() >= 1)
                 {
                     msmErPCli.ForeColor = Color.Red;
-                    msmErPCli.Text = "El cliente ya se encientra registrado";
+                    msmErPCli.Text = "El cliente ya se encuentra registrado";
                     msmErPCli.Visible = true;
                     //DateTime FeFin =  DateTime.Today.AddMonths(1);
                     //MessageBox.Show(FeFin.ToShortDateString().ToString());
@@ -481,6 +488,18 @@ namespace Diseño.Vista
         int bandera, idUser;
 
         private void btnGenTick_CheckedChanged(object sender, EventArgs e){        }
+
+        private void btnImpIn_Click(object sender, EventArgs e)
+        {
+            printDocument1.Print();
+            limp();
+            btnIngresar.Visible = true;
+            btncancIn.Visible = true;
+            btnImpIn.Visible = false;
+            printPreviewControl2.Visible = false;
+
+        }
+
         //        nt segundosTotales;
 
         //        int dias = segundosTotales / (60 * 60 * 24);
@@ -530,6 +549,8 @@ namespace Diseño.Vista
         //}
         DateTime ahora = DateTime.Now;
         DateTime final;
+
+
         int fin;
         string[] fecha = new string[3];
         private void diferenciastime()
@@ -549,26 +570,82 @@ namespace Diseño.Vista
             Diferen = TimeSpan.FromHours(fin - int.Parse(txtheinsal.Text.ToString()));
             txtefect.Text = Diferen.Hours + Diferen.Minutes + (Diferen.Seconds + 1).ToString();
         }
+        private void ImprimirCopi(object sender, PrintPageEventArgs e)
+        {
+            foreach (var fato in db.MostrarPlac())
+            {
+                numTk = fato.NumTicket;
+                //= db.MostrarPlac();//buscar la plca mediante el primary key
+
+            }
+            //if (btnIngresar == )
+            //{
+            // Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
+            e.Graphics.DrawString("Parqueadero ", new Font("Arial", 30), Brushes.Black, 65, 10);//(x,y)x se mueve en horizontal. y en vertical
+            e.Graphics.DrawString(nom, new Font("Arial", 30), Brushes.Black, 55, 50);
+            e.Graphics.DrawString("No. Ticket: ", new Font("Arial", 30), Brushes.Black, 550, 10);
+            e.Graphics.DrawString("" + numTk, new Font("Arial", 30), Brushes.Black, 610, 50);
+            e.Graphics.DrawString("Nit: " + nit, new Font("Arial", 30), Brushes.Black, 285, 95);
+            e.Graphics.DrawString("Regimen Simplificado", new Font("Arial", 30), Brushes.Black, 200, 130);
+            e.Graphics.DrawString("Dirección: " + dir, new Font("Arial", 30), Brushes.Black, 190, 165);
+            e.Graphics.DrawString("WhatsApp: " + tel, new Font("Arial", 30), Brushes.Black, 205, 200);
+            e.Graphics.DrawString("Numero de la placa: " + PlacaCopi, new Font("Arial", 40), Brushes.Black, 0, 235);
+            e.Graphics.DrawString("Tipo de vehículo: " + tipoVeh, new Font("Arial", 30), Brushes.Black, 0, 290);
+            e.Graphics.DrawString("Numero de cascos: " + CascosCopi, new Font("Arial", 30), Brushes.Black, 0, 325);
+            e.Graphics.DrawString("Fecha de ingreso: " + fecPlacaCopi, new Font("Arial", 30), Brushes.Black, 0, 360);
+            e.Graphics.DrawString("Hora de ingreso: " + HoraPlacaCopi, new Font("Arial", 30), Brushes.Black, 0, 395);
+            e.Graphics.DrawString("Software: Sw Parking Gold", new Font("Arial", 30), Brushes.DarkGoldenrod, 160, 435);
+            e.Graphics.DrawString("REGLAMENTO", new Font("Arial", 30), Brushes.Red, 240, 470);
+            e.Graphics.DrawString("El Vehículo se entregará al portador del recibo. \n" +
+                "No aceptamos órdenes telefónicas, Retirado el \nautomotor " +
+                "no se aceptan reclamos de ningún tipo.", new Font("Arial", 25), Brushes.Black, 10, 505);
+            e.Graphics.DrawString("ACTUAR CON MAS \nRESPONSABILIDAD", new Font("Arial", 30), Brushes.Red, 170, 620);
+        }
+        private void impCopi()
+        {
+            //printDialog1.ShowDialog();
+            printDocument1 = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            printDocument1.PrinterSettings = ps;
+            printDocument1.PrintPage += ImprimirCopi;
+            printPreviewControl3.Document = printDocument1;
+
+        }
+        string tipoVeh,PlacaCopi, fecPlacaCopi,HoraPlacaCopi, CascosCopi;
+     
         private void btnGenTic_Click(object sender, EventArgs e)
         {
             try
             {
                 idUser = int.Parse(dtgMovim.CurrentRow.Cells[0].Value.ToString());
-                numplacasal.Text = dtgMovim.CurrentRow.Cells[2].Value.ToString();
-                txtfeinsal.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
-                txtheinsal.Text = dtgMovim.CurrentRow.Cells[6].Value.ToString();
-                //txtCor.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
-                //txtLog.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
-                //cmbTipo.Text = dtgMovim.CurrentRow.Cells[6].Value.ToString();
-                tabContPrimc.SelectTab(3);
-                diferenciastime();
+                tipoVeh = dtgMovim.CurrentRow.Cells[1].Value.ToString();
+                PlacaCopi = dtgMovim.CurrentRow.Cells[2].Value.ToString();
+                CascosCopi = dtgMovim.CurrentRow.Cells[3].Value.ToString();
+                fecPlacaCopi = DateTime.Parse(dtgMovim.CurrentRow.Cells[5].Value.ToString()).ToShortDateString();
+                HoraPlacaCopi = dtgMovim.CurrentRow.Cells[6].Value.ToString();
+                impCopi();
+                printPreviewControl3.Visible = true;
+                //  //txtCor.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
+                //  //txtLog.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
+                //  //cmbTipo.Text = dtgMovim.CurrentRow.Cells[6].Value.ToString();
+                //  tabContPrimc.SelectTab(3);
+                ////  diferenciastime();
+                btnGenTic.Visible = false;
+                brnImpCopi.Visible = true;
+
             }
             catch
-            {
+            { 
                 MessageBox.Show("seleccione una placa");
             }
         }
-
+        private void brnImpCopi_Click(object sender, EventArgs e)
+        {
+                printDocument1.Print();
+            btnGenTic.Visible = true;
+            brnImpCopi.Visible = false;
+            printPreviewControl3.Visible = false;
+        }
         private void Mostrartabla()
         {
             dtgMovim.DataSource = db.ingresoVehiculosm(txtBuscarPla.Text.ToString());//buscar la paca por escrito

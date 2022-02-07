@@ -28,6 +28,7 @@ namespace Diseño.Vista
             //MostrarPlaca();
             dtg();
             buscaid();
+            comb();
         }
         private void dtg()
         {
@@ -675,18 +676,31 @@ namespace Diseño.Vista
 
         }
 
-            string plc, fechin, hor;
-        private void numplacasal_TextChanged(object sender, EventArgs e)
+         string plc, fechin, hor;
+        private void comb()
         {
-            var llenartex = db.ingresoVehiculosm(numplacasal.Text).Count();
+
             foreach (var fato in db.MostrarPlac())
             {
-                plc= fato.Placa;
-                DateTime.Parse(fechin = fato.Fecha.ToString()).ToShortDateString();
-                TimeSpan.Parse(hor = fato.hora.ToString());
-                //= db.MostrarPlac();//buscar la plca mediante el primary key
+                cmbplaca.DataSource = db.MostrarPlac();//buscar la plca mediante el primary key
+                cmbplaca.DisplayMember = "Placa";
+                cmbplaca.ValueMember = "NumTicket";
+                //DateTime.Parse(fechin = fato.Fecha.ToString()).ToShortDateString();
+                //TimeSpan.Parse(hor = fato.hora.ToString());
+                //fechin = fato.Fecha;
+                //hor = fato.hora;
             }
-            if (llenartex >= 1)
+        }
+        private void cmbplaca_SelectedValueChanged(object sender, EventArgs e)
+        {
+            foreach (var fato in db.ingresoVehiculosm(cmbplaca.Text))
+            {
+                fechin = fato.Fecha.ToString();//mostrar la fecha con esactitau con conversion a solo ("dd/MM/yyyy")
+                TimeSpan.Parse(hor = fato.hora.ToString());
+            }
+            //cmbplaca.Text = db.MostrarPlac().ToString();
+           
+            if (cmbplaca.Text != "")
             {
                 txtfeinsal.Text = fechin;
                 txtheinsal.Text = hor;
@@ -698,22 +712,10 @@ namespace Diseño.Vista
             }
         }
 
-        private void diferenciastime()
+        private void cmbplaca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (var fato in db.MostrarPlac())
-            {
-                fin = int.Parse(fato.hora.ToString());
-                //= db.MostrarPlac();//buscar la plca mediante el primary key
-
-            }
-            DateTime hoy = DateTime.Now;
-            string temp = txthrsali.Text;
-            fecha = temp.Split(':');
-            int año = int.Parse(fecha[0]);
-            final = new DateTime(ahora.Year, ahora.Month, ahora.Day, año, int.Parse(fecha[1]), int.Parse(fecha[2]));
-            TimeSpan Diferen = new TimeSpan();
-            Diferen = TimeSpan.FromHours(fin - int.Parse(txtheinsal.Text.ToString()));
-            txtefect.Text = Diferen.Hours + Diferen.Minutes + (Diferen.Seconds + 1).ToString();
+            //cmbMovim.DisplayMember = "Placa";
+           // msmErP.Text = "NumTicket";
         }
         private void ImprimirCopi(object sender, PrintPageEventArgs e)
         {

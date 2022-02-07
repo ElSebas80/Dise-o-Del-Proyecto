@@ -18,8 +18,8 @@ namespace Diseño.BaseD
         public string tipoVhlo { get; set; }
         public string Placa { get; set; }
         public string NumCascos { get; set; }
-        public Nullable<int> CuposDis { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
-        public Nullable<System.TimeSpan> hora { get; set; }
+        public int CuposDis { get; set; }
+        public DateTime Fecha { get; set; }
+        public TimeSpan hora { get; set; }
     }
 }

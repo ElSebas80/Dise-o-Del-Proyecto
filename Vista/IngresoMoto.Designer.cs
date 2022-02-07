@@ -42,6 +42,8 @@ namespace Diseño.Vista
             this.btnRes = new System.Windows.Forms.PictureBox();
             this.tabContPrimc = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnImpIn = new System.Windows.Forms.Button();
+            this.printPreviewControl2 = new System.Windows.Forms.PrintPreviewControl();
             this.msmErP = new System.Windows.Forms.Label();
             this.btncancIn = new System.Windows.Forms.Button();
             this.rdtBici = new System.Windows.Forms.RadioButton();
@@ -83,6 +85,8 @@ namespace Diseño.Vista
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.brnImpCopi = new System.Windows.Forms.Button();
+            this.printPreviewControl3 = new System.Windows.Forms.PrintPreviewControl();
             this.txtBuscarPla = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -109,15 +113,11 @@ namespace Diseño.Vista
             this.label26 = new System.Windows.Forms.Label();
             this.txtfeinsal = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.numplacasal = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.printPreviewControl2 = new System.Windows.Forms.PrintPreviewControl();
-            this.btnImpIn = new System.Windows.Forms.Button();
-            this.printPreviewControl3 = new System.Windows.Forms.PrintPreviewControl();
-            this.brnImpCopi = new System.Windows.Forms.Button();
+            this.cmbplaca = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -294,6 +294,25 @@ namespace Diseño.Vista
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ingreso Vehículo";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnImpIn
+            // 
+            this.btnImpIn.Location = new System.Drawing.Point(461, 484);
+            this.btnImpIn.Name = "btnImpIn";
+            this.btnImpIn.Size = new System.Drawing.Size(77, 32);
+            this.btnImpIn.TabIndex = 84;
+            this.btnImpIn.Text = "Imprimir";
+            this.btnImpIn.UseVisualStyleBackColor = true;
+            this.btnImpIn.Visible = false;
+            this.btnImpIn.Click += new System.EventHandler(this.btnImpIn_Click);
+            // 
+            // printPreviewControl2
+            // 
+            this.printPreviewControl2.Location = new System.Drawing.Point(407, 131);
+            this.printPreviewControl2.Name = "printPreviewControl2";
+            this.printPreviewControl2.Size = new System.Drawing.Size(206, 297);
+            this.printPreviewControl2.TabIndex = 83;
+            this.printPreviewControl2.Visible = false;
             // 
             // msmErP
             // 
@@ -834,6 +853,25 @@ namespace Diseño.Vista
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // brnImpCopi
+            // 
+            this.brnImpCopi.Location = new System.Drawing.Point(428, 503);
+            this.brnImpCopi.Name = "brnImpCopi";
+            this.brnImpCopi.Size = new System.Drawing.Size(117, 26);
+            this.brnImpCopi.TabIndex = 85;
+            this.brnImpCopi.Text = "Imprimir";
+            this.brnImpCopi.UseVisualStyleBackColor = true;
+            this.brnImpCopi.Visible = false;
+            this.brnImpCopi.Click += new System.EventHandler(this.brnImpCopi_Click);
+            // 
+            // printPreviewControl3
+            // 
+            this.printPreviewControl3.Location = new System.Drawing.Point(75, 362);
+            this.printPreviewControl3.Name = "printPreviewControl3";
+            this.printPreviewControl3.Size = new System.Drawing.Size(206, 193);
+            this.printPreviewControl3.TabIndex = 84;
+            this.printPreviewControl3.Visible = false;
+            // 
             // txtBuscarPla
             // 
             this.txtBuscarPla.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -922,6 +960,7 @@ namespace Diseño.Vista
             // tabPage4
             // 
             this.tabPage4.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
+            this.tabPage4.Controls.Add(this.cmbplaca);
             this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.printPreviewControl1);
             this.tabPage4.Controls.Add(this.button6);
@@ -940,7 +979,6 @@ namespace Diseño.Vista
             this.tabPage4.Controls.Add(this.label26);
             this.tabPage4.Controls.Add(this.txtfeinsal);
             this.tabPage4.Controls.Add(this.label25);
-            this.tabPage4.Controls.Add(this.numplacasal);
             this.tabPage4.Controls.Add(this.label13);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
@@ -958,6 +996,7 @@ namespace Diseño.Vista
             this.button1.TabIndex = 83;
             this.button1.Text = "Imprimir";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // printPreviewControl1
             // 
@@ -1147,24 +1186,11 @@ namespace Diseño.Vista
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(70, 86);
+            this.label25.Location = new System.Drawing.Point(39, 86);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(121, 40);
             this.label25.TabIndex = 66;
             this.label25.Text = "Placa";
-            // 
-            // numplacasal
-            // 
-            this.numplacasal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.numplacasal.Enabled = false;
-            this.numplacasal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numplacasal.HideSelection = false;
-            this.numplacasal.Location = new System.Drawing.Point(197, 86);
-            this.numplacasal.Name = "numplacasal";
-            this.numplacasal.Size = new System.Drawing.Size(116, 40);
-            this.numplacasal.TabIndex = 65;
-            this.numplacasal.WordWrap = false;
             // 
             // label13
             // 
@@ -1194,43 +1220,16 @@ namespace Diseño.Vista
             this.printDialog1.Document = this.printDocument1;
             this.printDialog1.UseEXDialog = true;
             // 
-            // printPreviewControl2
+            // cmbplaca
             // 
-            this.printPreviewControl2.Location = new System.Drawing.Point(407, 131);
-            this.printPreviewControl2.Name = "printPreviewControl2";
-            this.printPreviewControl2.Size = new System.Drawing.Size(206, 297);
-            this.printPreviewControl2.TabIndex = 83;
-            this.printPreviewControl2.Visible = false;
-            // 
-            // btnImpIn
-            // 
-            this.btnImpIn.Location = new System.Drawing.Point(461, 484);
-            this.btnImpIn.Name = "btnImpIn";
-            this.btnImpIn.Size = new System.Drawing.Size(77, 32);
-            this.btnImpIn.TabIndex = 84;
-            this.btnImpIn.Text = "Imprimir";
-            this.btnImpIn.UseVisualStyleBackColor = true;
-            this.btnImpIn.Visible = false;
-            this.btnImpIn.Click += new System.EventHandler(this.btnImpIn_Click);
-            // 
-            // printPreviewControl3
-            // 
-            this.printPreviewControl3.Location = new System.Drawing.Point(75, 362);
-            this.printPreviewControl3.Name = "printPreviewControl3";
-            this.printPreviewControl3.Size = new System.Drawing.Size(206, 193);
-            this.printPreviewControl3.TabIndex = 84;
-            this.printPreviewControl3.Visible = false;
-            // 
-            // brnImpCopi
-            // 
-            this.brnImpCopi.Location = new System.Drawing.Point(428, 503);
-            this.brnImpCopi.Name = "brnImpCopi";
-            this.brnImpCopi.Size = new System.Drawing.Size(117, 26);
-            this.brnImpCopi.TabIndex = 85;
-            this.brnImpCopi.Text = "Imprimir";
-            this.brnImpCopi.UseVisualStyleBackColor = true;
-            this.brnImpCopi.Visible = false;
-            this.brnImpCopi.Click += new System.EventHandler(this.brnImpCopi_Click);
+            this.cmbplaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbplaca.FormattingEnabled = true;
+            this.cmbplaca.Location = new System.Drawing.Point(171, 86);
+            this.cmbplaca.Name = "cmbplaca";
+            this.cmbplaca.Size = new System.Drawing.Size(136, 37);
+            this.cmbplaca.TabIndex = 84;
+            this.cmbplaca.SelectedIndexChanged += new System.EventHandler(this.cmbplaca_SelectedIndexChanged);
+            this.cmbplaca.SelectedValueChanged += new System.EventHandler(this.cmbplaca_SelectedValueChanged);
             // 
             // FrmIngresoMoto
             // 
@@ -1329,7 +1328,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox numplacasal;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label32;
@@ -1366,5 +1364,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.PrintPreviewControl printPreviewControl2;
         private System.Windows.Forms.PrintPreviewControl printPreviewControl3;
         private System.Windows.Forms.Button brnImpCopi;
+        private System.Windows.Forms.ComboBox cmbplaca;
     }
 }

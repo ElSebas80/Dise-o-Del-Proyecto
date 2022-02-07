@@ -306,11 +306,125 @@ namespace Diseño.Vista
 
         }
 
-        parkEntities Pla = new parkEntities();
-
+        parkEntities myReader = new parkEntities();
         private void button6_Click(object sender, EventArgs e)
         {
-            printPreviewControl1.Document = printDocument1;
+            DateTime fentrada = Convert.ToDateTime(txtfeinsal);
+            DateTime fsalida = dateTimePicker1.Value;
+
+
+
+                //es esta variable tenemos los dias que se quedo en el parqueadero
+                //Horas
+                DateTime entrada = fentrada;
+                DateTime salida = fsalida;
+                TimeSpan span = salida.Subtract(entrada);
+
+
+
+            txthrsali.Text = Convert.ToString(span);
+                //MessageBox.Show(Convert.ToString(span), "alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int prueba = Convert.ToInt32(span.TotalMinutes);
+                //dias = span.Days;
+
+                // Aqui definimos cuantos cobramos dependiendo del vehiculo
+
+                if (tVhlO == "Motocicleta".Trim())
+                {
+                    if (Convert.ToDouble(prueba) < 60)
+                    {
+                    txtvalpago.Text = "2000";
+                    }
+                    else
+                    if (Convert.ToDouble(prueba) > 540)
+                    {
+                        int total = (Convert.ToInt32(prueba) * 7);
+                        if (total < 5000)
+                        {
+                        txtvalpago.Text = "5000";
+                        }
+                        else
+                        {
+                        txtvalpago.Text = Convert.ToString(prueba * 7);
+                        }
+                    }
+                    else
+                  if (Convert.ToDouble(prueba) >= 360)
+                    {
+
+                    txtvalpago.Text = "4000";
+                    }
+                    else
+                  if (Convert.ToDouble(prueba) >= 300)
+                    {
+
+                    txtvalpago.Text = "3500";
+                    }
+                    else
+                  if (Convert.ToDouble(prueba) >= 240)
+                    {
+
+                    txtvalpago.Text = "3000";
+                    }
+                    else
+
+                  if (Convert.ToDouble(prueba) >= 60)
+                    {
+
+                    txtvalpago.Text = "2500";
+                    }
+
+
+                }
+                if (tVhlO == "Bicicleta".Trim())
+                {
+                    if (Convert.ToDouble(prueba) < 60)
+                    {
+                    txtvalpago.Text = "4000";
+                    }
+                    else
+                    if (Convert.ToDouble(prueba) > 540)
+                    {
+                        int total = (Convert.ToInt32(prueba) * 11);
+                        if (total < 8000)
+                        {
+                        txtvalpago.Text = "8000";
+                        }
+                        else
+                        {
+                        txtvalpago.Text = Convert.ToString(prueba * 11);
+                        }
+                    }
+                    else
+                  if (Convert.ToDouble(prueba) >= 360)
+                    {
+
+                    txtvalpago.Text = "6000";
+                    }
+                    else
+                  if (Convert.ToDouble(prueba) >= 300)
+                    {
+
+                    txtvalpago.Text = "5500";
+                    }
+                    else
+                  if (Convert.ToDouble(prueba) >= 240)
+                    {
+
+                    txtvalpago.Text = "5000";
+                    }
+                    else
+
+                  if (Convert.ToDouble(prueba) >= 60)
+                    {
+
+                    txtvalpago.Text = "4500";
+                    }
+
+
+                }
+            
+                printPreviewControl1.Document = printDocument1;
 
         }
         private void toolTip1_Popup(object sender, PopupEventArgs e)
@@ -332,8 +446,8 @@ namespace Diseño.Vista
         {
             foreach(var fato in db.ingresoClientesm(txtPlaca.Text))
             {
-                bFech = fato.FechaFin.ToString();
-                    //= db.MostrarPlac();//buscar la plca mediante el primary key
+                DateTime.Parse(bFech = fato.FechaFin.ToString()).ToShortDateString();//mostrar la fecha con esactitau con conversion a solo ("dd/MM/yyyy")
+                //= db.MostrarPlac();//buscar la plca mediante el primary key
 
             }
             //cmbMovim.DisplayMember = "Placa";
@@ -419,6 +533,8 @@ namespace Diseño.Vista
                         msmErP.Text = "Este cliente cuenta con una \nmensualidad " +
                             "que temina el dia \n" + bFech;
                         msmErP.Visible = true;
+                fecPlacaCopi = DateTime.Parse(dtgMovim.CurrentRow.Cells[5].Value.ToString()).ToShortDateString();
+
                     }
                     else if(ServicioParqueo >= 1)
                     {
@@ -553,6 +669,35 @@ namespace Diseño.Vista
 
         int fin;
         string[] fecha = new string[3];
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+            string plc, fechin, hor;
+        private void numplacasal_TextChanged(object sender, EventArgs e)
+        {
+            var llenartex = db.ingresoVehiculosm(numplacasal.Text).Count();
+            foreach (var fato in db.MostrarPlac())
+            {
+                plc= fato.Placa;
+                DateTime.Parse(fechin = fato.Fecha.ToString()).ToShortDateString();
+                TimeSpan.Parse(hor = fato.hora.ToString());
+                //= db.MostrarPlac();//buscar la plca mediante el primary key
+            }
+            if (llenartex >= 1)
+            {
+                txtfeinsal.Text = fechin;
+                txtheinsal.Text = hor;
+            }
+            else
+            {
+                txtfeinsal.Text = "";
+                txtheinsal.Text = "";
+            }
+        }
+
         private void diferenciastime()
         {
             foreach (var fato in db.MostrarPlac())

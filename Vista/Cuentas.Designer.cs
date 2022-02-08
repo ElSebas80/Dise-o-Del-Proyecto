@@ -357,6 +357,7 @@ namespace Diseño.Vista
             this.txtContra.Name = "txtContra";
             this.txtContra.Size = new System.Drawing.Size(225, 20);
             this.txtContra.TabIndex = 48;
+            this.txtContra.UseSystemPasswordChar = true;
             this.txtContra.Visible = false;
             // 
             // lblContra

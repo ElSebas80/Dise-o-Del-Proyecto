@@ -695,7 +695,7 @@ namespace Diseño.Vista
         {
             foreach (var fato in db.ingresoVehiculosm(cmbplaca.Text))
             {
-                fechin = fato.Fecha.ToString();//mostrar la fecha con esactitau con conversion a solo ("dd/MM/yyyy")
+                fechin = DateTime.Parse(fato.Fecha.ToString()).ToShortDateString();//mostrar la fecha con esactitau con conversion a solo ("dd/MM/yyyy")
                 TimeSpan.Parse(hor = fato.hora.ToString());
             }
             //cmbplaca.Text = db.MostrarPlac().ToString();

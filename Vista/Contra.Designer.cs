@@ -45,7 +45,8 @@ namespace Diseño.Vista
             this.txtmail.Location = new System.Drawing.Point(122, 122);
             this.txtmail.Name = "txtmail";
             this.txtmail.Size = new System.Drawing.Size(193, 20);
-            this.txtmail.TabIndex = 0;
+            this.txtmail.TabIndex = 2;
+            this.txtmail.UseSystemPasswordChar = true;
             // 
             // button1
             // 
@@ -87,7 +88,8 @@ namespace Diseño.Vista
             this.txtUser.Location = new System.Drawing.Point(122, 71);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(193, 20);
-            this.txtUser.TabIndex = 39;
+            this.txtUser.TabIndex = 1;
+            this.txtUser.UseSystemPasswordChar = true;
             // 
             // label2
             // 

@@ -163,6 +163,7 @@ namespace Diseño.Vista
             if (txtPass.Text == "Pasword")
             {
                 txtPass.Text = "";
+                txtPass.UseSystemPasswordChar = true;
             }
         }
 
@@ -171,10 +172,16 @@ namespace Diseño.Vista
             if (txtPass.Text == "")
             {
                 txtPass.Text = "Pasword";
+                txtPass.UseSystemPasswordChar = false;
             }
         }
 
         private void msgErro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
         {
 
         }

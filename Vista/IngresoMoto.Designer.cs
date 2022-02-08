@@ -95,6 +95,7 @@ namespace Diseño.Vista
             this.label24 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cmbplaca = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.printPreviewControl1 = new System.Windows.Forms.PrintPreviewControl();
             this.button6 = new System.Windows.Forms.Button();
@@ -117,7 +118,6 @@ namespace Diseño.Vista
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.cmbplaca = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -988,6 +988,17 @@ namespace Diseño.Vista
             this.tabPage4.Text = " Salida Vehiculos";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // cmbplaca
+            // 
+            this.cmbplaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbplaca.FormattingEnabled = true;
+            this.cmbplaca.Location = new System.Drawing.Point(171, 86);
+            this.cmbplaca.Name = "cmbplaca";
+            this.cmbplaca.Size = new System.Drawing.Size(136, 37);
+            this.cmbplaca.TabIndex = 84;
+            this.cmbplaca.SelectedIndexChanged += new System.EventHandler(this.cmbplaca_SelectedIndexChanged);
+            this.cmbplaca.SelectedValueChanged += new System.EventHandler(this.cmbplaca_SelectedValueChanged);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(301, 508);
@@ -1004,6 +1015,7 @@ namespace Diseño.Vista
             this.printPreviewControl1.Name = "printPreviewControl1";
             this.printPreviewControl1.Size = new System.Drawing.Size(270, 354);
             this.printPreviewControl1.TabIndex = 82;
+            this.printPreviewControl1.Visible = false;
             // 
             // button6
             // 
@@ -1219,17 +1231,6 @@ namespace Diseño.Vista
             // 
             this.printDialog1.Document = this.printDocument1;
             this.printDialog1.UseEXDialog = true;
-            // 
-            // cmbplaca
-            // 
-            this.cmbplaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbplaca.FormattingEnabled = true;
-            this.cmbplaca.Location = new System.Drawing.Point(171, 86);
-            this.cmbplaca.Name = "cmbplaca";
-            this.cmbplaca.Size = new System.Drawing.Size(136, 37);
-            this.cmbplaca.TabIndex = 84;
-            this.cmbplaca.SelectedIndexChanged += new System.EventHandler(this.cmbplaca_SelectedIndexChanged);
-            this.cmbplaca.SelectedValueChanged += new System.EventHandler(this.cmbplaca_SelectedValueChanged);
             // 
             // FrmIngresoMoto
             // 

@@ -84,6 +84,7 @@ namespace Diseño.Vista
             this.txtPass.TabIndex = 2;
             this.txtPass.Text = "Pasword";
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
             this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
             // 

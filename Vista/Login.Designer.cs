@@ -54,9 +54,9 @@ namespace Diseño.Vista
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(327, 35);
+            this.pictureBox1.Location = new System.Drawing.Point(270, 35);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 200);
+            this.pictureBox1.Size = new System.Drawing.Size(291, 228);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -65,9 +65,10 @@ namespace Diseño.Vista
             // 
             this.txtUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUser.Location = new System.Drawing.Point(327, 255);
+            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.Location = new System.Drawing.Point(327, 269);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(188, 20);
+            this.txtUser.Size = new System.Drawing.Size(188, 21);
             this.txtUser.TabIndex = 1;
             this.txtUser.Text = "Nombre Usuario";
             this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -78,11 +79,12 @@ namespace Diseño.Vista
             // 
             this.txtPass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPass.Location = new System.Drawing.Point(327, 290);
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Location = new System.Drawing.Point(327, 305);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(188, 20);
+            this.txtPass.Size = new System.Drawing.Size(188, 21);
             this.txtPass.TabIndex = 2;
-            this.txtPass.Text = "Pasword";
+            this.txtPass.Text = "Password";
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
@@ -95,10 +97,11 @@ namespace Diseño.Vista
             this.btnIniciar.BackColor = System.Drawing.Color.Transparent;
             this.btnIniciar.FlatAppearance.BorderSize = 2;
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.ForeColor = System.Drawing.Color.White;
-            this.btnIniciar.Location = new System.Drawing.Point(363, 370);
+            this.btnIniciar.Location = new System.Drawing.Point(346, 392);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(100, 27);
+            this.btnIniciar.Size = new System.Drawing.Size(134, 27);
             this.btnIniciar.TabIndex = 3;
             this.btnIniciar.Text = "Iniciar Sesión";
             this.btnIniciar.UseVisualStyleBackColor = false;
@@ -113,7 +116,7 @@ namespace Diseño.Vista
             this.OlPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OlPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OlPass.ForeColor = System.Drawing.Color.Transparent;
-            this.OlPass.Location = new System.Drawing.Point(343, 419);
+            this.OlPass.Location = new System.Drawing.Point(339, 438);
             this.OlPass.Name = "OlPass";
             this.OlPass.Size = new System.Drawing.Size(154, 16);
             this.OlPass.TabIndex = 4;
@@ -182,7 +185,7 @@ namespace Diseño.Vista
             this.lblmsgErro.BackColor = System.Drawing.Color.Transparent;
             this.lblmsgErro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmsgErro.ForeColor = System.Drawing.Color.Red;
-            this.lblmsgErro.Location = new System.Drawing.Point(324, 319);
+            this.lblmsgErro.Location = new System.Drawing.Point(323, 338);
             this.lblmsgErro.Name = "lblmsgErro";
             this.lblmsgErro.Size = new System.Drawing.Size(49, 20);
             this.lblmsgErro.TabIndex = 20;

@@ -34,7 +34,7 @@ namespace Diseño.Vista
         }
         private void Logout(object sender, FormClosedEventArgs e)
         {
-            txtPass.Text = "Pasword";
+            txtPass.Text = "Password";
             txtPass.UseSystemPasswordChar = false;
             txtUser.Text = "Nombre Usuario";
             lblmsgErro.Visible = false;
@@ -44,7 +44,7 @@ namespace Diseño.Vista
         {
             if (txtUser.Text != "Nombre Usuario")
             {
-                if (txtPass.Text != "Pasword")
+                if (txtPass.Text != "Password")
                 {
                     enviar user = new enviar();
                     //  bool verificado = user.LoginUser(txtUser.Text, txtPass.Text);
@@ -79,7 +79,7 @@ namespace Diseño.Vista
                     else
                     {
                         msgErro("Usuario o contraseña incorrecto. \npor favor intente otra vez.");
-                        txtPass.Text = "Pasword";
+                        txtPass.Text = "Password";
                         txtPass.UseSystemPasswordChar = false;
                         txtUser.Focus();
                     }
@@ -160,7 +160,7 @@ namespace Diseño.Vista
 
         private void txtPass_Enter(object sender, EventArgs e)
         {
-            if (txtPass.Text == "Pasword")
+            if (txtPass.Text == "Password")
             {
                 txtPass.Text = "";
                 txtPass.UseSystemPasswordChar = true;
@@ -171,7 +171,7 @@ namespace Diseño.Vista
         {
             if (txtPass.Text == "")
             {
-                txtPass.Text = "Pasword";
+                txtPass.Text = "Password";
                 txtPass.UseSystemPasswordChar = false;
             }
         }

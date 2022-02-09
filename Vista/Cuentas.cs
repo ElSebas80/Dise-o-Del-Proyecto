@@ -240,7 +240,7 @@ namespace Diseño.Vista
             lblCorreo.Location = new Point(253, 181);
             msgError.Location = new Point(331, 203);
             groupBox.Location = new Point(59, 222);
-            dtgUsuarios.Location = new Point(59, 329);
+            dtgUsuarios.Location = new Point(110, 329);
         }
         private void LugarPerf()
         {
@@ -258,9 +258,10 @@ namespace Diseño.Vista
             msgError.Location = new Point(299, 354);
             lblCorreo.Location = new Point(143, 336);
             groupBox.Location = new Point(59, 222);
-            dtgUsuarios.Location = new Point(59, 329);
+            dtgUsuarios.Location = new Point(110, 329);
             lblContra.Location = new Point(143, 398);
-            txtContra.Location = new Point(299, 398);
+            txtContra.Location = new Point(299, 398); 
+            btnCamb.Location = new Point(511, 487);
         }
         private void Limpiar()
         {

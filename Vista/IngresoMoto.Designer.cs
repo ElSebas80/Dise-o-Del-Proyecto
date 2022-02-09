@@ -168,6 +168,7 @@ namespace Diseño.Vista
             this.btnVol.FlatAppearance.BorderSize = 0;
             this.btnVol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVol.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVol.ForeColor = System.Drawing.Color.Black;
             this.btnVol.Location = new System.Drawing.Point(62, 536);
             this.btnVol.Name = "btnVol";
             this.btnVol.Size = new System.Drawing.Size(102, 35);
@@ -270,6 +271,7 @@ namespace Diseño.Vista
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.DimGray;
             this.tabPage1.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
             this.tabPage1.Controls.Add(this.btnImpIn);
             this.tabPage1.Controls.Add(this.printPreviewControl2);
@@ -293,24 +295,26 @@ namespace Diseño.Vista
             this.tabPage1.Size = new System.Drawing.Size(640, 581);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ingreso Vehículo";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnImpIn
             // 
-            this.btnImpIn.Location = new System.Drawing.Point(461, 484);
+            this.btnImpIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnImpIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImpIn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnImpIn.Location = new System.Drawing.Point(505, 484);
             this.btnImpIn.Name = "btnImpIn";
             this.btnImpIn.Size = new System.Drawing.Size(77, 32);
             this.btnImpIn.TabIndex = 84;
             this.btnImpIn.Text = "Imprimir";
-            this.btnImpIn.UseVisualStyleBackColor = true;
+            this.btnImpIn.UseVisualStyleBackColor = false;
             this.btnImpIn.Visible = false;
             this.btnImpIn.Click += new System.EventHandler(this.btnImpIn_Click);
             // 
             // printPreviewControl2
             // 
-            this.printPreviewControl2.Location = new System.Drawing.Point(407, 131);
+            this.printPreviewControl2.Location = new System.Drawing.Point(381, 131);
             this.printPreviewControl2.Name = "printPreviewControl2";
-            this.printPreviewControl2.Size = new System.Drawing.Size(206, 297);
+            this.printPreviewControl2.Size = new System.Drawing.Size(232, 297);
             this.printPreviewControl2.TabIndex = 83;
             this.printPreviewControl2.Visible = false;
             // 
@@ -320,7 +324,7 @@ namespace Diseño.Vista
             this.msmErP.BackColor = System.Drawing.Color.Transparent;
             this.msmErP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.msmErP.ForeColor = System.Drawing.Color.Red;
-            this.msmErP.Location = new System.Drawing.Point(141, 197);
+            this.msmErP.Location = new System.Drawing.Point(141, 178);
             this.msmErP.Name = "msmErP";
             this.msmErP.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.msmErP.Size = new System.Drawing.Size(52, 20);
@@ -330,12 +334,15 @@ namespace Diseño.Vista
             // 
             // btncancIn
             // 
-            this.btncancIn.Location = new System.Drawing.Point(329, 484);
+            this.btncancIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btncancIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancIn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btncancIn.Location = new System.Drawing.Point(257, 484);
             this.btncancIn.Name = "btncancIn";
-            this.btncancIn.Size = new System.Drawing.Size(77, 32);
+            this.btncancIn.Size = new System.Drawing.Size(87, 32);
             this.btncancIn.TabIndex = 68;
             this.btncancIn.Text = "Cancelar";
-            this.btncancIn.UseVisualStyleBackColor = true;
+            this.btncancIn.UseVisualStyleBackColor = false;
             this.btncancIn.Click += new System.EventHandler(this.btncancIn_Click);
             // 
             // rdtBici
@@ -371,9 +378,9 @@ namespace Diseño.Vista
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(88, 358);
+            this.label6.Location = new System.Drawing.Point(32, 294);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 22);
+            this.label6.Size = new System.Drawing.Size(80, 35);
             this.label6.TabIndex = 64;
             this.label6.Text = "Cupos";
             // 
@@ -405,7 +412,7 @@ namespace Diseño.Vista
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNCascos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNCascos.HideSelection = false;
-            this.txtNCascos.Location = new System.Drawing.Point(182, 272);
+            this.txtNCascos.Location = new System.Drawing.Point(145, 232);
             this.txtNCascos.Name = "txtNCascos";
             this.txtNCascos.Size = new System.Drawing.Size(145, 26);
             this.txtNCascos.TabIndex = 61;
@@ -419,10 +426,10 @@ namespace Diseño.Vista
             this.txtPlaca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlaca.HideSelection = false;
-            this.txtPlaca.Location = new System.Drawing.Point(182, 150);
+            this.txtPlaca.Location = new System.Drawing.Point(145, 131);
             this.txtPlaca.MaxLength = 6;
             this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(154, 44);
+            this.txtPlaca.Size = new System.Drawing.Size(217, 44);
             this.txtPlaca.TabIndex = 60;
             this.txtPlaca.WordWrap = false;
             this.txtPlaca.TextChanged += new System.EventHandler(this.txtPlaca_TextChanged);
@@ -432,7 +439,7 @@ namespace Diseño.Vista
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(65, 150);
+            this.label10.Location = new System.Drawing.Point(31, 131);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(128, 28);
             this.label10.TabIndex = 59;
@@ -443,11 +450,11 @@ namespace Diseño.Vista
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(32, 275);
+            this.label7.Location = new System.Drawing.Point(32, 232);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(121, 22);
             this.label7.TabIndex = 54;
-            this.label7.Text = "Num... Cascos";
+            this.label7.Text = "Num. Cascos";
             // 
             // label3
             // 
@@ -465,12 +472,15 @@ namespace Diseño.Vista
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(195, 484);
+            this.btnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnIngresar.Location = new System.Drawing.Point(107, 484);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(77, 32);
+            this.btnIngresar.Size = new System.Drawing.Size(86, 32);
             this.btnIngresar.TabIndex = 49;
             this.btnIngresar.Text = "Registrar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Visible = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
@@ -481,7 +491,7 @@ namespace Diseño.Vista
             this.txtCuposD.Enabled = false;
             this.txtCuposD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCuposD.HideSelection = false;
-            this.txtCuposD.Location = new System.Drawing.Point(186, 358);
+            this.txtCuposD.Location = new System.Drawing.Point(145, 303);
             this.txtCuposD.Name = "txtCuposD";
             this.txtCuposD.Size = new System.Drawing.Size(145, 26);
             this.txtCuposD.TabIndex = 41;
@@ -659,7 +669,7 @@ namespace Diseño.Vista
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(134, 22);
             this.label23.TabIndex = 80;
-            this.label23.Text = "Tipo de Vehiculo";
+            this.label23.Text = "Tipo de VehÍculo";
             // 
             // label22
             // 
@@ -747,7 +757,7 @@ namespace Diseño.Vista
             this.lblhoraCLi.Name = "lblhoraCLi";
             this.lblhoraCLi.Size = new System.Drawing.Size(121, 22);
             this.lblhoraCLi.TabIndex = 70;
-            this.lblhoraCLi.Text = "hora";
+            this.lblhoraCLi.Text = "Hora";
             // 
             // label18
             // 
@@ -990,6 +1000,7 @@ namespace Diseño.Vista
             // 
             // cmbplaca
             // 
+            this.cmbplaca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbplaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbplaca.FormattingEnabled = true;
             this.cmbplaca.Location = new System.Drawing.Point(171, 86);
@@ -1059,7 +1070,7 @@ namespace Diseño.Vista
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(156, 22);
             this.label31.TabIndex = 78;
-            this.label31.Text = "Recibio";
+            this.label31.Text = "Recibo";
             // 
             // txtefect
             // 

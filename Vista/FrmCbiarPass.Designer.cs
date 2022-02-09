@@ -57,9 +57,10 @@ namespace Diseño.Vista
             // 
             // btnConf
             // 
-            this.btnConf.Location = new System.Drawing.Point(173, 250);
+            this.btnConf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConf.Location = new System.Drawing.Point(102, 244);
             this.btnConf.Name = "btnConf";
-            this.btnConf.Size = new System.Drawing.Size(75, 23);
+            this.btnConf.Size = new System.Drawing.Size(82, 23);
             this.btnConf.TabIndex = 45;
             this.btnConf.Text = "Confirmar";
             this.btnConf.UseVisualStyleBackColor = true;
@@ -67,9 +68,10 @@ namespace Diseño.Vista
             // 
             // btnCanc
             // 
-            this.btnCanc.Location = new System.Drawing.Point(296, 250);
+            this.btnCanc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCanc.Location = new System.Drawing.Point(225, 244);
             this.btnCanc.Name = "btnCanc";
-            this.btnCanc.Size = new System.Drawing.Size(75, 23);
+            this.btnCanc.Size = new System.Drawing.Size(82, 23);
             this.btnCanc.TabIndex = 44;
             this.btnCanc.Text = "Cancelar";
             this.btnCanc.UseVisualStyleBackColor = true;
@@ -77,14 +79,14 @@ namespace Diseño.Vista
             // 
             // txtConAlt
             // 
-            this.txtConAlt.Location = new System.Drawing.Point(155, 75);
+            this.txtConAlt.Location = new System.Drawing.Point(201, 75);
             this.txtConAlt.Name = "txtConAlt";
             this.txtConAlt.Size = new System.Drawing.Size(144, 20);
             this.txtConAlt.TabIndex = 46;
             // 
             // txtConNueCon
             // 
-            this.txtConNueCon.Location = new System.Drawing.Point(155, 118);
+            this.txtConNueCon.Location = new System.Drawing.Point(201, 118);
             this.txtConNueCon.Name = "txtConNueCon";
             this.txtConNueCon.Size = new System.Drawing.Size(144, 20);
             this.txtConNueCon.TabIndex = 47;
@@ -93,10 +95,11 @@ namespace Diseño.Vista
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.Cyan;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gold;
             this.label1.Location = new System.Drawing.Point(46, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.Size = new System.Drawing.Size(123, 15);
             this.label1.TabIndex = 48;
             this.label1.Text = "Contraseña actual";
             // 
@@ -104,10 +107,11 @@ namespace Diseño.Vista
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.Cyan;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gold;
             this.label2.Location = new System.Drawing.Point(46, 118);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.Size = new System.Drawing.Size(122, 15);
             this.label2.TabIndex = 49;
             this.label2.Text = "Nueva contraseña";
             // 
@@ -115,10 +119,11 @@ namespace Diseño.Vista
             // 
             this.msmError.AutoSize = true;
             this.msmError.BackColor = System.Drawing.Color.Transparent;
-            this.msmError.ForeColor = System.Drawing.Color.Cyan;
-            this.msmError.Location = new System.Drawing.Point(152, 189);
+            this.msmError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msmError.ForeColor = System.Drawing.Color.Yellow;
+            this.msmError.Location = new System.Drawing.Point(154, 201);
             this.msmError.Name = "msmError";
-            this.msmError.Size = new System.Drawing.Size(29, 13);
+            this.msmError.Size = new System.Drawing.Size(39, 15);
             this.msmError.TabIndex = 50;
             this.msmError.Text = "Error";
             this.msmError.Visible = false;
@@ -127,16 +132,17 @@ namespace Diseño.Vista
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.ForeColor = System.Drawing.Color.Cyan;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Gold;
             this.label4.Location = new System.Drawing.Point(46, 166);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.Size = new System.Drawing.Size(149, 15);
             this.label4.TabIndex = 52;
-            this.label4.Text = "Confirma contraseña";
+            this.label4.Text = "Confirmar  contraseña";
             // 
             // txtConConfCont
             // 
-            this.txtConConfCont.Location = new System.Drawing.Point(155, 166);
+            this.txtConConfCont.Location = new System.Drawing.Point(201, 166);
             this.txtConConfCont.Name = "txtConConfCont";
             this.txtConConfCont.Size = new System.Drawing.Size(144, 20);
             this.txtConConfCont.TabIndex = 51;

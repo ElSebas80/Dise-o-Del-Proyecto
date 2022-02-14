@@ -341,46 +341,31 @@ namespace Diseño.Vista
             {
                 txtvalpago.Text = "0";
             }
-            else if (TimeSpan.Parse(time).Minutes >= 4 && TimeSpan.Parse(time).Minutes <= 15 && TimeSpan.Parse(date).Days >= 0)
+            else if (TimeSpan.Parse(time).Minutes > 4 && TimeSpan.Parse(time).Minutes <= 15 && TimeSpan.Parse(date).Days >= 0)
             {
                 hg = hm * 0.25;
                 txtvalpago.Text = Convert.ToString(hg);
             }
-            else if (TimeSpan.Parse(time).Minutes >= 15 && TimeSpan.Parse(time).Minutes <= 30 && TimeSpan.Parse(date).Days >= 0)
+            else if (TimeSpan.Parse(time).Minutes > 15 && TimeSpan.Parse(time).Minutes <= 30 && TimeSpan.Parse(date).Days >= 0)
             {
                 hg = (hm * 0.50);
                 txtvalpago.Text = Convert.ToString(hg);
             }
-            else if (TimeSpan.Parse(time).Minutes >= 30 && TimeSpan.Parse(time).Minutes <= 45 && TimeSpan.Parse(date).Days >= 0)
+            else if (TimeSpan.Parse(time).Minutes > 30 && TimeSpan.Parse(time).Minutes <= 45 && TimeSpan.Parse(date).Days >= 0)
             {
                 hg = (hm * 0.75);
                 txtvalpago.Text = Convert.ToString(hg);
             }
-            else if (TimeSpan.Parse(time).Minutes >= 45 && TimeSpan.Parse(time).Minutes <= 60 && TimeSpan.Parse(date).Days >= 0)
+            else if (TimeSpan.Parse(time).Minutes > 45 && TimeSpan.Parse(time).Minutes <= 60 && TimeSpan.Parse(date).Days >= 0)
             {
                 hg = (hm);
                 txtvalpago.Text = Convert.ToString(hg);
             }
-            //else if (TimeSpan.Parse(time).Minutes >= 60 && TimeSpan.Parse(time).Minutes <= 75 && TimeSpan.Parse(date).Days >= 0)
-            //{
-            //    txtvalpago.Text = Convert.ToString(hm+(hm*0.25));
-            //}
-            //else if (TimeSpan.Parse(time).Minutes >= 75 && TimeSpan.Parse(time).Minutes <= 90 && TimeSpan.Parse(date).Days >= 0)
-            //{
-            //    txtvalpago.Text = Convert.ToString(hm + (hm * 0.50));
-            //}
-            //else if (TimeSpan.Parse(time).Minutes >= 90 && TimeSpan.Parse(time).Minutes <= 105 && TimeSpan.Parse(date).Days >= 0)
-            //{
-            //    txtvalpago.Text = Convert.ToString(hm + (hm * 0.75));
-            //}
-            //else if (TimeSpan.Parse(time).Minutes >= 105 && TimeSpan.Parse(time).Minutes <= 120 && TimeSpan.Parse(date).Days >= 0)
-            //{
-            //    txtvalpago.Text = Convert.ToString(hm + (hm));
-            //}
-            //if (TimeSpan.Parse(time).Hours >= 1 && TimeSpan.Parse(time).Hours <= 8 && TimeSpan.Parse(date).Days >= 0)
-            //{
-            //    txtvalpago.Text = Convert.ToString(hm * double.Parse(time))+hg;
-            //}
+            else if (TimeSpan.Parse(time).Minutes > 60 && TimeSpan.Parse(time).Minutes <= 70 && TimeSpan.Parse(date).Days >= 0)
+            {
+                txtvalpago.Text = Convert.ToString(hm + (hm * 0.20));
+            }
+
         }
         private void calcuHoras()
         {
@@ -392,10 +377,11 @@ namespace Diseño.Vista
             var RESF = fsalida - fentrada;
             string time = Convert.ToString(RESH);
             string date = Convert.ToString(RESF);
-            if (TimeSpan.Parse(time).Hours >= 1 && TimeSpan.Parse(time).Hours <= 8 && TimeSpan.Parse(date).Days >= 0)
+            if (TimeSpan.Parse(time).Hours > 1 && TimeSpan.Parse(time).Hours <= 24 && TimeSpan.Parse(date).Days >= 0)
             {
-                hsg = hg+(hm * double.Parse(time));
-                txtvalpago.Text= Convert.ToString(hsg);
+                hsg = (hm * (TimeSpan.Parse(time).Hours));
+                txtvalpago.Text = Convert.ToString(hsg);
+                //txtvalpago.Text = time = DateTime.Now.ToString("HH:mm:ss"); hace la opecion con el tiempo actual 
             }
         }
             parkEntities myReader = new parkEntities();

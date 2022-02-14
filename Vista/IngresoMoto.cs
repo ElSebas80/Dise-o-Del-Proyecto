@@ -307,8 +307,26 @@ namespace Diseño.Vista
         {
 
         }
+        int idt = 1;
+        double hm,dm,sm,qm,mm,hb,dib,sb,qb,mb;
+        double hg,hsg;
         private void calcuHora()
         {
+            var x = s.MosDtTari(idt);
+            if (x != null)
+            {
+                hm = double.Parse(x.HoraEstacioMoto.ToString());
+                dm = double.Parse(x.DiaEstacioMoto.ToString()); 
+                sm = double.Parse(x.SemanaEstacioMoto.ToString());
+                qm = double.Parse(x.QuincenaEstacioMoto.ToString());
+                mm = double.Parse(x.MensualidadEstacioMoto.ToString());
+                hb = double.Parse(x.HoraEstacioBici.ToString());
+                dib = double.Parse(x.DiaEstacioBici.ToString());
+                sb = double.Parse(x.SemanaEstacioBici.ToString());
+                qb = double.Parse(x.QuincenaEstacioBici.ToString());
+                mb = double.Parse(x.MensualidadEstacioBici.ToString());
+
+            }
             TimeSpan Hentrada = TimeSpan.Parse(txtheinsal.Text);
             TimeSpan Hsalida = TimeSpan.Parse(txthrsali.Text);
             DateTime fentrada = DateTime.Parse(txtfeinsal.Text);
@@ -325,138 +343,66 @@ namespace Diseño.Vista
             }
             else if (TimeSpan.Parse(time).Minutes >= 4 && TimeSpan.Parse(time).Minutes <= 15 && TimeSpan.Parse(date).Days >= 0)
             {
-                txtvalpago.Text = "un precio 1/4";
+                hg = hm * 0.25;
+                txtvalpago.Text = Convert.ToString(hg);
             }
             else if (TimeSpan.Parse(time).Minutes >= 15 && TimeSpan.Parse(time).Minutes <= 30 && TimeSpan.Parse(date).Days >= 0)
             {
-                txtvalpago.Text = "un precio 2/4";
+                hg = (hm * 0.50);
+                txtvalpago.Text = Convert.ToString(hg);
             }
             else if (TimeSpan.Parse(time).Minutes >= 30 && TimeSpan.Parse(time).Minutes <= 45 && TimeSpan.Parse(date).Days >= 0)
             {
-                txtvalpago.Text = "un precio 3/4";
+                hg = (hm * 0.75);
+                txtvalpago.Text = Convert.ToString(hg);
             }
-            else if (TimeSpan.Parse(time).Minutes >= 45 && TimeSpan.Parse(time).Hours <= 1 && TimeSpan.Parse(date).Days >= 0)
+            else if (TimeSpan.Parse(time).Minutes >= 45 && TimeSpan.Parse(time).Minutes <= 60 && TimeSpan.Parse(date).Days >= 0)
             {
-                txtvalpago.Text = "un precio 1 hora";
+                hg = (hm);
+                txtvalpago.Text = Convert.ToString(hg);
+            }
+            //else if (TimeSpan.Parse(time).Minutes >= 60 && TimeSpan.Parse(time).Minutes <= 75 && TimeSpan.Parse(date).Days >= 0)
+            //{
+            //    txtvalpago.Text = Convert.ToString(hm+(hm*0.25));
+            //}
+            //else if (TimeSpan.Parse(time).Minutes >= 75 && TimeSpan.Parse(time).Minutes <= 90 && TimeSpan.Parse(date).Days >= 0)
+            //{
+            //    txtvalpago.Text = Convert.ToString(hm + (hm * 0.50));
+            //}
+            //else if (TimeSpan.Parse(time).Minutes >= 90 && TimeSpan.Parse(time).Minutes <= 105 && TimeSpan.Parse(date).Days >= 0)
+            //{
+            //    txtvalpago.Text = Convert.ToString(hm + (hm * 0.75));
+            //}
+            //else if (TimeSpan.Parse(time).Minutes >= 105 && TimeSpan.Parse(time).Minutes <= 120 && TimeSpan.Parse(date).Days >= 0)
+            //{
+            //    txtvalpago.Text = Convert.ToString(hm + (hm));
+            //}
+            //if (TimeSpan.Parse(time).Hours >= 1 && TimeSpan.Parse(time).Hours <= 8 && TimeSpan.Parse(date).Days >= 0)
+            //{
+            //    txtvalpago.Text = Convert.ToString(hm * double.Parse(time))+hg;
+            //}
+        }
+        private void calcuHoras()
+        {
+            TimeSpan Hentrada = TimeSpan.Parse(txtheinsal.Text);
+            TimeSpan Hsalida = TimeSpan.Parse(txthrsali.Text);
+            DateTime fentrada = DateTime.Parse(txtfeinsal.Text);
+            DateTime fsalida = DateTime.Parse(txtfcsali.Text);
+            var RESH = Hsalida - Hentrada;
+            var RESF = fsalida - fentrada;
+            string time = Convert.ToString(RESH);
+            string date = Convert.ToString(RESF);
+            if (TimeSpan.Parse(time).Hours >= 1 && TimeSpan.Parse(time).Hours <= 8 && TimeSpan.Parse(date).Days >= 0)
+            {
+                hsg = hg+(hm * double.Parse(time));
+                txtvalpago.Text= Convert.ToString(hsg);
             }
         }
-        parkEntities myReader = new parkEntities();
+            parkEntities myReader = new parkEntities();
         private void button6_Click(object sender, EventArgs e)
         {
             calcuHora();
-
-            //es esta variable tenemos los dias que se quedo en el parqueadero
-            //Horas
-            //DateTime entrada = fentrada;
-            //    DateTime salida = fsalida;
-            //    TimeSpan span = salida.Subtract(entrada);
-
-
-
-            //txthrsali.Text = Convert.ToString(span);
-            //    //MessageBox.Show(Convert.ToString(span), "alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    int prueba = Convert.ToInt32(span.TotalMinutes);
-            //    //dias = span.Days;
-
-            //// Aqui definimos cuantos cobramos dependiendo del vehiculo
-
-            //if (tVhlO == "Motocicleta".Trim())
-            //{
-            //    if (Convert.ToDouble(prueba) < 60)
-            //    {
-            //    txtvalpago.Text = "2000";
-            //    }
-            //    else
-            //    if (Convert.ToDouble(prueba) > 540)
-            //    {
-            //        int total = (Convert.ToInt32(prueba) * 7);
-            //        if (total < 5000)
-            //        {
-            //        txtvalpago.Text = "5000";
-            //        }
-            //        else
-            //        {
-            //        txtvalpago.Text = Convert.ToString(prueba * 7);
-            //        }
-            //    }
-            //    else
-            //  if (Convert.ToDouble(prueba) >= 360)
-            //    {
-
-            //    txtvalpago.Text = "4000";
-            //    }
-            //    else
-            //  if (Convert.ToDouble(prueba) >= 300)
-            //    {
-
-            //    txtvalpago.Text = "3500";
-            //    }
-            //    else
-            //  if (Convert.ToDouble(prueba) >= 240)
-            //    {
-
-            //    txtvalpago.Text = "3000";
-            //    }
-            //    else
-
-            //  if (Convert.ToDouble(prueba) >= 60)
-            //    {
-
-            //    txtvalpago.Text = "2500";
-            //    }
-
-
-            //}
-            //if (tVhlO == "Bicicleta".Trim())
-            //{
-            //    if (Convert.ToDouble(prueba) < 60)
-            //    {
-            //    txtvalpago.Text = "4000";
-            //    }
-            //    else
-            //    if (Convert.ToDouble(prueba) > 540)
-            //    {
-            //        int total = (Convert.ToInt32(prueba) * 11);
-            //        if (total < 8000)
-            //        {
-            //        txtvalpago.Text = "8000";
-            //        }
-            //        else
-            //        {
-            //        txtvalpago.Text = Convert.ToString(prueba * 11);
-            //        }
-            //    }
-            //    else
-            //  if (Convert.ToDouble(prueba) >= 360)
-            //    {
-
-            //    txtvalpago.Text = "6000";
-            //    }
-            //    else
-            //  if (Convert.ToDouble(prueba) >= 300)
-            //    {
-
-            //    txtvalpago.Text = "5500";
-            //    }
-            //    else
-            //  if (Convert.ToDouble(prueba) >= 240)
-            //    {
-
-            //    txtvalpago.Text = "5000";
-            //    }
-            //    else
-
-            //  if (Convert.ToDouble(prueba) >= 60)
-            //    {
-
-            //    txtvalpago.Text = "4500";
-            //    }
-
-
-            //}
-
-            //printPreviewControl1.Document = printDocument1;
-
+            calcuHoras();
         }
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {

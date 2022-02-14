@@ -78,6 +78,10 @@ namespace Diseño.Vista
             this.btnMin = new System.Windows.Forms.PictureBox();
             this.btnSal = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtDiaBici = new System.Windows.Forms.TextBox();
+            this.txtDiaMoto = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -129,7 +133,7 @@ namespace Diseño.Vista
             this.tabPage1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(663, 607);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Información";
@@ -333,6 +337,10 @@ namespace Diseño.Vista
             // 
             this.tabPage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage2.BackgroundImage")));
             this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.txtDiaBici);
+            this.tabPage2.Controls.Add(this.txtDiaMoto);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.btnCanTari);
             this.tabPage2.Controls.Add(this.txtCupos);
             this.tabPage2.Controls.Add(this.txtMsB);
@@ -358,8 +366,8 @@ namespace Diseño.Vista
             this.tabPage2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(663, 628);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(663, 607);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tarifas";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -377,7 +385,7 @@ namespace Diseño.Vista
             // 
             // txtCupos
             // 
-            this.txtCupos.Location = new System.Drawing.Point(376, 440);
+            this.txtCupos.Location = new System.Drawing.Point(285, 441);
             this.txtCupos.Name = "txtCupos";
             this.txtCupos.Size = new System.Drawing.Size(150, 26);
             this.txtCupos.TabIndex = 47;
@@ -393,7 +401,7 @@ namespace Diseño.Vista
             // 
             // txtQnB
             // 
-            this.txtQnB.Location = new System.Drawing.Point(457, 328);
+            this.txtQnB.Location = new System.Drawing.Point(457, 353);
             this.txtQnB.Name = "txtQnB";
             this.txtQnB.Size = new System.Drawing.Size(150, 26);
             this.txtQnB.TabIndex = 45;
@@ -401,7 +409,7 @@ namespace Diseño.Vista
             // 
             // txtSmB
             // 
-            this.txtSmB.Location = new System.Drawing.Point(457, 260);
+            this.txtSmB.Location = new System.Drawing.Point(457, 301);
             this.txtSmB.Name = "txtSmB";
             this.txtSmB.Size = new System.Drawing.Size(150, 26);
             this.txtSmB.TabIndex = 44;
@@ -481,7 +489,7 @@ namespace Diseño.Vista
             // 
             // txtQnM
             // 
-            this.txtQnM.Location = new System.Drawing.Point(285, 328);
+            this.txtQnM.Location = new System.Drawing.Point(285, 353);
             this.txtQnM.Name = "txtQnM";
             this.txtQnM.Size = new System.Drawing.Size(150, 26);
             this.txtQnM.TabIndex = 14;
@@ -489,7 +497,7 @@ namespace Diseño.Vista
             // 
             // txtSmM
             // 
-            this.txtSmM.Location = new System.Drawing.Point(285, 260);
+            this.txtSmM.Location = new System.Drawing.Point(285, 301);
             this.txtSmM.Name = "txtSmM";
             this.txtSmM.Size = new System.Drawing.Size(150, 26);
             this.txtSmM.TabIndex = 13;
@@ -517,7 +525,7 @@ namespace Diseño.Vista
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Transparent;
-            this.label14.Location = new System.Drawing.Point(32, 330);
+            this.label14.Location = new System.Drawing.Point(32, 355);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(222, 20);
             this.label14.TabIndex = 5;
@@ -527,7 +535,7 @@ namespace Diseño.Vista
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Transparent;
-            this.label13.Location = new System.Drawing.Point(32, 266);
+            this.label13.Location = new System.Drawing.Point(32, 307);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(214, 20);
             this.label13.TabIndex = 4;
@@ -605,6 +613,42 @@ namespace Diseño.Vista
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // txtDiaBici
+            // 
+            this.txtDiaBici.Location = new System.Drawing.Point(457, 247);
+            this.txtDiaBici.Name = "txtDiaBici";
+            this.txtDiaBici.Size = new System.Drawing.Size(150, 26);
+            this.txtDiaBici.TabIndex = 51;
+            // 
+            // txtDiaMoto
+            // 
+            this.txtDiaMoto.Location = new System.Drawing.Point(285, 247);
+            this.txtDiaMoto.Name = "txtDiaMoto";
+            this.txtDiaMoto.Size = new System.Drawing.Size(150, 26);
+            this.txtDiaMoto.TabIndex = 50;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(32, 253);
+            this.label7.Name = "label7";
+            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label7.Size = new System.Drawing.Size(178, 20);
+            this.label7.TabIndex = 49;
+            this.label7.Text = "Dia de Estacionamiento";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Transparent;
+            this.label11.Location = new System.Drawing.Point(99, 447);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(111, 20);
+            this.label11.TabIndex = 52;
+            this.label11.Text = "Cupos Totales";
             // 
             // FrmInforma
             // 
@@ -686,5 +730,9 @@ namespace Diseño.Vista
         private System.Windows.Forms.TextBox txtCupos;
         private System.Windows.Forms.Button btnCanTari;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox txtDiaBici;
+        private System.Windows.Forms.TextBox txtDiaMoto;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
     }
 }

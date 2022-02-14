@@ -10,8 +10,8 @@
         <EntityTypeShape EntityType="parkModel.ingresoVehiculo" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="parkModel.FK__CuentasUsu__idEs__5CD6CB2B" ManuallyRouted="false" />
         <EntityTypeShape EntityType="parkModel.confi" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="parkModel.tari" Width="1.5" PointX="5.375" PointY="4.75" />
         <EntityTypeShape EntityType="parkModel.RegistroCliente" Width="1.5" PointX="2.875" PointY="4.625" />
+        <EntityTypeShape EntityType="parkModel.tari" Width="1.5" PointX="5.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

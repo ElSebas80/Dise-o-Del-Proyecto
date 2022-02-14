@@ -31,8 +31,8 @@ namespace Diseño.BaseD
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
         public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
         public virtual DbSet<confi> confi { get; set; }
-        public virtual DbSet<tari> tari { get; set; }
         public virtual DbSet<RegistroCliente> RegistroCliente { get; set; }
+        public virtual DbSet<tari> tari { get; set; }
     
         public virtual int deshUsuario(Nullable<int> id, Nullable<int> estado)
         {
@@ -303,7 +303,7 @@ namespace Diseño.BaseD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
         }
     
-        public virtual int sp_tarifas(Nullable<System.DateTime> fecha, Nullable<decimal> horaEstacioMoto, Nullable<decimal> semanaEstacioMoto, Nullable<decimal> quincenaEstacioMoto, Nullable<decimal> mensualidadEstacioMoto, Nullable<decimal> horaEstacioBici, Nullable<decimal> semanaEstacioBici, Nullable<decimal> quincenaEstacioBici, Nullable<decimal> mensualidadEstacioBici, Nullable<int> cuposDIsponibles)
+        public virtual int sp_tarifas(Nullable<System.DateTime> fecha, Nullable<decimal> horaEstacioMoto, Nullable<decimal> diaEstacioMoto, Nullable<decimal> semanaEstacioMoto, Nullable<decimal> quincenaEstacioMoto, Nullable<decimal> mensualidadEstacioMoto, Nullable<decimal> horaEstacioBici, Nullable<decimal> diaEstacioBici, Nullable<decimal> semanaEstacioBici, Nullable<decimal> quincenaEstacioBici, Nullable<decimal> mensualidadEstacioBici, Nullable<int> cuposDIsponibles)
         {
             var fechaParameter = fecha.HasValue ?
                 new ObjectParameter("Fecha", fecha) :
@@ -312,6 +312,10 @@ namespace Diseño.BaseD
             var horaEstacioMotoParameter = horaEstacioMoto.HasValue ?
                 new ObjectParameter("HoraEstacioMoto", horaEstacioMoto) :
                 new ObjectParameter("HoraEstacioMoto", typeof(decimal));
+    
+            var diaEstacioMotoParameter = diaEstacioMoto.HasValue ?
+                new ObjectParameter("DiaEstacioMoto", diaEstacioMoto) :
+                new ObjectParameter("DiaEstacioMoto", typeof(decimal));
     
             var semanaEstacioMotoParameter = semanaEstacioMoto.HasValue ?
                 new ObjectParameter("SemanaEstacioMoto", semanaEstacioMoto) :
@@ -329,6 +333,10 @@ namespace Diseño.BaseD
                 new ObjectParameter("HoraEstacioBici", horaEstacioBici) :
                 new ObjectParameter("HoraEstacioBici", typeof(decimal));
     
+            var diaEstacioBiciParameter = diaEstacioBici.HasValue ?
+                new ObjectParameter("DiaEstacioBici", diaEstacioBici) :
+                new ObjectParameter("DiaEstacioBici", typeof(decimal));
+    
             var semanaEstacioBiciParameter = semanaEstacioBici.HasValue ?
                 new ObjectParameter("SemanaEstacioBici", semanaEstacioBici) :
                 new ObjectParameter("SemanaEstacioBici", typeof(decimal));
@@ -345,7 +353,7 @@ namespace Diseño.BaseD
                 new ObjectParameter("CuposDIsponibles", cuposDIsponibles) :
                 new ObjectParameter("CuposDIsponibles", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_tarifas", fechaParameter, horaEstacioMotoParameter, semanaEstacioMotoParameter, quincenaEstacioMotoParameter, mensualidadEstacioMotoParameter, horaEstacioBiciParameter, semanaEstacioBiciParameter, quincenaEstacioBiciParameter, mensualidadEstacioBiciParameter, cuposDIsponiblesParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_tarifas", fechaParameter, horaEstacioMotoParameter, diaEstacioMotoParameter, semanaEstacioMotoParameter, quincenaEstacioMotoParameter, mensualidadEstacioMotoParameter, horaEstacioBiciParameter, diaEstacioBiciParameter, semanaEstacioBiciParameter, quincenaEstacioBiciParameter, mensualidadEstacioBiciParameter, cuposDIsponiblesParameter);
         }
     
         public virtual int sp_upgraddiagrams()
@@ -427,7 +435,7 @@ namespace Diseño.BaseD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Alterconfi", nombreParqueaderoParameter, nitParameter, telefonoParameter, direccionParameter, correoParameter, horarioAtencionParameter);
         }
     
-        public virtual int sp_Altertarifas(Nullable<System.DateTime> fecha, Nullable<decimal> horaEstacioMoto, Nullable<decimal> semanaEstacioMoto, Nullable<decimal> quincenaEstacioMoto, Nullable<decimal> mensualidadEstacioMoto, Nullable<decimal> horaEstacioBici, Nullable<decimal> semanaEstacioBici, Nullable<decimal> quincenaEstacioBici, Nullable<decimal> mensualidadEstacioBici, Nullable<int> cuposDIsponibles)
+        public virtual int sp_Altertarifas(Nullable<System.DateTime> fecha, Nullable<decimal> horaEstacioMoto, Nullable<decimal> diaEstacioMoto, Nullable<decimal> semanaEstacioMoto, Nullable<decimal> quincenaEstacioMoto, Nullable<decimal> mensualidadEstacioMoto, Nullable<decimal> horaEstacioBici, Nullable<decimal> diaEstacioBici, Nullable<decimal> semanaEstacioBici, Nullable<decimal> quincenaEstacioBici, Nullable<decimal> mensualidadEstacioBici, Nullable<int> cuposDIsponibles)
         {
             var fechaParameter = fecha.HasValue ?
                 new ObjectParameter("Fecha", fecha) :
@@ -436,6 +444,10 @@ namespace Diseño.BaseD
             var horaEstacioMotoParameter = horaEstacioMoto.HasValue ?
                 new ObjectParameter("HoraEstacioMoto", horaEstacioMoto) :
                 new ObjectParameter("HoraEstacioMoto", typeof(decimal));
+    
+            var diaEstacioMotoParameter = diaEstacioMoto.HasValue ?
+                new ObjectParameter("DiaEstacioMoto", diaEstacioMoto) :
+                new ObjectParameter("DiaEstacioMoto", typeof(decimal));
     
             var semanaEstacioMotoParameter = semanaEstacioMoto.HasValue ?
                 new ObjectParameter("SemanaEstacioMoto", semanaEstacioMoto) :
@@ -453,6 +465,10 @@ namespace Diseño.BaseD
                 new ObjectParameter("HoraEstacioBici", horaEstacioBici) :
                 new ObjectParameter("HoraEstacioBici", typeof(decimal));
     
+            var diaEstacioBiciParameter = diaEstacioBici.HasValue ?
+                new ObjectParameter("DiaEstacioBici", diaEstacioBici) :
+                new ObjectParameter("DiaEstacioBici", typeof(decimal));
+    
             var semanaEstacioBiciParameter = semanaEstacioBici.HasValue ?
                 new ObjectParameter("SemanaEstacioBici", semanaEstacioBici) :
                 new ObjectParameter("SemanaEstacioBici", typeof(decimal));
@@ -469,7 +485,7 @@ namespace Diseño.BaseD
                 new ObjectParameter("CuposDIsponibles", cuposDIsponibles) :
                 new ObjectParameter("CuposDIsponibles", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Altertarifas", fechaParameter, horaEstacioMotoParameter, semanaEstacioMotoParameter, quincenaEstacioMotoParameter, mensualidadEstacioMotoParameter, horaEstacioBiciParameter, semanaEstacioBiciParameter, quincenaEstacioBiciParameter, mensualidadEstacioBiciParameter, cuposDIsponiblesParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Altertarifas", fechaParameter, horaEstacioMotoParameter, diaEstacioMotoParameter, semanaEstacioMotoParameter, quincenaEstacioMotoParameter, mensualidadEstacioMotoParameter, horaEstacioBiciParameter, diaEstacioBiciParameter, semanaEstacioBiciParameter, quincenaEstacioBiciParameter, mensualidadEstacioBiciParameter, cuposDIsponiblesParameter);
         }
     
         public virtual int Sp_DesconCant(Nullable<int> codc, Nullable<int> cupo)

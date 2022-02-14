@@ -17,10 +17,12 @@ namespace Diseño.BaseD
         public int Id { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
         public Nullable<decimal> HoraEstacioMoto { get; set; }
+        public Nullable<decimal> DiaEstacioMoto { get; set; }
         public Nullable<decimal> SemanaEstacioMoto { get; set; }
         public Nullable<decimal> QuincenaEstacioMoto { get; set; }
         public Nullable<decimal> MensualidadEstacioMoto { get; set; }
         public Nullable<decimal> HoraEstacioBici { get; set; }
+        public Nullable<decimal> DiaEstacioBici { get; set; }
         public Nullable<decimal> SemanaEstacioBici { get; set; }
         public Nullable<decimal> QuincenaEstacioBici { get; set; }
         public Nullable<decimal> MensualidadEstacioBici { get; set; }

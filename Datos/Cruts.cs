@@ -98,18 +98,18 @@ namespace Diseño.Datos
                 return reg;
             }
         }
-        public void GuardarInfoTarifas(DateTime fecha, Decimal hormt, Decimal semmt, Decimal quinmt, Decimal mensrmt, Decimal horbc, Decimal sembc, Decimal quinbc, Decimal mensbc, int cupos)
+        public void GuardarInfoTarifas(DateTime fecha, Decimal hormt, Decimal diamt, Decimal semmt, Decimal quinmt, Decimal mensrmt, Decimal horbc, Decimal diabc, Decimal sembc, Decimal quinbc, Decimal mensbc, int cupos)
         {
             using (parkEntities bd = new parkEntities())
             {
-                bd.sp_tarifas(fecha, hormt, semmt, quinmt, mensrmt, horbc, sembc, quinbc, mensbc, cupos);
+                bd.sp_tarifas(fecha, hormt, diamt, semmt, quinmt, mensrmt, horbc, diabc, sembc, quinbc, mensbc, cupos);
             }
         }
-        public void AlterarInfoTarifas(DateTime fecha, Decimal hormt, Decimal semmt, Decimal quinmt, Decimal mensrmt, Decimal horbc, Decimal sembc, Decimal quinbc, Decimal mensbc, int cupos)
+        public void AlterarInfoTarifas(DateTime fecha, Decimal hormt, Decimal diamt, Decimal semmt, Decimal quinmt, Decimal mensrmt, Decimal horbc, Decimal diabc, Decimal sembc, Decimal quinbc, Decimal mensbc, int cupos)
         {
             using (parkEntities bd = new parkEntities())
             {
-                bd.sp_Altertarifas(fecha, hormt, semmt, quinmt, mensrmt, horbc, sembc, quinbc, mensbc, cupos);
+                bd.sp_Altertarifas(fecha, hormt, diamt, semmt, quinmt, mensrmt, horbc, diabc, sembc, quinbc, mensbc, cupos);
             }
         }
         public void RegistrarVehvls(string tipoVh, string placa, string numcs, int cuposD, DateTime fecha, TimeSpan hora)

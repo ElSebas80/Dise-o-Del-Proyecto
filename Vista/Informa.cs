@@ -128,10 +128,12 @@ namespace Diseño.Vista
             if (x != null)
             {
                 txtHrM.Text = x.HoraEstacioMoto.ToString();
+                txtDiaMoto.Text = x.DiaEstacioMoto.ToString();
                 txtSmM.Text = x.SemanaEstacioMoto.ToString();
                 txtQnM.Text = x.QuincenaEstacioMoto.ToString();
                 txtMsM.Text = x.MensualidadEstacioMoto.ToString();
                 txtHrB.Text = x.HoraEstacioBici.ToString();
+                txtDiaBici.Text = x.DiaEstacioBici.ToString(); 
                 txtSmB.Text = x.SemanaEstacioBici.ToString();
                 txtQnB.Text = x.QuincenaEstacioBici.ToString();
                 txtMsB.Text = x.MensualidadEstacioBici.ToString();
@@ -185,13 +187,13 @@ namespace Diseño.Vista
         Cruts s = new Cruts();
         private void infoTarifas()
         {
-            s.GuardarInfoTarifas(DateTime.Parse(lblFecha.Text), decimal.Parse(txtHrM.Text), decimal.Parse(txtSmM.Text), decimal.Parse(txtQnM.Text),
-                decimal.Parse(txtMsM.Text), decimal.Parse(txtHrB.Text), decimal.Parse(txtSmB.Text), decimal.Parse(txtQnB.Text), decimal.Parse(txtMsB.Text), int.Parse(txtCupos.Text));
+            s.GuardarInfoTarifas(DateTime.Parse(lblFecha.Text), decimal.Parse(txtHrM.Text), decimal.Parse(txtDiaMoto.Text), decimal.Parse(txtSmM.Text), decimal.Parse(txtQnM.Text),
+                decimal.Parse(txtMsM.Text), decimal.Parse(txtHrB.Text), decimal.Parse(txtDiaBici.Text), decimal.Parse(txtSmB.Text), decimal.Parse(txtQnB.Text), decimal.Parse(txtMsB.Text), int.Parse(txtCupos.Text));
         }
         private void AlterinfoTarifas()
         {
-            s.AlterarInfoTarifas(DateTime.Parse(lblFecha.Text), decimal.Parse(txtHrM.Text), decimal.Parse(txtSmM.Text), decimal.Parse(txtQnM.Text),
-                decimal.Parse(txtMsM.Text), decimal.Parse(txtHrB.Text), decimal.Parse(txtSmB.Text), decimal.Parse(txtQnB.Text), decimal.Parse(txtMsB.Text), int.Parse(txtCupos.Text));
+            s.AlterarInfoTarifas(DateTime.Parse(lblFecha.Text), decimal.Parse(txtHrM.Text), decimal.Parse(txtDiaMoto.Text), decimal.Parse(txtSmM.Text), decimal.Parse(txtQnM.Text),
+                decimal.Parse(txtMsM.Text), decimal.Parse(txtHrB.Text), decimal.Parse(txtDiaBici.Text), decimal.Parse(txtSmB.Text), decimal.Parse(txtQnB.Text), decimal.Parse(txtMsB.Text), int.Parse(txtCupos.Text));
         }
         private void btnModiTari_Click(object sender, EventArgs e)
         {

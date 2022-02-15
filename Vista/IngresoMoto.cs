@@ -337,58 +337,44 @@ namespace Diseño.Vista
             string date = Convert.ToString(RESF);
        
             // MessageBox.Show(RESF.ToString("dd ")+"\n"+ RESH.ToString());
-            if (TimeSpan.Parse(time).Minutes <= 4 && TimeSpan.Parse(date).Days <= 0)
-            {
-                txtvalpago.Text = "0";
-            }
-            else if (TimeSpan.Parse(time).Minutes > 4 && TimeSpan.Parse(time).Minutes <= 15 && TimeSpan.Parse(date).Days >= 0)
+            if (TimeSpan.Parse(time).Minutes > 0 && TimeSpan.Parse(time).Minutes <= 15 && TimeSpan.Parse(date).Days <= 0)
             {
                 hg = hm * 0.25;
                 txtvalpago.Text = Convert.ToString(hg);
             }
-            else if (TimeSpan.Parse(time).Minutes > 15 && TimeSpan.Parse(time).Minutes <= 30 && TimeSpan.Parse(date).Days >= 0)
+            else if (TimeSpan.Parse(time).Minutes > 15 && TimeSpan.Parse(time).Minutes <= 30 && TimeSpan.Parse(date).Days <= 0)
             {
                 hg = (hm * 0.50);
                 txtvalpago.Text = Convert.ToString(hg);
             }
-            else if (TimeSpan.Parse(time).Minutes > 30 && TimeSpan.Parse(time).Minutes <= 45 && TimeSpan.Parse(date).Days >= 0)
+            else if (TimeSpan.Parse(time).Minutes > 30 && TimeSpan.Parse(time).Minutes <= 45 && TimeSpan.Parse(date).Days <= 0)
             {
                 hg = (hm * 0.75);
                 txtvalpago.Text = Convert.ToString(hg);
             }
-            else if (TimeSpan.Parse(time).Minutes > 45 && TimeSpan.Parse(time).Minutes <= 60 && TimeSpan.Parse(date).Days >= 0)
+            else if (TimeSpan.Parse(time).Minutes > 45 && TimeSpan.Parse(time).Minutes <= 60 && TimeSpan.Parse(date).Days <= 0)
             {
                 hg = (hm);
                 txtvalpago.Text = Convert.ToString(hg);
             }
-            else if (TimeSpan.Parse(time).Minutes > 60 && TimeSpan.Parse(time).Minutes <= 70 && TimeSpan.Parse(date).Days >= 0)
-            {
-                txtvalpago.Text = Convert.ToString(hm + (hm * 0.20));
-            }
-
-        }
-        private void calcuHoras()
-        {
-            TimeSpan Hentrada = TimeSpan.Parse(txtheinsal.Text);
-            TimeSpan Hsalida = TimeSpan.Parse(txthrsali.Text);
-            DateTime fentrada = DateTime.Parse(txtfeinsal.Text);
-            DateTime fsalida = DateTime.Parse(txtfcsali.Text);
-            var RESH = Hsalida - Hentrada;
-            var RESF = fsalida - fentrada;
-            string time = Convert.ToString(RESH);
-            string date = Convert.ToString(RESF);
-            if (TimeSpan.Parse(time).Hours > 1 && TimeSpan.Parse(time).Hours <= 24 && TimeSpan.Parse(date).Days >= 0)
+            else if (TimeSpan.Parse(time).Hours > 1 && TimeSpan.Parse(time).Hours <= 24 && TimeSpan.Parse(date).Days < 1)
             {
                 hsg = (hm * (TimeSpan.Parse(time).Hours));
                 txtvalpago.Text = Convert.ToString(hsg);
                 //txtvalpago.Text = time = DateTime.Now.ToString("HH:mm:ss"); hace la opecion con el tiempo actual 
             }
+            else if (TimeSpan.Parse(date).Days >= 1 && TimeSpan.Parse(date).Days <= 7)
+            {
+                hsg = hg+(dm * (TimeSpan.Parse(date).Days));
+                txtvalpago.Text = Convert.ToString(hsg);
+            }
         }
+        
             parkEntities myReader = new parkEntities();
         private void button6_Click(object sender, EventArgs e)
         {
-            calcuHora();
-            calcuHoras();
+            //calcuHora();
+            button6.Visible = false;
         }
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
@@ -565,6 +551,85 @@ namespace Diseño.Vista
             valid.SoloNumeros(e);
         }
         int bandera, idUser;
+        double pg;
+        private void txtefect_TextChanged(object sender, EventArgs e)
+        {
+            if (txtefect.Text != "")
+            {
+                
+                pg = double.Parse(txtvalpago.Text);
+                txtcambefect.Text = (double.Parse(txtefect.Text) - pg).ToString();
+            }
+            else
+            {
+                txtefect.Text = "";
+            }
+        }
+        private void ImprimirAdios(object sender, PrintPageEventArgs e)
+        {
+            foreach (var fato in db.MostrarPlac())
+            {
+                numTk = fato.NumTicket;
+                //= db.MostrarPlac();//buscar la plca mediante el primary key
+
+            }
+            //if (btnIngresar == )
+            //{
+            // Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
+            e.Graphics.DrawString("Parqueadero ", new Font("Arial", 30), Brushes.Black, 65, 10);//(x,y)x se mueve en horizontal. y en vertical
+            e.Graphics.DrawString(nom, new Font("Arial", 30), Brushes.Black, 55, 50);
+            e.Graphics.DrawString("No. Ticket: ", new Font("Arial", 30), Brushes.Black, 550, 10);
+            e.Graphics.DrawString("" + numTk, new Font("Arial", 30), Brushes.Black, 610, 50);
+            e.Graphics.DrawString("Nit: " + nit, new Font("Arial", 30), Brushes.Black, 285, 95);
+            e.Graphics.DrawString("Regimen Simplificado", new Font("Arial", 30), Brushes.Black, 200, 130);
+            e.Graphics.DrawString("Dirección: " + dir, new Font("Arial", 30), Brushes.Black, 190, 165);
+            e.Graphics.DrawString("WhatsApp: " + tel, new Font("Arial", 30), Brushes.Black, 205, 200);
+            e.Graphics.DrawString("Numero de la placa: " + PlacaCopi, new Font("Arial", 40), Brushes.Black, 0, 235);
+            e.Graphics.DrawString("Tipo de vehículo: " + tipoVeh, new Font("Arial", 30), Brushes.Black, 0, 290);
+            e.Graphics.DrawString("Numero de cascos: " + CascosCopi, new Font("Arial", 30), Brushes.Black, 0, 325);
+            e.Graphics.DrawString("Fecha de ingreso: " + fecPlacaCopi, new Font("Arial", 30), Brushes.Black, 0, 360);
+            e.Graphics.DrawString("Hora de ingreso: " + HoraPlacaCopi, new Font("Arial", 30), Brushes.Black, 0, 395);
+            e.Graphics.DrawString("Software: Sw Parking Gold", new Font("Arial", 30), Brushes.DarkGoldenrod, 160, 435);
+            e.Graphics.DrawString("REGLAMENTO", new Font("Arial", 30), Brushes.Red, 240, 470);
+            e.Graphics.DrawString("El Vehículo se entregará al portador del recibo. \n" +
+                "No aceptamos órdenes telefónicas, Retirado el \nautomotor " +
+                "no se aceptan reclamos de ningún tipo.", new Font("Arial", 25), Brushes.Black, 10, 505);
+            e.Graphics.DrawString("ACTUAR CON MAS \nRESPONSABILIDAD", new Font("Arial", 30), Brushes.Red, 170, 620);
+        }
+        private void impAdios()
+        {
+            //printDialog1.ShowDialog();
+            printDocument1 = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            printDocument1.PrinterSettings = ps;
+            printDocument1.PrintPage += ImprimirAdios;
+            printPreviewControl1.Document = printDocument1;
+
+        }
+        private void btnimpriAdios_Click(object sender, EventArgs e)
+        {
+            impAdios();
+            button6.Visible = true;
+        }
+
+        private void txtefect_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtefect_Enter(object sender, EventArgs e)
+        {
+        }
+
+        private void txtheinsal_TextChanged(object sender, EventArgs e)
+        {
+            calcuHora();
+        }
+
+        private void txtefect_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            valid.SoloNumeros(e);
+        }
 
         private void btnGenTick_CheckedChanged(object sender, EventArgs e){        }
 
@@ -633,10 +698,6 @@ namespace Diseño.Vista
         int fin;
         string[] fecha = new string[3];
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
          string plc, fechin, hor;
         private void comb()

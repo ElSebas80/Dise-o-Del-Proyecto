@@ -96,7 +96,7 @@ namespace Diseño.Vista
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.cmbplaca = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnimpriAdios = new System.Windows.Forms.Button();
             this.printPreviewControl1 = new System.Windows.Forms.PrintPreviewControl();
             this.button6 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
@@ -971,7 +971,7 @@ namespace Diseño.Vista
             // 
             this.tabPage4.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
             this.tabPage4.Controls.Add(this.cmbplaca);
-            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.btnimpriAdios);
             this.tabPage4.Controls.Add(this.printPreviewControl1);
             this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.label32);
@@ -1010,15 +1010,15 @@ namespace Diseño.Vista
             this.cmbplaca.SelectedIndexChanged += new System.EventHandler(this.cmbplaca_SelectedIndexChanged);
             this.cmbplaca.SelectedValueChanged += new System.EventHandler(this.cmbplaca_SelectedValueChanged);
             // 
-            // button1
+            // btnimpriAdios
             // 
-            this.button1.Location = new System.Drawing.Point(301, 508);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 23);
-            this.button1.TabIndex = 83;
-            this.button1.Text = "Imprimir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnimpriAdios.Location = new System.Drawing.Point(301, 508);
+            this.btnimpriAdios.Name = "btnimpriAdios";
+            this.btnimpriAdios.Size = new System.Drawing.Size(102, 23);
+            this.btnimpriAdios.TabIndex = 83;
+            this.btnimpriAdios.Text = "Imprimir";
+            this.btnimpriAdios.UseVisualStyleBackColor = true;
+            this.btnimpriAdios.Click += new System.EventHandler(this.btnimpriAdios_Click);
             // 
             // printPreviewControl1
             // 
@@ -1053,6 +1053,7 @@ namespace Diseño.Vista
             // 
             this.txtcambefect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcambefect.Enabled = false;
             this.txtcambefect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcambefect.HideSelection = false;
             this.txtcambefect.Location = new System.Drawing.Point(171, 414);
@@ -1070,7 +1071,7 @@ namespace Diseño.Vista
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(156, 22);
             this.label31.TabIndex = 78;
-            this.label31.Text = "Recibo";
+            this.label31.Text = "Efectivo";
             // 
             // txtefect
             // 
@@ -1083,6 +1084,10 @@ namespace Diseño.Vista
             this.txtefect.Size = new System.Drawing.Size(159, 26);
             this.txtefect.TabIndex = 77;
             this.txtefect.WordWrap = false;
+            this.txtefect.TextChanged += new System.EventHandler(this.txtefect_TextChanged);
+            this.txtefect.Enter += new System.EventHandler(this.txtefect_Enter);
+            this.txtefect.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtefect_KeyPress);
+            this.txtefect.Leave += new System.EventHandler(this.txtefect_Leave);
             // 
             // label30
             // 
@@ -1179,6 +1184,7 @@ namespace Diseño.Vista
             this.txtheinsal.Size = new System.Drawing.Size(159, 26);
             this.txtheinsal.TabIndex = 69;
             this.txtheinsal.WordWrap = false;
+            this.txtheinsal.TextChanged += new System.EventHandler(this.txtheinsal_TextChanged);
             // 
             // label26
             // 
@@ -1371,7 +1377,7 @@ namespace Diseño.Vista
         private System.Windows.Forms.Label msmErPCli;
         private System.Windows.Forms.Label lblFeFin;
         private System.Windows.Forms.PrintDialog printDialog1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnimpriAdios;
         private System.Windows.Forms.Button btnImpIn;
         private System.Windows.Forms.PrintPreviewControl printPreviewControl2;
         private System.Windows.Forms.PrintPreviewControl printPreviewControl3;

@@ -12,14 +12,12 @@ namespace Diseño.BaseD
     using System;
     using System.Collections.Generic;
     
-    public partial class confi
+    public partial class sysdiagrams
     {
-        public int Id { get; set; }
-        public string NombreParqueadero { get; set; }
-        public string Nit { get; set; }
-        public string Telefono { get; set; }
-        public string Direccion { get; set; }
-        public string Correo { get; set; }
-        public string HorarioAtencion { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

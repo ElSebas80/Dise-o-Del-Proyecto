@@ -94,12 +94,12 @@ namespace Diseño.Vista
         private void info()
         {
             s.GuardarInfo(txtNom.Text, txtNit.Text,
-                int.Parse(txtTel.Text), txtDir.Text, txtCorreo.Text, txtHorATenc.Text);
+                txtTel.Text, txtDir.Text, txtCorreo.Text, txtHorATenc.Text);
         }
         private void ALterinfo()
         {
             s.AlterarInfo(txtNom.Text, txtNit.Text,
-                int.Parse(txtTel.Text), txtDir.Text, txtCorreo.Text, txtHorATenc.Text);
+                txtTel.Text, txtDir.Text, txtCorreo.Text, txtHorATenc.Text);
         }
         int id =1;
         private void buscaid()

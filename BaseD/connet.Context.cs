@@ -30,9 +30,12 @@ namespace Diseño.BaseD
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
         public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
-        public virtual DbSet<confi> confi { get; set; }
         public virtual DbSet<RegistroCliente> RegistroCliente { get; set; }
         public virtual DbSet<tari> tari { get; set; }
+        public virtual DbSet<confi> confi { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<tipoUsuario> tipoUsuario { get; set; }
+        public virtual DbSet<SAlidaVehiculos> SAlidaVehiculos { get; set; }
     
         public virtual int deshUsuario(Nullable<int> id, Nullable<int> estado)
         {
@@ -68,7 +71,7 @@ namespace Diseño.BaseD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
         }
     
-        public virtual int sp_configuracion(string nombreParqueadero, string nit, Nullable<int> telefono, string direccion, string correo, string horarioAtencion)
+        public virtual int sp_configuracion(string nombreParqueadero, string nit, string telefono, string direccion, string correo, string horarioAtencion)
         {
             var nombreParqueaderoParameter = nombreParqueadero != null ?
                 new ObjectParameter("NombreParqueadero", nombreParqueadero) :
@@ -78,9 +81,9 @@ namespace Diseño.BaseD
                 new ObjectParameter("Nit", nit) :
                 new ObjectParameter("Nit", typeof(string));
     
-            var telefonoParameter = telefono.HasValue ?
+            var telefonoParameter = telefono != null ?
                 new ObjectParameter("Telefono", telefono) :
-                new ObjectParameter("Telefono", typeof(int));
+                new ObjectParameter("Telefono", typeof(string));
     
             var direccionParameter = direccion != null ?
                 new ObjectParameter("Direccion", direccion) :
@@ -406,7 +409,7 @@ namespace Diseño.BaseD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RegistroCliente", nombreParameter, cedulaParameter, telefonoParameter, placaParameter, tipoVhloParameter, mensualidadParameter, valorPagarParameter, fechaIniParameter, fechaFinParameter, horaParameter);
         }
     
-        public virtual int sp_Alterconfi(string nombreParqueadero, string nit, Nullable<int> telefono, string direccion, string correo, string horarioAtencion)
+        public virtual int sp_Alterconfi(string nombreParqueadero, string nit, string telefono, string direccion, string correo, string horarioAtencion)
         {
             var nombreParqueaderoParameter = nombreParqueadero != null ?
                 new ObjectParameter("NombreParqueadero", nombreParqueadero) :
@@ -416,9 +419,9 @@ namespace Diseño.BaseD
                 new ObjectParameter("Nit", nit) :
                 new ObjectParameter("Nit", typeof(string));
     
-            var telefonoParameter = telefono.HasValue ?
+            var telefonoParameter = telefono != null ?
                 new ObjectParameter("Telefono", telefono) :
-                new ObjectParameter("Telefono", typeof(int));
+                new ObjectParameter("Telefono", typeof(string));
     
             var direccionParameter = direccion != null ?
                 new ObjectParameter("Direccion", direccion) :
@@ -499,6 +502,60 @@ namespace Diseño.BaseD
                 new ObjectParameter("Cupo", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_DesconCant", codcParameter, cupoParameter);
+        }
+    
+        public virtual int Sp_Eliminar_VehIngre(string placa)
+        {
+            var placaParameter = placa != null ?
+                new ObjectParameter("Placa", placa) :
+                new ObjectParameter("Placa", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_Eliminar_VehIngre", placaParameter);
+        }
+    
+        public virtual int Sp_SalidaVehiculos(string tipoVhlo, string placa, string numCascos, Nullable<System.DateTime> fechaIngreso, Nullable<System.TimeSpan> horaIngreso, Nullable<System.DateTime> fechaSalida, Nullable<System.TimeSpan> horaSalida, Nullable<decimal> pago, Nullable<decimal> efectivo, Nullable<decimal> cambio)
+        {
+            var tipoVhloParameter = tipoVhlo != null ?
+                new ObjectParameter("tipoVhlo", tipoVhlo) :
+                new ObjectParameter("tipoVhlo", typeof(string));
+    
+            var placaParameter = placa != null ?
+                new ObjectParameter("Placa", placa) :
+                new ObjectParameter("Placa", typeof(string));
+    
+            var numCascosParameter = numCascos != null ?
+                new ObjectParameter("NumCascos", numCascos) :
+                new ObjectParameter("NumCascos", typeof(string));
+    
+            var fechaIngresoParameter = fechaIngreso.HasValue ?
+                new ObjectParameter("FechaIngreso", fechaIngreso) :
+                new ObjectParameter("FechaIngreso", typeof(System.DateTime));
+    
+            var horaIngresoParameter = horaIngreso.HasValue ?
+                new ObjectParameter("HoraIngreso", horaIngreso) :
+                new ObjectParameter("HoraIngreso", typeof(System.TimeSpan));
+    
+            var fechaSalidaParameter = fechaSalida.HasValue ?
+                new ObjectParameter("FechaSalida", fechaSalida) :
+                new ObjectParameter("FechaSalida", typeof(System.DateTime));
+    
+            var horaSalidaParameter = horaSalida.HasValue ?
+                new ObjectParameter("HoraSalida", horaSalida) :
+                new ObjectParameter("HoraSalida", typeof(System.TimeSpan));
+    
+            var pagoParameter = pago.HasValue ?
+                new ObjectParameter("Pago", pago) :
+                new ObjectParameter("Pago", typeof(decimal));
+    
+            var efectivoParameter = efectivo.HasValue ?
+                new ObjectParameter("Efectivo", efectivo) :
+                new ObjectParameter("Efectivo", typeof(decimal));
+    
+            var cambioParameter = cambio.HasValue ?
+                new ObjectParameter("Cambio", cambio) :
+                new ObjectParameter("Cambio", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_SalidaVehiculos", tipoVhloParameter, placaParameter, numCascosParameter, fechaIngresoParameter, horaIngresoParameter, fechaSalidaParameter, horaSalidaParameter, pagoParameter, efectivoParameter, cambioParameter);
         }
     }
 }

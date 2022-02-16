@@ -327,57 +327,68 @@ namespace Diseño.Vista
                 mb = double.Parse(x.MensualidadEstacioBici.ToString());
 
             }
-            TimeSpan Hentrada = TimeSpan.Parse(txtheinsal.Text);
-            TimeSpan Hsalida = TimeSpan.Parse(txthrsali.Text);
-            DateTime fentrada = DateTime.Parse(txtfeinsal.Text);
-            DateTime fsalida = DateTime.Parse(txtfcsali.Text);
-            var RESH = Hsalida - Hentrada;
-            var RESF = fsalida - fentrada;
-            string time = Convert.ToString(RESH);
-            string date = Convert.ToString(RESF);
-       
-            // MessageBox.Show(RESF.ToString("dd ")+"\n"+ RESH.ToString());
-            if (TimeSpan.Parse(time).Minutes > 0 && TimeSpan.Parse(time).Minutes <= 15 && TimeSpan.Parse(date).Days <= 0)
+            if (txtheinsal.Text != "" && txthrsali.Text != "")
             {
-                hg = hm * 0.25;
-                txtvalpago.Text = Convert.ToString(hg);
+                TimeSpan Hentrada = TimeSpan.Parse(txtheinsal.Text);
+                TimeSpan Hsalida = TimeSpan.Parse(txthrsali.Text);
+                DateTime fentrada = DateTime.Parse(txtfeinsal.Text);
+                DateTime fsalida = DateTime.Parse(txtfcsali.Text);
+                var RESH = Hsalida - Hentrada;
+                var RESF = fsalida - fentrada;
+                string time = Convert.ToString(RESH);
+                string date = Convert.ToString(RESF);
+
+                // MessageBox.Show(RESF.ToString("dd ")+"\n"+ RESH.ToString());
+                if (TimeSpan.Parse(time).Minutes >= 0 && TimeSpan.Parse(time).Minutes <= 15 && TimeSpan.Parse(date).Days <= 0)
+                {
+                    hg = hm * 0.25;
+                    txtvalpago.Text = Convert.ToString(hg);
+                }
+                else if (TimeSpan.Parse(time).Minutes > 15 && TimeSpan.Parse(time).Minutes <= 30 && TimeSpan.Parse(date).Days <= 0)
+                {
+                    hg = (hm * 0.50);
+                    txtvalpago.Text = Convert.ToString(hg);
+                }
+                else if (TimeSpan.Parse(time).Minutes > 30 && TimeSpan.Parse(time).Minutes <= 45 && TimeSpan.Parse(date).Days <= 0)
+                {
+                    hg = (hm * 0.75);
+                    txtvalpago.Text = Convert.ToString(hg);
+                }
+                else if (TimeSpan.Parse(time).Minutes > 45 && TimeSpan.Parse(time).Minutes <= 60 && TimeSpan.Parse(date).Days <= 0)
+                {
+                    hg = (hm);
+                    txtvalpago.Text = Convert.ToString(hg);
+                }
+                else if (TimeSpan.Parse(time).Hours > 1 && TimeSpan.Parse(time).Hours <= 24 && TimeSpan.Parse(date).Days < 1)
+                {
+                    hsg = (hm * (TimeSpan.Parse(time).Hours));
+                    txtvalpago.Text = Convert.ToString(hsg);
+                    //txtvalpago.Text = time = DateTime.Now.ToString("HH:mm:ss"); hace la opecion con el tiempo actual 
+                }
+                else if (TimeSpan.Parse(date).Days >= 1 && TimeSpan.Parse(date).Days <= 7)
+                {
+                    hsg = hg + (dm * (TimeSpan.Parse(date).Days));
+                    txtvalpago.Text = Convert.ToString(hsg);
+                }
             }
-            else if (TimeSpan.Parse(time).Minutes > 15 && TimeSpan.Parse(time).Minutes <= 30 && TimeSpan.Parse(date).Days <= 0)
-            {
-                hg = (hm * 0.50);
-                txtvalpago.Text = Convert.ToString(hg);
-            }
-            else if (TimeSpan.Parse(time).Minutes > 30 && TimeSpan.Parse(time).Minutes <= 45 && TimeSpan.Parse(date).Days <= 0)
-            {
-                hg = (hm * 0.75);
-                txtvalpago.Text = Convert.ToString(hg);
-            }
-            else if (TimeSpan.Parse(time).Minutes > 45 && TimeSpan.Parse(time).Minutes <= 60 && TimeSpan.Parse(date).Days <= 0)
-            {
-                hg = (hm);
-                txtvalpago.Text = Convert.ToString(hg);
-            }
-            else if (TimeSpan.Parse(time).Hours > 1 && TimeSpan.Parse(time).Hours <= 24 && TimeSpan.Parse(date).Days < 1)
-            {
-                hsg = (hm * (TimeSpan.Parse(time).Hours));
-                txtvalpago.Text = Convert.ToString(hsg);
-                //txtvalpago.Text = time = DateTime.Now.ToString("HH:mm:ss"); hace la opecion con el tiempo actual 
-            }
-            else if (TimeSpan.Parse(date).Days >= 1 && TimeSpan.Parse(date).Days <= 7)
-            {
-                hsg = hg+(dm * (TimeSpan.Parse(date).Days));
-                txtvalpago.Text = Convert.ToString(hsg);
-            }
+            
         }
-        
-            parkEntities myReader = new parkEntities();
+       
+           
         private void button6_Click(object sender, EventArgs e)
         {
+            if (txtefect.Text != "")
+            {
             impAdios();
+            SalidaVehiculos();
             printPreviewControl1.Visible = true;
             //calcuHora();
             button6.Visible = false;
             btnimpriAdios.Visible = true;
+            db.ActualizarCanti(va, -1);
+            db.EliminarDtProductos(cmbplaca.Text);
+            }
+            else { MessageBox.Show("Llenar la caja de texto vacia por favor"); }
         }
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
@@ -595,6 +606,12 @@ namespace Diseño.Vista
             e.Graphics.DrawString("Gracias vuelva pronto", new Font("Arial", 30), Brushes.Red, 180, 640);
 
         }
+        private void SalidaVehiculos()
+        {
+            db.GuardSali(tipoVehsal, Placasal, Cascossal, DateTime.Parse(txtfeinsal.Text), 
+                TimeSpan.Parse(txtheinsal.Text), DateTime.Parse(txtfcsali.Text), TimeSpan.Parse(txthrsali.Text),  
+                decimal.Parse(txtvalpago.Text), decimal.Parse(txtefect.Text), decimal.Parse(txtcambefect.Text));
+        }
         private void impAdios()
         {
             //printDialog1.ShowDialog();
@@ -611,6 +628,12 @@ namespace Diseño.Vista
             button6.Visible = true;
             btnimpriAdios.Visible = false;
             printPreviewControl1.Visible = false;
+            comb();
+            txtvalpago.Clear();
+            txtefect.Clear();
+            txtcambefect.Clear();
+            txtheinsal.Clear();
+            txtfeinsal.Clear();
         }
 
         private void txtefect_Leave(object sender, EventArgs e)

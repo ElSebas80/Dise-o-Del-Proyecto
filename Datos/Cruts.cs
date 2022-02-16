@@ -34,9 +34,9 @@ namespace Diseño.Datos
             using (parkEntities db = new parkEntities())
             {
                 var reg = db.CuentasUsuario.Where(x => x.Cedula == Cc).ToList();
-                
-                    return reg;
-                
+
+                return reg;
+
             }
         }
         public List<CuentasUsuario> MostrarUser(string Long)
@@ -64,18 +64,18 @@ namespace Diseño.Datos
             {
                 var Preciou = (from prod in db.CuentasUsuario
                                join Est in db.Estado on prod.idEs equals Est.id
-                              select new {prod.id,prod.Nombre,prod.Cedula,prod.Direccion,prod.email,prod.LoginN,prod.idTp,Estado = Est.nombre}).ToList();
+                               select new { prod.id, prod.Nombre, prod.Cedula, prod.Direccion, prod.email, prod.LoginN, prod.idTp, Estado = Est.nombre }).ToList();
                 return Preciou;
             }
         }
-        public void GuardarInfo(string nombre, string nit, int tele, string direc, string correo, string horar)
+        public void GuardarInfo(string nombre, string nit, string tele, string direc, string correo, string horar)
         {
             using (parkEntities bd = new parkEntities())
             {
                 bd.sp_configuracion(nombre, nit, tele, direc, correo, horar);
             }
         }
-        public void AlterarInfo(string nombre, string nit, int tele, string direc, string correo, string horar)
+        public void AlterarInfo(string nombre, string nit, string tele, string direc, string correo, string horar)
         {
             using (parkEntities bd = new parkEntities())
             {
@@ -119,7 +119,7 @@ namespace Diseño.Datos
                 bd.sp_ingresoVehiculo(tipoVh, placa, numcs, cuposD, fecha, hora);
             }
         }
-        public void RegistrarClientes(string nombre, int Cedula, int telefon, string placa, string tipoVhlo,string mensualidad, Decimal valor, DateTime fechaini, DateTime fechafin, TimeSpan hora)
+        public void RegistrarClientes(string nombre, int Cedula, int telefon, string placa, string tipoVhlo, string mensualidad, Decimal valor, DateTime fechaini, DateTime fechafin, TimeSpan hora)
         {
             using (parkEntities bd = new parkEntities())
             {
@@ -154,6 +154,13 @@ namespace Diseño.Datos
                 db.Sp_DesconCant(CodProd, Cant);
             }
         }
+        public void EliminarDtProductos(string Cod)
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                db.Sp_Eliminar_VehIngre(Cod);
+            }
+        }
         public string REtornarFecha(int Cant)
         {
             using (parkEntities db = new parkEntities())
@@ -164,6 +171,13 @@ namespace Diseño.Datos
                 //  var Land = db.productos.Where(x => x.Cantidad == Cant).FirstOrDefault();
 
                 return PreCant.FechaFin.ToString();
+            }
+        }
+        public void GuardSali(string tipoVh, string placa, string numCas, DateTime fingr, TimeSpan hingre, DateTime fsali, TimeSpan hsali, decimal pago, decimal efectivo, decimal cambio)
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                db.Sp_SalidaVehiculos(tipoVh, placa, numCas, fingr, hingre, fsali, hsali, pago, efectivo, cambio);
             }
         }
     }

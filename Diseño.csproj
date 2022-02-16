@@ -86,13 +86,22 @@
     <Compile Include="BaseD\RegistroCliente.cs">
       <DependentUpon>connet.tt</DependentUpon>
     </Compile>
+    <Compile Include="BaseD\SAlidaVehiculos.cs">
+      <DependentUpon>connet.tt</DependentUpon>
+    </Compile>
     <Compile Include="BaseD\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>connet.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseD\sp_helpdiagrams_Result.cs">
       <DependentUpon>connet.tt</DependentUpon>
     </Compile>
+    <Compile Include="BaseD\sysdiagrams.cs">
+      <DependentUpon>connet.tt</DependentUpon>
+    </Compile>
     <Compile Include="BaseD\tari.cs">
+      <DependentUpon>connet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseD\tipoUsuario.cs">
       <DependentUpon>connet.tt</DependentUpon>
     </Compile>
     <Compile Include="Datos\clsDatosUser.cs" />

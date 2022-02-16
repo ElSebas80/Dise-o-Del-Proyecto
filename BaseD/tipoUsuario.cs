@@ -12,14 +12,9 @@ namespace Diseño.BaseD
     using System;
     using System.Collections.Generic;
     
-    public partial class confi
+    public partial class tipoUsuario
     {
-        public int Id { get; set; }
-        public string NombreParqueadero { get; set; }
-        public string Nit { get; set; }
-        public string Telefono { get; set; }
-        public string Direccion { get; set; }
-        public string Correo { get; set; }
-        public string HorarioAtencion { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
     }
 }

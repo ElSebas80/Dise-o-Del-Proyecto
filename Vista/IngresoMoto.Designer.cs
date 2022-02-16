@@ -1018,6 +1018,7 @@ namespace Diseño.Vista
             this.btnimpriAdios.TabIndex = 83;
             this.btnimpriAdios.Text = "Imprimir";
             this.btnimpriAdios.UseVisualStyleBackColor = true;
+            this.btnimpriAdios.Visible = false;
             this.btnimpriAdios.Click += new System.EventHandler(this.btnimpriAdios_Click);
             // 
             // printPreviewControl1

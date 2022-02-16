@@ -199,9 +199,9 @@ namespace Diseño.Vista
             e.Graphics.DrawString("Regimen Simplificado", new Font("Arial", 30), Brushes.Black, 200, 130);
             e.Graphics.DrawString("Dirección: " + dir, new Font("Arial", 30), Brushes.Black, 190, 165);
             e.Graphics.DrawString("WhatsApp: " + tel, new Font("Arial", 30), Brushes.Black, 205, 200);
-            e.Graphics.DrawString("Numero de la placa: " + txtPlaca.Text, new Font("Arial", 40), Brushes.Black, 0, 235);
+            e.Graphics.DrawString("Número de la placa: " + txtPlaca.Text, new Font("Arial", 40), Brushes.Black, 0, 235);
             e.Graphics.DrawString("Tipo de vehículo: " + tVhlO, new Font("Arial", 30), Brushes.Black,0, 290);
-            e.Graphics.DrawString("Numero de cascos: " + txtNCascos.Text, new Font("Arial", 30), Brushes.Black,0, 325);
+            e.Graphics.DrawString("Número de cascos: " + txtNCascos.Text, new Font("Arial", 30), Brushes.Black,0, 325);
             e.Graphics.DrawString("Fecha de ingreso: " + lblFecha.Text, new Font("Arial", 30), Brushes.Black, 0, 360);
             e.Graphics.DrawString("Hora de ingreso: " + lblHora.Text, new Font("Arial", 30), Brushes.Black, 0, 395);
             e.Graphics.DrawString("Software: Sw Parking Gold", new Font("Arial", 30), Brushes.DarkGoldenrod, 160, 435);
@@ -373,8 +373,11 @@ namespace Diseño.Vista
             parkEntities myReader = new parkEntities();
         private void button6_Click(object sender, EventArgs e)
         {
+            impAdios();
+            printPreviewControl1.Visible = true;
             //calcuHora();
             button6.Visible = false;
+            btnimpriAdios.Visible = true;
         }
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
@@ -556,7 +559,6 @@ namespace Diseño.Vista
         {
             if (txtefect.Text != "")
             {
-                
                 pg = double.Parse(txtvalpago.Text);
                 txtcambefect.Text = (double.Parse(txtefect.Text) - pg).ToString();
             }
@@ -565,36 +567,33 @@ namespace Diseño.Vista
                 txtefect.Text = "";
             }
         }
+            
         private void ImprimirAdios(object sender, PrintPageEventArgs e)
         {
-            foreach (var fato in db.MostrarPlac())
-            {
-                numTk = fato.NumTicket;
-                //= db.MostrarPlac();//buscar la plca mediante el primary key
-
-            }
             //if (btnIngresar == )
             //{
             // Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
             e.Graphics.DrawString("Parqueadero ", new Font("Arial", 30), Brushes.Black, 65, 10);//(x,y)x se mueve en horizontal. y en vertical
             e.Graphics.DrawString(nom, new Font("Arial", 30), Brushes.Black, 55, 50);
             e.Graphics.DrawString("No. Ticket: ", new Font("Arial", 30), Brushes.Black, 550, 10);
-            e.Graphics.DrawString("" + numTk, new Font("Arial", 30), Brushes.Black, 610, 50);
+            e.Graphics.DrawString("" + numTksal, new Font("Arial", 30), Brushes.Black, 610, 50);
             e.Graphics.DrawString("Nit: " + nit, new Font("Arial", 30), Brushes.Black, 285, 95);
             e.Graphics.DrawString("Regimen Simplificado", new Font("Arial", 30), Brushes.Black, 200, 130);
             e.Graphics.DrawString("Dirección: " + dir, new Font("Arial", 30), Brushes.Black, 190, 165);
             e.Graphics.DrawString("WhatsApp: " + tel, new Font("Arial", 30), Brushes.Black, 205, 200);
-            e.Graphics.DrawString("Numero de la placa: " + PlacaCopi, new Font("Arial", 40), Brushes.Black, 0, 235);
-            e.Graphics.DrawString("Tipo de vehículo: " + tipoVeh, new Font("Arial", 30), Brushes.Black, 0, 290);
-            e.Graphics.DrawString("Numero de cascos: " + CascosCopi, new Font("Arial", 30), Brushes.Black, 0, 325);
-            e.Graphics.DrawString("Fecha de ingreso: " + fecPlacaCopi, new Font("Arial", 30), Brushes.Black, 0, 360);
-            e.Graphics.DrawString("Hora de ingreso: " + HoraPlacaCopi, new Font("Arial", 30), Brushes.Black, 0, 395);
-            e.Graphics.DrawString("Software: Sw Parking Gold", new Font("Arial", 30), Brushes.DarkGoldenrod, 160, 435);
-            e.Graphics.DrawString("REGLAMENTO", new Font("Arial", 30), Brushes.Red, 240, 470);
-            e.Graphics.DrawString("El Vehículo se entregará al portador del recibo. \n" +
-                "No aceptamos órdenes telefónicas, Retirado el \nautomotor " +
-                "no se aceptan reclamos de ningún tipo.", new Font("Arial", 25), Brushes.Black, 10, 505);
-            e.Graphics.DrawString("ACTUAR CON MAS \nRESPONSABILIDAD", new Font("Arial", 30), Brushes.Red, 170, 620);
+            e.Graphics.DrawString("Número de la placa: " + Placasal, new Font("Arial", 40), Brushes.Black, 0, 235);
+            e.Graphics.DrawString("Tipo de vehículo: " + tipoVehsal, new Font("Arial", 30), Brushes.Black, 0, 290);
+            e.Graphics.DrawString("Número de cascos: " + Cascossal, new Font("Arial", 30), Brushes.Black, 0, 325);
+            e.Graphics.DrawString("Fecha de ingreso: " + txtfeinsal.Text, new Font("Arial", 30), Brushes.Black, 0, 360);
+            e.Graphics.DrawString("Hora de ingreso: " + txtheinsal.Text, new Font("Arial", 30), Brushes.Black, 0, 395);
+            e.Graphics.DrawString("Fecha de salida: " + txtfcsali.Text, new Font("Arial", 30), Brushes.Black, 0, 430);
+            e.Graphics.DrawString("Hora de salida: " + txthrsali.Text, new Font("Arial", 30), Brushes.Black, 0, 465);
+            e.Graphics.DrawString("Valor a pagar: " + txtvalpago.Text, new Font("Arial", 30), Brushes.Black, 0, 500);
+            e.Graphics.DrawString("Efectivo recibido: " + txtefect.Text, new Font("Arial", 30), Brushes.Black, 0, 535);
+            e.Graphics.DrawString("Cambio: " + txtcambefect.Text, new Font("Arial", 30), Brushes.Black, 0, 570);
+            e.Graphics.DrawString("Software: Sw Parking Gold", new Font("Arial", 30), Brushes.DarkGoldenrod, 150, 605);
+            e.Graphics.DrawString("Gracias vuelva pronto", new Font("Arial", 30), Brushes.Red, 180, 640);
+
         }
         private void impAdios()
         {
@@ -608,8 +607,10 @@ namespace Diseño.Vista
         }
         private void btnimpriAdios_Click(object sender, EventArgs e)
         {
-            impAdios();
+            printDocument1.Print();
             button6.Visible = true;
+            btnimpriAdios.Visible = false;
+            printPreviewControl1.Visible = false;
         }
 
         private void txtefect_Leave(object sender, EventArgs e)
@@ -695,11 +696,12 @@ namespace Diseño.Vista
         DateTime final;
 
 
-        int fin;
+        int fin, numTksal;
         string[] fecha = new string[3];
 
 
          string plc, fechin, hor;
+         string Placasal, Cascossal, tipoVehsal;
         private void comb()
         {
 
@@ -707,7 +709,11 @@ namespace Diseño.Vista
             {
                 cmbplaca.DataSource = db.MostrarPlac();//buscar la plca mediante el primary key
                 cmbplaca.DisplayMember = "Placa";
-                cmbplaca.ValueMember = "NumTicket";
+                cmbplaca.ValueMember = "NumTicket"; 
+                numTksal = fato.NumTicket;
+                Placasal = fato.Placa;
+                Cascossal = fato.NumCascos;
+                tipoVehsal = fato.tipoVhlo;
                 //DateTime.Parse(fechin = fato.Fecha.ToString()).ToShortDateString();
                 //TimeSpan.Parse(hor = fato.hora.ToString());
                 //fechin = fato.Fecha;
@@ -759,9 +765,9 @@ namespace Diseño.Vista
             e.Graphics.DrawString("Regimen Simplificado", new Font("Arial", 30), Brushes.Black, 200, 130);
             e.Graphics.DrawString("Dirección: " + dir, new Font("Arial", 30), Brushes.Black, 190, 165);
             e.Graphics.DrawString("WhatsApp: " + tel, new Font("Arial", 30), Brushes.Black, 205, 200);
-            e.Graphics.DrawString("Numero de la placa: " + PlacaCopi, new Font("Arial", 40), Brushes.Black, 0, 235);
+            e.Graphics.DrawString("Número de la placa: " + PlacaCopi, new Font("Arial", 40), Brushes.Black, 0, 235);
             e.Graphics.DrawString("Tipo de vehículo: " + tipoVeh, new Font("Arial", 30), Brushes.Black, 0, 290);
-            e.Graphics.DrawString("Numero de cascos: " + CascosCopi, new Font("Arial", 30), Brushes.Black, 0, 325);
+            e.Graphics.DrawString("Número de cascos: " + CascosCopi, new Font("Arial", 30), Brushes.Black, 0, 325);
             e.Graphics.DrawString("Fecha de ingreso: " + fecPlacaCopi, new Font("Arial", 30), Brushes.Black, 0, 360);
             e.Graphics.DrawString("Hora de ingreso: " + HoraPlacaCopi, new Font("Arial", 30), Brushes.Black, 0, 395);
             e.Graphics.DrawString("Software: Sw Parking Gold", new Font("Arial", 30), Brushes.DarkGoldenrod, 160, 435);

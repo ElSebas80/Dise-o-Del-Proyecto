@@ -557,5 +557,18 @@ namespace Diseño.BaseD
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_SalidaVehiculos", tipoVhloParameter, placaParameter, numCascosParameter, fechaIngresoParameter, horaIngresoParameter, fechaSalidaParameter, horaSalidaParameter, pagoParameter, efectivoParameter, cambioParameter);
         }
+    
+        public virtual int Sp_conCant(Nullable<int> codc, Nullable<int> cupo)
+        {
+            var codcParameter = codc.HasValue ?
+                new ObjectParameter("Codc", codc) :
+                new ObjectParameter("Codc", typeof(int));
+    
+            var cupoParameter = cupo.HasValue ?
+                new ObjectParameter("Cupo", cupo) :
+                new ObjectParameter("Cupo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_conCant", codcParameter, cupoParameter);
+        }
     }
 }

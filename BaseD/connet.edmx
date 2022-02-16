@@ -172,6 +172,10 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
           <Parameter Name="MensualidadEstacioBici" Type="decimal" Mode="In" />
           <Parameter Name="CuposDIsponibles" Type="int" Mode="In" />
         </Function>
+        <Function Name="Sp_conCant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codc" Type="int" Mode="In" />
+          <Parameter Name="Cupo" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_configuracion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NombreParqueadero" Type="varchar" Mode="In" />
           <Parameter Name="Nit" Type="varchar" Mode="In" />
@@ -570,6 +574,10 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
             <Parameter Name="Efectivo" Mode="In" Type="Decimal" />
             <Parameter Name="Cambio" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="Sp_conCant">
+            <Parameter Name="Codc" Mode="In" Type="Int32" />
+            <Parameter Name="Cupo" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -826,6 +834,7 @@ advertencia 6002: La tabla o vista 'park.dbo.tari' no tiene definida ninguna cla
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Sp_SalidaVehiculos" FunctionName="parkModel.Store.Sp_SalidaVehiculos" />
+          <FunctionImportMapping FunctionImportName="Sp_conCant" FunctionName="parkModel.Store.Sp_conCant" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

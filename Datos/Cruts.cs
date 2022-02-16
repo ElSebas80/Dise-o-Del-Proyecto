@@ -154,6 +154,13 @@ namespace Diseño.Datos
                 db.Sp_DesconCant(CodProd, Cant);
             }
         }
+        public void ActualizarCantim(int CodProd, int Cant)
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                db.Sp_conCant(CodProd, Cant);
+            }
+        }
         public void EliminarDtProductos(string Cod)
         {
             using (parkEntities db = new parkEntities())

@@ -333,8 +333,16 @@ namespace Diseño.Vista
                 TimeSpan Hsalida = TimeSpan.Parse(txthrsali.Text);
                 DateTime fentrada = DateTime.Parse(txtfeinsal.Text);
                 DateTime fsalida = DateTime.Parse(txtfcsali.Text);
-                var RESH = Hsalida - Hentrada;
                 var RESF = fsalida - fentrada;
+                int RESH=0;
+                if (Hsalida.Hours < Hentrada.Hours)
+                {
+                   RESH =int.Parse(Hentrada.Minutes.ToString()) - int.Parse(Hsalida.Minutes.ToString());
+                }
+                else
+                {
+                    RESH = int.Parse(Hsalida.Minutes.ToString()) - int.Parse(Hentrada.Minutes.ToString());
+                }
                 string time = Convert.ToString(RESH);
                 string date = Convert.ToString(RESF);
 
@@ -385,7 +393,7 @@ namespace Diseño.Vista
             //calcuHora();
             button6.Visible = false;
             btnimpriAdios.Visible = true;
-            db.ActualizarCanti(va, -1);
+            db.ActualizarCantim(va, int.Parse(txtCuposD.Text));
             db.EliminarDtProductos(cmbplaca.Text);
             }
             else { MessageBox.Show("Llenar la caja de texto vacia por favor"); }
@@ -568,7 +576,7 @@ namespace Diseño.Vista
         double pg;
         private void txtefect_TextChanged(object sender, EventArgs e)
         {
-            if (txtefect.Text != "")
+            if (txtvalpago.Text != "" && txtefect.Text != "")
             {
                 pg = double.Parse(txtvalpago.Text);
                 txtcambefect.Text = (double.Parse(txtefect.Text) - pg).ToString();
@@ -719,10 +727,8 @@ namespace Diseño.Vista
         DateTime final;
 
 
-        int fin, numTksal;
-        string[] fecha = new string[3];
-
-
+         string[] fecha = new string[3];
+         int fin, numTksal;
          string plc, fechin, hor;
          string Placasal, Cascossal, tipoVehsal;
         private void comb()

@@ -10,10 +10,10 @@ namespace Diseño.Datos.Logn
     {
             public SistemSuports(string Email, string Contra) // Recibe los parametros de donde se manda
         {
-               // this.EnviaMail = "sssssssssew888@gmail.com";
+               // this.EnviaMail = "aca va un gmail";
                 this.EnviaMail = Email;
-                //this.contra = "3017118619.";
-                this.contra = Contra;
+            //this.contra = "aca va la contraseña";
+            this.contra = Contra;
                 this.host = "smtp.gmail.com";// Host del gmail
                 this.port = 587;
                 this.ssl = true;

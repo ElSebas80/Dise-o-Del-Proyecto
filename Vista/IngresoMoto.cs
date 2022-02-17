@@ -26,13 +26,14 @@ namespace Diseño.Vista
         private void FrmIngresoMoto_Load(object sender, EventArgs e)
         {
             //MostrarPlaca();
-            dtg();
+            //dtg();
             buscaid();
             comb();
         }
         private void dtg()
         {
-            dtgMovim.DataSource = bd.MostrarPlac().ToList();
+            //    dtgMovim.DataSource = bd.MostrarPlac();
+            //    dtgMovim.Columns[5].Visible = false;
         }
         private void FrmIngresoMoto_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -237,10 +238,9 @@ namespace Diseño.Vista
             //limp();
             dtg();
                 comb();
-                btnIngresar.Visible = false;
-                btncancIn.Visible = false;
-                btnImpIn.Visible = true;
+                impriingre();
                 printPreviewControl2.Visible = true;
+                rdtMoto.Checked = true;
             }
             else
             {
@@ -333,51 +333,54 @@ namespace Diseño.Vista
                 TimeSpan Hsalida = TimeSpan.Parse(txthrsali.Text);
                 DateTime fentrada = DateTime.Parse(txtfeinsal.Text);
                 DateTime fsalida = DateTime.Parse(txtfcsali.Text);
-                var RESF = fsalida - fentrada;
-                int RESH=0;
-                if (Hsalida.Hours < Hentrada.Hours)
-                {
-                   RESH =int.Parse(Hentrada.Minutes.ToString()) - int.Parse(Hsalida.Minutes.ToString());
-                }
-                else
-                {
-                    RESH = int.Parse(Hsalida.Minutes.ToString()) - int.Parse(Hentrada.Minutes.ToString());
-                }
-                string time = Convert.ToString(RESH);
-                string date = Convert.ToString(RESF);
-
+       
+        
+                TimeSpan span = Hsalida.Subtract(Hentrada);
+                TimeSpan spand = fsalida.Subtract(fentrada);
+                int prueba = Convert.ToInt32(span.TotalHours);
+                int pruebad = Convert.ToInt32(spand.TotalHours);
                 // MessageBox.Show(RESF.ToString("dd ")+"\n"+ RESH.ToString());
-                if (TimeSpan.Parse(time).Minutes >= 0 && TimeSpan.Parse(time).Minutes <= 15 && TimeSpan.Parse(date).Days <= 0)
+                if (Convert.ToDouble(prueba) < 24 && Convert.ToDouble(pruebad) <= 24)
                 {
-                    hg = hm * 0.25;
+                    hg = hm * prueba +(hm*pruebad);
                     txtvalpago.Text = Convert.ToString(hg);
-                }
-                else if (TimeSpan.Parse(time).Minutes > 15 && TimeSpan.Parse(time).Minutes <= 30 && TimeSpan.Parse(date).Days <= 0)
+                } else if (Convert.ToDouble(prueba) <= 1440)
                 {
-                    hg = (hm * 0.50);
+                    int hrs = prueba / 60;
+                    hg = (hm * hrs);
                     txtvalpago.Text = Convert.ToString(hg);
+                    
+                    //else
+                    //{
+                    //    hg = (hm * 0.75);
+                    //    txtvalpago.Text = Convert.ToString(hg);
+                    //}
                 }
-                else if (TimeSpan.Parse(time).Minutes > 30 && TimeSpan.Parse(time).Minutes <= 45 && TimeSpan.Parse(date).Days <= 0)
-                {
-                    hg = (hm * 0.75);
-                    txtvalpago.Text = Convert.ToString(hg);
-                }
-                else if (TimeSpan.Parse(time).Minutes > 45 && TimeSpan.Parse(time).Minutes <= 60 && TimeSpan.Parse(date).Days <= 0)
-                {
-                    hg = (hm);
-                    txtvalpago.Text = Convert.ToString(hg);
-                }
-                else if (TimeSpan.Parse(time).Hours > 1 && TimeSpan.Parse(time).Hours <= 24 && TimeSpan.Parse(date).Days < 1)
-                {
-                    hsg = (hm * (TimeSpan.Parse(time).Hours));
-                    txtvalpago.Text = Convert.ToString(hsg);
-                    //txtvalpago.Text = time = DateTime.Now.ToString("HH:mm:ss"); hace la opecion con el tiempo actual 
-                }
-                else if (TimeSpan.Parse(date).Days >= 1 && TimeSpan.Parse(date).Days <= 7)
-                {
-                    hsg = hg + (dm * (TimeSpan.Parse(date).Days));
-                    txtvalpago.Text = Convert.ToString(hsg);
-                }
+                //else if (TimeSpan.Parse(time).Minutes > 15 && TimeSpan.Parse(time).Minutes <= 30 && TimeSpan.Parse(date).Days <= 0)
+                //{
+                   
+                //}
+                //else if (TimeSpan.Parse(time).Minutes > 30 && TimeSpan.Parse(time).Minutes <= 45 && TimeSpan.Parse(date).Days <= 0)
+                //{
+                //    hg = (hm * 0.75);
+                //    txtvalpago.Text = Convert.ToString(hg);
+                //}
+                //else if (TimeSpan.Parse(time).Minutes > 45 && TimeSpan.Parse(time).Minutes <= 60 && TimeSpan.Parse(date).Days <= 0)
+                //{
+                //    hg = (hm);
+                //    txtvalpago.Text = Convert.ToString(hg);
+                //}
+                //else if (TimeSpan.Parse(time).Hours > 1 && TimeSpan.Parse(time).Hours <= 24 && TimeSpan.Parse(date).Days < 1)
+                //{
+                //    hsg = (hm * (TimeSpan.Parse(time).Hours));
+                //    txtvalpago.Text = Convert.ToString(hsg);
+                //    //txtvalpago.Text = time = DateTime.Now.ToString("HH:mm:ss"); hace la opecion con el tiempo actual 
+                //}
+                //else if (TimeSpan.Parse(date).Days >= 1 && TimeSpan.Parse(date).Days <= 7)
+                //{
+                //    hsg = hg + (dm * (TimeSpan.Parse(date).Days));
+                //    txtvalpago.Text = Convert.ToString(hsg);
+                //}
             }
             
         }
@@ -394,7 +397,8 @@ namespace Diseño.Vista
             button6.Visible = false;
             btnimpriAdios.Visible = true;
             db.ActualizarCantim(va, int.Parse(txtCuposD.Text));
-            db.EliminarDtProductos(cmbplaca.Text);
+            db.EliminarDtProductos(txtplacasali.Text);
+            dtg();
             }
             else { MessageBox.Show("Llenar la caja de texto vacia por favor"); }
         }
@@ -445,7 +449,7 @@ namespace Diseño.Vista
             rdSemana.Checked = false;
             rdQuincena.Checked = false;
             rdMensualidad.Checked = false;
-            rdMotoCli.Checked = false;
+            rdMotoCli.Checked = true;
             rdBiciCli.Checked = false;
             txtPlaca.Clear();
             txtNCascos.Clear();
@@ -461,6 +465,7 @@ namespace Diseño.Vista
 
         private void btncancIn_Click(object sender, EventArgs e)
         {
+            rdtMoto.Checked = true;
             limp();
         }
 
@@ -504,7 +509,7 @@ namespace Diseño.Vista
                         msmErP.Text = "Este cliente cuenta con una \nmensualidad " +
                             "que temina el dia \n" + bFech;
                         msmErP.Visible = true;
-                fecPlacaCopi = DateTime.Parse(dtgMovim.CurrentRow.Cells[5].Value.ToString()).ToShortDateString();
+             //   fecPlacaCopi = DateTime.Parse(dtgMovim.CurrentRow.Cells[5].Value.ToString()).ToShortDateString();
 
                     }
                     else if(ServicioParqueo >= 1)
@@ -663,17 +668,59 @@ namespace Diseño.Vista
             valid.SoloNumeros(e);
         }
 
-        private void btnGenTick_CheckedChanged(object sender, EventArgs e){        }
+        private void tabContPrimc_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-        private void btnImpIn_Click(object sender, EventArgs e)
+        }
+
+        private void btnGenTick_CheckedChanged(object sender, EventArgs e){        }
+        private void impriingre()
         {
             printDocument1.Print();
-            limp();
             btnIngresar.Visible = true;
             btncancIn.Visible = true;
-            btnImpIn.Visible = false;
             printPreviewControl2.Visible = false;
+            limp();
 
+        }
+            
+
+        private void txtBuscarPla_KeyUp(object sender, KeyEventArgs e)
+        {
+        }
+
+        private void txtvalpago_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgMovim_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtplacasali_TextChanged(object sender, EventArgs e)
+        {
+
+            foreach (var fato in db.ingresoVehiculosm(txtplacasali.Text))
+            {
+                fechin = DateTime.Parse(fato.Fecha.ToString()).ToShortDateString();//mostrar la fecha con esactitau con conversion a solo ("dd/MM/yyyy")
+                TimeSpan.Parse(hor = fato.hora.ToString());
+            }
+            if (txtplacasali.Text != "")
+            {
+                txtfeinsal.Text = fechin/* +" "+ hor*/;
+                txtheinsal.Text = hor;
+            }
+            else
+            {
+                txtfeinsal.Text = "";
+                txtheinsal.Text = "";
+                txtvalpago.Text = "";
+            }
+        }
+        private void btnImpIn_Click(object sender, EventArgs e)
+        {
         }
 
         //        nt segundosTotales;
@@ -736,9 +783,9 @@ namespace Diseño.Vista
 
             foreach (var fato in db.MostrarPlac())
             {
-                cmbplaca.DataSource = db.MostrarPlac();//buscar la plca mediante el primary key
-                cmbplaca.DisplayMember = "Placa";
-                cmbplaca.ValueMember = "NumTicket"; 
+                //cmbplaca.DataSource = db.MostrarPlac();//buscar la plca mediante el primary key
+                //cmbplaca.DisplayMember = "Placa";
+                //cmbplaca.ValueMember = "NumTicket"; 
                 numTksal = fato.NumTicket;
                 Placasal = fato.Placa;
                 Cascossal = fato.NumCascos;
@@ -749,27 +796,6 @@ namespace Diseño.Vista
                 //hor = fato.hora;
             }
         }
-        private void cmbplaca_SelectedValueChanged(object sender, EventArgs e)
-        {
-            foreach (var fato in db.ingresoVehiculosm(cmbplaca.Text))
-            {
-                fechin = DateTime.Parse(fato.Fecha.ToString()).ToShortDateString();//mostrar la fecha con esactitau con conversion a solo ("dd/MM/yyyy")
-                TimeSpan.Parse(hor = fato.hora.ToString());
-            }
-            //cmbplaca.Text = db.MostrarPlac().ToString();
-           
-            if (cmbplaca.Text != "")
-            {
-                txtfeinsal.Text = fechin/* +" "+ hor*/;
-                txtheinsal.Text = hor;
-            }
-            else
-            {
-                txtfeinsal.Text = "";
-                txtheinsal.Text = "";
-            }
-        }
-
         private void cmbplaca_SelectedIndexChanged(object sender, EventArgs e)
         {
             //cmbMovim.DisplayMember = "Placa";
@@ -822,41 +848,42 @@ namespace Diseño.Vista
         {
             try
             {
-                idUser = int.Parse(dtgMovim.CurrentRow.Cells[0].Value.ToString());
-                tipoVeh = dtgMovim.CurrentRow.Cells[1].Value.ToString();
-                PlacaCopi = dtgMovim.CurrentRow.Cells[2].Value.ToString();
-                CascosCopi = dtgMovim.CurrentRow.Cells[3].Value.ToString();
-                fecPlacaCopi = DateTime.Parse(dtgMovim.CurrentRow.Cells[5].Value.ToString()).ToShortDateString();
-                HoraPlacaCopi = dtgMovim.CurrentRow.Cells[6].Value.ToString();
+                //idUser = int.Parse(dtgMovim.CurrentRow.Cells[0].Value.ToString());
+                //tipoVeh = dtgMovim.CurrentRow.Cells[1].Value.ToString();
+                //PlacaCopi = dtgMovim.CurrentRow.Cells[2].Value.ToString();
+                //CascosCopi = dtgMovim.CurrentRow.Cells[3].Value.ToString();
+                //fecPlacaCopi = DateTime.Parse(dtgMovim.CurrentRow.Cells[5].Value.ToString()).ToShortDateString();
+                //HoraPlacaCopi = dtgMovim.CurrentRow.Cells[6].Value.ToString();
                 impCopi();
                 printPreviewControl3.Visible = true;
+                imprimicopi();
+                dtg();
                 //  //txtCor.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
                 //  //txtLog.Text = dtgMovim.CurrentRow.Cells[5].Value.ToString();
                 //  //cmbTipo.Text = dtgMovim.CurrentRow.Cells[6].Value.ToString();
                 //  tabContPrimc.SelectTab(3);
                 ////  diferenciastime();
-                btnGenTic.Visible = false;
-                brnImpCopi.Visible = true;
-
             }
             catch
             { 
                 MessageBox.Show("seleccione una placa");
             }
         }
+        private void imprimicopi()
+        {
+            printDocument1.Print();
+            btnGenTic.Visible = true;
+            printPreviewControl3.Visible = false;
+        }
         private void brnImpCopi_Click(object sender, EventArgs e)
         {
-                printDocument1.Print();
-            btnGenTic.Visible = true;
-            brnImpCopi.Visible = false;
-            printPreviewControl3.Visible = false;
         }
         private void Mostrartabla()
         {
-            dtgMovim.DataSource = db.ingresoVehiculosm(txtBuscarPla.Text.ToString());//buscar la paca por escrito
-            dtgMovim.Columns[0].Visible = false;
-            dtgMovim.Columns[1].HeaderText = "Vehiculo";
-            dtgMovim.Columns[3].HeaderText = "Cascos";
+            //dtgMovim.DataSource = db.ingresoVehiculosm(txtBuscarPla.Text.ToString());//buscar la paca por escrito
+            //dtgMovim.Columns[0].Visible = false;
+            //dtgMovim.Columns[1].HeaderText = "Vehiculo";
+            //dtgMovim.Columns[3].HeaderText = "Cascos";
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {

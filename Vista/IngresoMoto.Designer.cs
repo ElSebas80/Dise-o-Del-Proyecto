@@ -85,17 +85,15 @@ namespace Diseño.Vista
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.brnImpCopi = new System.Windows.Forms.Button();
             this.printPreviewControl3 = new System.Windows.Forms.PrintPreviewControl();
             this.txtBuscarPla = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnGenTic = new System.Windows.Forms.Button();
-            this.dtgMovim = new System.Windows.Forms.DataGridView();
             this.label24 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.cmbplaca = new System.Windows.Forms.ComboBox();
+            this.txtplacasali = new System.Windows.Forms.TextBox();
             this.btnimpriAdios = new System.Windows.Forms.Button();
             this.printPreviewControl1 = new System.Windows.Forms.PrintPreviewControl();
             this.button6 = new System.Windows.Forms.Button();
@@ -131,7 +129,6 @@ namespace Diseño.Vista
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -268,6 +265,7 @@ namespace Diseño.Vista
             this.tabContPrimc.SelectedIndex = 0;
             this.tabContPrimc.Size = new System.Drawing.Size(648, 610);
             this.tabContPrimc.TabIndex = 38;
+            this.tabContPrimc.SelectedIndexChanged += new System.EventHandler(this.tabContPrimc_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -702,6 +700,7 @@ namespace Diseño.Vista
             // 
             this.txtPlacaCli.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPlacaCli.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPlacaCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlacaCli.HideSelection = false;
             this.txtPlacaCli.Location = new System.Drawing.Point(220, 136);
@@ -845,13 +844,11 @@ namespace Diseño.Vista
             // tabPage3
             // 
             this.tabPage3.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
-            this.tabPage3.Controls.Add(this.brnImpCopi);
             this.tabPage3.Controls.Add(this.printPreviewControl3);
             this.tabPage3.Controls.Add(this.txtBuscarPla);
             this.tabPage3.Controls.Add(this.btnBuscar);
             this.tabPage3.Controls.Add(this.dateTimePicker1);
             this.tabPage3.Controls.Add(this.btnGenTic);
-            this.tabPage3.Controls.Add(this.dtgMovim);
             this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
@@ -862,17 +859,6 @@ namespace Diseño.Vista
             this.tabPage3.Text = "Movimiento del Estacionamiento";
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
-            // 
-            // brnImpCopi
-            // 
-            this.brnImpCopi.Location = new System.Drawing.Point(428, 503);
-            this.brnImpCopi.Name = "brnImpCopi";
-            this.brnImpCopi.Size = new System.Drawing.Size(117, 26);
-            this.brnImpCopi.TabIndex = 85;
-            this.brnImpCopi.Text = "Imprimir";
-            this.brnImpCopi.UseVisualStyleBackColor = true;
-            this.brnImpCopi.Visible = false;
-            this.brnImpCopi.Click += new System.EventHandler(this.brnImpCopi_Click);
             // 
             // printPreviewControl3
             // 
@@ -886,6 +872,7 @@ namespace Diseño.Vista
             // 
             this.txtBuscarPla.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBuscarPla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBuscarPla.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarPla.HideSelection = false;
             this.txtBuscarPla.Location = new System.Drawing.Point(127, 112);
@@ -895,6 +882,7 @@ namespace Diseño.Vista
             this.txtBuscarPla.TabIndex = 72;
             this.txtBuscarPla.WordWrap = false;
             this.txtBuscarPla.TextChanged += new System.EventHandler(this.txtBuscarPla_TextChanged);
+            this.txtBuscarPla.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscarPla_KeyUp);
             // 
             // btnBuscar
             // 
@@ -924,24 +912,6 @@ namespace Diseño.Vista
             this.btnGenTic.UseVisualStyleBackColor = true;
             this.btnGenTic.Click += new System.EventHandler(this.btnGenTic_Click);
             // 
-            // dtgMovim
-            // 
-            this.dtgMovim.AllowUserToAddRows = false;
-            this.dtgMovim.AllowUserToDeleteRows = false;
-            this.dtgMovim.AllowUserToResizeColumns = false;
-            this.dtgMovim.AllowUserToResizeRows = false;
-            this.dtgMovim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgMovim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtgMovim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgMovim.Location = new System.Drawing.Point(47, 207);
-            this.dtgMovim.Name = "dtgMovim";
-            this.dtgMovim.ReadOnly = true;
-            this.dtgMovim.RowHeadersVisible = false;
-            this.dtgMovim.RowHeadersWidth = 51;
-            this.dtgMovim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dtgMovim.Size = new System.Drawing.Size(555, 149);
-            this.dtgMovim.TabIndex = 67;
-            // 
             // label24
             // 
             this.label24.BackColor = System.Drawing.Color.Transparent;
@@ -970,7 +940,7 @@ namespace Diseño.Vista
             // tabPage4
             // 
             this.tabPage4.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
-            this.tabPage4.Controls.Add(this.cmbplaca);
+            this.tabPage4.Controls.Add(this.txtplacasali);
             this.tabPage4.Controls.Add(this.btnimpriAdios);
             this.tabPage4.Controls.Add(this.printPreviewControl1);
             this.tabPage4.Controls.Add(this.button6);
@@ -998,17 +968,22 @@ namespace Diseño.Vista
             this.tabPage4.Text = " Salida Vehiculos";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // cmbplaca
+            // txtplacasali
             // 
-            this.cmbplaca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbplaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbplaca.FormattingEnabled = true;
-            this.cmbplaca.Location = new System.Drawing.Point(171, 86);
-            this.cmbplaca.Name = "cmbplaca";
-            this.cmbplaca.Size = new System.Drawing.Size(136, 37);
-            this.cmbplaca.TabIndex = 84;
-            this.cmbplaca.SelectedIndexChanged += new System.EventHandler(this.cmbplaca_SelectedIndexChanged);
-            this.cmbplaca.SelectedValueChanged += new System.EventHandler(this.cmbplaca_SelectedValueChanged);
+            this.txtplacasali.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtplacasali.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtplacasali.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtplacasali.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtplacasali.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtplacasali.HideSelection = false;
+            this.txtplacasali.Location = new System.Drawing.Point(171, 89);
+            this.txtplacasali.Multiline = true;
+            this.txtplacasali.Name = "txtplacasali";
+            this.txtplacasali.Size = new System.Drawing.Size(159, 37);
+            this.txtplacasali.TabIndex = 85;
+            this.txtplacasali.WordWrap = false;
+            this.txtplacasali.TextChanged += new System.EventHandler(this.txtplacasali_TextChanged);
             // 
             // btnimpriAdios
             // 
@@ -1113,6 +1088,7 @@ namespace Diseño.Vista
             this.txtvalpago.Size = new System.Drawing.Size(159, 26);
             this.txtvalpago.TabIndex = 75;
             this.txtvalpago.WordWrap = false;
+            this.txtvalpago.TextChanged += new System.EventHandler(this.txtvalpago_TextChanged);
             // 
             // label28
             // 
@@ -1289,7 +1265,6 @@ namespace Diseño.Vista
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
@@ -1343,7 +1318,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnGenTic;
-        private System.Windows.Forms.DataGridView dtgMovim;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label25;
@@ -1382,7 +1356,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.Button btnImpIn;
         private System.Windows.Forms.PrintPreviewControl printPreviewControl2;
         private System.Windows.Forms.PrintPreviewControl printPreviewControl3;
-        private System.Windows.Forms.Button brnImpCopi;
-        private System.Windows.Forms.ComboBox cmbplaca;
+        private System.Windows.Forms.TextBox txtplacasali;
     }
 }

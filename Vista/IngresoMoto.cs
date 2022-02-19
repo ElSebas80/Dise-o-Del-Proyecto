@@ -105,11 +105,6 @@ namespace Diseño.Vista
             else if (rdtBici.Checked == true)
                 tVhlO = "Bicicleta";
         }
-        private void ingresarVehiculo()
-        {
-            bd.RegistrarVehvls(tVhlO, txtPlaca.Text, txtNCascos.Text, int.Parse(txtCuposD.Text), DateTime.Parse(lblFecha.Text), TimeSpan.Parse(lblHora.Text)
-                );
-        }
         Cruts s = new Cruts();
         int id = 1;
         private void buscaidTari()
@@ -208,7 +203,7 @@ namespace Diseño.Vista
             e.Graphics.DrawString("Número de la placa: " + txtPlaca.Text, new Font("Arial", 40), Brushes.Black, 0, 235);
             e.Graphics.DrawString("Tipo de vehículo: " + tVhlO, new Font("Arial", 30), Brushes.Black,0, 290);
             e.Graphics.DrawString("Número de cascos: " + txtNCascos.Text, new Font("Arial", 30), Brushes.Black,0, 325);
-            e.Graphics.DrawString("Fecha de ingreso: " + lblFecha.Text, new Font("Arial", 30), Brushes.Black, 0, 360);
+            e.Graphics.DrawString("Fecha de ingreso: " + "1", new Font("Arial", 30), Brushes.Black, 0, 360);
             e.Graphics.DrawString("Hora de ingreso: " + lblHora.Text, new Font("Arial", 30), Brushes.Black, 0, 395);
             e.Graphics.DrawString("Software: Sw Parking Gold", new Font("Arial", 30), Brushes.DarkGoldenrod, 160, 435);
             e.Graphics.DrawString("REGLAMENTO", new Font("Arial", 30), Brushes.Red, 240, 470);
@@ -236,7 +231,7 @@ namespace Diseño.Vista
             if(txtPlaca.Text != "" && txtNCascos.Text != "")
             {            
             EstD();
-            ingresarVehiculo();
+                //ingresarVehicu();
             MessageBox.Show("Vehiculo ingresado");
             db.ActualizarCanti(va, int.Parse(txtCuposD.Text));
             imp();
@@ -256,7 +251,7 @@ namespace Diseño.Vista
         private void HoraFecha_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
-            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblFeech.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lblhoraCLi.Text = DateTime.Now.ToString("HH:mm:ss");
             lblfechaCli.Text = DateTime.Now.ToShortDateString();
             txthrsali.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -438,7 +433,6 @@ namespace Diseño.Vista
             rdBiciCli.Checked = false;
             txtPlaca.Clear();
             txtNCascos.Clear();
-            rdtMoto.Checked = false;
             rdtBici.Checked = false;
             msmErP.Visible = false;
         }
@@ -486,7 +480,7 @@ namespace Diseño.Vista
                         msmErP.ForeColor = Color.Red;
                         msmErP.Text = "Este cliente ya se encunetra \nen el parqueadero";
                         msmErP.Visible = true;
-                        btnIngresar.Visible = false;
+                        btnR2.Visible = false;
                     }
                     else if (Mensualidades >= 1)
                     {
@@ -494,7 +488,7 @@ namespace Diseño.Vista
                         msmErP.Text = "Este cliente cuenta con una \nmensualidad " +
                             "que temina el dia \n" + bFech;
                         msmErP.Visible = true;
-                        btnIngresar.Visible = true;
+                        btnR2.Visible = true;
              //   fecPlacaCopi = DateTime.Parse(dtgMovim.CurrentRow.Cells[5].Value.ToString()).ToShortDateString();
 
                     }
@@ -503,7 +497,7 @@ namespace Diseño.Vista
                         msmErP.ForeColor = Color.Red;
                         msmErP.Text = "Este vehiculo ya esta en el \nparqueadero";
                         msmErP.Visible = true;
-                        btnIngresar.Visible = false;
+                        btnR2.Visible = false;
                     }
                 }
                 else
@@ -511,14 +505,14 @@ namespace Diseño.Vista
                     msmErP.ForeColor = Color.Green;
                     msmErP.Text = "Nuevo cliente";
                     msmErP.Visible = true;
-                    btnIngresar.Visible = true;
+                    btnR2.Visible = true;
                 }
             }
             else
             {
                 msmErP.ForeColor = Color.Red;
                 msmErP.Visible = false;
-                btnIngresar.Visible = false;
+                btnR2.Visible = false;
             }
         }
 
@@ -666,7 +660,7 @@ namespace Diseño.Vista
         private void impriingre()
         {
             printDocument1.Print();
-            btnIngresar.Visible = true;
+            btnR2.Visible = true;
             btncancIn.Visible = true;
             printPreviewControl2.Visible = false;
             limp();
@@ -691,6 +685,31 @@ namespace Diseño.Vista
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        private void Ingreso()
+        {
+            bd.RegistrarVehvl(tVhlO, txtPlaca.Text, txtNCascos.Text, int.Parse(txtCuposD.Text), DateTime.Parse(lblFeech.Text), TimeSpan.Parse(lblHora.Text));
+        }
+        private void btnR2_Click(object sender, EventArgs e)
+        {
+            if (rdtMoto.Checked==true || rdtBici.Checked == true || txtPlaca.Text != "" && txtNCascos.Text != "")
+            {
+                EstD();
+                Ingreso();
+                MessageBox.Show("Vehiculo ingresado");
+                db.ActualizarCanti(va, int.Parse(txtCuposD.Text));
+                imp();
+                //limp();
+                dtg();
+                comb();
+                impriingre();
+                printPreviewControl2.Visible = true;
+                rdtMoto.Checked = true;
+            }
+            else
+            {
+                MessageBox.Show("Revise nuevamente puede haber un campo vacio");
+            }
         }
 
         private void btnclientesd_Click(object sender, EventArgs e)
@@ -721,7 +740,7 @@ namespace Diseño.Vista
 
             foreach (var fato in db.ingresoVehiculosm(txtplacasali.Text))
             {
-                fechin = DateTime.Parse(fato.Fecha.ToString()).ToShortDateString();//mostrar la fecha con esactitau con conversion a solo ("dd/MM/yyyy")
+             //   fechin = DateTime.Parse(fato.Fecha.ToString()).ToShortDateString();//mostrar la fecha con esactitau con conversion a solo ("dd/MM/yyyy")
                 TimeSpan.Parse(hor = fato.hora.ToString());
             }
             if (txtplacasali.Text != "")

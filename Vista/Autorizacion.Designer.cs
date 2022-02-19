@@ -29,6 +29,7 @@ namespace Diseño.Vista
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAutorizacion));
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -41,8 +42,8 @@ namespace Diseño.Vista
             this.btnMax = new System.Windows.Forms.PictureBox();
             this.btnSal = new System.Windows.Forms.PictureBox();
             this.btnRes = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblfech = new System.Windows.Forms.Label();
+            this.lblhor = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@ namespace Diseño.Vista
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -201,29 +203,29 @@ namespace Diseño.Vista
             this.btnRes.TabStop = false;
             this.btnRes.Click += new System.EventHandler(this.btnRes_Click);
             // 
-            // label4
+            // lblfech
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(290, 158);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
-            this.label4.TabIndex = 52;
-            this.label4.Text = "Fecha";
+            this.lblfech.AutoSize = true;
+            this.lblfech.BackColor = System.Drawing.Color.Transparent;
+            this.lblfech.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfech.ForeColor = System.Drawing.Color.White;
+            this.lblfech.Location = new System.Drawing.Point(290, 158);
+            this.lblfech.Name = "lblfech";
+            this.lblfech.Size = new System.Drawing.Size(42, 13);
+            this.lblfech.TabIndex = 52;
+            this.lblfech.Text = "Fecha";
             // 
-            // label5
+            // lblhor
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(464, 158);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 53;
-            this.label5.Text = "Hora";
+            this.lblhor.AutoSize = true;
+            this.lblhor.BackColor = System.Drawing.Color.Transparent;
+            this.lblhor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhor.ForeColor = System.Drawing.Color.White;
+            this.lblhor.Location = new System.Drawing.Point(464, 158);
+            this.lblhor.Name = "lblhor";
+            this.lblhor.Size = new System.Drawing.Size(34, 13);
+            this.lblhor.TabIndex = 53;
+            this.lblhor.Text = "Hora";
             // 
             // label6
             // 
@@ -293,6 +295,10 @@ namespace Diseño.Vista
             this.textBox3.Size = new System.Drawing.Size(150, 30);
             this.textBox3.TabIndex = 60;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FrmAutorizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,8 +313,8 @@ namespace Diseño.Vista
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblhor);
+            this.Controls.Add(this.lblfech);
             this.Controls.Add(this.btnRes);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.btnMax);
@@ -350,8 +356,8 @@ namespace Diseño.Vista
         private System.Windows.Forms.PictureBox btnMax;
         private System.Windows.Forms.PictureBox btnSal;
         private System.Windows.Forms.PictureBox btnRes;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblfech;
+        private System.Windows.Forms.Label lblhor;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
@@ -359,5 +365,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

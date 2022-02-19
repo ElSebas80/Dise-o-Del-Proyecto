@@ -112,11 +112,11 @@ namespace Diseño.Datos
                 bd.sp_Altertarifas(fecha, hormt, diamt, semmt, quinmt, mensrmt, horbc, diabc, sembc, quinbc, mensbc, cupos);
             }
         }
-        public void RegistrarVehvls(string tipoVh, string placa, string numcs, int cuposD, DateTime fecha, TimeSpan hora)
+        public void RegistrarVehvl(string tipoVh, string placa, string numcs, int cuposD, DateTime fech, TimeSpan hora)
         {
             using (parkEntities bd = new parkEntities())
             {
-                bd.sp_ingresoVehiculo(tipoVh, placa, numcs, cuposD, fecha, hora);
+                bd.sp_ingresoVehiculo(tipoVh, placa, numcs, cuposD, fech, hora);
             }
         }
         public void RegistrarClientes(string nombre, int Cedula, int telefon, string placa, string tipoVhlo, string mensualidad, Decimal valor, DateTime fechaini, DateTime fechafin, TimeSpan hora)
@@ -200,7 +200,7 @@ namespace Diseño.Datos
             {
                 var Preciou = (from prod in db.ingresoVehiculo
                                join Est in db.RegistroCliente on prod.NumTicket equals Est.id
-                               select new { prod.NumTicket, prod.Placa, prod.tipoVhlo, prod.NumCascos, prod.CuposDis, prod.Fecha, prod.hora,  Est.mensualidad }).ToList();
+                               select new { prod.NumTicket, prod.Placa, prod.tipoVhlo, prod.NumCascos, prod.CuposDis, prod.hora,  Est.mensualidad }).ToList();
                 return Preciou;
             }
         }

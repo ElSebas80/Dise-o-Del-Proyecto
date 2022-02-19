@@ -84,7 +84,7 @@ namespace Diseño.Datos.Logn
 
                     var Emailservice = new SistemSuports("parqueaderomotodeoro@gmail.com", "3017118619.");
                     Emailservice.Enviarmensaje(Asunto: "Asignacion de contraseña",
-                        Cuerpo: "Hola " + "Nuevo usuario" + " Por algun motivo usted es el nuevo empleado u administrador, pero su clave asignada es: " + resultString,
+                        Cuerpo: "Hola " + "Nuevo usuario" + " Felicitaciones usted es el nuevo empleado u administrador, aca esta su clave asignada es: " + resultString + " una ves ingresado por favor ir directamente a cambiar su clave en le campo configuración cuenta",
                         Destino: correo);
                     return "Cambio correcto";
                 }

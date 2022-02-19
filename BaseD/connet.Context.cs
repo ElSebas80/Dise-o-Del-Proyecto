@@ -29,13 +29,13 @@ namespace Diseño.BaseD
     
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<CuentasUsuario> CuentasUsuario { get; set; }
-        public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
         public virtual DbSet<RegistroCliente> RegistroCliente { get; set; }
         public virtual DbSet<tari> tari { get; set; }
         public virtual DbSet<confi> confi { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tipoUsuario> tipoUsuario { get; set; }
         public virtual DbSet<SAlidaVehiculos> SAlidaVehiculos { get; set; }
+        public virtual DbSet<ingresoVehiculo> ingresoVehiculo { get; set; }
     
         public virtual int deshUsuario(Nullable<int> id, Nullable<int> estado)
         {

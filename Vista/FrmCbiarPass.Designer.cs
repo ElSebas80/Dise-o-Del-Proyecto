@@ -83,6 +83,7 @@ namespace Diseño.Vista
             this.txtConAlt.Name = "txtConAlt";
             this.txtConAlt.Size = new System.Drawing.Size(144, 20);
             this.txtConAlt.TabIndex = 46;
+            this.txtConAlt.UseSystemPasswordChar = true;
             // 
             // txtConNueCon
             // 
@@ -90,6 +91,7 @@ namespace Diseño.Vista
             this.txtConNueCon.Name = "txtConNueCon";
             this.txtConNueCon.Size = new System.Drawing.Size(144, 20);
             this.txtConNueCon.TabIndex = 47;
+            this.txtConNueCon.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -146,6 +148,7 @@ namespace Diseño.Vista
             this.txtConConfCont.Name = "txtConConfCont";
             this.txtConConfCont.Size = new System.Drawing.Size(144, 20);
             this.txtConConfCont.TabIndex = 51;
+            this.txtConConfCont.UseSystemPasswordChar = true;
             // 
             // FrmCbiarPass
             // 

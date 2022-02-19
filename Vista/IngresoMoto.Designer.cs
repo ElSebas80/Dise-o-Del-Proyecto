@@ -42,6 +42,7 @@ namespace Diseño.Vista
             this.btnRes = new System.Windows.Forms.PictureBox();
             this.tabContPrimc = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnR2 = new System.Windows.Forms.Button();
             this.btnImpIn = new System.Windows.Forms.Button();
             this.printPreviewControl2 = new System.Windows.Forms.PrintPreviewControl();
             this.msmErP = new System.Windows.Forms.Label();
@@ -50,13 +51,11 @@ namespace Diseño.Vista
             this.rdtMoto = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
             this.txtNCascos = new System.Windows.Forms.TextBox();
             this.txtPlaca = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnIngresar = new System.Windows.Forms.Button();
             this.txtCuposD = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblFeFin = new System.Windows.Forms.Label();
@@ -85,6 +84,9 @@ namespace Diseño.Vista
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnrecargar = new System.Windows.Forms.PictureBox();
+            this.btnclientescon = new System.Windows.Forms.Button();
+            this.dtgMovim = new System.Windows.Forms.DataGridView();
             this.printPreviewControl3 = new System.Windows.Forms.PrintPreviewControl();
             this.txtBuscarPla = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.PictureBox();
@@ -115,9 +117,7 @@ namespace Diseño.Vista
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.dtgMovim = new System.Windows.Forms.DataGridView();
-            this.btnclientescon = new System.Windows.Forms.Button();
-            this.btnrecargar = new System.Windows.Forms.PictureBox();
+            this.lblFeech = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -130,10 +130,10 @@ namespace Diseño.Vista
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnrecargar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnrecargar)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -275,6 +275,8 @@ namespace Diseño.Vista
             // 
             this.tabPage1.BackColor = System.Drawing.Color.DimGray;
             this.tabPage1.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
+            this.tabPage1.Controls.Add(this.lblFeech);
+            this.tabPage1.Controls.Add(this.btnR2);
             this.tabPage1.Controls.Add(this.btnImpIn);
             this.tabPage1.Controls.Add(this.printPreviewControl2);
             this.tabPage1.Controls.Add(this.msmErP);
@@ -283,13 +285,11 @@ namespace Diseño.Vista
             this.tabPage1.Controls.Add(this.rdtMoto);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.lblHora);
-            this.tabPage1.Controls.Add(this.lblFecha);
             this.tabPage1.Controls.Add(this.txtNCascos);
             this.tabPage1.Controls.Add(this.txtPlaca);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.btnIngresar);
             this.tabPage1.Controls.Add(this.txtCuposD);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -297,6 +297,19 @@ namespace Diseño.Vista
             this.tabPage1.Size = new System.Drawing.Size(640, 581);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ingreso Vehículo";
+            // 
+            // btnR2
+            // 
+            this.btnR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnR2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnR2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnR2.Location = new System.Drawing.Point(257, 446);
+            this.btnR2.Name = "btnR2";
+            this.btnR2.Size = new System.Drawing.Size(86, 32);
+            this.btnR2.TabIndex = 85;
+            this.btnR2.Text = "Registrar";
+            this.btnR2.UseVisualStyleBackColor = false;
+            this.btnR2.Click += new System.EventHandler(this.btnR2_Click);
             // 
             // btnImpIn
             // 
@@ -397,17 +410,6 @@ namespace Diseño.Vista
             this.lblHora.TabIndex = 63;
             this.lblHora.Text = "Hora";
             // 
-            // lblFecha
-            // 
-            this.lblFecha.BackColor = System.Drawing.Color.Transparent;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.Color.White;
-            this.lblFecha.Location = new System.Drawing.Point(360, 87);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(121, 22);
-            this.lblFecha.TabIndex = 62;
-            this.lblFecha.Text = "Fecha";
-            // 
             // txtNCascos
             // 
             this.txtNCascos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -471,20 +473,6 @@ namespace Diseño.Vista
             this.label3.TabIndex = 51;
             this.label3.Text = "Ingreso De Vehiculos";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnIngresar
-            // 
-            this.btnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnIngresar.Location = new System.Drawing.Point(107, 484);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(86, 32);
-            this.btnIngresar.TabIndex = 49;
-            this.btnIngresar.Text = "Registrar";
-            this.btnIngresar.UseVisualStyleBackColor = false;
-            this.btnIngresar.Visible = false;
-            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // txtCuposD
             // 
@@ -866,6 +854,44 @@ namespace Diseño.Vista
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // btnrecargar
+            // 
+            this.btnrecargar.Image = ((System.Drawing.Image)(resources.GetObject("btnrecargar.Image")));
+            this.btnrecargar.Location = new System.Drawing.Point(483, 123);
+            this.btnrecargar.Name = "btnrecargar";
+            this.btnrecargar.Size = new System.Drawing.Size(100, 50);
+            this.btnrecargar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnrecargar.TabIndex = 88;
+            this.btnrecargar.TabStop = false;
+            this.btnrecargar.Click += new System.EventHandler(this.btnrecargar_Click);
+            // 
+            // btnclientescon
+            // 
+            this.btnclientescon.FlatAppearance.BorderSize = 0;
+            this.btnclientescon.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnclientescon.Location = new System.Drawing.Point(398, 82);
+            this.btnclientescon.Name = "btnclientescon";
+            this.btnclientescon.Size = new System.Drawing.Size(173, 23);
+            this.btnclientescon.TabIndex = 87;
+            this.btnclientescon.Text = "Clientes Con Menbresias";
+            this.btnclientescon.UseVisualStyleBackColor = true;
+            this.btnclientescon.Visible = false;
+            this.btnclientescon.Click += new System.EventHandler(this.btnclientescon_Click);
+            // 
+            // dtgMovim
+            // 
+            this.dtgMovim.AllowUserToAddRows = false;
+            this.dtgMovim.AllowUserToDeleteRows = false;
+            this.dtgMovim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgMovim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgMovim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgMovim.Location = new System.Drawing.Point(68, 179);
+            this.dtgMovim.Name = "dtgMovim";
+            this.dtgMovim.ReadOnly = true;
+            this.dtgMovim.RowHeadersVisible = false;
+            this.dtgMovim.Size = new System.Drawing.Size(503, 159);
+            this.dtgMovim.TabIndex = 85;
+            // 
             // printPreviewControl3
             // 
             this.printPreviewControl3.Location = new System.Drawing.Point(75, 362);
@@ -1225,43 +1251,16 @@ namespace Diseño.Vista
             this.printDialog1.Document = this.printDocument1;
             this.printDialog1.UseEXDialog = true;
             // 
-            // dtgMovim
+            // lblFeech
             // 
-            this.dtgMovim.AllowUserToAddRows = false;
-            this.dtgMovim.AllowUserToDeleteRows = false;
-            this.dtgMovim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgMovim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtgMovim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgMovim.Location = new System.Drawing.Point(68, 179);
-            this.dtgMovim.Name = "dtgMovim";
-            this.dtgMovim.ReadOnly = true;
-            this.dtgMovim.RowHeadersVisible = false;
-            this.dtgMovim.Size = new System.Drawing.Size(503, 159);
-            this.dtgMovim.TabIndex = 85;
-            // 
-            // btnclientescon
-            // 
-            this.btnclientescon.FlatAppearance.BorderSize = 0;
-            this.btnclientescon.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnclientescon.Location = new System.Drawing.Point(398, 82);
-            this.btnclientescon.Name = "btnclientescon";
-            this.btnclientescon.Size = new System.Drawing.Size(173, 23);
-            this.btnclientescon.TabIndex = 87;
-            this.btnclientescon.Text = "Clientes Con Menbresias";
-            this.btnclientescon.UseVisualStyleBackColor = true;
-            this.btnclientescon.Visible = false;
-            this.btnclientescon.Click += new System.EventHandler(this.btnclientescon_Click);
-            // 
-            // btnrecargar
-            // 
-            this.btnrecargar.Image = ((System.Drawing.Image)(resources.GetObject("btnrecargar.Image")));
-            this.btnrecargar.Location = new System.Drawing.Point(483, 123);
-            this.btnrecargar.Name = "btnrecargar";
-            this.btnrecargar.Size = new System.Drawing.Size(100, 50);
-            this.btnrecargar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnrecargar.TabIndex = 88;
-            this.btnrecargar.TabStop = false;
-            this.btnrecargar.Click += new System.EventHandler(this.btnrecargar_Click);
+            this.lblFeech.BackColor = System.Drawing.Color.Transparent;
+            this.lblFeech.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFeech.ForeColor = System.Drawing.Color.White;
+            this.lblFeech.Location = new System.Drawing.Point(306, 87);
+            this.lblFeech.Name = "lblFeech";
+            this.lblFeech.Size = new System.Drawing.Size(121, 22);
+            this.lblFeech.TabIndex = 86;
+            this.lblFeech.Text = "Fecha";
             // 
             // FrmIngresoMoto
             // 
@@ -1301,11 +1300,11 @@ namespace Diseño.Vista
             this.groupBox1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnrecargar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnrecargar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1325,13 +1324,11 @@ namespace Diseño.Vista
         private System.Windows.Forms.RadioButton rdtMoto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblHora;
-        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.TextBox txtNCascos;
         private System.Windows.Forms.TextBox txtPlaca;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.TextBox txtCuposD;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
@@ -1398,5 +1395,7 @@ namespace Diseño.Vista
         private System.Windows.Forms.DataGridView dtgMovim;
         private System.Windows.Forms.Button btnclientescon;
         private System.Windows.Forms.PictureBox btnrecargar;
+        private System.Windows.Forms.Button btnR2;
+        private System.Windows.Forms.Label lblFeech;
     }
 }

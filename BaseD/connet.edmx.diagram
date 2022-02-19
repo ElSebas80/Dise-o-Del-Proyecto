@@ -7,7 +7,6 @@
       <Diagram DiagramId="0c8f36b3e1834cbc8f2e9572ec956fb1" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="parkModel.Estado" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="parkModel.CuentasUsuario" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="parkModel.ingresoVehiculo" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="parkModel.FK__CuentasUsu__idEs__5CD6CB2B" ManuallyRouted="false" />
         <EntityTypeShape EntityType="parkModel.RegistroCliente" Width="1.5" PointX="2.875" PointY="4.625" />
         <EntityTypeShape EntityType="parkModel.tari" Width="1.5" PointX="5.375" PointY="4.75" />
@@ -15,6 +14,7 @@
         <EntityTypeShape EntityType="parkModel.sysdiagrams" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="parkModel.tipoUsuario" Width="1.5" PointX="7.375" PointY="3.75" />
         <EntityTypeShape EntityType="parkModel.SAlidaVehiculos" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="parkModel.ingresoVehiculo" Width="1.5" PointX="1.125" PointY="5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

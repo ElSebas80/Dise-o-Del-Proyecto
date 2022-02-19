@@ -94,5 +94,11 @@ namespace Diseño.Vista
         {
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblfech.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblhor.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
     }
 }

@@ -133,6 +133,13 @@ namespace Diseño.Datos
                 return db.ingresoVehiculo.ToList();
             }
         }
+        public IList<RegistroCliente> MostrarClientes()
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                return db.RegistroCliente.ToList();
+            }
+        }
         public IList<ingresoVehiculo> ingresoVehiculosm(string ID)
         {
             using (parkEntities db = new parkEntities())
@@ -185,6 +192,16 @@ namespace Diseño.Datos
             using (parkEntities db = new parkEntities())
             {
                 db.Sp_SalidaVehiculos(tipoVh, placa, numCas, fingr, hingre, fsali, hsali, pago, efectivo, cambio);
+            }
+        }
+        public IList mostardtg()
+        {
+            using (parkEntities db = new parkEntities())
+            {
+                var Preciou = (from prod in db.ingresoVehiculo
+                               join Est in db.RegistroCliente on prod.NumTicket equals Est.id
+                               select new { prod.NumTicket, prod.Placa, prod.tipoVhlo, prod.NumCascos, prod.CuposDis, prod.Fecha, prod.hora,  Est.mensualidad }).ToList();
+                return Preciou;
             }
         }
     }

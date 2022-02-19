@@ -88,7 +88,6 @@ namespace Diseño.Vista
             this.printPreviewControl3 = new System.Windows.Forms.PrintPreviewControl();
             this.txtBuscarPla = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnGenTic = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -116,6 +115,9 @@ namespace Diseño.Vista
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.dtgMovim = new System.Windows.Forms.DataGridView();
+            this.btnclientescon = new System.Windows.Forms.Button();
+            this.btnrecargar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -130,6 +132,8 @@ namespace Diseño.Vista
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnrecargar)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -844,10 +848,12 @@ namespace Diseño.Vista
             // tabPage3
             // 
             this.tabPage3.BackgroundImage = global::Diseño.Properties.Resources.Sin_Bordes;
+            this.tabPage3.Controls.Add(this.btnrecargar);
+            this.tabPage3.Controls.Add(this.btnclientescon);
+            this.tabPage3.Controls.Add(this.dtgMovim);
             this.tabPage3.Controls.Add(this.printPreviewControl3);
             this.tabPage3.Controls.Add(this.txtBuscarPla);
             this.tabPage3.Controls.Add(this.btnBuscar);
-            this.tabPage3.Controls.Add(this.dateTimePicker1);
             this.tabPage3.Controls.Add(this.btnGenTic);
             this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Controls.Add(this.label12);
@@ -894,13 +900,6 @@ namespace Diseño.Vista
             this.btnBuscar.TabIndex = 70;
             this.btnBuscar.TabStop = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(381, 112);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(241, 22);
-            this.dateTimePicker1.TabIndex = 69;
             // 
             // btnGenTic
             // 
@@ -1226,6 +1225,44 @@ namespace Diseño.Vista
             this.printDialog1.Document = this.printDocument1;
             this.printDialog1.UseEXDialog = true;
             // 
+            // dtgMovim
+            // 
+            this.dtgMovim.AllowUserToAddRows = false;
+            this.dtgMovim.AllowUserToDeleteRows = false;
+            this.dtgMovim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgMovim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgMovim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgMovim.Location = new System.Drawing.Point(68, 179);
+            this.dtgMovim.Name = "dtgMovim";
+            this.dtgMovim.ReadOnly = true;
+            this.dtgMovim.RowHeadersVisible = false;
+            this.dtgMovim.Size = new System.Drawing.Size(503, 159);
+            this.dtgMovim.TabIndex = 85;
+            // 
+            // btnclientescon
+            // 
+            this.btnclientescon.FlatAppearance.BorderSize = 0;
+            this.btnclientescon.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnclientescon.Location = new System.Drawing.Point(398, 82);
+            this.btnclientescon.Name = "btnclientescon";
+            this.btnclientescon.Size = new System.Drawing.Size(173, 23);
+            this.btnclientescon.TabIndex = 87;
+            this.btnclientescon.Text = "Clientes Con Menbresias";
+            this.btnclientescon.UseVisualStyleBackColor = true;
+            this.btnclientescon.Visible = false;
+            this.btnclientescon.Click += new System.EventHandler(this.btnclientescon_Click);
+            // 
+            // btnrecargar
+            // 
+            this.btnrecargar.Image = ((System.Drawing.Image)(resources.GetObject("btnrecargar.Image")));
+            this.btnrecargar.Location = new System.Drawing.Point(483, 123);
+            this.btnrecargar.Name = "btnrecargar";
+            this.btnrecargar.Size = new System.Drawing.Size(100, 50);
+            this.btnrecargar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnrecargar.TabIndex = 88;
+            this.btnrecargar.TabStop = false;
+            this.btnrecargar.Click += new System.EventHandler(this.btnrecargar_Click);
+            // 
             // FrmIngresoMoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1267,6 +1304,8 @@ namespace Diseño.Vista
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMovim)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnrecargar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1340,7 +1379,6 @@ namespace Diseño.Vista
         private System.Windows.Forms.Timer HoraFecha;
         private System.Windows.Forms.Label lblfechaCli;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.PictureBox btnBuscar;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewControl printPreviewControl1;
@@ -1357,5 +1395,8 @@ namespace Diseño.Vista
         private System.Windows.Forms.PrintPreviewControl printPreviewControl2;
         private System.Windows.Forms.PrintPreviewControl printPreviewControl3;
         private System.Windows.Forms.TextBox txtplacasali;
+        private System.Windows.Forms.DataGridView dtgMovim;
+        private System.Windows.Forms.Button btnclientescon;
+        private System.Windows.Forms.PictureBox btnrecargar;
     }
 }
